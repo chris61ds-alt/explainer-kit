@@ -1,0 +1,70 @@
+{
+ "voice": "bm_george",
+ "speed": 1.0,
+ "lang": "en-gb",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "That's not what I sound like.",
+   "fx": "rec"
+  },
+  {
+   "id": "alone",
+   "text": "If you cringe at your own recorded voice, you're far from alone."
+  },
+  {
+   "id": "twice",
+   "text": "When you speak, you hear yourself twice."
+  },
+  {
+   "id": "air",
+   "text": "Once through the air, like everyone else."
+  },
+  {
+   "id": "bone",
+   "text": "And once through your own skull."
+  },
+  {
+   "id": "low",
+   "text": "Your head boosts the low frequencies. So to you, your voice sounds deeper and fuller."
+  },
+  {
+   "id": "demo_in",
+   "text": "Hi. This is my voice.",
+   "fx": "inside"
+  },
+  {
+   "id": "demo_rec",
+   "text": "Hi. This is my voice.",
+   "fx": "rec"
+  },
+  {
+   "id": "record",
+   "text": "A recording only catches the air. That's the voice everyone else hears."
+  },
+  {
+   "id": "twist",
+   "text": "Here's the twist."
+  },
+  {
+   "id": "study",
+   "text": "In a 2013 study, people rated a set of voices. Hidden among them was their own."
+  },
+  {
+   "id": "result",
+   "text": "Most didn't recognise it. And they rated it higher than other listeners did."
+  },
+  {
+   "id": "point",
+   "text": "So it's not your voice. It's the surprise."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Hullar, T. E., in Scientific American: bone-conducted sound reaches the cochlea through the head; the head enhances lower-frequency vibrations; a recording keeps only the air-conducted part.",
+  "Hughes, S. M. & Harrison, M. A. (2013). I like my voice better: Self-enhancement bias in perceptions of voice attractiveness. Perception 42(9), 941-949. 80 participants; own voice included unknowingly; rated more attractive than other raters rated it."
+ ]
+}

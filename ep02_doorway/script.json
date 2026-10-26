@@ -1,0 +1,19 @@
+{"voice": "af_heart", "speed": 1.05, "lang": "en-us",
+ "beats": [
+  {"id": "hook",   "text": "You walk into the kitchen. And then... why are you here?"},
+  {"id": "name",   "text": "You're not losing it. There's a name for this."},
+  {"id": "title",  "text": "It's called the doorway effect."},
+  {"id": "event",  "text": "Your brain files what you're doing as an event. Like a little scene."},
+  {"id": "tidy",   "text": "A doorway tells your brain: new scene. So it tidies up the old one."},
+  {"id": "reason", "text": "Including the reason you came."},
+  {"id": "study",  "text": "In a 2011 study, people carried objects through rooms."},
+  {"id": "forgot", "text": "After walking through a door, they forgot more than after walking the same distance in one room."},
+  {"id": "back",   "text": "And walking back into the first room didn't fix it."},
+  {"id": "busy",   "text": "A 2021 study added a twist. Doorways mostly hurt memory when people's heads were already busy."},
+  {"id": "carry",  "text": "So if this happens a lot, you're not forgetful. You're just carrying a lot."},
+  {"id": "end",    "text": "Not just you."}
+ ],
+ "sources": [
+  "Radvansky, Krawietz & Tamplin (2011). Walking through doorways causes forgetting. QJEP. Virtual and real rooms; worse memory after a doorway than after the same distance within a room; returning to the original room did not restore it.",
+  "McFadyen, Nolan, Pinocy, Buteri, Baumann (2021). Doorways do not always cause forgetting. BMC Psychology. VR: no doorway effect without extra load (n=29); with a demanding counting task, doorways impaired memory (n=45)."
+ ]}

@@ -1,0 +1,51 @@
+{
+ "voice": "bm_george",
+ "speed": 1.0,
+ "lang": "en-gb",
+ "beats": [
+  {
+   "id": "doors",
+   "text": "Three doors. Behind one, a car. Behind the other two, goats."
+  },
+  {
+   "id": "pick",
+   "text": "You pick door one."
+  },
+  {
+   "id": "open",
+   "text": "The host knows where the car is. He opens door three. A goat."
+  },
+  {
+   "id": "offer",
+   "text": "Then he asks: do you want to switch to door two?"
+  },
+  {
+   "id": "fifty",
+   "text": "Most people say it doesn't matter. Two doors left. Fifty-fifty."
+  },
+  {
+   "id": "nope",
+   "text": "It's not."
+  },
+  {
+   "id": "third",
+   "text": "Your first pick had a one in three chance. Opening a door doesn't change that."
+  },
+  {
+   "id": "move",
+   "text": "The other two thirds didn't vanish. The host packed them into the one door he left closed."
+  },
+  {
+   "id": "sim",
+   "text": "I simulated ten thousand games."
+  },
+  {
+   "id": "result",
+   "text": "Staying wins about a third of the time. Switching wins two thirds."
+  },
+  {
+   "id": "end",
+   "text": "Switch. Every time."
+  }
+ ]
+}
