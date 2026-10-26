@@ -1,0 +1,14 @@
+{"voice": "af_heart", "speed": 1.05, "lang": "en-us",
+ "beats": [
+  {"id": "hook",    "text": "If you lived somewhere sunnier, you'd be happier. Right?"},
+  {"id": "study",   "text": "Researchers asked almost two thousand students in California and the Midwest how satisfied they were with their lives."},
+  {"id": "same",    "text": "Both groups were equally satisfied."},
+  {"id": "predict", "text": "But both groups predicted that Californians would be happier."},
+  {"id": "zoom",    "text": "When you imagine a life, you zoom in on one thing. The weather."},
+  {"id": "day",     "text": "When you actually live it, the weather is a tiny part of your day."},
+  {"id": "name",    "text": "Psychologists call this the focusing illusion."},
+  {"id": "quote",   "text": "The researchers put it simply. Nothing that you focus on will make as much difference as you think."},
+  {"id": "worry",   "text": "So that one thing filling your head right now? It might be smaller than it looks."},
+  {"id": "end",     "text": "Not just you."}
+ ],
+ "sources": ["Schkade & Kahneman (1998). Does living in California make people happy? A focusing illusion in judgments of life satisfaction. Psychological Science 9(5). 1,993 students (Michigan, Ohio State, UCLA, UC Irvine). Own life satisfaction equal across regions; both groups predicted Californians more satisfied; difference mediated by climate. Closing line: 'Nothing that you focus on will make as much difference as you think.'"]}

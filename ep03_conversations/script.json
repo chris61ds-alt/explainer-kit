@@ -1,0 +1,14 @@
+{"voice": "af_heart", "speed": 1.05, "lang": "en-us",
+ "beats": [
+  {"id": "hook",   "text": "You're talking to someone. You both want to leave. But nobody says it."},
+  {"id": "other",  "text": "Or you'd love to keep going. And so would they."},
+  {"id": "study",  "text": "Researchers asked over a thousand people when they wanted their conversations to end."},
+  {"id": "two",    "text": "Only about two percent ended when both people wanted."},
+  {"id": "split",  "text": "In about half, both wanted to talk less. In about one in ten, both wanted more."},
+  {"id": "catch",  "text": "And here's the catch. People had no idea what the other person wanted."},
+  {"id": "off",    "text": "Their guesses were off by more than half the conversation."},
+  {"id": "point",  "text": "So you're not awkward. Nobody can see the exit."},
+  {"id": "tip",    "text": "Next time, just say it. Kindly. They might be relieved."},
+  {"id": "end",    "text": "Not just you."}
+ ],
+ "sources": ["Mastroianni, Gilbert, Cooney & Wilson (2021). Do conversations end when people want them to? PNAS. Study 1: 806 people; Study 2: 252 strangers in the lab. ~2% ended when both wanted; ~30% when one wanted; ~half both wanted less; ~10% both wanted more; guesses about the partner off by ~64% of conversation length (Scientific American)."]}

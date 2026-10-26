@@ -1,0 +1,12 @@
+{"voice": "af_heart", "speed": 1.05, "lang": "en-us",
+ "beats": [
+  {"id": "hook",    "text": "Your heart is racing. Your hands are shaking. Everyone can tell. Right?"},
+  {"id": "no",      "text": "Actually, no."},
+  {"id": "name",    "text": "Psychologists call it the illusion of transparency. We think our feelings are written all over our face."},
+  {"id": "study",   "text": "In studies on public speaking, speakers thought they looked far more nervous than the audience saw them."},
+  {"id": "best",    "text": "And here's the best part."},
+  {"id": "told",    "text": "Speakers who learned about this illusion before their talk felt calmer. And the audience rated their speeches better."},
+  {"id": "you",     "text": "And now you know about it too."},
+  {"id": "end",     "text": "Not just you."}
+ ],
+ "sources": ["Gilovich, Savitsky & Medvec (1998). The illusion of transparency. JPSP 75(2).", "Savitsky & Gilovich (2003). The illusion of transparency and the alleviation of speech anxiety. JESP 39. Speakers overestimated how visible their nervousness was; those informed about the illusion felt less anxious and observers rated their speeches better."]}
