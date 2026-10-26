@@ -323,7 +323,7 @@ class Episode:
 
     def cut_fx(self, amp=.12):
         """whoosh on every scene cut"""
-        return [(self.TL.S(k) - .1, whoosh(.25, amp), 0) for k in self.order[1:]]
+        return [(self.TL.S(k) - .3, whoosh(.25, amp), 0) for k in self.order[1:]]   # ends before the voice starts
 
     def run(self, fx):
         cute.run(self.TL, self.draw, fx)

@@ -1,0 +1,12 @@
+{"voice": "af_heart", "speed": 1.1, "lang": "en-us",
+ "beats": [
+  {"id": "hook",   "text": "Your brain thinks future you is a stranger."},
+  {"id": "scan",   "text": "In a brain scan study, people thought about themselves now, themselves in ten years, and another person."},
+  {"id": "result", "text": "Thinking about future you looked a lot like thinking about someone else."},
+  {"id": "save",   "text": "And the bigger that gap, the worse people were at saving."},
+  {"id": "meet",   "text": "So researchers let people meet their future self. An aged version of their own face, in virtual reality."},
+  {"id": "double", "text": "Afterwards, they put about twice as much into a pretend retirement account."},
+  {"id": "point",  "text": "So next time it's now versus later, picture future you. Not a stranger. You."},
+  {"id": "end",    "text": "Not just you."}
+ ],
+ "sources": ["Ersner-Hershfield, Wimmer & Knutson (2009). Saving for the future self: Neural measures of future self-continuity predict temporal discounting. Social Cognitive and Affective Neuroscience 4(1). fMRI: future-self activation in a self/other region similar to another person; larger current-future difference predicted more discounting.", "Hershfield et al. (2011). Increasing saving behavior through age-progressed renderings of the future self. Journal of Marketing Research 48. Four studies; in the VR study participants who met their aged avatar allocated about twice as much to a hypothetical retirement account (Hershfield, Federal Reserve panel transcript)."]}

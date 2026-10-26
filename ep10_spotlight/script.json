@@ -1,0 +1,12 @@
+{"voice": "af_heart", "speed": 1.1, "lang": "en-us",
+ "beats": [
+  {"id": "hook",  "text": "You spill coffee on your shirt. Now everyone is staring. Right?"},
+  {"id": "study", "text": "Researchers made students wear an embarrassing T-shirt, with a giant picture of Barry Manilow, into a room full of people."},
+  {"id": "guess", "text": "Afterwards, the students guessed about half the room had noticed."},
+  {"id": "real",  "text": "The real number? About a quarter."},
+  {"id": "name",  "text": "Psychologists call it the spotlight effect."},
+  {"id": "why",   "text": "You're the center of your own world. But everyone else is busy being the center of theirs."},
+  {"id": "point", "text": "So that coffee stain? Most people never even saw it."},
+  {"id": "end",   "text": "Not just you."}
+ ],
+ "sources": ["Gilovich, Medvec & Savitsky (2000). The spotlight effect in social judgment: An egocentric bias in estimates of the salience of one's own actions and appearance. Journal of Personality and Social Psychology 78(2). Cornell students wore a Barry Manilow T-shirt into a room of peers; they estimated ~46% would notice, actual ~23%."]}
