@@ -27,6 +27,7 @@ mkdir -p ~/asr && cd ~/asr && curl -L -o w.tar.bz2 https://github.com/k2-fsa/she
 4. `python3 render.py sheet.png --t 1,5,10` → Kontaktbogen mit Safe-Zone-Overlay
 5. `python3 render.py folge.mp4` → Video + Sound (−16 LUFS)
 6. `python3 ../shared/verify.py folge.mp4` + ASR am fertigen Video
+7. `caption.md` schreiben und immer mit dem Video ausliefern (Englisch: Hook-Frage, Kernaussage mit Zahlen, „Not just you. 💜“, Quellen, CTA, 5–7 Hashtags inkl. #notjustyou)
 
 ## Regeln
 - Jede Zahl aus Beleg/Quelle, nichts erfinden; Schematisches als „schematic" kennzeichnen
