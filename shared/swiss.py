@@ -1,0 +1,329 @@
+"""'Swiss Detail' toolkit for 'Not just you' (house style since No. 06).
+Swiss editorial grid · giant Roboto type · one signal colour (orange) · Aicher-style pictograms with poses ·
+line-art props · annotations / dimension lines · numbered chapters · progress rule · orange current-word subtitles ·
+dark minimal music bed. Builds on cute.py for Timeline, fonts, easing, sound primitives and the render harness.
+
+Episode usage:
+    from swiss import *
+    TL = Timeline(HERE, lead=.15, gaps={...})
+    EP = Episode(TL, no=7, title="THE BEAUTIFUL MESS", chapters={"hook": "CRINGE", ...}, order=[...])
+    def sc_hook(img, d, t): ...
+    EP.scenes = {"hook": sc_hook, ...}
+    EP.sources = ("Author (Year).", "Journal.")
+    EP.run(FX)
+"""
+import os, sys, math, wave
+import numpy as np, soundfile as sf
+from PIL import Image
+from scipy.signal import resample_poly
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import cute
+from cute import (F, BLK, BOLD, MONO, clamp, ease, ease_io, back, lerp, mix, Timeline, W, H, SR, FPS, SAFE_R, SAFE_B,
+                  tt_, bp, lp, softkick, whoosh, pop, tick, heartbeat, poof)
+
+# ---------------------------------------------------------------- palette + type
+COND, MED = "Roboto-Condensed-Bold.woff", "Roboto-Medium.woff"
+BG = (250, 250, 248); INK = (12, 12, 12); SIG = (255, 64, 0); RULE = (226, 226, 222); MID = (140, 140, 136)
+SIG_L = (255, 222, 208); WHITE = (255, 255, 255)
+X0, X1, Y_TOP, Y1 = 60, 900, 300, 1170          # content frame (inside Instagram safe zones)
+FLOOR = 1128                                    # default feet line for pictograms
+cute.BG, cute.INK = BG, INK
+
+# ---------------------------------------------------------------- Aicher-style pictogram
+def seg(d, a, b, w, col):
+    d.line([a, b], fill=col, width=int(w)); r = w / 2
+    for p in (a, b): d.ellipse([p[0] - r, p[1] - r, p[0] + r, p[1] + r], fill=col)
+
+def picto(d, x, y=FLOOR, s=1.0, col=INK, f=1, tilt=0.0, arms=None, legs=None, head_dy=0.0, pose=None):
+    """Pictogram figure. (x, y) = feet line. Angles in degrees from straight down, positive = towards facing f (±1).
+    arms: ((upper, fore) front, (upper, fore) back) · legs likewise · tilt leans the torso · pose: dict with any of these.
+    Returns the head centre."""
+    if pose: arms, legs, tilt = pose.get("arms", arms), pose.get("legs", legs), pose.get("tilt", tilt)
+    arms = arms or IDLE["arms"]; legs = legs or ((4, 0), (-4, 0))
+    L_leg, L_t, L_u, L_f = 70 * s, 130 * s, 62 * s, 58 * s
+    def v(a, L): r = math.radians(a); return (math.sin(r) * f * L, math.cos(r) * L)
+    hip = (x, y - 2 * L_leg)
+    for (a1, a2) in legs:
+        k = (hip[0] + v(a1, L_leg)[0], hip[1] + v(a1, L_leg)[1]); ft = (k[0] + v(a2, L_leg)[0], k[1] + v(a2, L_leg)[1])
+        seg(d, hip, k, 42 * s, col); seg(d, k, ft, 42 * s, col)
+    tr = math.radians(tilt); neck = (hip[0] + math.sin(tr) * f * L_t, hip[1] - math.cos(tr) * L_t)
+    seg(d, hip, neck, 66 * s, col)
+    sh = (neck[0], neck[1] + 14 * s)
+    for (a1, a2) in arms:
+        e = (sh[0] + v(a1, L_u)[0], sh[1] + v(a1, L_u)[1]); h = (e[0] + v(a2, L_f)[0], e[1] + v(a2, L_f)[1])
+        seg(d, sh, e, 36 * s, col); seg(d, e, h, 36 * s, col)
+    hc = (neck[0] + math.sin(tr) * f * 82 * s, neck[1] - 82 * s + head_dy * s)
+    d.ellipse([hc[0] - 42 * s, hc[1] - 42 * s, hc[0] + 42 * s, hc[1] + 42 * s], fill=col)
+    return hc
+
+# poses (dicts) – animated ones are functions of t
+IDLE = {"arms": ((15, 40), (-10, -5))}
+WORRY = {"arms": ((165, 250), (-15, -5))}                         # one hand to the head
+FACEPALM = {"arms": ((150, 250), (140, 245)), "tilt": 10}          # both hands to the face
+LAUGH = {"arms": ((40, 120), (-30, -60)), "tilt": -8}
+SHRUG = {"arms": ((60, 160), (-60, -160))}
+OPEN = {"arms": ((70, 110), (-70, -110))}                         # arms open, welcoming
+SIT = {"legs": ((90, 0), (86, 2))}                                 # combine with chair(); feet line = seat + 140
+def TALK(t, ph=0.0): a = math.sin(t * 5 + ph); return {"arms": ((60 + 22 * a, 110 + 25 * a), (-12, -6))}
+def WAVE(t): return {"arms": ((125, 165 + 30 * math.sin(t * 9)), (-10, -5))}
+def SING(t): a = math.sin(t * 3); return {"arms": ((95 + 10 * a, 120), (-70 - 10 * a, -100)), "tilt": -6}
+def WALK(t, speed=6): a = math.sin(t * speed); return {"arms": ((25 * a, 20), (-25 * a, -10)), "legs": ((22 * a, 0), (-22 * a, 0))}
+def merge(*ps):
+    out = {}
+    for p in ps: out.update(p)
+    return out
+
+# ---------------------------------------------------------------- props (line art)
+def cup(d, x, y, t, s=1.0, steam=True):
+    d.rectangle([x - 22 * s, y - 44 * s, x + 22 * s, y], outline=INK, width=int(6 * s))
+    d.arc([x + 12 * s, y - 36 * s, x + 40 * s, y - 12 * s], 270, 90, fill=INK, width=int(6 * s))
+    if steam:
+        for i in (-1, 1):
+            pts = [(x + i * 8 * s + 6 * s * math.sin(t * 4 + j * .7 + i), y - 56 * s - j * 10 * s) for j in range(6)]
+            d.line(pts, fill=MID, width=int(4 * s))
+
+def table(d, cx, y, w=380):
+    d.line([cx - w / 2, y, cx + w / 2, y], fill=INK, width=10); d.line([cx, y, cx, y + 160], fill=INK, width=10)
+    d.line([cx - 70, y + 160, cx + 70, y + 160], fill=INK, width=10)
+
+def chair(d, x, y, f=1):
+    """seat at height y, backrest behind (opposite of facing f)"""
+    d.line([x - 60, y, x + 60, y], fill=INK, width=10)
+    bx = x - f * 60; d.line([bx, y, bx, y - 150], fill=INK, width=10)
+    d.line([x - 50, y, x - 50, y + 140], fill=INK, width=8); d.line([x + 50, y, x + 50, y + 140], fill=INK, width=8)
+
+def mic(d, x, y, h=230):
+    d.line([x, y, x, y - h], fill=INK, width=7); d.line([x - 40, y, x + 40, y], fill=INK, width=8)
+    d.rounded_rectangle([x - 16, y - h - 50, x + 16, y - h + 2], radius=16, fill=INK)
+
+def phone(d, cx, cy, s=1.0, col=INK, lit=False):
+    d.rounded_rectangle([cx - 46 * s, cy - 84 * s, cx + 46 * s, cy + 84 * s], radius=14 * s, outline=col, width=int(7 * s), fill=SIG_L if lit else None)
+    d.line([cx - 14 * s, cy + 66 * s, cx + 14 * s, cy + 66 * s], fill=col, width=int(5 * s))
+
+def door(d, x, y, h=300, open_k=0.0):
+    d.rectangle([x, y - h, x + 150, y], outline=INK, width=8)
+    w = 150 * (1 - .7 * ease(open_k)); d.polygon([(x, y - h), (x + w, y - h + 20 * open_k), (x + w, y - 20 * open_k), (x, y)], fill=INK)
+
+def stage(d, y=FLOOR):
+    d.rectangle([X0, y, X1, y + 14], fill=INK)
+    for i in range(6): d.line([X0 + 20 + i * 150, y + 14, X0 + 20 + i * 150, Y1], fill=RULE, width=2)
+
+def spotlight(d, cx, y=FLOOR, top=Y_TOP + 40, w=260):
+    d.polygon([(cx - 40, top), (cx + 40, top), (cx + w, y), (cx - w, y)], fill=(242, 241, 236))
+
+def speech_box(d, x, y, w, k, col=INK, side=1, txt="· · ·", size=36):
+    if k <= 0: return
+    e = ease(k); ww = w * e; x0 = x if side > 0 else x - ww
+    d.rectangle([x0, y, x0 + ww, y + 70], fill=col)
+    tx = x + 24 * side; d.polygon([(tx, y + 70), (tx + 24 * side, y + 70), (tx, y + 96)], fill=col)
+    if e > .9: d.text((x0 + ww / 2, y + 35), txt, font=F(BLK, size), fill=WHITE, anchor="mm")
+
+def think_box(d, head, w, h, k, txt="", col=INK, side=1, fg=WHITE, size=34):
+    """square thought box with three stepping squares towards the head"""
+    if k <= 0: return None
+    e = ease(k); hx, hy = head
+    for i, r in enumerate((8, 12, 16)):
+        cx, cy = hx + side * (30 + i * 28), hy - 60 - i * 30
+        if e > .2 + i * .2: d.rectangle([cx - r, cy - r, cx + r, cy + r], fill=col)
+    x0 = hx + side * 60 - (0 if side > 0 else w * e); y0 = hy - 160 - h * e
+    d.rectangle([x0, y0, x0 + w * e, y0 + h * e], fill=col)
+    if e > .9 and txt: d.text((x0 + w / 2, y0 + h / 2), txt, font=F(BLK, size), fill=fg, anchor="mm")
+    return (x0, y0, x0 + w * e, y0 + h * e)
+
+# ---------------------------------------------------------------- annotation / data
+def cross(d, x, y, r=12): d.line([x - r, y, x + r, y], fill=INK, width=2); d.line([x, y - r, x, y + r], fill=INK, width=2)
+
+def note(d, x, y, tx, ty, text, k=1.0, col=INK, anchor="la", size=28):
+    """annotation: dot at (x, y), leader line to (tx, ty), text there"""
+    if k <= 0: return
+    e = ease(k); ex, ey = lerp(x, tx, e), lerp(y, ty, e)
+    d.ellipse([x - 6, y - 6, x + 6, y + 6], fill=col); d.line([x, y, ex, ey], fill=col, width=3)
+    if k > .9: d.text((tx + (10 if anchor == "la" else -10), ty), text, font=F(COND, size), fill=col, anchor="lm" if anchor == "la" else "rm")
+
+def box_label(d, x, y, text, size, fg=WHITE, bg=INK, font=COND, anchor="la"):
+    f = F(font, size); w = d.textlength(text, font=f)
+    if anchor == "ma": x -= w / 2
+    if anchor == "ra": x -= w
+    d.rectangle([x - 10, y - 4, x + w + 10, y + size + 8], fill=bg); d.text((x, y), text, font=f, fill=fg)
+
+def dim_h(d, a, b, y, k=1.0, col=SIG, label=None, size=26, arrows=False):
+    """horizontal dimension line from a to b at y (grows with k), end ticks, optional label box below"""
+    if k <= 0: return
+    e = ease(k); bb = a + (b - a) * e
+    d.line([a, y, bb, y], fill=col, width=4); d.line([a, y - 16, a, y + 16], fill=col, width=4)
+    if e > .95:
+        d.line([b, y - 16, b, y + 16], fill=col, width=4)
+        if arrows:
+            d.polygon([(a, y), (a + 16, y - 10), (a + 16, y + 10)], fill=col); d.polygon([(b, y), (b - 16, y - 10), (b - 16, y + 10)], fill=col)
+        if label: box_label(d, (a + b) / 2, y + 22, label, size, WHITE, col, anchor="ma")
+
+def dim_v(d, x, a, b, k=1.0, col=SIG, label=None, size=26):
+    if k <= 0: return
+    e = ease(k); bb = a + (b - a) * e
+    d.line([x, a, x, bb], fill=col, width=4); d.line([x - 16, a, x + 16, a], fill=col, width=4)
+    if e > .95:
+        d.line([x - 16, b, x + 16, b], fill=col, width=4)
+        if label: box_label(d, x + 24, (a + b) / 2 - size / 2, label, size, WHITE, col)
+
+def ruler(d, y, x0, x1, labels, minor=60):
+    d.line([x0, y, x1, y], fill=INK, width=3); major = minor // (len(labels) - 1)
+    for i in range(0, minor + 1):
+        x = x0 + (x1 - x0) * i / minor; h = 18 if i % major == 0 else 8
+        d.line([x, y, x, y + h], fill=INK, width=2)
+        if i % major == 0: d.text((x, y + 26), labels[i // major], font=F(MONO, 20), fill=MID, anchor="ma")
+
+def scale7(d, x, y, sel, k, col, size=92, gap=20):
+    for i in range(7):
+        bx = x + i * (size + gap); fill = col if (i + 1) <= sel * k else None
+        d.rectangle([bx, y, bx + size, y + size], outline=INK, width=4, fill=fill)
+        d.text((bx + size / 2, y + size / 2), str(i + 1), font=F(COND, 34), fill=WHITE if fill else INK, anchor="mm")
+
+def hbar(d, y, v, k, col, label=None, h=90, x0=X0, x1=X1):
+    d.rectangle([x0, y, x0 + (x1 - x0) * v * ease(k), y + h], fill=col)
+    if label: d.text((x0, y + h + 12), label, font=F(COND, 28), fill=INK)
+
+def axis_ticks(d, y, n=8, x0=X0, x1=X1):
+    d.line([x0, y, x1, y], fill=INK, width=2)
+    for i in range(n): x = x0 + (x1 - x0) * i / (n - 1); d.line([x, y, x, y + 14], fill=INK, width=2)
+
+def giant(d, text, y=Y_TOP, size=230, col=INK, k=1.0, x=X0 - 8, slide=100):
+    """big headline word; k animates a slide-in"""
+    if k <= 0: return
+    e = ease(k); d.text((x - (1 - e) * slide, y), text, font=F(BLK, size), fill=mix(BG, col, e))
+
+def fig(d, text): d.text((X0, 1146), text, font=F(MED, 22), fill=MID)
+
+def legend(d, items, y=1100):
+    x = X0
+    for col, lab in items:
+        d.rectangle([x, y, x + 22, y + 22], fill=col); d.text((x + 32, y + 11), lab, font=F(COND, 24), fill=INK, anchor="lm")
+        x += 60 + d.textlength(lab, font=F(COND, 24))
+
+# ---------------------------------------------------------------- sound: dark minimal bed + sfx
+def rewind_sfx(amp=.22, dur=.55):
+    t = tt_(dur); f = 2400 * np.exp(-t * 4.5) + 200
+    return amp * (np.sin(2 * np.pi * np.cumsum(f) / SR) * .5 + bp(np.random.default_rng(5).standard_normal(len(t)), 800, 5000)) * np.sin(np.pi * t / dur) ** .5
+def thud(amp=.45): return softkick(amp)
+def snare(amp=.05):
+    t = tt_(.18); return amp * bp(np.random.default_rng(9).standard_normal(len(t)), 900, 3500) * np.exp(-t * 22)
+def riser(dur=.8, amp=.12):
+    t = tt_(dur); return amp * bp(np.random.default_rng(3).standard_normal(len(t)), 1200, 6000) * (t / dur) ** 2
+
+def build_audio(TL_, fx_cues, path, bpm=96, music_gaps=()):
+    n = int((TL_.total + 1) * SR); vo = np.zeros(n); mus = np.zeros((n, 2)); fx = np.zeros((n, 2))
+    def put(buf, x, t0, pan=0.):
+        s = int(t0 * SR)
+        if s < 0 or s >= n: return
+        e = min(n, s + len(x)); x = x[:e - s]
+        if buf.ndim == 1: buf[s:e] += x
+        else: buf[s:e, 0] += x * (1 - max(0, pan)); buf[s:e, 1] += x * (1 + min(0, pan))
+    for m in TL_.meta:
+        a, sr = sf.read(os.path.join(TL_.dir, "vo", m["id"] + ".wav")); put(vo, resample_poly(a, SR, sr), TL_.T[m["id"]]["start"])
+    beat = 60 / bpm; bar = beat * 4
+    prog = [[220.0, 261.6, 329.6], [174.6, 220.0, 261.6], [261.6, 329.6, 392.0], [196.0, 246.9, 293.7]]  # Am F C G
+    tb, i = 0.0, 0
+    while tb < TL_.total - .3:
+        if not any(a <= tb < b for a, b in music_gaps):
+            ch = prog[i % 4]
+            t_ = tt_(bar); env = np.minimum(1, t_ / .4) * np.exp(-t_ * .35)
+            pad = sum(np.sin(2 * np.pi * f * t_ + j) for j, f in enumerate(ch)) * env * .018
+            put(mus, lp(pad, 1800), tb, -.15); put(mus, lp(pad, 1800), tb + .01, .15)
+            put(mus, .07 * np.sin(2 * np.pi * ch[0] / 2 * t_) * np.exp(-t_ * 1.2), tb)
+            for b_ in range(4):
+                if b_ in (0, 2): put(mus, softkick(.3), tb + b_ * beat)
+                else: put(mus, snare(.035), tb + b_ * beat)
+        tb += bar; i += 1
+    for (t0, sig, pan) in fx_cues: put(fx, sig, t0, pan)
+    env = np.convolve(np.abs(vo), np.ones(int(.12 * SR)) / int(.12 * SR), "same")
+    duck = (1 - .55 * np.clip(env / (env.max() * .15 + 1e-9), 0, 1))[:, None]
+    st = (vo[:, None] + mus * duck + fx)[: int(TL_.total * SR)]
+    st /= np.abs(st).max() / .9
+    fd = int(.5 * SR); st[-fd:] *= np.linspace(1, 0, fd)[:, None]
+    with wave.open(path, "wb") as w_:
+        w_.setnchannels(2); w_.setsampwidth(2); w_.setframerate(SR); w_.writeframes((st * 32767).astype(np.int16).tobytes())
+cute.build_audio = build_audio
+
+# ---------------------------------------------------------------- episode chrome + harness
+class Episode:
+    def __init__(self, TL, no, title, chapters, order, sources=(), handle="@vascoda.soda", series="NOT JUST YOU"):
+        self.TL, self.no, self.title, self.order = TL, no, title, order
+        self.chapters = {k: (f"{i + 1:02d}", v) for i, (k, v) in enumerate(chapters.items())}
+        self.sources, self.handle, self.series = sources, handle, series
+        self.scenes = {}
+
+    def current(self, t):
+        cur = self.order[0]
+        for k in self.order[1:]:
+            if t >= self.TL.S(k) - .05: cur = k
+        return cur
+
+    def grid(self, d):
+        for x in range(X0, X1 + 1, 140): d.line([x, 280, x, Y1], fill=RULE, width=2)
+        for (x, y) in ((X0, Y1), (X1, Y1)): cross(d, x, y)
+
+    def chrome(self, d, t, cur):
+        d.text((X0, 212), self.series, font=F(COND, 34), fill=INK)
+        d.text((X1, 212), f"{self.no:02d} / {self.title}", font=F(COND, 34), fill=INK, anchor="ra")
+        d.line([X0, 262, X1, 262], fill=INK, width=4)
+        d.line([X0, 262, X0 + (X1 - X0) * clamp(t / self.TL.S("end")), 262], fill=SIG, width=8)
+        if cur in self.chapters:
+            no, title = self.chapters[cur]
+            d.text((X0, 274), no, font=F(COND, 26), fill=SIG); d.text((X0 + 44, 274), title, font=F(COND, 26), fill=INK)
+        d.line([X0, 1188, X1, 1188], fill=INK, width=4)
+
+    def subtitle(self, d, t, y0=1206):
+        TL = self.TL; cur = TL.current(t) or self.order[0]
+        if cur == "end": return
+        b = TL.T[cur]
+        if t > b["start"] + b["dur"] + .4: return
+        f = F(BLK, 62); lines, curl = [], ""
+        for w_ in b["text"].split():
+            tst = (curl + " " + w_).strip()
+            if d.textlength(tst, font=f) <= X1 - X0: curl = tst
+            else: lines.append(curl); curl = w_
+        lines.append(curl)
+        shown = (t - b["start"]) / b["dur"] * len(b["text"])
+        # pages of max 3 lines (stays inside the bottom safe zone); page follows the spoken word
+        starts, c = [], 0
+        for line in lines: starts.append(c); c += len(line) + 1
+        cur_line = max([i for i, s0 in enumerate(starts) if s0 <= max(0, shown)] or [0])
+        page = cur_line // 3
+        c = starts[page * 3]
+        for li, line in enumerate(lines[page * 3: page * 3 + 3]):
+            x = X0
+            for w_ in line.split(" "):
+                now = c <= shown < c + len(w_) + 1
+                d.text((x, y0 + li * 72), w_, font=f, fill=SIG if now else (INK if c <= shown else RULE))
+                x += d.textlength(w_ + " ", font=f); c += len(w_) + 1
+
+    def end_card(self, d, t):
+        k0 = self.TL.S("end")
+        for i, (w_, col) in enumerate((("NOT", INK), ("JUST", INK), ("YOU.", SIG))):
+            k = ease((t - k0 - i * .12) / .35)
+            if k > 0: d.text((X0 - 8, 290 + i * 210), w_, font=F(BLK, 230), fill=mix(BG, col, k))
+        if t > k0 + .9:
+            d.text((X0, 980), "SOURCES", font=F(COND, 26), fill=SIG)
+            for i, l in enumerate(self.sources): d.text((X0, 1016 + i * 32), l, font=F(MED, 24), fill=INK)
+            box_label(d, X1, 1110, self.handle, 32, WHITE, INK, anchor="ra")
+
+    def draw(self, img, d, t):
+        cur = self.current(t)
+        self.grid(d)
+        if cur == "end": self.end_card(d, t)
+        else:
+            self.scenes[cur](img, d, t)
+            if cur != self.order[0]:                       # punch-in on every cut (none on frame 0)
+                z = 1 + .035 * math.exp(-(t - self.TL.S(cur) + .05) * 8)
+                if z > 1.002:
+                    cx, cy = 480, 730; l, tp = cx - cx / z, cy - cy / z
+                    img.paste(img.crop((int(l), int(tp), int(l + W / z), int(tp + H / z))).resize((W, H), Image.BILINEAR))
+                    d.rectangle([0, 0, W, 300], fill=BG); d.rectangle([0, 1180, W, H], fill=BG)
+        self.chrome(d, t, cur)
+        self.subtitle(d, t)
+
+    def cut_fx(self, amp=.12):
+        """whoosh on every scene cut"""
+        return [(self.TL.S(k) - .1, whoosh(.25, amp), 0) for k in self.order[1:]]
+
+    def run(self, fx):
+        cute.run(self.TL, self.draw, fx)

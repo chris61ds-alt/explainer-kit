@@ -33,3 +33,11 @@ mkdir -p ~/asr && cd ~/asr && curl -L -o w.tar.bz2 https://github.com/k2-fsa/she
 - Jede Zahl aus Beleg/Quelle, nichts erfinden; Schematisches als „schematic" kennzeichnen
 - Visuals an Wörter im Sprechtext gebunden (`cue()`), deterministisch pro Frame
 - Inhalte in Safe Zones: oben 200 px, unten 440 px, rechts 120 px frei
+
+## Hausstil „Swiss Detail“ (seit No. 06)
+`shared/swiss.py` – Raster, Riesen-Typo (Roboto Black/Condensed), eine Signalfarbe (Orange), Aicher-Piktogramme mit Posen
+(IDLE, TALK, WORRY, FACEPALM, LAUGH, SHRUG, OPEN, SING, WAVE, WALK, SIT), Requisiten (cup, table, chair, mic, phone, door, stage),
+Anmerkungen (note, dim_h/dim_v, box_label, ruler, scale7, hbar, legend, fig), Kapitel + Fortschrittsbalken, Untertitel mit
+orangem aktuellem Wort (max. 3 Zeilen pro Seite), Endkarte, dunkler Beat (Am–F–C–G, 96 bpm) + sfx (thud, rewind_sfx, riser).
+Vorlage: `ep07_beautiful_mess/render.py` (`Episode(...)`, `EP.scenes = {...}`, `EP.run(FX)`). Hook ab Frame 0, Stimme ab 0,15 s, Tempo 1.1.
+Der weiche Stil (`shared/cute.py`) bleibt für No. 02–05 erhalten.
