@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Ever faked it? You are far from the only one."
+  },
+  {
+   "id": "study",
+   "text": "Researchers asked almost three hundred college students if they had ever pretended to orgasm."
+  },
+  {
+   "id": "result",
+   "text": "Among those who'd had intercourse, two out of three women said yes."
+  },
+  {
+   "id": "men",
+   "text": "And men? More than one in four. Yes, men too."
+  },
+  {
+   "id": "why",
+   "text": "The top reasons: it just wasn't going to happen, they wanted it to end, or they didn't want to hurt their partner's feelings."
+  },
+  {
+   "id": "point",
+   "text": "So it's usually about kindness, not deception. But talking beats performing."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Muehlenhard & Shippee (2010). Men's and women's reports of pretending orgasm. Journal of Sex Research 47(6). 180 men, 101 women (college students); 25% of men, 50% of women had pretended; among those with penile-vaginal intercourse experience 28% of men, 67% of women. Reasons: orgasm unlikely, wanting sex to end, avoiding negative outcomes (hurting partner's feelings), pleasing partner. Via PubMed 19707929."
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Think kink is niche? Not even close."
+  },
+  {
+   "id": "study",
+   "text": "A nationally representative survey asked over two thousand American adults what they had ever tried."
+  },
+  {
+   "id": "result",
+   "text": "At least thirty percent had tried spanking."
+  },
+  {
+   "id": "more",
+   "text": "More than one in five had tried role play. About one in five, being tied up or tying someone up."
+  },
+  {
+   "id": "both",
+   "text": "And women and men reported these at similar rates."
+  },
+  {
+   "id": "point",
+   "text": "So what you call kinky? For millions of people, it's just Tuesday. The one rule that matters: consent."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Herbenick, Bowling, Fu, Dodge, Guerra-Reyes & Sanders (2017). Sexual diversity in the United States: Results from a nationally representative probability sample of adult women and men. PLoS ONE 12(7): e0181198. N = 2,021 (975 men, 1,046 women), GfK KnowledgePanel 2015. Lifetime: spanking >=30%, role-playing >=22%, tying up/being tied up >=20%. Spanking 34% women / 30% men; tying 21% / 22% (via Sex & Psychology, Lehmiller)."
+ ]
+}
