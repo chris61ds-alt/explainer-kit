@@ -14,6 +14,13 @@
 - No. 11 – Compliments (Zhao & Epley 2021) – Swiss Detail v2
 - No. 12 – The fresh start effect (Dai, Milkman & Riis 2014/2015) – v2
 - No. 13 – The peak-end rule (Kahneman et al. 1993) – v2
+- No. 14–16 Gedächtnis: Foto-Effekt (Henkel 2014) · Next-in-line (Brenner 1973) · Baker/baker (McWeeny et al. 1987)
+- No. 17–19 Körper: Selbst-Kitzeln (Blakemore et al. 1999) · Phantom-Vibration (Drouin et al. 2012) · Brain Freeze (Kaczorowski 2002)
+- No. 20–22 Schlaf: First-Night-Effekt (Tamaki et al. 2016) · Sleep on it (Wagner et al. 2004) · Schlafmangel & Einsamkeit (Ben Simon & Walker 2018)
+- No. 23–25 Zeit: Zeitlupe in Angst (Stetson et al. 2007) · Planungsfehlschluss (Buehler et al. 1994) · Die Stunde vor dem Termin (Tonietto et al. 2019)
+- No. 26–28 Geld: Pain of paying (Prelec & Simester 2001) · Denomination effect (Raghubir & Srivastava 2009) · Vorfreude (Kumar et al. 2014)
+- No. 29–31 Musik: Ohrwürmer (Jakubowski et al. 2017) · Chills & Dopamin (Salimpoor et al. 2011) · Traurige Musik (Taruffi & Koelsch 2014)
+- No. 32–34 Sprache: Semantische Sättigung · Wort auf der Zunge (Brown & McNeill 1966) · Bouba/Kiki (Ćwiek et al. 2021)
 
 ## Weitere Kandidaten (ehemals geplant)
 2. **Der 21-Tage-Mythos** – Gewohnheiten brauchen im Median 66 Tage, Spanne 18–254 (Lally et al. 2010)
@@ -22,7 +29,6 @@
 - Phantom-Vibration des Handys
 - Fall-Ruck beim Einschlafen (Hypnic Jerk)
 - Ohrwurm · Wort liegt auf der Zunge · Déjà-vu
-- Planungsfehlschluss
 - Mini-Reihe „Other people are nicer than you think“: Einfach melden (Liu et al. 2023), Fremde in der Bahn (Epley & Schroeder 2014), Tiefe Gespräche (Kardas et al. 2022), Um Hilfe bitten (Flynn & Lake 2008)
 
 Vor jeder Folge: Quellen per Websuche prüfen, Zahlen nur mit Quelle.
