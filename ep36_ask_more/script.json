@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Want a second date? Ask one more question."
+  },
+  {
+   "id": "study",
+   "text": "Researchers analysed over two thousand speed-dating conversations."
+  },
+  {
+   "id": "result",
+   "text": "People who asked more questions got more second dates."
+  },
+  {
+   "id": "best",
+   "text": "Especially follow-up questions. The ones that show you were listening."
+  },
+  {
+   "id": "math",
+   "text": "The estimate: one extra question per date, across twenty dates, meant one more yes."
+  },
+  {
+   "id": "point",
+   "text": "So less pitching yourself. More: wait, tell me more about that."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Huang, Yeomans, Brooks, Minson & Gino (2017). It doesn't hurt to ask: Question-asking increases liking. Journal of Personality and Social Psychology 113(3). Speed-dating data (110 participants, >2,000 conversations): more questions -> more second dates; one more question per date across 20 dates ~ one more 'yes'; follow-up questions most common and effective. Via HBS Working Knowledge."
+ ]
+}

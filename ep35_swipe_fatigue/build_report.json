@@ -1,0 +1,32 @@
+{
+ "episode": "ep35_swipe_fatigue",
+ "tts": "new",
+ "asr_voice": [
+  "study: 1/10 | In three studies, singles swipe through profiles. Yes or no?"
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 26.5,
+  "size_MiB": 4.1,
+  "black_intervals": [],
+  "loudness_LUFS": -16.5,
+  "true_peak_dBTP": -2.2,
+  "sha256": "0fe8ad1a2f08af2c08a305a0ce8d0e2752c9f480cd2217b8fb9dd067376195b5",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "1/68 = 1.5%",
+ "asr_final_issues": [
+  "study: 1/10 | In three studies, singles swipe through profiles. Yes or no?"
+ ],
+ "duration_s": 26.49,
+ "cover": "ep35_swipe_fatigue_cover.png",
+ "caption": "ok"
+}

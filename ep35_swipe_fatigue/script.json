@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Ten minutes on a dating app, and suddenly nobody looks good."
+  },
+  {
+   "id": "study",
+   "text": "In three studies, singles swiped through profiles. Yes, or no."
+  },
+  {
+   "id": "result",
+   "text": "The longer they swiped, the less often they said yes."
+  },
+  {
+   "id": "mood",
+   "text": "They also grew less satisfied, and more pessimistic about their own chances."
+  },
+  {
+   "id": "name",
+   "text": "Researchers call it a rejection mindset."
+  },
+  {
+   "id": "point",
+   "text": "So if everyone starts looking wrong, it might be the swiping. Not them. Take a break."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Pronk & Denissen (2020). A rejection mind-set: Choice overload in online dating. Social Psychological and Personality Science 11(3). Three studies (n=315, 158, 305), single heterosexual adults 18-30; acceptance rates decreased over the course of the task; satisfaction declined and pessimism about being accepted rose. Via PsyPost."
+ ]
+}
