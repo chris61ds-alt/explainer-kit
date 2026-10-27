@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Kissing is human nature. Right?"
+  },
+  {
+   "id": "study",
+   "text": "Anthropologists looked at a hundred and sixty-eight cultures around the world."
+  },
+  {
+   "id": "result",
+   "text": "Romantic kissing showed up in fewer than half."
+  },
+  {
+   "id": "regions",
+   "text": "Every culture they studied in the Middle East did it. In South America, only four out of thirty-three."
+  },
+  {
+   "id": "forager",
+   "text": "And among hunter-gatherers, there was little sign of it at all."
+  },
+  {
+   "id": "point",
+   "text": "So the kiss isn't universal. It's culture. Which makes it a little more special."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Jankowiak, Volsche & Garcia (2015). Is the romantic-sexual kiss a near human universal? American Anthropologist 117(3). 168 cultures; ~46% with romantic-sexual kissing; Middle East 10/10, Europe 7/10, North America 18/33, South America 4/33; little evidence among foragers. Via ScienceAlert."
+ ]
+}

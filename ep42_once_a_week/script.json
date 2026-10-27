@@ -1,0 +1,42 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "More sex, happier couple? Only up to a point."
+  },
+  {
+   "id": "study",
+   "text": "Researchers looked at surveys from over thirty thousand Americans."
+  },
+  {
+   "id": "result",
+   "text": "For people in relationships, well-being rose with sex, up to about once a week."
+  },
+  {
+   "id": "flat",
+   "text": "After that, more didn't make people any happier."
+  },
+  {
+   "id": "single",
+   "text": "And for singles, there was no link at all."
+  },
+  {
+   "id": "caveat",
+   "text": "It doesn't prove cause and effect. Happier couples may simply have more sex."
+  },
+  {
+   "id": "point",
+   "text": "So stop counting. Staying connected matters more than the number."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Muise, Schimmack & Impett (2016). Sexual frequency predicts greater well-being, but more is not always better. Social Psychological and Personality Science 7(4). Three studies, >30,000 Americans; well-being associated with frequency up to about once a week, no further gain beyond; no association for singles; correlational. Via Medical News Today."
+ ]
+}

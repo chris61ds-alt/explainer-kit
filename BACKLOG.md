@@ -21,6 +21,7 @@
 - No. 26–28 Geld: Pain of paying (Prelec & Simester 2001) · Denomination effect (Raghubir & Srivastava 2009) · Vorfreude (Kumar et al. 2014)
 - No. 29–31 Musik: Ohrwürmer (Jakubowski et al. 2017) · Chills & Dopamin (Salimpoor et al. 2011) · Traurige Musik (Taruffi & Koelsch 2014)
 - No. 38–40 Gewagt (Swiss Dark): Lieber Stromschlag als Denken (Wilson et al. 2014) · Tägliche Lügen (DePaulo et al. 1996) · Geld & Glück (Killingsworth et al. 2023)
+- No. 41–43 After Dark (Swiss Dark): Fantasien (Joyal et al. 2015) · Einmal pro Woche (Muise et al. 2016) · Küssen nicht universell (Jankowiak et al. 2015)
 - No. 35–37 Dating: Swipe-Müdigkeit (Pronk & Denissen 2020) · Mehr fragen (Huang et al. 2017) · Dein Typ (Eastwick & Finkel 2008)
 - No. 32–34 Sprache: Semantische Sättigung · Wort auf der Zunge (Brown & McNeill 1966) · Bouba/Kiki (Ćwiek et al. 2021)
 

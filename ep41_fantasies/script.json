@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Your weird fantasy? Probably not that weird."
+  },
+  {
+   "id": "study",
+   "text": "Researchers asked over fifteen hundred adults to rate dozens of sexual fantasies."
+  },
+  {
+   "id": "result",
+   "text": "Very few turned out to be rare. Most were shared by lots of people."
+  },
+  {
+   "id": "power",
+   "text": "Fantasies about power and control, taking it or giving it up, came up especially often."
+  },
+  {
+   "id": "quote",
+   "text": "As the lead researcher put it: there are a lot more common fantasies than unusual ones."
+  },
+  {
+   "id": "point",
+   "text": "So that thought you'd never say out loud? You're in good company. And a fantasy is a thought, not a plan."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Joyal, Cossette & Lapierre (2015). What exactly is an unusual sexual fantasy? Journal of Sexual Medicine 12(2). 1,517 Quebec adults; few fantasies statistically rare or unusual; submission themes reported by a significant proportion of women (30-60%); quote 'there are a lot more common fantasies than atypical fantasies'. Via Newswise/PsyPost."
+ ]
+}
