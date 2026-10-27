@@ -1,0 +1,12 @@
+{"voice": "af_heart", "speed": 1.1, "lang": "en-us",
+ "beats": [
+  {"id": "hook",   "text": "Why does everything start on a Monday?"},
+  {"id": "search", "text": "Google searches for diet spike at the start of every week, every month, and every year."},
+  {"id": "gym",    "text": "Students hit the gym more at the start of a week, a new semester, and right after their birthday."},
+  {"id": "name",   "text": "It's called the fresh start effect."},
+  {"id": "why",    "text": "A new date feels like a new chapter. Old slip-ups feel like they belong to the last one."},
+  {"id": "trick",  "text": "And it works on demand. Calling a day the first day of spring made people more likely to start."},
+  {"id": "point",  "text": "So missed Monday? Find another first day."},
+  {"id": "end",    "text": "Not just you."}
+ ],
+ "sources": ["Dai, Milkman & Riis (2014). The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science 60(10). Google searches for 'diet' rose at the start of weeks, months, years and after holidays; university gym visits rose at the start of a week, month, semester and after birthdays.", "Dai, Milkman & Riis (2015). Put your imperfections behind you: Temporal landmarks spur goal initiation when they signal new beginnings. Psychological Science 26(12). Framing March 20 as 'the first day of spring' raised reminder sign-ups (26% vs 7%). Via APS 'Minds for Business'."]}

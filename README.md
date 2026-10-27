@@ -41,3 +41,14 @@ Anmerkungen (note, dim_h/dim_v, box_label, ruler, scale7, hbar, legend, fig), Ka
 orangem aktuellem Wort (max. 3 Zeilen pro Seite), Endkarte, dunkler Beat (Am–F–C–G, 96 bpm) + sfx (thud, rewind_sfx, riser).
 Vorlage: `ep07_beautiful_mess/render.py` (`Episode(...)`, `EP.scenes = {...}`, `EP.run(FX)`). Hook ab Frame 0, Stimme ab 0,15 s, Tempo 1.1.
 Der weiche Stil (`shared/cute.py`) bleibt für No. 02–05 erhalten.
+
+## Swiss Detail v2 (seit No. 11)
+- **Ein Befehl pro Folge:** `python3 shared/build.py epXX_name` → TTS (nur wenn script.json geändert), ASR Stimme, Render, verify,
+  ASR auf dem fertigen Mix pro Beat (keine 30-s-Fenster-Fehler, Zahlen/Halluzinationen normalisiert), Cover-PNG, Caption-Check → `build_report.json`
+- **Weiche Posen:** `pose_seq(t, [(t0, POSE), ...])` morpht statt zu springen; `move(t, [(t0, x), ...])` für Positionen
+- **Figuren über Szenen hinweg:** `EP.layers.append(fn)` – Akteure gleiten zwischen Szenen-Zielen (Match-Cut statt Neu-Erscheinen)
+- **Kamera:** langsamer Push pro Szene (`drift`), Punch-in bei jedem Schnitt
+- **Musik pro Folge:** `music=dict(bpm, root, prog=minor|major|warm|dream|tense, kick=half|four, gaps=[(t0, t1)])` – Stille vor der Pointe
+- **Loop-Ende:** letzte 0,5 s wischen zurück auf Frame 0 (nahtloser Instagram-Loop)
+- **Cover:** `cover=dict(words=[...], kicker=...)` → `epXX_cover.png` (Inhalt im 3:4-Grid-Ausschnitt)
+- Ziel-Länge 25–35 s · pro Szene eine Haupt-Aussage

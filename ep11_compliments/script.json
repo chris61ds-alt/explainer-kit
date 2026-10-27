@@ -1,0 +1,11 @@
+{"voice": "af_heart", "speed": 1.1, "lang": "en-us",
+ "beats": [
+  {"id": "hook",   "text": "You thought something nice about someone. And didn't say it."},
+  {"id": "why",    "text": "Maybe it felt awkward. Or not good enough."},
+  {"id": "study",  "text": "Researchers had people write compliments to someone close, then predict how that person would feel."},
+  {"id": "result", "text": "They underestimated how good it felt. And overestimated how awkward it was."},
+  {"id": "words",  "text": "The wording barely mattered. The warmth did."},
+  {"id": "point",  "text": "So say it. It lands better than you think."},
+  {"id": "end",    "text": "Not just you."}
+ ],
+ "sources": ["Zhao & Epley (2021). Insufficiently complimentary?: Underestimating the positive impact of compliments creates a barrier to expressing them. Journal of Personality and Social Psychology 121(2), 239-256. Givers underestimated how positive recipients would feel and overestimated awkwardness; strongly underestimated how well-phrased recipients judged them; recipients responded to warmth more than phrasing (via Psychology Today, Markman 2021)."]}

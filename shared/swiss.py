@@ -14,7 +14,7 @@ Episode usage:
 """
 import os, sys, math, wave
 import numpy as np, soundfile as sf
-from PIL import Image
+from PIL import Image, ImageDraw
 from scipy.signal import resample_poly
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import cute
@@ -72,6 +72,28 @@ def merge(*ps):
     out = {}
     for p in ps: out.update(p)
     return out
+
+def _pz(p, t): return p(t) if callable(p) else p
+def blend(a, b, k):
+    """interpolate two poses (arms, legs, tilt)"""
+    out = {}
+    for key, default in (("arms", IDLE["arms"]), ("legs", ((4, 0), (-4, 0)))):
+        A, B = a.get(key, default), b.get(key, default)
+        out[key] = tuple(tuple(lerp(x, y, k) for x, y in zip(pa, pb)) for pa, pb in zip(A, B))
+    out["tilt"] = lerp(a.get("tilt", 0), b.get("tilt", 0), k)
+    return out
+def pose_seq(t, keys, dur=.35):
+    """keys: [(t0, pose_or_fn), ...] ascending – poses morph smoothly (dur) instead of snapping"""
+    cur = _pz(keys[0][1], t)
+    for tk, p in keys[1:]:
+        if t >= tk: cur = blend(cur, _pz(p, t), ease_io((t - tk) / dur))
+    return cur
+def move(t, keys, dur=.6):
+    """keys: [(t0, x), ...] – position that glides between key values"""
+    x = keys[0][1]
+    for tk, v in keys[1:]:
+        if t >= tk: x = lerp(x, v, ease_io((t - tk) / dur))
+    return x
 
 # ---------------------------------------------------------------- props (line art)
 def cup(d, x, y, t, s=1.0, steam=True):
@@ -209,7 +231,22 @@ def snare(amp=.05):
 def riser(dur=.8, amp=.12):
     t = tt_(dur); return amp * bp(np.random.default_rng(3).standard_normal(len(t)), 1200, 6000) * (t / dur) ** 2
 
-def build_audio(TL_, fx_cues, path, bpm=96, music_gaps=()):
+PROGS = {   # (root offset in semitones, quality)
+    "minor": [(0, "m"), (-4, "M"), (3, "M"), (-2, "M")],      # i  VI  III VII
+    "major": [(0, "M"), (7, "M"), (9, "m"), (5, "M")],        # I  V   vi  IV
+    "warm":  [(0, "M"), (9, "m"), (5, "M"), (7, "M")],        # I  vi  IV  V
+    "dream": [(0, "M"), (5, "M"), (9, "m"), (4, "m")],        # I  IV  vi  iii
+    "tense": [(0, "m"), (-2, "M"), (-4, "M"), (-5, "M")],     # i  VII VI  V
+}
+MUSIC = dict(bpm=96, root=0, prog="minor", kick="half", gaps=())
+
+def _chord(root_hz, q):
+    third = 3 if q == "m" else 4
+    return [root_hz, root_hz * 2 ** (third / 12), root_hz * 2 ** (7 / 12)]
+
+def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
+    """dark minimal bed (pad + sub + soft kick/snare) in the episode's key/tempo; music_gaps = hard silences (e.g. before a reveal)"""
+    M = dict(MUSIC); bpm = bpm or M["bpm"]; gaps = list(M.get("gaps", ())) + list(music_gaps)
     n = int((TL_.total + 1) * SR); vo = np.zeros(n); mus = np.zeros((n, 2)); fx = np.zeros((n, 2))
     def put(buf, x, t0, pan=0.):
         s = int(t0 * SR)
@@ -219,37 +256,47 @@ def build_audio(TL_, fx_cues, path, bpm=96, music_gaps=()):
         else: buf[s:e, 0] += x * (1 - max(0, pan)); buf[s:e, 1] += x * (1 + min(0, pan))
     for m in TL_.meta:
         a, sr = sf.read(os.path.join(TL_.dir, "vo", m["id"] + ".wav")); put(vo, resample_poly(a, SR, sr), TL_.T[m["id"]]["start"])
-    beat = 60 / bpm; bar = beat * 4
-    prog = [[220.0, 261.6, 329.6], [174.6, 220.0, 261.6], [261.6, 329.6, 392.0], [196.0, 246.9, 293.7]]  # Am F C G
+    beat = 60 / bpm; bar = beat * 4; base = 220.0 * 2 ** (M["root"] / 12)
+    prog = [_chord(base * 2 ** (o / 12) if o >= -5 else base * 2 ** ((o + 12) / 12), q) for o, q in PROGS[M["prog"]]]
     tb, i = 0.0, 0
     while tb < TL_.total - .3:
-        if not any(a <= tb < b for a, b in music_gaps):
-            ch = prog[i % 4]
-            t_ = tt_(bar); env = np.minimum(1, t_ / .4) * np.exp(-t_ * .35)
-            pad = sum(np.sin(2 * np.pi * f * t_ + j) for j, f in enumerate(ch)) * env * .018
-            put(mus, lp(pad, 1800), tb, -.15); put(mus, lp(pad, 1800), tb + .01, .15)
-            put(mus, .07 * np.sin(2 * np.pi * ch[0] / 2 * t_) * np.exp(-t_ * 1.2), tb)
-            for b_ in range(4):
-                if b_ in (0, 2): put(mus, softkick(.3), tb + b_ * beat)
-                else: put(mus, snare(.035), tb + b_ * beat)
+        ch = prog[i % 4]
+        t_ = tt_(bar); env = np.minimum(1, t_ / .4) * np.exp(-t_ * .35)
+        pad = sum(np.sin(2 * np.pi * f * t_ + j) for j, f in enumerate(ch)) * env * .018
+        put(mus, lp(pad, 1800), tb, -.15); put(mus, lp(pad, 1800), tb + .01, .15)
+        put(mus, .07 * np.sin(2 * np.pi * ch[0] / 2 * t_) * np.exp(-t_ * 1.2), tb)
+        for b_ in range(4):
+            if M["kick"] == "four" or b_ in (0, 2): put(mus, softkick(.3), tb + b_ * beat)
+            if M["kick"] != "four" and b_ in (1, 3): put(mus, snare(.035), tb + b_ * beat)
+            if M["kick"] == "four" and b_ in (1, 3): put(mus, snare(.03), tb + b_ * beat + beat / 2)
         tb += bar; i += 1
+    gate = np.ones(n); fdur = int(.06 * SR)
+    for a_, b_ in gaps:
+        s0, s1 = int(a_ * SR), int(b_ * SR); gate[s0:s1] = 0
+        gate[max(0, s0 - fdur):s0] = np.linspace(1, 0, s0 - max(0, s0 - fdur)); gate[s1:s1 + fdur] = np.linspace(0, 1, len(gate[s1:s1 + fdur]))
+    mus *= gate[:, None]
     for (t0, sig, pan) in fx_cues: put(fx, sig, t0, pan)
     env = np.convolve(np.abs(vo), np.ones(int(.12 * SR)) / int(.12 * SR), "same")
     duck = (1 - .55 * np.clip(env / (env.max() * .15 + 1e-9), 0, 1))[:, None]
     st = (vo[:, None] + mus * duck + fx)[: int(TL_.total * SR)]
     st /= np.abs(st).max() / .9
-    fd = int(.5 * SR); st[-fd:] *= np.linspace(1, 0, fd)[:, None]
+    fd = int(.35 * SR); st[-fd:] *= np.linspace(1, 0, fd)[:, None]
     with wave.open(path, "wb") as w_:
         w_.setnchannels(2); w_.setsampwidth(2); w_.setframerate(SR); w_.writeframes((st * 32767).astype(np.int16).tobytes())
 cute.build_audio = build_audio
 
 # ---------------------------------------------------------------- episode chrome + harness
 class Episode:
-    def __init__(self, TL, no, title, chapters, order, sources=(), handle="@vascoda.soda", series="NOT JUST YOU"):
+    """chrome + harness. Options: layers (drawn every frame on top of the scene, for actors that carry over between scenes),
+    drift (slow camera push per scene), loop (last frames wipe back to frame 0 for a seamless Instagram loop),
+    music (dict for MUSIC), cover (dict for make_cover)."""
+    def __init__(self, TL, no, title, chapters, order, sources=(), handle="@vascoda.soda", series="NOT JUST YOU",
+                 drift=.03, loop=True, music=None, cover=None):
         self.TL, self.no, self.title, self.order = TL, no, title, order
         self.chapters = {k: (f"{i + 1:02d}", v) for i, (k, v) in enumerate(chapters.items())}
         self.sources, self.handle, self.series = sources, handle, series
-        self.scenes = {}
+        self.scenes, self.layers = {}, []
+        self.drift, self.loop, self.music, self.cover_spec = drift, loop, music or {}, cover
 
     def current(self, t):
         cur = self.order[0]
@@ -257,15 +304,20 @@ class Episode:
             if t >= self.TL.S(k) - .05: cur = k
         return cur
 
+    def scene_span(self, cur):
+        i = self.order.index(cur); a = 0.0 if i == 0 else self.TL.S(cur) - .05
+        b = self.TL.S(self.order[i + 1]) - .05 if i + 1 < len(self.order) else self.TL.total
+        return a, b
+
     def grid(self, d):
         for x in range(X0, X1 + 1, 140): d.line([x, 280, x, Y1], fill=RULE, width=2)
         for (x, y) in ((X0, Y1), (X1, Y1)): cross(d, x, y)
 
-    def chrome(self, d, t, cur):
+    def chrome(self, d, t, cur, progress=True):
         d.text((X0, 212), self.series, font=F(COND, 34), fill=INK)
         d.text((X1, 212), f"{self.no:02d} / {self.title}", font=F(COND, 34), fill=INK, anchor="ra")
         d.line([X0, 262, X1, 262], fill=INK, width=4)
-        d.line([X0, 262, X0 + (X1 - X0) * clamp(t / self.TL.S("end")), 262], fill=SIG, width=8)
+        if progress: d.line([X0, 262, X0 + (X1 - X0) * clamp(t / self.TL.S("end")), 262], fill=SIG, width=8)
         if cur in self.chapters:
             no, title = self.chapters[cur]
             d.text((X0, 274), no, font=F(COND, 26), fill=SIG); d.text((X0 + 44, 274), title, font=F(COND, 26), fill=INK)
@@ -283,12 +335,10 @@ class Episode:
             else: lines.append(curl); curl = w_
         lines.append(curl)
         shown = (t - b["start"]) / b["dur"] * len(b["text"])
-        # pages of max 3 lines (stays inside the bottom safe zone); page follows the spoken word
-        starts, c = [], 0
+        starts, c = [], 0                      # pages of max 3 lines; the page follows the spoken word
         for line in lines: starts.append(c); c += len(line) + 1
         cur_line = max([i for i, s0 in enumerate(starts) if s0 <= max(0, shown)] or [0])
-        page = cur_line // 3
-        c = starts[page * 3]
+        page = cur_line // 3; c = starts[page * 3]
         for li, line in enumerate(lines[page * 3: page * 3 + 3]):
             x = X0
             for w_ in line.split(" "):
@@ -306,24 +356,57 @@ class Episode:
             for i, l in enumerate(self.sources): d.text((X0, 1016 + i * 32), l, font=F(MED, 24), fill=INK)
             box_label(d, X1, 1110, self.handle, 32, WHITE, INK, anchor="ra")
 
-    def draw(self, img, d, t):
+    def compose(self, img, d, t):
         cur = self.current(t)
         self.grid(d)
         if cur == "end": self.end_card(d, t)
         else:
             self.scenes[cur](img, d, t)
-            if cur != self.order[0]:                       # punch-in on every cut (none on frame 0)
-                z = 1 + .035 * math.exp(-(t - self.TL.S(cur) + .05) * 8)
-                if z > 1.002:
-                    cx, cy = 480, 730; l, tp = cx - cx / z, cy - cy / z
-                    img.paste(img.crop((int(l), int(tp), int(l + W / z), int(tp + H / z))).resize((W, H), Image.BILINEAR))
-                    d.rectangle([0, 0, W, 300], fill=BG); d.rectangle([0, 1180, W, H], fill=BG)
+            for lay in self.layers: lay(img, d, t, cur)
+            a, b = self.scene_span(cur)
+            z = 1 + self.drift * ease_io((t - a) / max(.5, b - a))           # slow push through the scene
+            if cur != self.order[0]: z += .035 * math.exp(-(t - a) * 8)      # punch-in on every cut (none on frame 0)
+            if z > 1.002:
+                cx, cy = 480, 730; l, tp = cx - cx / z, cy - cy / z
+                img.paste(img.crop((int(l), int(tp), int(l + W / z), int(tp + H / z))).resize((W, H), Image.BILINEAR))
+                d.rectangle([0, 0, W, 300], fill=BG); d.rectangle([0, 1180, W, H], fill=BG)
         self.chrome(d, t, cur)
         self.subtitle(d, t)
 
+    def draw(self, img, d, t):
+        T = self.TL.total; L = .5
+        if not self.loop or t < T - L: return self.compose(img, d, t)
+        k = (t - (T - L)) / L                   # wipe: end card → frame 0 (seamless loop on Instagram)
+        if k < .5:
+            self.compose(img, d, t); d.rectangle([0, 0, W * ease(k * 2), H], fill=SIG)
+        else:
+            d.rectangle([0, 0, W, H], fill=BG); self.compose(img, d, 0.0)
+            d.rectangle([W * ease((k - .5) * 2), 0, W, H], fill=SIG)
+
+    def make_cover(self, path, words=None, kicker=None):
+        """1080x1920 cover; key content sits inside the 1080x1440 centre crop of the profile grid"""
+        spec = dict(self.cover_spec or {}); words = words or spec.get("words", [self.title]); kicker = kicker or spec.get("kicker", "")
+        img = Image.new("RGB", (W, H), BG); d = ImageDraw.Draw(img)
+        for x in range(X0, X1 + 1, 140): d.line([x, 240, x, 1680], fill=RULE, width=2)
+        d.text((X0, 300), self.series, font=F(COND, 40), fill=INK); d.line([X0, 356, X1 + 60, 356], fill=INK, width=5)
+        d.text((X0 - 10, 380), f"{self.no:02d}", font=F(BLK, 260), fill=SIG)
+        size = spec.get("size") or min(320, int(min(860 / max(1, d.textlength(w_, font=F(BLK, 100))) * 100 for w_ in words)),
+                                       int(820 / (len(words) * 1.02)))
+        y = 700
+        for i, w_ in enumerate(words):
+            d.text((X0 - 8, y), w_, font=F(BLK, size), fill=SIG if i == len(words) - 1 and spec.get("accent_last", True) else INK); y += int(size * 1.02)
+        if kicker: d.text((X0, y + 30), kicker, font=F(COND, 46), fill=INK)
+        d.line([X0, 1600, X1 + 60, 1600], fill=INK, width=5)
+        d.text((X0, 1616), self.handle, font=F(COND, 34), fill=INK)
+        img = Image.fromarray(np.clip(np.array(img).astype(np.int16) + cute.PAPER, 0, 255).astype(np.uint8))
+        img.save(path); return path
+
     def cut_fx(self, amp=.12):
-        """whoosh on every scene cut"""
-        return [(self.TL.S(k) - .3, whoosh(.25, amp), 0) for k in self.order[1:]]   # ends before the voice starts
+        """whoosh on every scene cut (ends before the voice starts)"""
+        return [(self.TL.S(k) - .3, whoosh(.25, amp), 0) for k in self.order[1:]]
 
     def run(self, fx):
+        global MUSIC
+        MUSIC = dict(MUSIC, **self.music)
+        if "--cover" in sys.argv: print("cover", self.make_cover(sys.argv[1])); return
         cute.run(self.TL, self.draw, fx)

@@ -1,0 +1,12 @@
+{"voice": "af_heart", "speed": 1.1, "lang": "en-us",
+ "beats": [
+  {"id": "hook",   "text": "People chose more pain over less. Voluntarily."},
+  {"id": "short",  "text": "In a classic experiment, people held one hand in painfully cold water for sixty seconds."},
+  {"id": "long",   "text": "The other hand got the same sixty seconds. Plus thirty more, while the water got slightly warmer."},
+  {"id": "ask",    "text": "Which one would they repeat?"},
+  {"id": "choice", "text": "Most chose the longer one."},
+  {"id": "name",   "text": "Memory doesn't add up the minutes. It keeps the worst moment and the ending. The peak end rule."},
+  {"id": "point",  "text": "So want a good memory? Give it a good ending."},
+  {"id": "end",    "text": "Not just you."}
+ ],
+ "sources": ["Kahneman, Fredrickson, Schreiber & Redelmeier (1993). When more pain is preferred to less: Adding a better end. Psychological Science 4(6), 401-405. Short trial: 60 s at 14 °C; long trial: 60 s at 14 °C + 30 s while warming to ~15 °C. 22 of 32 (69%) chose to repeat the long trial; replication 24 of 37."]}
