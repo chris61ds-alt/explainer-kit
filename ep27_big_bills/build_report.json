@@ -1,0 +1,28 @@
+{
+ "episode": "ep27_big_bills",
+ "tts": "new",
+ "asr_voice": [],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 24.73,
+  "size_MiB": 3.4,
+  "black_intervals": [],
+  "loudness_LUFS": -16.4,
+  "true_peak_dBTP": -1.5,
+  "sha256": "6aa7b0eec188ec979d1263ab54088aa5ba17eaabb1586a8d7eecbd2b781b54c0",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "0/66 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 24.75,
+ "cover": "ep27_big_bills_cover.png",
+ "caption": "ok"
+}
