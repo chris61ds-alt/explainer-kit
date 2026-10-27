@@ -284,7 +284,7 @@ def run(TL, draw_frame, fx_cues, music_gaps=()):
     total = int(round(TL.total * FPS))
     p = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
                           "-i", "-", "-i", wav, "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "24", "-preset", "slow",
-                          "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest",
+                          "-af", "loudnorm=I=-16:TP=-1.5:LRA=11,alimiter=limit=0.75:level=false", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest",
                           "-movflags", "+faststart", out], stdin=subprocess.PIPE)
     for fr in range(total):
         p.stdin.write(frame(fr).tobytes())

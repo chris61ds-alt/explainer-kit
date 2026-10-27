@@ -1,4 +1,4 @@
-Waiting for a new phone feels like impatience. Waiting for a trip feels like joy. ✈️
+Waiting for a new phone feels like impatience. Waiting for a trip feels like happiness. ✈️
 
 Researchers pinged over 2,000 people at random moments and asked what they were thinking about. People looking forward to an experience were happier than people looking forward to a thing.
 

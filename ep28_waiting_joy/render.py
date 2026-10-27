@@ -31,7 +31,7 @@ def sc_hook(img, d, t):
         k = ease((t - tr + .3) / .4)
         ticket(d, 700, 620, .8 * k); d.text((700, 720), "a trip", font=F(COND, 28), fill=SIG, anchor="ma")
         picto(d, 700, FLOOR, .62, SIG, f=-1, pose=OPEN)
-        note(d, 760, 840, 860, 960, "joy", (t - cue("hook", "joy")) / .35, SIG, anchor="ra", size=32)
+        note(d, 760, 840, 860, 960, "happy", (t - cue("hook", "happiness")) / .35, SIG, anchor="ra", size=32)
     fig(d, "fig. 1 — two kinds of waiting")
 
 def sc_study(img, d, t):
@@ -79,7 +79,7 @@ def sc_point(img, d, t):
     if t >= gf: note(d, X0 + 300, 980, 860, 1110, "all of this counts", (t - gf) / .35, SIG, anchor="ra", size=26)
 
 EP.scenes = {"hook": sc_hook, "study": sc_study, "result": sc_result, "queue": sc_queue, "point": sc_point}
-FX = [(0.0, thud(.5), 0), (cue("hook", "trip"), pop(.2), .3), (cue("hook", "joy"), riser(.4, .06), .3), *EP.cut_fx(),
+FX = [(0.0, thud(.5), 0), (cue("hook", "trip"), pop(.2), .3), (cue("hook", "happiness"), riser(.4, .06), .3), *EP.cut_fx(),
       *[(S("study") + .1 + i * .1, tick(.05), (i % 5 - 2) / 3) for i in range(12)], (cue("study", "asked"), pop(.18), 0),
       (S("result") + .05, thud(.5), 0), (cue("result", "a thing"), pop(.15), -.2), (cue("queue", "experiences"), pop(.15), -.2), (cue("queue", "stuff"), pop(.15), .2),
       (cue("point", "early"), thud(.45), 0), (cue("point", "gift"), riser(.4, .07), 0), (S("end"), thud(.5), 0)]

@@ -1,0 +1,28 @@
+{
+ "episode": "ep31_sad_music",
+ "tts": "new",
+ "asr_voice": [],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 24.73,
+  "size_MiB": 3.5,
+  "black_intervals": [],
+  "loudness_LUFS": -16.5,
+  "true_peak_dBTP": -2.5,
+  "sha256": "ec1a6e28eef9ba7664664d587ce4df2630c0146be58c2137b59e11bf75810d84",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "0/62 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 24.73,
+ "cover": "ep31_sad_music_cover.png",
+ "caption": "ok"
+}
