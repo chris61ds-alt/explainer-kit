@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Why is sex not gross? Think about it."
+  },
+  {
+   "id": "study",
+   "text": "Ninety women watched one of three films: erotica, extreme sports, or a train ride."
+  },
+  {
+   "id": "tasks",
+   "text": "Then came the gross part. Drink from a cup with a bug in it. Handle a condom that looked used."
+  },
+  {
+   "id": "result",
+   "text": "The women who were turned on rated the sexual tasks as less disgusting, and were more willing to do them."
+  },
+  {
+   "id": "why",
+   "text": "Arousal turns the disgust dial down. Otherwise, sex would be pretty hard to go through with."
+  },
+  {
+   "id": "point",
+   "text": "So if things feel weird afterwards? That's just the dial turning back up."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Borg & de Jong (2012). Feelings of disgust and disgust-induced avoidance weaken following induced sexual arousal in women. PLoS ONE 7(9): e44111. 90 heterosexual women randomly assigned to erotic film, sports (general arousal) or train-ride film; 16 tasks (e.g. cup with fake insect, seemingly used condom, used-looking tissue). Sexual arousal group rated sexual tasks less disgusting and was more willing to perform tasks. Via ScienceDaily / Sex & Psychology."
+ ]
+}

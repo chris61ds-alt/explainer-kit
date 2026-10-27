@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Good sex keeps working for two whole days."
+  },
+  {
+   "id": "study",
+   "text": "Over two hundred newlywed couples kept a diary for two weeks, every single night."
+  },
+  {
+   "id": "result",
+   "text": "After sex, satisfaction stayed higher for about forty-eight hours."
+  },
+  {
+   "id": "who",
+   "text": "That held for men and women, younger and older."
+  },
+  {
+   "id": "months",
+   "text": "And couples with a stronger afterglow were happier months later. Their satisfaction dropped less over time."
+  },
+  {
+   "id": "point",
+   "text": "So it's not just one night. It's a two-day glow. Worth keeping warm."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Meltzer, Makhanova, Hicks, French, McNulty & Bradbury (2017). Quantifying the sexual afterglow: The lingering benefits of sex and their implications for pair-bonded relationships. Psychological Science 28(5). Two samples of 96 and 118 newlywed couples, 14-day diaries; sexual satisfaction elevated ~48 h after sex; stronger afterglow predicted higher marital satisfaction and less decline 4-6 months later. Via APS press release."
+ ]
+}

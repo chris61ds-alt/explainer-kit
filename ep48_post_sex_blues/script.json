@@ -1,0 +1,39 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Sad after sex? Even when it was good? You're not broken."
+  },
+  {
+   "id": "study",
+   "text": "Researchers in Australia asked women, and later over twelve hundred men, about feelings right after sex."
+  },
+  {
+   "id": "result",
+   "text": "Forty-six percent of women had felt sad, tearful or irritable afterwards at least once."
+  },
+  {
+   "id": "men",
+   "text": "And men? Forty-one percent. One in five in the past four weeks alone."
+  },
+  {
+   "id": "good",
+   "text": "It even happened in loving relationships, after sex that felt good."
+  },
+  {
+   "id": "point",
+   "text": "It has a name: post-sex blues. So if it hits you, say it out loud. It's not about them."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Schweitzer, O'Brien, Burri et al. (2015). Postcoital dysphoria: prevalence and psychological correlates. Sexual Medicine 3(4). Australian university women: 46% lifetime, ~5% past month. Via WBUR / ISSM.",
+  "Maczkowiack & Schweitzer (2019, online 2018). Postcoital dysphoria: prevalence and correlates among males. Journal of Sex & Marital Therapy 45(2). 1,208 men online: 41% lifetime, 20% past four weeks, 3-4% regularly. Via ISSM."
+ ]
+}
