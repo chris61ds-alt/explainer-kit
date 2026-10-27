@@ -117,19 +117,19 @@ function run() {
 
 /**
  * Verteilt alle noch nicht veröffentlichten Zeilen (Status leer oder "missed") neu:
- * ab START_DAYS_FROM_NOW Tagen, eine Folge pro Tag, Reihenfolge bleibt erhalten.
+ * ab START_DAYS_FROM_NOW Tagen, eine Folge pro Slot (TIMES), Reihenfolge bleibt erhalten.
  */
 function rescheduleFromToday() {
-  const START_DAYS_FROM_NOW = 1, TIME = '18:30';
+  const START_DAYS_FROM_NOW = 1, TIMES = ['12:30', '18:30'];   // Slots pro Tag
   const sh = sheet_(); const values = sh.getDataRange().getValues();
-  let day = new Date(); day.setDate(day.getDate() + START_DAYS_FROM_NOW);
+  let day = new Date(); day.setDate(day.getDate() + START_DAYS_FROM_NOW); let slot = 0;
   for (let i = 1; i < values.length; i++) {
     const st = String(values[i][COL.status - 1] || '').trim();
     if (st !== '' && st !== 'missed') continue;
-    sh.getRange(i + 1, COL.date).setValue(Utilities.formatDate(day, TZ, 'yyyy-MM-dd'));
-    sh.getRange(i + 1, COL.time).setValue(TIME);
+    sh.getRange(i + 1, COL.date, 1, 2).setNumberFormat('@')
+      .setValues([[Utilities.formatDate(day, TZ, 'yyyy-MM-dd'), TIMES[slot]]]);
     sh.getRange(i + 1, COL.status).setValue('');
-    day.setDate(day.getDate() + 1);
+    if (++slot >= TIMES.length) { slot = 0; day.setDate(day.getDate() + 1); }
   }
   Logger.log('Neu geplant ab ' + Utilities.formatDate(new Date(Date.now() + START_DAYS_FROM_NOW * 86400000), TZ, 'dd.MM.yyyy'));
 }
