@@ -4,7 +4,7 @@ About 500 couples in five countries timed themselves at home for four weeks. The
 
 And sex therapists? They rated 3 to 7 minutes as perfectly adequate.
 
-So, shorter than the movies. And totally normal. The clock was never the point. 🧡
+So, shorter than in the movies. And totally normal. The clock was never the point. 🧡
 
 Not just you · After Dark
 

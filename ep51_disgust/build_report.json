@@ -1,0 +1,28 @@
+{
+ "episode": "ep51_disgust",
+ "tts": "new",
+ "asr_voice": [],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 32.27,
+  "size_MiB": 4.6,
+  "black_intervals": [],
+  "loudness_LUFS": -16.4,
+  "true_peak_dBTP": -2.5,
+  "sha256": "d79a67d6475d942a7a8f7656cbe78cc8fb816a81a0102dd04718e9794a57ed7d",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "0/90 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 32.27,
+ "cover": "ep51_disgust_cover.png",
+ "caption": "ok"
+}
