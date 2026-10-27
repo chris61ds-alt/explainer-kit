@@ -1,0 +1,32 @@
+{
+ "episode": "ep21_sleep_on_it",
+ "tts": "new",
+ "asr_voice": [
+  "study: 1/13 | In one experiment, people practiced a number puzzle that had a hidden shortcut."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 22.57,
+  "size_MiB": 3.4,
+  "black_intervals": [],
+  "loudness_LUFS": -16.6,
+  "true_peak_dBTP": -1.5,
+  "sha256": "c023a468065a3fcdf98ed968e63410eabfe8c4eb2f49a5cd61a2e7ec11ccb985",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "1/63 = 1.6%",
+ "asr_final_issues": [
+  "study: 1/13 | In one experiment, people practiced a number puzzle that had a hidden shortcut."
+ ],
+ "duration_s": 22.56,
+ "cover": "ep21_sleep_on_it_cover.png",
+ "caption": "ok"
+}
