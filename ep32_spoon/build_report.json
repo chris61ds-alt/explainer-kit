@@ -1,0 +1,36 @@
+{
+ "episode": "ep32_spoon",
+ "tts": "new",
+ "asr_voice": [
+  "hook: 1/7 | Say the word spoon, again, again, again, again.",
+  "demo: 3/6 | Spoon spoon spoon spoon spoon spoon spoon spoon spoon",
+  "name: 5/12 | It's called semantic satiation. A psychologist named it in 1962."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 25.23,
+  "size_MiB": 3.6,
+  "black_intervals": [],
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -2.2,
+  "sha256": "8750f2a373728cf9426c829693c4eb0f4de66f17d05a609f1ed6548daa98f371",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "8/61 = 13.1%",
+ "asr_final_issues": [
+  "hook: 1/7 | See the word spoon again, again, again.",
+  "demo: 2/6 | Spoon spoon spoon spoon spoon spoon spoon spoon",
+  "name: 5/12 | It's called semantic satiation. A psychologist named it in 1962."
+ ],
+ "duration_s": 25.23,
+ "cover": "ep32_spoon_cover.png",
+ "caption": "ok"
+}
