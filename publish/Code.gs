@@ -17,10 +17,12 @@
  *   MEDIA_BASE   – z. B. https://raw.githubusercontent.com/chris61ds-alt/notjustyou-media/main/
  *   SHEET_ID     – ID des Posting-Plans (aus der Sheet-URL)
  *   API_VERSION  – optional, Standard v26.0
+ *   API_HOST     – optional: graph.instagram.com (Instagram-Login, Standard) oder graph.facebook.com
+ *                  (Facebook-Login; dann IG_TOKEN = Seiten-Token, läuft nicht ab)
  *   NOTIFY_EMAIL – optional, Standard: dein Google-Konto
  *
  * Datenschutz: Das Skript speichert nur Token und IDs in den Script-Eigenschaften deines Kontos,
- * sendet nichts an Dritte außer an graph.instagram.com und protokolliert keine Nutzerdaten.
+ * sendet nichts an Dritte außer an die Instagram/Meta Graph API und protokolliert keine Nutzerdaten.
  */
 
 const TZ = 'Europe/Berlin';
@@ -46,7 +48,7 @@ function setup() {
   ScriptApp.newTrigger('run').timeBased().everyMinutes(CHECK_EVERY_MIN).create();
   ScriptApp.newTrigger('refreshToken').timeBased().everyDays(1).atHour(4).inTimezone(TZ).create();
   ScriptApp.newTrigger('weeklyTikTokDigest').timeBased().onWeekDay(ScriptApp.WeekDay.MONDAY).atHour(9).inTimezone(TZ).create();
-  const me = igGet_('me', { fields: 'user_id,username' });
+  const me = igGet_(p.IG_USER_ID, { fields: 'username' });
   Logger.log('Verbunden mit @' + me.username + ' · Trigger angelegt.');
   checkMediaUrls();
 }
@@ -214,6 +216,7 @@ function fail_(sh, row, r, msg) {
 /** Täglich: verlängert den Long-lived Token (Instagram erlaubt das ab 24 h nach Ausstellung). */
 function refreshToken() {
   const p = props_();
+  if (p.API_HOST === 'graph.facebook.com') return;   // Seiten-Token aus Facebook-Login läuft nicht ab
   const url = 'https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=' +
               encodeURIComponent(p.IG_TOKEN);
   const res = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
@@ -258,6 +261,7 @@ function dueDate_(d, t, sheetTz) {
 function props_() {
   const p = PropertiesService.getScriptProperties().getProperties();
   p.API_VERSION = p.API_VERSION || 'v26.0';
+  p.API_HOST = (p.API_HOST || 'graph.instagram.com').replace(/^https?:\/\//, '').replace(/\/+$/, '');
   if (p.MEDIA_BASE && p.MEDIA_BASE.slice(-1) !== '/') p.MEDIA_BASE += '/';
   return p;
 }
@@ -272,7 +276,7 @@ function sheet_() {
 function igGet_(path, params) {
   const p = props_();
   const q = Object.keys(params || {}).map(k => k + '=' + encodeURIComponent(params[k])).join('&');
-  const url = 'https://graph.instagram.com/' + p.API_VERSION + '/' + path + '?' + (q ? q + '&' : '') +
+  const url = 'https://' + p.API_HOST + '/' + p.API_VERSION + '/' + path + '?' + (q ? q + '&' : '') +
               'access_token=' + encodeURIComponent(p.IG_TOKEN);
   return parse_(UrlFetchApp.fetch(url, { muteHttpExceptions: true }));
 }
@@ -280,7 +284,7 @@ function igGet_(path, params) {
 function igPost_(path, payload) {
   const p = props_();
   payload = Object.assign({}, payload, { access_token: p.IG_TOKEN });
-  const url = 'https://graph.instagram.com/' + p.API_VERSION + '/' + path;
+  const url = 'https://' + p.API_HOST + '/' + p.API_VERSION + '/' + path;
   return parse_(UrlFetchApp.fetch(url, { method: 'post', payload: payload, muteHttpExceptions: true }));
 }
 
