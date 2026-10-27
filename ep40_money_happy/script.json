@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Money can't buy happiness? Sorry. It can."
+  },
+  {
+   "id": "old",
+   "text": "For years, the story was: above seventy-five thousand dollars a year, more money stops making you happier."
+  },
+  {
+   "id": "study",
+   "text": "Then rival researchers teamed up, using an app that asked people how they felt at random moments."
+  },
+  {
+   "id": "result",
+   "text": "For most people, happiness kept rising with income. Way past seventy-five thousand."
+  },
+  {
+   "id": "except",
+   "text": "Only the unhappiest group leveled off, at around a hundred thousand."
+  },
+  {
+   "id": "point",
+   "text": "So money does help. But if you're deeply unhappy, more of it won't fix everything."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Killingsworth, Kahneman & Mellers (2023). Income and emotional well-being: A conflict resolved. PNAS 120(10). Adversarial collaboration; experience sampling (Track Your Happiness); happiness rises with income on average; least happy group rises until ~$100k then plateaus; earlier plateau at $75k (Kahneman & Deaton 2010) reflected the unhappy. Via ScienceDaily."
+ ]
+}

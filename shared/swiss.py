@@ -387,17 +387,27 @@ def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
 cute.build_audio = build_audio
 
 # ---------------------------------------------------------------- episode chrome + harness
+def darken(img):
+    """'Swiss Dark': invert lightness, keep hue + chroma (p' = p + 255 - max - min).
+    White paper → near-black, ink → near-white, signal orange stays orange, anti-aliased edges stay clean."""
+    a = np.asarray(img).astype(np.int16)
+    sh_ = 255 - a.max(axis=2, keepdims=True) - a.min(axis=2, keepdims=True)
+    out = np.clip(a + sh_, 0, 255)
+    out = np.clip(out + (out < 40) * 8, 0, 255)          # lift pure black a touch (less harsh on OLED)
+    img.paste(Image.fromarray(out.astype(np.uint8)))
+
 class Episode:
     """chrome + harness. Options: layers (drawn every frame on top of the scene, for actors that carry over between scenes),
     drift (slow camera push per scene), loop (last frames wipe back to frame 0 for a seamless Instagram loop),
     music (dict for MUSIC), cover (dict for make_cover)."""
     def __init__(self, TL, no, title, chapters, order, sources=(), handle="@vascoda.soda", series="NOT JUST YOU",
-                 drift=.03, loop=True, music=None, cover=None):
+                 drift=.03, loop=True, music=None, cover=None, dark=False):
         self.TL, self.no, self.title, self.order = TL, no, title, order
         self.chapters = {k: (f"{i + 1:02d}", v) for i, (k, v) in enumerate(chapters.items())}
         self.sources, self.handle, self.series = sources, handle, series
         self.scenes, self.layers = {}, []
         self.drift, self.loop, self.music, self.cover_spec = drift, loop, music or {}, cover
+        self.dark = dark
 
     def current(self, t):
         cur = self.order[0]
@@ -475,6 +485,10 @@ class Episode:
         self.subtitle(d, t)
 
     def draw(self, img, d, t):
+        self._draw(img, d, t)
+        if self.dark: darken(img)
+
+    def _draw(self, img, d, t):
         T = self.TL.total; L = .5
         if not self.loop or t < T - L: return self.compose(img, d, t)
         k = (t - (T - L)) / L                   # wipe: end card → frame 0 (seamless loop on Instagram)
@@ -499,6 +513,7 @@ class Episode:
         if kicker: d.text((X0, y + 30), kicker, font=F(COND, 46), fill=INK)
         d.line([X0, 1600, X1 + 60, 1600], fill=INK, width=5)
         d.text((X0, 1616), self.handle, font=F(COND, 34), fill=INK)
+        if self.dark: darken(img)
         img = Image.fromarray(np.clip(np.array(img).astype(np.int16) + cute.PAPER, 0, 255).astype(np.uint8))
         img.save(path); return path
 

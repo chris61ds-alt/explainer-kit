@@ -1,0 +1,35 @@
+{
+ "episode": "ep38_alone_shock",
+ "tts": "new",
+ "asr_voice": [
+  "button: 1/20 | Then they added a button that gave a mild electric shock, a shock they had said they'd paid to avoid. [BUZZER]",
+  "result: 1/12 | Two of three men pressed it and one in four women.",
+  "record: 1/9 | One man pressed it 190 times."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 32.67,
+  "size_MiB": 4.6,
+  "black_intervals": [],
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -2.5,
+  "sha256": "dbdd4c9cffa8a2e11f241434e265f934cfbfaa18a8998b639bbcda1a115e765c",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "3/95 = 3.2%",
+ "asr_final_issues": [
+  "result: 2/12 | Two of our three men pressed it, and one in four women.",
+  "record: 1/9 | One man pressed it 190 times."
+ ],
+ "duration_s": 32.68,
+ "cover": "ep38_alone_shock_cover.png",
+ "caption": "ok"
+}

@@ -1,0 +1,42 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You lied today. Probably more than once."
+  },
+  {
+   "id": "study",
+   "text": "In a diary study, people wrote down every lie they told for a whole week."
+  },
+  {
+   "id": "result",
+   "text": "College students lied about twice a day. Other adults, about once."
+  },
+  {
+   "id": "often",
+   "text": "That's one in three conversations for students. One in five for everyone else."
+  },
+  {
+   "id": "what",
+   "text": "The most common lies were about feelings. I love it. I'm fine. Great idea."
+  },
+  {
+   "id": "self",
+   "text": "And about twice as many lies protected the liar as protected someone else."
+  },
+  {
+   "id": "point",
+   "text": "So next time you say I'm fine, at least you're in good company."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "DePaulo, Kashy, Kirkendol, Wyer & Epstein (1996). Lying in everyday life. Journal of Personality and Social Psychology 70(5). One-week diaries: students mean 1.96 lies/day, community members 0.97; lies in ~1/3 vs ~1/5 of social interactions; lies about feelings most common; self-centered lies outnumbered other-oriented ~2:1."
+ ]
+}
