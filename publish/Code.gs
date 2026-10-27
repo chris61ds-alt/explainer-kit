@@ -10,6 +10,7 @@
  *   2. nächster Lauf    → Status prüfen; FINISHED → veröffentlichen          → Status "live"
  *   Fehler              → Status "error: …" + Mail an dich
  *
+ * Plan: importSchedule() lädt schedule.json aus MEDIA_BASE ins Sheet (Status bleibt erhalten).
  * Einrichtung: siehe Setup-Anleitung. Script-Eigenschaften (Projekteinstellungen → Script-Eigenschaften):
  *   IG_USER_ID   – deine Instagram-User-ID (aus dem Meta-Dashboard)
  *   IG_TOKEN     – Long-lived Access Token (60 Tage gültig, wird automatisch erneuert)
@@ -129,6 +130,39 @@ function rescheduleFromToday() {
     day.setDate(day.getDate() + 1);
   }
   Logger.log('Neu geplant ab ' + Utilities.formatDate(new Date(Date.now() + START_DAYS_FROM_NOW * 86400000), TZ, 'dd.MM.yyyy'));
+}
+
+/**
+ * Lädt den aktuellen Plan (schedule.json aus MEDIA_BASE) ins Sheet.
+ * Bereits gestartete/veröffentlichte Folgen (Status nicht leer) behalten Termin und Status.
+ */
+function importSchedule() {
+  const p = props_();
+  const res = UrlFetchApp.fetch(p.MEDIA_BASE + 'schedule.json', { muteHttpExceptions: true });
+  if (res.getResponseCode() !== 200) throw new Error('schedule.json nicht erreichbar (HTTP ' + res.getResponseCode() + ')');
+  const data = JSON.parse(res.getContentText('UTF-8'));          // [header, ...rows] – 12 Spalten
+  const sh = sheet_();
+  const old = sh.getDataRange().getValues();
+  const keep = {};
+  old.slice(1).forEach(r => {
+    if (String(r[COL.status - 1] || '').trim() !== '') keep[String(r[COL.no - 1])] = r;
+  });
+  const out = data.map((r, i) => {
+    if (i === 0) return r;
+    const k = keep[String(r[COL.no - 1])];
+    if (!k) return r;
+    const m = r.slice();
+    [COL.date, COL.time, COL.status, COL.container, COL.mediaId, COL.postedAt, COL.tiktok].forEach(c => m[c - 1] = k[c - 1]);
+    const tz = sh.getParent().getSpreadsheetTimeZone();
+    if (m[COL.date - 1] instanceof Date) m[COL.date - 1] = Utilities.formatDate(m[COL.date - 1], tz, 'yyyy-MM-dd');
+    if (m[COL.time - 1] instanceof Date) m[COL.time - 1] = Utilities.formatDate(m[COL.time - 1], tz, 'HH:mm');
+    return m;
+  });
+  sh.clearContents();
+  sh.getRange(1, 1, out.length, 2).setNumberFormat('@');
+  sh.getRange(1, 1, out.length, out[0].length).setValues(out);
+  sh.setFrozenRows(1);
+  Logger.log('Plan importiert: ' + (out.length - 1) + ' Folgen, ' + Object.keys(keep).length + ' mit Status übernommen.');
 }
 
 function startContainer_(sh, row, r) {
