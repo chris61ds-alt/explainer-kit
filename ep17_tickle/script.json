@@ -1,0 +1,39 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Try to tickle yourself. Nothing, right?"
+  },
+  {
+   "id": "why",
+   "text": "Your brain predicts the touch before it happens. And what's predicted feels weaker."
+  },
+  {
+   "id": "study",
+   "text": "Researchers built a robot that stroked people's palm, controlled by their own other hand."
+  },
+  {
+   "id": "delay",
+   "text": "When the robot added a tiny delay, just a fraction of a second, it started to tickle."
+  },
+  {
+   "id": "name",
+   "text": "Your brain cancels out its own surprises."
+  },
+  {
+   "id": "point",
+   "text": "That's why you can't tickle yourself. And why someone else's touch always feels stronger."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Blakemore, Frith & Wolpert (1999). Spatio-temporal prediction modulates the perception of self-produced stimuli. Journal of Cognitive Neuroscience 11(5). Robot interface; ticklishness rose with delays of 100-300 ms and with rotation.",
+  "Shergill et al. (2003). Two eyes for an eye: the neuroscience of force escalation. Science 301: self-generated forces feel weaker. Via BPS/PsyBlog summaries."
+ ]
+}

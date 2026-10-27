@@ -1,0 +1,28 @@
+{
+ "episode": "ep15_next_in_line",
+ "tts": "new",
+ "asr_voice": [],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 31.9,
+  "size_MiB": 4.5,
+  "black_intervals": [],
+  "loudness_LUFS": -16.5,
+  "true_peak_dBTP": -1.5,
+  "sha256": "263298d4f725ed6271a6df6732d084abd1db32289654a30cfd05fc0887997404",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "0/82 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 31.89,
+ "cover": "ep15_next_in_line_cover.png",
+ "caption": "ok"
+}

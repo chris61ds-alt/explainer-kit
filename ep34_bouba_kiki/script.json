@@ -1,0 +1,35 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "One of these shapes is called Bouba. The other is Kiki. Which is which?"
+  },
+  {
+   "id": "answer",
+   "text": "You probably said the round one is Bouba. So does almost everyone."
+  },
+  {
+   "id": "study",
+   "text": "Researchers tested speakers of twenty-five languages and ten writing systems. Most matched them the same way."
+  },
+  {
+   "id": "why",
+   "text": "Round sounds, round lips, round shape. Sharp sounds, sharp shape."
+  },
+  {
+   "id": "point",
+   "text": "So language isn't completely random. Some sounds come with a shape."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Koehler (1929); Ramachandran & Hubbard (2001), Journal of Consciousness Studies 8(12).",
+  "Cwiek et al. (2021). The bouba/kiki effect is robust across cultures and writing systems. Philosophical Transactions of the Royal Society B 377. 25 languages, 9 families, 10 writing systems; most speakers matched bouba-round, kiki-spiky (exceptions e.g. Romanian, Turkish, Mandarin). Via Leibniz-ZAS."
+ ]
+}

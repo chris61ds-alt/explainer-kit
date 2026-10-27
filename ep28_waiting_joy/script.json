@@ -1,0 +1,34 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Waiting for a new phone feels like impatience. Waiting for a trip feels like joy."
+  },
+  {
+   "id": "study",
+   "text": "Researchers pinged over two thousand people at random moments and asked what they were thinking about."
+  },
+  {
+   "id": "result",
+   "text": "People looking forward to an experience were happier than people looking forward to a thing."
+  },
+  {
+   "id": "queue",
+   "text": "Even news reports agreed: people in line for experiences were in better moods than people in line for stuff."
+  },
+  {
+   "id": "point",
+   "text": "So book the trip early. The waiting is part of the gift."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Kumar, Killingsworth & Gilovich (2014). Waiting for Merlot: Anticipatory consumption of experiential and material purchases. Psychological Science 25(10). Experience sampling with 2,266 adults; anticipating experiences was more pleasant/exciting than anticipating material goods; news accounts of queues showed better moods for experiences. Via APS."
+ ]
+}

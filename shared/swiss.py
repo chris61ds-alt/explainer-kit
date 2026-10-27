@@ -221,6 +221,107 @@ def legend(d, items, y=1100):
         d.rectangle([x, y, x + 22, y + 22], fill=col); d.text((x + 32, y + 11), lab, font=F(COND, 24), fill=INK, anchor="lm")
         x += 60 + d.textlength(lab, font=F(COND, 24))
 
+# ---------------------------------------------------------------- more props (line art, Swiss)
+def camera(d, cx, cy, s=1.0, col=INK, flash=0.0):
+    d.rectangle([cx - 70 * s, cy - 44 * s, cx + 70 * s, cy + 50 * s], fill=col)
+    d.rectangle([cx - 30 * s, cy - 62 * s, cx + 10 * s, cy - 44 * s], fill=col)
+    d.ellipse([cx - 32 * s, cy - 26 * s, cx + 32 * s, cy + 38 * s], fill=WHITE); d.ellipse([cx - 20 * s, cy - 14 * s, cx + 20 * s, cy + 26 * s], fill=col)
+    if flash > 0:
+        for i in range(8):
+            a = i / 8 * 2 * math.pi; r0, r1 = 90 * s, (90 + 60 * flash) * s
+            d.line([cx + math.cos(a) * r0, cy + math.sin(a) * r0, cx + math.cos(a) * r1, cy + math.sin(a) * r1], fill=SIG, width=int(6 * s))
+
+def frame_art(d, x0, y0, x1, y1, kind=0, col=INK):
+    """framed artwork on a wall: 0 circle, 1 triangle, 2 bars"""
+    d.rectangle([x0, y0, x1, y1], outline=col, width=8); d.rectangle([x0 + 18, y0 + 18, x1 - 18, y1 - 18], outline=RULE, width=3)
+    cx, cy, w = (x0 + x1) / 2, (y0 + y1) / 2, (x1 - x0) * .28
+    if kind == 0: d.ellipse([cx - w, cy - w, cx + w, cy + w], fill=SIG)
+    elif kind == 1: d.polygon([(cx, cy - w), (cx + w, cy + w), (cx - w, cy + w)], fill=INK)
+    else:
+        for i in range(3): d.rectangle([cx - w + i * w * .75, cy - w + i * 14, cx - w + i * w * .75 + w * .5, cy + w], fill=SIG if i == 1 else INK)
+
+def clock(d, cx, cy, r, t=0.0, minutes=None, col=INK, speed=1.0):
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=col, width=int(max(4, r * .08)))
+    for i in range(12):
+        a = i / 12 * 2 * math.pi; d.line([cx + math.cos(a) * r * .82, cy + math.sin(a) * r * .82, cx + math.cos(a) * r * .92, cy + math.sin(a) * r * .92], fill=col, width=int(max(2, r * .04)))
+    m = minutes if minutes is not None else t * 60 * speed
+    am = math.radians(m / 60 * 360 - 90); ah = math.radians(m / 720 * 360 - 90)
+    d.line([cx, cy, cx + math.cos(ah) * r * .5, cy + math.sin(ah) * r * .5], fill=col, width=int(max(4, r * .09)))
+    d.line([cx, cy, cx + math.cos(am) * r * .78, cy + math.sin(am) * r * .78], fill=SIG, width=int(max(3, r * .05)))
+    d.ellipse([cx - r * .07, cy - r * .07, cx + r * .07, cy + r * .07], fill=col)
+
+def bed(d, x0, y, w=420, col=INK):
+    d.rectangle([x0, y - 90, x0 + w, y - 40], fill=col); d.rectangle([x0, y - 170, x0 + 20, y], fill=col)
+    d.rectangle([x0 + w - 20, y - 120, x0 + w, y], fill=col); d.rounded_rectangle([x0 + 30, y - 130, x0 + 130, y - 90], radius=18, fill=RULE)
+
+def credit_card(d, cx, cy, s=1.0, col=INK, rot=0):
+    w, h = 220 * s, 140 * s
+    d.rounded_rectangle([cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2], radius=14 * s, fill=col)
+    d.rectangle([cx - w / 2 + 20 * s, cy - h / 2 + 30 * s, cx - w / 2 + 60 * s, cy - h / 2 + 60 * s], fill=SIG)
+    for i in range(4): d.rectangle([cx - w / 2 + 20 * s + i * 46 * s, cy + 20 * s, cx - w / 2 + 56 * s + i * 46 * s, cy + 30 * s], fill=WHITE)
+
+def banknote(d, cx, cy, s=1.0, value="50", col=INK):
+    w, h = 240 * s, 120 * s
+    d.rectangle([cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2], fill=WHITE, outline=col, width=int(5 * s))
+    d.ellipse([cx - 34 * s, cy - 34 * s, cx + 34 * s, cy + 34 * s], outline=col, width=int(4 * s))
+    d.text((cx - w / 2 + 14 * s, cy - h / 2 + 8 * s), value, font=F(BLK, int(34 * s)), fill=col)
+    d.text((cx + w / 2 - 14 * s, cy + h / 2 - 8 * s), value, font=F(BLK, int(34 * s)), fill=col, anchor="rd")
+
+def coin(d, cx, cy, r=30, col=INK, label="1"):
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=WHITE, outline=col, width=5)
+    d.text((cx, cy), label, font=F(BLK, int(r)), fill=col, anchor="mm")
+
+def note_icon(d, x, y, s=1.0, col=INK):
+    d.ellipse([x - 22 * s, y - 14 * s, x + 14 * s, y + 14 * s], fill=col); d.line([x + 12 * s, y, x + 12 * s, y - 80 * s], fill=col, width=int(7 * s))
+    d.polygon([(x + 12 * s, y - 80 * s), (x + 46 * s, y - 60 * s), (x + 46 * s, y - 44 * s), (x + 12 * s, y - 62 * s)], fill=col)
+
+def headphones(d, h, s=1.0, col=INK):
+    d.arc([h[0] - 56 * s, h[1] - 64 * s, h[0] + 56 * s, h[1] + 40 * s], 190, 350, fill=col, width=int(10 * s))
+    for sx in (-1, 1): d.rectangle([h[0] + sx * 54 * s - 13 * s, h[1] - 14 * s, h[0] + sx * 54 * s + 13 * s, h[1] + 24 * s], fill=col)
+
+def waveform(d, x0, x1, y, t, amp=60, col=INK, prog=1.0, seed=1, n=90):
+    for i in range(n):
+        u = i / (n - 1); x = x0 + (x1 - x0) * u
+        a = amp * (.25 + .75 * abs(math.sin(i * 1.7 + seed) * math.sin(i * .43 + seed * .3)))
+        d.rectangle([x - 2.5, y - a, x + 2.5, y + a], fill=col if u <= prog else RULE)
+
+def eye(d, x, y, s=1.0, col=INK, open_k=1.0, look=(0, 0)):
+    h = 26 * s * open_k
+    d.chord([x - 44 * s, y - h, x + 44 * s, y + h], 0, 360, fill=WHITE, outline=col, width=int(5 * s))
+    if open_k > .3:
+        px, py = x + look[0] * 14 * s, y + look[1] * 8 * s
+        d.ellipse([px - 14 * s, py - 14 * s, px + 14 * s, py + 14 * s], fill=col)
+    else: d.line([x - 44 * s, y, x + 44 * s, y], fill=col, width=int(5 * s))
+
+# ---------------------------------------------------------------- generic scene helpers
+def words_in(d, t, items, x=X0 - 8, slide=80):
+    """items: [(text, t_in, y, size, col)] – headline words that slide + fade in"""
+    for text, tk, y, size, col in items:
+        k = ease((t - tk) / .35)
+        if k > 0: d.text((x - (1 - k) * slide, y), text, font=F(BLK, size), fill=mix(BG, col, k))
+
+def counter(d, x, y, t, t0, dur, to, fmt="{:,.0f}", size=200, col=SIG, anchor="la"):
+    v = to * ease_io((t - t0) / dur)
+    if t >= t0: d.text((x, y), fmt.format(v), font=F(BLK, size), fill=col, anchor=anchor)
+
+def actors_layer(order, S, specs, slide=.55):
+    """specs: [dict(col, f, tg={scene: (x, s, dy)}, poses=[(t, pose)], acc=fn(d, head, s) or None)] → layer fn.
+    Actors glide between scene targets; dy >= 650 hides them below the frame."""
+    heads = {}
+    def layer(img, d, t, cur):
+        i = order.index(cur); prev = order[max(0, i - 1)]
+        k = ease_io((t - S(cur) + .05) / slide) if i else 1
+        for j, sp in enumerate(specs):
+            tg = sp["tg"]; a, b = tg.get(prev, tg.get(cur)), tg.get(cur)
+            if b is None: continue
+            x, sc, dy = (lerp(p, q, k) for p, q in zip(a, b))
+            if dy >= 650 or sc <= .05: continue
+            h = picto(d, x, FLOOR + dy, sc, sp.get("col", INK), f=sp.get("f", 1), pose=pose_seq(t, sp["poses"]))
+            if sp.get("acc"): sp["acc"](d, h, sc)
+            heads[j] = h
+    layer.heads = heads
+    return layer
+
 # ---------------------------------------------------------------- sound: dark minimal bed + sfx
 def rewind_sfx(amp=.22, dur=.55):
     t = tt_(dur); f = 2400 * np.exp(-t * 4.5) + 200

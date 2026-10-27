@@ -1,0 +1,42 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You filmed the whole concert. Now try to remember it."
+  },
+  {
+   "id": "study",
+   "text": "In a museum study, students looked at some objects and photographed others."
+  },
+  {
+   "id": "result",
+   "text": "The next day, they remembered the photographed ones worse."
+  },
+  {
+   "id": "name",
+   "text": "Psychologists call it the photo-taking impairment effect."
+  },
+  {
+   "id": "why",
+   "text": "One idea: your brain hands the job to the camera. It's saved, so why remember?"
+  },
+  {
+   "id": "twist",
+   "text": "But zooming in on one detail helped people remember the whole object."
+  },
+  {
+   "id": "point",
+   "text": "So take the photo. Then look up, and actually look."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Henkel (2014). Point-and-shoot memories: The influence of taking photos on memory for a museum tour. Psychological Science 25(2). Exp 1: 28 students, 15 objects observed / 15 photographed; photographed objects remembered worse next day. Exp 2: 46 students; zooming in on a detail preserved memory for the whole object. Via Live Science."
+ ]
+}

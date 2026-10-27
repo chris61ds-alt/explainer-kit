@@ -1,0 +1,39 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Say the word spoon. Again. Again. Again."
+  },
+  {
+   "id": "demo",
+   "text": "Spoon. Spoon. Spoon. Spoon. Spoon. Spoon."
+  },
+  {
+   "id": "weird",
+   "text": "At some point, it stops sounding like a word."
+  },
+  {
+   "id": "name",
+   "text": "It's called semantic satiation. A psychologist named it in nineteen sixty-two."
+  },
+  {
+   "id": "why",
+   "text": "Repeat a word enough and the link to its meaning gets tired. Like a muscle."
+  },
+  {
+   "id": "point",
+   "text": "Your brain isn't glitching. It's just tired of spoon."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Jakobovits (James) (1962). Effects of repeated stimulation on cognitive aspects of behavior. Doctoral dissertation, McGill University (term 'semantic satiation').",
+  "Severance & Washburn (1907). The loss of associative power in words after long fixation. American Journal of Psychology 18. Mechanism (reactive inhibition) is a proposed explanation. Via Wikipedia 'Semantic satiation'."
+ ]
+}

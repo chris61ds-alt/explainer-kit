@@ -1,0 +1,35 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "It's on the tip of my tongue."
+  },
+  {
+   "id": "study",
+   "text": "In a classic study, people read definitions of rare words. When they got stuck, they often still knew the first letter. Or how many syllables."
+  },
+  {
+   "id": "name",
+   "text": "So the word is in there. Just not all at once."
+  },
+  {
+   "id": "langs",
+   "text": "And it's universal. Of fifty-one languages surveyed, forty-five have a phrase for it."
+  },
+  {
+   "id": "hint",
+   "text": "A small hint, like the first sound, often unlocks it."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Brown & McNeill (1966). The 'tip of the tongue' phenomenon. Journal of Verbal Learning and Verbal Behavior 5. In TOT states people identified first letter and number of syllables above chance.",
+  "Schwartz (1999). Sparkling at the end of the tongue. Psychonomic Bulletin & Review 6: 45 of 51 languages have a TOT idiom. Priming with first sounds aids retrieval. Via Wikipedia 'Tip of the tongue'."
+ ]
+}

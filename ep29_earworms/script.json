@@ -1,0 +1,35 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "That song stuck in your head? It's not random."
+  },
+  {
+   "id": "study",
+   "text": "Researchers asked three thousand people for their most frequent earworms and compared them to equally popular songs."
+  },
+  {
+   "id": "traits",
+   "text": "Earworms tend to be faster, with a familiar melodic shape, and one surprising jump or repeat."
+  },
+  {
+   "id": "top",
+   "text": "The most named earworm: Bad Romance, by Lady Gaga."
+  },
+  {
+   "id": "tip",
+   "text": "To get rid of one: listen to it all the way through. Or chew gum. In one study, it helped."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Jakubowski, Finkel, Stewart & Muellensiefen (2017). Dissecting an earworm: Melodic features and song popularity predict involuntary musical imagery. Psychology of Aesthetics, Creativity, and the Arts 11(2). 3,000 participants; faster tempo, common melodic contour, unusual intervals; top: Bad Romance. Via APA.",
+  "Beaman et al. (2015). Want to block earworms from conscious awareness? B(u)y gum! Quarterly Journal of Experimental Psychology 68(6)."
+ ]
+}

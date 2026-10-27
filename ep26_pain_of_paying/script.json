@@ -1,0 +1,34 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Why does paying by card feel like nothing?"
+  },
+  {
+   "id": "study",
+   "text": "In one experiment, people bid on tickets to a sold-out basketball game. Some had to pay cash. Others, by card."
+  },
+  {
+   "id": "result",
+   "text": "The card group was willing to pay more than twice as much."
+  },
+  {
+   "id": "name",
+   "text": "Researchers call it the pain of paying. Cash hurts. Cards numb it."
+  },
+  {
+   "id": "tip",
+   "text": "Want to spend less? Make it hurt a little. Pay cash, or check your balance first."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Prelec & Simester (2001). Always leave home without it: A further investigation of the credit-card effect on willingness to pay. Marketing Letters 12(1). Credit-card condition's willingness to pay was more than double the cash condition. Via Psychology Today (Markman)."
+ ]
+}

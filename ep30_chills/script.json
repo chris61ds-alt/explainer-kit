@@ -1,0 +1,34 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Goosebumps from a song? Your brain is doing something wild."
+  },
+  {
+   "id": "study",
+   "text": "Researchers scanned people while they listened to music that gave them chills."
+  },
+  {
+   "id": "peak",
+   "text": "At the peak, their brains released dopamine. The same reward chemical as food."
+  },
+  {
+   "id": "before",
+   "text": "But here's the twist: dopamine also flowed before the peak. Just from waiting for it."
+  },
+  {
+   "id": "point",
+   "text": "So that build-up before the drop? Your brain is paying you to wait."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Salimpoor, Benovoy, Larcher, Dagher & Zatorre (2011). Anatomically distinct dopamine release during anticipation and experience of peak emotion to music. Nature Neuroscience 14. PET + fMRI; dopamine release in the striatum; caudate during anticipation, nucleus accumbens during the peak. Via Psychology Today."
+ ]
+}

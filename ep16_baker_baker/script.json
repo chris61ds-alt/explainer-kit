@@ -1,0 +1,39 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You remember their face. Their job. Their dog. But not their name."
+  },
+  {
+   "id": "study",
+   "text": "In one experiment, people saw a face and were told: this man is a baker. Others were told: his name is Baker."
+  },
+  {
+   "id": "result",
+   "text": "Same word. But the job was remembered far better than the name."
+  },
+  {
+   "id": "name",
+   "text": "It's called the Baker baker paradox."
+  },
+  {
+   "id": "why",
+   "text": "A baker comes with bread, flour and ovens. A name like Baker comes with nothing."
+  },
+  {
+   "id": "tip",
+   "text": "So give names a hook. Picture Mister Baker holding a loaf of bread."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "McWeeny, Young, Hay & Ellis (1987). Putting names to faces. British Journal of Psychology 78. Same word remembered better as an occupation than as a surname.",
+  "Cohen (1990). Why is it difficult to put names to faces? British Journal of Psychology 81. Via ScienceABC."
+ ]
+}

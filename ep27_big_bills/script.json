@@ -1,0 +1,34 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You break a fifty. And somehow it's gone by Friday."
+  },
+  {
+   "id": "study",
+   "text": "In one experiment, people got five dollars. Either as one bill, or as five ones or coins."
+  },
+  {
+   "id": "result",
+   "text": "Those with small change spent more. The single bill mostly stayed in the pocket."
+  },
+  {
+   "id": "name",
+   "text": "It's called the denomination effect. A big bill feels too whole to break."
+  },
+  {
+   "id": "point",
+   "text": "So want to save? Keep it in one piece."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Raghubir & Srivastava (2009). The denomination effect. Journal of Consumer Research 36(4). Gas-station experiment in Omaha: $5 as one bill vs five $1 bills or coins; small denominations spent more, the single bill mostly kept. Via NPR."
+ ]
+}

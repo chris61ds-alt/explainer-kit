@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "First night in a hotel. And you sleep terribly."
+  },
+  {
+   "id": "study",
+   "text": "Researchers measured people's brains during their first night in a new place."
+  },
+  {
+   "id": "result",
+   "text": "One half of the brain, the left, stayed more alert than the other."
+  },
+  {
+   "id": "sound",
+   "text": "It reacted more to strange sounds. And woke people up faster."
+  },
+  {
+   "id": "second",
+   "text": "By the second night, the difference was gone."
+  },
+  {
+   "id": "name",
+   "text": "It's called the first night effect. A built-in night watch."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Tamaki, Bang, Watanabe & Sasaki (2016). Night watch in one brain hemisphere during sleep associated with the first-night effect in humans. Current Biology 26(9). 35 volunteers; left-hemisphere default-mode network more active in slow-wave sleep on night 1; deviant sounds to the right ear woke people more and faster; no asymmetry on night 2. Via Brown University news."
+ ]
+}

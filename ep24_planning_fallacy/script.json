@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "This will take two days. Famous last words."
+  },
+  {
+   "id": "study",
+   "text": "Students guessed how long their thesis would take. On average: about thirty-four days."
+  },
+  {
+   "id": "worst",
+   "text": "Even their worst-case guess was forty-nine days."
+  },
+  {
+   "id": "real",
+   "text": "The real average: fifty-five. Only about three in ten finished on time."
+  },
+  {
+   "id": "name",
+   "text": "It's called the planning fallacy. We picture the plan. Not the interruptions."
+  },
+  {
+   "id": "tip",
+   "text": "The fix: check how long it took last time. Not how long it should take."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Buehler, Griffin & Ross (1994). Exploring the planning fallacy. Journal of Personality and Social Psychology 67(3). 37 students: predicted 33.9 days, worst case 48.6, actual 55.5; about 30% finished by their prediction. Via Wikipedia 'Planning fallacy'."
+ ]
+}

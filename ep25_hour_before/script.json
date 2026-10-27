@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Meeting in an hour? Then you can't really start anything."
+  },
+  {
+   "id": "study",
+   "text": "Researchers gave people the same free time. Some of them had an appointment coming up."
+  },
+  {
+   "id": "felt",
+   "text": "Those people felt they had about ten minutes less."
+  },
+  {
+   "id": "done",
+   "text": "And in the lab, students reminded of an upcoming task got less done."
+  },
+  {
+   "id": "name",
+   "text": "Time before a deadline feels shorter than it is."
+  },
+  {
+   "id": "tip",
+   "text": "So batch your meetings. And count the real minutes."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Tonietto, Malkoc & Nowlis (2019). When an hour feels shorter: Future boundary tasks alter consumption by contracting time. Journal of Consumer Research 45(5). Online study (n=198): ~50 min available felt like ~40 min with an upcoming appointment; lab (n=158): 2.38 vs 1.86 activities in 5 min. Via Ohio State News."
+ ]
+}

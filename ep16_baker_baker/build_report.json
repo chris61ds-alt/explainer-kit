@@ -1,0 +1,32 @@
+{
+ "episode": "ep16_baker_baker",
+ "tts": "new",
+ "asr_voice": [
+  "tip: 1/13 | So give names a hook. Picture Mr. Baker holding a loaf of bread."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 30.3,
+  "size_MiB": 4.1,
+  "black_intervals": [],
+  "loudness_LUFS": -16.5,
+  "true_peak_dBTP": -1.5,
+  "sha256": "8dcbfc903cd0bbf1407ac08cc5dd11e0e8dbfa91ef2e94125297a96fe986392a",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "1/83 = 1.2%",
+ "asr_final_issues": [
+  "tip: 1/13 | So give names a hook. Picture Mr. Baker holding a loaf of bread."
+ ],
+ "duration_s": 30.31,
+ "cover": "ep16_baker_baker_cover.png",
+ "caption": "ok"
+}

@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "In a crash, time slows down. Right?"
+  },
+  {
+   "id": "study",
+   "text": "Researchers dropped volunteers about thirty meters into a net. Free fall."
+  },
+  {
+   "id": "guess",
+   "text": "Afterwards, they guessed their own fall had lasted about a third longer than other people's."
+  },
+  {
+   "id": "test",
+   "text": "But during the fall, they watched a display flashing numbers too fast to read. If time really slowed, they could read them."
+  },
+  {
+   "id": "result",
+   "text": "They couldn't."
+  },
+  {
+   "id": "why",
+   "text": "Fear makes memory record more detail. And more memory feels like more time."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Stetson, Fiesta & Eagleman (2007). Does time really slow down during a frightening event? PLoS ONE 2(12). 31 m free fall into a net; participants estimated their own fall 36% longer than others'; could not read a perceptual chronometer at speeds above normal threshold. Via ScienceDaily."
+ ]
+}

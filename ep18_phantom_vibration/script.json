@@ -1,0 +1,39 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Your phone just buzzed. It didn't."
+  },
+  {
+   "id": "stats",
+   "text": "In one survey, almost nine out of ten students had felt a phantom vibration."
+  },
+  {
+   "id": "freq",
+   "text": "For most, it happens every now and then. And most don't find it bothersome."
+  },
+  {
+   "id": "why",
+   "text": "Your brain is on alert for one signal. So it reads a twitch, or your shirt, as a buzz."
+  },
+  {
+   "id": "name",
+   "text": "Researchers call it a tactile hallucination. And it's incredibly common."
+  },
+  {
+   "id": "point",
+   "text": "Your brain isn't broken. It's just listening too hard."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Drouin, Kaiser & Miller (2012). Phantom vibrations among undergraduates. Computers in Human Behavior 28. ~89% reported phantom vibrations; typically about every two weeks; most not bothered.",
+  "Rothberg et al. (2010), BMJ: phantom vibration as a tactile hallucination among medical staff. Via Wikipedia 'Phantom vibration syndrome'."
+ ]
+}

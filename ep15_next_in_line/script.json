@@ -1,0 +1,43 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Round of introductions. Your turn is next. What did the person before you just say?"
+  },
+  {
+   "id": "blank",
+   "text": "No idea, right?"
+  },
+  {
+   "id": "study",
+   "text": "In a classic experiment, people took turns reading words aloud. Afterwards, they barely remembered the words read just before their own turn."
+  },
+  {
+   "id": "name",
+   "text": "It's called the next-in-line effect."
+  },
+  {
+   "id": "why",
+   "text": "While you rehearse your line, your brain stops recording."
+  },
+  {
+   "id": "fix",
+   "text": "Knowing about it helps. People told to focus on the speaker before them avoided the gap."
+  },
+  {
+   "id": "point",
+   "text": "So next round: listen first. Then talk."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Brenner (1973). The next-in-line effect. Journal of Verbal Learning and Verbal Behavior 12. Words read in the ~9 s before one's own turn were recalled worse.",
+  "Bond (1985): encoding deficit; participants instructed to attend to the preceding events avoided the deficit. Via Wikipedia 'Next-in-line effect'."
+ ]
+}

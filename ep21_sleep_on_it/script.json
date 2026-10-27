@@ -1,0 +1,34 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Stuck on a problem? Go to bed."
+  },
+  {
+   "id": "study",
+   "text": "In one experiment, people practised a number puzzle that had a hidden shortcut."
+  },
+  {
+   "id": "result",
+   "text": "After a night of sleep, more than twice as many found the shortcut as people who stayed awake."
+  },
+  {
+   "id": "detail",
+   "text": "But only if they had worked on the puzzle first."
+  },
+  {
+   "id": "point",
+   "text": "So sleeping on it isn't giving up. It's part of the work."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Wagner, Gais, Haider, Verleger & Born (2004). Sleep inspires insight. Nature 427. Number reduction task with a hidden rule; more than twice as many subjects gained insight after 8 h of sleep than after wakefulness; no benefit without initial training. Via University of Luebeck."
+ ]
+}

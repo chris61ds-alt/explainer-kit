@@ -1,0 +1,32 @@
+{
+ "episode": "ep14_photo_memory",
+ "tts": "new",
+ "asr_voice": [
+  "name: 2/8 | Psychologists call it the phototaking impairment effect."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 30.8,
+  "size_MiB": 4.5,
+  "black_intervals": [],
+  "loudness_LUFS": -16.4,
+  "true_peak_dBTP": -1.5,
+  "sha256": "172ad7a2e227c6b945b4575d83e3ee03259231d38c2fa31f6a529df1c54a91f7",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "2/79 = 2.5%",
+ "asr_final_issues": [
+  "name: 2/8 | Psychologists call it \"the phototaking impairment effect.\""
+ ],
+ "duration_s": 30.8,
+ "cover": "ep14_photo_memory_cover.png",
+ "caption": "ok"
+}

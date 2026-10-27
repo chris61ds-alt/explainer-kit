@@ -1,0 +1,39 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "One spoon of ice cream. And your forehead explodes."
+  },
+  {
+   "id": "study",
+   "text": "In a study published in the BMJ, students ate ice cream either fast, or slowly."
+  },
+  {
+   "id": "result",
+   "text": "Eating fast? About twenty-seven percent got a brain freeze. Slowly? About twelve."
+  },
+  {
+   "id": "why",
+   "text": "The cold hits the roof of your mouth. But the pain shows up in your forehead."
+  },
+  {
+   "id": "tip",
+   "text": "The fix: press your tongue against the roof of your mouth. Warm it up."
+  },
+  {
+   "id": "point",
+   "text": "So your brain isn't freezing. The pain just went to the wrong address."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Kaczorowski & Kaczorowski (2002). Ice cream evoked headaches (ICE-H) study: randomised trial of accelerated versus cautious ice cream eating regimen. BMJ 325. Under 5 s: 27% headache; over 30 s: 12%.",
+  "Mechanism: palate cold -> trigeminal nerve -> referred pain in forehead. Via Wikipedia 'Cold-stimulus headache'."
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Bad night? You might push people away. Literally."
+  },
+  {
+   "id": "study",
+   "text": "In one study, after a sleepless night, people stopped approaching strangers sooner."
+  },
+  {
+   "id": "num",
+   "text": "They kept others about eighteen to sixty percent farther away."
+  },
+  {
+   "id": "others",
+   "text": "And over a thousand online viewers, who didn't know, rated them as lonelier."
+  },
+  {
+   "id": "viral",
+   "text": "Even worse: watching them made the viewers feel a little lonelier themselves."
+  },
+  {
+   "id": "point",
+   "text": "So before you decide nobody likes you, maybe just sleep."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Ben Simon & Walker (2018). Sleep loss causes social withdrawal and loneliness. Nature Communications 9. 18 adults tested rested vs sleep-deprived: kept strangers 18-60% farther away; >1,000 online raters judged sleep-deprived people lonelier and less socially desirable; viewers felt more alienated after watching. Via UC Berkeley News."
+ ]
+}
