@@ -5,3 +5,4 @@ vo/
 *.jpg
 __pycache__/
 fonts/
+publish/media/
