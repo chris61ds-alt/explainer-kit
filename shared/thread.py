@@ -141,7 +141,7 @@ def track(d, x0, x1, y, label, pts=None, col=INK, size=18):
 class ThreadEpisode(Episode):
     """Episode whose scenes slide horizontally into each other (the thread looks continuous) and without zoom drift."""
     def __init__(self, *a, slide=.38, **kw):
-        kw.setdefault("drift", 0.0)
+        kw.setdefault("drift", 0.0); self.label = kw.pop("label", None)     # e.g. "CASE STUDY", "SELF-TEST", "UNSOLVED"
         super().__init__(*a, **kw); self.slide = slide
 
     def _scene(self, img, d, key, t):
@@ -165,7 +165,39 @@ class ThreadEpisode(Episode):
             self._scene(img, d, cur, t)
         d.rectangle([0, 0, W, Y0c - 1], fill=BG); d.rectangle([0, Y1c, W, H], fill=BG)
         self.chrome(d, t, cur)
+        if self.label and cur != "end": box_label(d, X1, 270, self.label, 22, WHITE, SIG, font=MONO, anchor="ra")
         self.subtitle(d, t)
 
     def cut_fx(self, amp=.10):
         return [(self.TL.S(k) - .3, whoosh(.45, amp), 0) for k in self.order[1:]]
+
+def ekg(x0, x1, y, t, period=180, amp=60, speed=240, step=4, chaos=0.0, seed=0):
+    """scrolling ECG line: flat with periodic P-QRS-T complexes; chaos 0..1 adds irregular spikes (panic)"""
+    rnd = random.Random(seed); out = []
+    for x in range(int(x0), int(x1) + 1, step):
+        p = ((x + t * speed) % period) / period
+        v = 0.0
+        if .10 < p < .16: v = -.12 * math.sin((p - .10) / .06 * math.pi)            # P
+        elif .20 < p < .22: v = .15                                                   # Q
+        elif .22 < p < .25: v = -1.0 + (p - .22) / .03 * .0                           # R up
+        elif .25 < p < .28: v = .35                                                   # S
+        elif .38 < p < .48: v = -.22 * math.sin((p - .38) / .10 * math.pi)           # T
+        if chaos > 0:
+            v += chaos * (math.sin(x * .21 + t * 23) * .6 + math.sin(x * .053 - t * 41) * .5) * (1 if rnd.random() > .3 else .2)
+        out.append((x, y + v * amp))
+    return out
+
+def bust(d, cx, cy, s=1.0, col=255, nose=0, f=1):
+    """profile bust (f=1 faces right) for halftone masks: head, jaw, nose, neck, shoulders"""
+    X = lambda dx: cx + f * dx * s
+    d.ellipse([min(X(-105), X(95)), cy - 150 * s, max(X(-105), X(95)), cy + 85 * s], fill=col)
+    d.polygon([(X(85), cy), (X(98), cy + 55 * s), (X(62), cy + 112 * s), (X(-10), cy + 122 * s), (X(-50), cy + 60 * s)], fill=col)
+    d.polygon([(X(88), cy - 42 * s), (X(122 + nose), cy + 4 * s), (X(88), cy + 14 * s)], fill=col)
+    d.rectangle([min(X(-48), X(30)), cy + 80 * s, max(X(-48), X(30)), cy + 200 * s], fill=col)
+    d.rounded_rectangle([min(X(-250), X(200)), cy + 175 * s, max(X(-250), X(200)), cy + 440 * s], radius=int(140 * s), fill=col)
+
+def knife(d, x, y, s=1.0, col=INK, ang=0.0):
+    """kitchen knife pointing right (rotated by ang radians around (x, y))"""
+    pts = [(0, -16), (210, -4), (240, 6), (0, 22)]; hnd = [(-110, -18), (0, -18), (0, 24), (-110, 24)]
+    rot = lambda p: (x + (p[0] * math.cos(ang) - p[1] * math.sin(ang)) * s, y + (p[0] * math.sin(ang) + p[1] * math.cos(ang)) * s)
+    d.polygon([rot(p) for p in pts], fill=col); d.polygon([rot(p) for p in hnd], fill=col)

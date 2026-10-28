@@ -1,0 +1,42 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Quick test. Say the color of each word, not the word itself. Out loud."
+  },
+  {
+   "id": "r1",
+   "text": "Round one."
+  },
+  {
+   "id": "r2",
+   "text": "Round two."
+  },
+  {
+   "id": "result",
+   "text": "Slower? Did you stumble? Almost everyone does."
+  },
+  {
+   "id": "why",
+   "text": "Your brain reads automatically. It reads the word before you can stop it, and then it has to fight itself."
+  },
+  {
+   "id": "name",
+   "text": "It's called the Stroop effect. First described in nineteen thirty-five, and it still catches almost everyone."
+  },
+  {
+   "id": "point",
+   "text": "You can't not read. Try it on a friend."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Stroop (1935). Studies of interference in serial verbal reactions. Journal of Experimental Psychology 18(6). Naming the ink colour of incongruent colour words takes significantly longer than naming colour patches; attributed to automatic reading. Via Wikipedia / APA."
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You'll probably yawn before this video ends."
+  },
+  {
+   "id": "read",
+   "text": "In one study, over a quarter of people yawned just from reading about yawning."
+  },
+  {
+   "id": "watch",
+   "text": "Watching someone yawn works even better. Most people caught it within five minutes."
+  },
+  {
+   "id": "unsolved",
+   "text": "But why do we yawn at all? Science still doesn't know."
+  },
+  {
+   "id": "theories",
+   "text": "One idea: it cools your brain. Another: it's about empathy, since people who catch yawns easily may be more tuned in to others. Neither is settled."
+  },
+  {
+   "id": "point",
+   "text": "So if you yawned just now? Nobody knows exactly why. Comment if you did."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Provine (1986). Yawning as a stereotyped action pattern and releasing stimulus. Ethology 72. Most subjects yawned within 5 min of viewing videotaped yawns; over 1/4 yawned while reading about yawning (about 3/4 yawned or thought about it); thinking about yawning effective in the majority. Via baillement.com (Provine excerpt).",
+  "Function unresolved; brain-cooling hypothesis (Gallup) and empathy link debated. Via ZME Science overview."
+ ]
+}
