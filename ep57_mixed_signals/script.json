@@ -1,0 +1,34 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "She smiled. So she's into you? Maybe not."
+  },
+  {
+   "id": "study",
+   "text": "About two hundred students went speed dating, then rated how interested each partner was in them."
+  },
+  {
+   "id": "result",
+   "text": "Men tended to overestimate women's sexual interest. Women tended to underestimate men's."
+  },
+  {
+   "id": "who",
+   "text": "The worst readers: men looking for something casual, and men who were most attracted to her."
+  },
+  {
+   "id": "point",
+   "text": "The more you want it, the worse you read it. So ask. Don't guess."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Perilloux, Easton & Buss (2012). The misperception of sexual interest. Psychological Science 23(2). 96 men, 103 women (UT Austin), 3-minute speed-meetings with 5 partners; men overperceived women's sexual interest, women underperceived men's; overperception stronger for men with short-term orientation, men who rated themselves attractive, and the more attractive the man found the woman. Via APS press release."
+ ]
+}

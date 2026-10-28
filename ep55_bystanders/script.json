@@ -1,0 +1,34 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Get attacked in public, and nobody helps? That's a myth."
+  },
+  {
+   "id": "study",
+   "text": "Researchers analyzed security camera footage of two hundred and nineteen real street fights, in three countries."
+  },
+  {
+   "id": "result",
+   "text": "In nine out of ten, at least one stranger stepped in."
+  },
+  {
+   "id": "more",
+   "text": "And the more people were around, the more likely someone helped."
+  },
+  {
+   "id": "point",
+   "text": "So strangers do show up. Next time, be one of them."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Philpot, Liebst, Levine, Bernasco & Lindegaard (2020). Would I be helped? Cross-national CCTV footage shows that intervention is the norm in public conflicts. American Psychologist 75(1). 219 conflicts in Amsterdam, Cape Town, Lancaster; at least one intervener in ~91%; ~3.76 interveners on average; more bystanders -> higher odds of help. Via PsyPost."
+ ]
+}

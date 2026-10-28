@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You always think they started it. So do they."
+  },
+  {
+   "id": "study",
+   "text": "Researchers had pairs of people press on each other's finger, with exactly the force they had just felt."
+  },
+  {
+   "id": "result",
+   "text": "Nobody matched it. Each turn came back about thirty-eight percent harder."
+  },
+  {
+   "id": "why",
+   "text": "Your brain dampens your own touch. So your push feels softer than theirs, even when it isn't."
+  },
+  {
+   "id": "both",
+   "text": "And both sides were sure: I matched it. They pushed harder."
+  },
+  {
+   "id": "point",
+   "text": "So in your next fight? You're probably hitting harder than you think."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Shergill, Bays, Frith & Wolpert (2003). Two eyes for an eye: the neuroscience of force escalation. Science 301(5630):187. 6 pairs, tit-for-tat finger presses, 'a 38% mean escalation on each turn' over 8 turns; joystick condition matched accurately. Via Wolpert lab PDF + UCL press release."
+ ]
+}
