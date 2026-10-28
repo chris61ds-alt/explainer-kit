@@ -1,0 +1,28 @@
+{
+ "episode": "ep53_escalation",
+ "tts": "new",
+ "asr_voice": [],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 28.87,
+  "size_MiB": 4.3,
+  "black_intervals": [],
+  "loudness_LUFS": -16.4,
+  "true_peak_dBTP": -2.5,
+  "sha256": "97ae396a0724dc8fa8f1de0789ed61106019b3ef1c97435b9d58d9f581d3d283",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "0/82 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 28.88,
+ "cover": "ep53_escalation_cover.png",
+ "caption": "ok"
+}

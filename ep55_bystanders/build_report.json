@@ -1,0 +1,32 @@
+{
+ "episode": "ep55_bystanders",
+ "tts": "new",
+ "asr_voice": [
+  "result: 2/11 | In 9/10, at least one stranger stepped in."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 24.03,
+  "size_MiB": 3.8,
+  "black_intervals": [],
+  "loudness_LUFS": -16.6,
+  "true_peak_dBTP": -2.5,
+  "sha256": "3353ffa5d1cf3a92fbecafdc59dca41b26576539e03e594c5ca52820226c55fd",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "2/62 = 3.2%",
+ "asr_final_issues": [
+  "result: 2/11 | In 9/10, at least one stranger stepped in."
+ ],
+ "duration_s": 24.04,
+ "cover": "ep55_bystanders_cover.png",
+ "caption": "ok"
+}
