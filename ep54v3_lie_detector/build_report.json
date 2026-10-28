@@ -1,0 +1,30 @@
+{
+ "episode": "ep54v3_lie_detector",
+ "tts": "cached",
+ "asr_voice": [],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 29.73,
+  "size_MiB": 4.2,
+  "black_intervals": [],
+  "loudness_LUFS": -16.5,
+  "true_peak_dBTP": -2.4,
+  "sha256": "9bd7e18f90d234d10004407e0cb799112df059b1aa2bc46bac9640f71ab13761",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "1/76 = 1.3%",
+ "asr_final_issues": [
+  "result: 1/10 | Their accuracy, 54%. A coin flip gets 50%."
+ ],
+ "duration_s": 29.74,
+ "cover": "ep54v3_lie_detector_cover.png",
+ "caption": "ok"
+}
