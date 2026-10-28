@@ -11,6 +11,8 @@
  *   Fehler              → Status "error: …" + Mail an dich
  *
  * Plan: importSchedule() lädt schedule.json aus MEDIA_BASE ins Sheet (Status bleibt erhalten).
+ * Insights: trackInsights() schreibt 24 h / 72 h nach dem Post Views, Reach, Likes, Shares, Saves, Watch-Time, Skip-Rate
+ *   (Token braucht dafür zusätzlich instagram_manage_insights).
  * Einrichtung: siehe Setup-Anleitung. Script-Eigenschaften (Projekteinstellungen → Script-Eigenschaften):
  *   IG_USER_ID   – deine Instagram-User-ID (aus dem Meta-Dashboard)
  *   IG_TOKEN     – Long-lived Access Token (60 Tage gültig, wird automatisch erneuert)
@@ -35,6 +37,11 @@ const COL = {                        // Spalten im Sheet (1-basiert)
   date: 1, time: 2, no: 3, title: 4, video: 5, cover: 6, caption: 7,
   status: 8, container: 9, mediaId: 10, postedAt: 11, tiktok: 12
 };
+// Insights: ab Spalte 13 je ein Block für 24 h und 72 h nach Veröffentlichung
+const INS_METRICS = ['views', 'reach', 'likes', 'shares', 'saved', 'ig_reels_avg_watch_time', 'reels_skip_rate'];
+const INS_LABELS  = ['views', 'reach', 'likes', 'shares', 'saves', 'avg_watch_s', 'skip_rate'];
+const INS_START = 13, INS_AT = [24, 72];
+const LAST_COL = INS_START + INS_LABELS.length * INS_AT.length - 1;
 
 // ---------------------------------------------------------------- Einrichtung
 
@@ -47,6 +54,7 @@ function setup() {
   ScriptApp.getProjectTriggers().forEach(t => ScriptApp.deleteTrigger(t));
   ScriptApp.newTrigger('run').timeBased().everyMinutes(CHECK_EVERY_MIN).create();
   ScriptApp.newTrigger('refreshToken').timeBased().everyDays(1).atHour(4).inTimezone(TZ).create();
+  ScriptApp.newTrigger('trackInsights').timeBased().everyHours(1).create();
   ScriptApp.newTrigger('weeklyTikTokDigest').timeBased().onWeekDay(ScriptApp.WeekDay.MONDAY).atHour(9).inTimezone(TZ).create();
   const me = igGet_(p.IG_USER_ID, { fields: 'username' });
   Logger.log('Verbunden mit @' + me.username + ' · Trigger angelegt.');
@@ -144,27 +152,41 @@ function importSchedule() {
   if (res.getResponseCode() !== 200) throw new Error('schedule.json nicht erreichbar (HTTP ' + res.getResponseCode() + ')');
   const data = JSON.parse(res.getContentText('UTF-8'));          // [header, ...rows] – 12 Spalten
   const sh = sheet_();
-  const old = sh.getDataRange().getValues();
-  const keep = {};
+  const tz = sh.getParent().getSpreadsheetTimeZone();
+  const width = LAST_COL;
+  const pad = r => { const m = r.slice(0, width); while (m.length < width) m.push(''); return m; };
+  const old = sh.getLastRow() > 0 ? sh.getRange(1, 1, sh.getLastRow(), Math.max(width, sh.getLastColumn())).getValues() : [];
+  const keep = {}, keepOrder = [];
   old.slice(1).forEach(r => {
-    if (String(r[COL.status - 1] || '').trim() !== '') keep[String(r[COL.no - 1])] = r;
+    if (String(r[COL.status - 1] || '').trim() === '') return;
+    keep[String(r[COL.no - 1])] = r; keepOrder.push(String(r[COL.no - 1]));
   });
-  const out = data.map((r, i) => {
-    if (i === 0) return r;
-    const k = keep[String(r[COL.no - 1])];
-    if (!k) return r;
-    const m = r.slice();
-    [COL.date, COL.time, COL.status, COL.container, COL.mediaId, COL.postedAt, COL.tiktok].forEach(c => m[c - 1] = k[c - 1]);
-    const tz = sh.getParent().getSpreadsheetTimeZone();
+  const fix = m => {
     if (m[COL.date - 1] instanceof Date) m[COL.date - 1] = Utilities.formatDate(m[COL.date - 1], tz, 'yyyy-MM-dd');
     if (m[COL.time - 1] instanceof Date) m[COL.time - 1] = Utilities.formatDate(m[COL.time - 1], tz, 'HH:mm');
+    if (m[COL.postedAt - 1] instanceof Date) m[COL.postedAt - 1] = Utilities.formatDate(m[COL.postedAt - 1], tz, 'yyyy-MM-dd HH:mm');
     return m;
+  };
+  const inPlan = {};
+  data.slice(1).forEach(r => inPlan[String(r[COL.no - 1])] = true);
+  // bereits gestartete/veröffentlichte Folgen, die nicht mehr im Plan stehen, bleiben oben erhalten
+  const history = keepOrder.filter(n => !inPlan[n]).map(n => fix(pad(keep[n])));
+  const rows = data.slice(1).map(r => {
+    const k = keep[String(r[COL.no - 1])];
+    if (!k) return pad(r);
+    const m = pad(r);
+    [COL.date, COL.time, COL.status, COL.container, COL.mediaId, COL.postedAt, COL.tiktok].forEach(c => m[c - 1] = k[c - 1]);
+    for (let c = INS_START; c <= width; c++) m[c - 1] = k[c - 1];
+    return fix(m);
   });
+  const out = [pad(data[0]).map((h, i) => i >= INS_START - 1 ? insHeader_(i + 1) : h)].concat(history, rows);
   sh.clearContents();
   sh.getRange(1, 1, out.length, 2).setNumberFormat('@');
-  sh.getRange(1, 1, out.length, out[0].length).setValues(out);
+  sh.getRange(1, COL.postedAt, out.length, 1).setNumberFormat('@');
+  sh.getRange(1, 1, out.length, width).setValues(out);
   sh.setFrozenRows(1);
-  Logger.log('Plan importiert: ' + (out.length - 1) + ' Folgen, ' + Object.keys(keep).length + ' mit Status übernommen.');
+  Logger.log('Plan importiert: ' + rows.length + ' Folgen im Plan, ' + history.length + ' ältere behalten, ' +
+             Object.keys(keep).length + ' mit Status übernommen.');
 }
 
 function startContainer_(sh, row, r) {
@@ -245,6 +267,54 @@ function weeklyTikTokDigest() {
   }).join('\n');
   MailApp.sendEmail(notify_(), 'Not just you – TikTok-Plan dieser Woche (' + rows.length + ' Folgen)',
     'In TikTok Studio (Desktop) → Hochladen → "Planen" mit diesen Terminen.\nDanach im Sheet Spalte "tiktok_done" ankreuzen.\n\n' + body);
+}
+
+// ---------------------------------------------------------------- Insights
+
+function insHeader_(col) {
+  const i = col - INS_START, block = Math.floor(i / INS_LABELS.length);
+  return INS_LABELS[i % INS_LABELS.length] + '_' + INS_AT[block] + 'h';
+}
+
+/** Stündlich: schreibt 24 h und 72 h nach Veröffentlichung die Reel-Kennzahlen ins Sheet. */
+function trackInsights() {
+  const sh = sheet_(); const tz = sh.getParent().getSpreadsheetTimeZone();
+  const last = sh.getLastRow(); if (last < 2) return;
+  const head = sh.getRange(1, INS_START, 1, LAST_COL - INS_START + 1);
+  if (!head.getValues()[0][0]) head.setValues([head.getValues()[0].map((_, i) => insHeader_(INS_START + i))]);
+  const values = sh.getRange(1, 1, last, LAST_COL).getValues();
+  const now = new Date();
+  for (let i = 1; i < values.length; i++) {
+    const r = values[i];
+    if (String(r[COL.status - 1]).trim() !== 'live' || !r[COL.mediaId - 1] || !r[COL.postedAt - 1]) continue;
+    const posted = r[COL.postedAt - 1] instanceof Date ? r[COL.postedAt - 1]
+                 : Utilities.parseDate(String(r[COL.postedAt - 1]).substring(0, 16), TZ, 'yyyy-MM-dd HH:mm');
+    const ageH = (now - posted) / 3600000;
+    INS_AT.forEach((h, b) => {
+      const c0 = INS_START + b * INS_LABELS.length;
+      if (ageH < h || r[c0 - 1] !== '') return;
+      sh.getRange(i + 1, c0, 1, INS_LABELS.length).setValues([fetchInsights_(String(r[COL.mediaId - 1]))]);
+    });
+  }
+}
+
+function fetchInsights_(mediaId) {
+  const sets = [INS_METRICS, ['reach', 'likes', 'shares', 'saved', 'ig_reels_avg_watch_time']];   // Fallback ohne Beta-Metriken
+  let err = '';
+  for (const metrics of sets) {
+    try {
+      const j = igGet_(mediaId + '/insights', { metric: metrics.join(',') });
+      const v = {};
+      (j.data || []).forEach(d => v[d.name] = d.total_value ? d.total_value.value : (d.values && d.values[0] ? d.values[0].value : ''));
+      return INS_METRICS.map(m => {
+        if (v[m] === undefined || v[m] === '') return '';
+        if (m === 'ig_reels_avg_watch_time') return Math.round(v[m] / 100) / 10;      // ms → s
+        return v[m];
+      });
+    } catch (e) { err = e.message; }
+  }
+  const row = INS_METRICS.map(() => ''); row[0] = 'error: ' + err.substring(0, 120);   // Zelle leeren = erneut versuchen
+  return row;
 }
 
 // ---------------------------------------------------------------- Helfer
