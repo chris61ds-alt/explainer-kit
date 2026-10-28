@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You think you can tell when someone is lying. You can't."
+  },
+  {
+   "id": "study",
+   "text": "A huge review pooled over two hundred studies, with almost twenty-five thousand people judging lies and truths."
+  },
+  {
+   "id": "result",
+   "text": "Their accuracy: fifty-four percent. A coin flip gets fifty."
+  },
+  {
+   "id": "lies",
+   "text": "Actual lies were caught less than half the time. Forty-seven percent."
+  },
+  {
+   "id": "why",
+   "text": "We mostly assume people tell the truth. So most lies slip right through."
+  },
+  {
+   "id": "point",
+   "text": "Your gut feeling? Basically a coin flip, with confidence."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Bond & DePaulo (2006). Accuracy of deception judgments. Personality and Social Psychology Review 10(3). Meta-analysis: 206 documents, 24,483 judges; 54% correct; 47% of lies and 61% of truths correctly classified. Via SAGE abstract."
+ ]
+}
