@@ -1,0 +1,35 @@
+{
+ "episode": "ep58_no_fear",
+ "tts": "new",
+ "asr_voice": [
+  "hook: 2/9 | She was held at knife point and felt no fear.",
+  "who: 2/22 | She is known only as SM, a rare disease destroyed a tiny part of her brain on both sides, the amygdala. [BUZZER]",
+  "why: 1/15 | Fear of the world outside needs the amigdala. Fear from inside your own body doesn't."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 37.5,
+  "size_MiB": 6.1,
+  "black_intervals": [],
+  "loudness_LUFS": -16.4,
+  "true_peak_dBTP": -2.2,
+  "sha256": "7d001098f3207c7f15761b379d06b363de49cc3fb77f47e2bd4e4955f1f81506",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "4/105 = 3.8%",
+ "asr_final_issues": [
+  "hook: 2/9 | She was held at knife point and felt no fear.",
+  "who: 2/22 | She is known only as SM, a rare disease destroyed a tiny part of her brain on both sides, the amygdala."
+ ],
+ "duration_s": 37.51,
+ "cover": "ep58_no_fear_cover.png",
+ "caption": "ok"
+}

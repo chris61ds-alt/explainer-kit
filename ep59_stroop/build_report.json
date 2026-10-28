@@ -1,0 +1,32 @@
+{
+ "episode": "ep59_stroop",
+ "tts": "new",
+ "asr_voice": [
+  "name: 6/17 | It's called the \"stroup effect.\" First described in 1935, and it still catches almost everyone."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 37.27,
+  "size_MiB": 3.9,
+  "black_intervals": [],
+  "loudness_LUFS": -16.8,
+  "true_peak_dBTP": -2.3,
+  "sha256": "ff5b8d628cf9b909e4fa04393ad3d5249e791a3046e585291d7208e60b844de6",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "6/74 = 8.1%",
+ "asr_final_issues": [
+  "name: 6/17 | It's called the \"stroup effect.\" First described in 1935, and it still catches almost everyone."
+ ],
+ "duration_s": 37.28,
+ "cover": "ep59_stroop_cover.png",
+ "caption": "ok"
+}
