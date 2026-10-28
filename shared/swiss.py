@@ -401,8 +401,10 @@ class Episode:
     drift (slow camera push per scene), loop (last frames wipe back to frame 0 for a seamless Instagram loop),
     music (dict for MUSIC), cover (dict for make_cover)."""
     def __init__(self, TL, no, title, chapters, order, sources=(), handle="@vascoda.soda", series="NOT JUST YOU",
-                 drift=.03, loop=True, music=None, cover=None, dark=False):
+                 drift=.03, loop=True, music=None, cover=None, dark=False, ui=None):
         self.TL, self.no, self.title, self.order = TL, no, title, order
+        # ui: "minimal" (default since 28.10.2026) = no header, episode title, chapter or progress bar; "full" = old chrome
+        self.ui = ui or os.environ.get("NJY_UI", "minimal")
         self.chapters = {k: (f"{i + 1:02d}", v) for i, (k, v) in enumerate(chapters.items())}
         self.sources, self.handle, self.series = sources, handle, series
         self.scenes, self.layers = {}, []
@@ -425,6 +427,7 @@ class Episode:
         for (x, y) in ((X0, Y1), (X1, Y1)): cross(d, x, y)
 
     def chrome(self, d, t, cur, progress=True):
+        if self.ui == "minimal": return
         d.text((X0, 212), self.series, font=F(COND, 34), fill=INK)
         d.text((X1, 212), f"{self.no:02d} / {self.title}", font=F(COND, 34), fill=INK, anchor="ra")
         d.line([X0, 262, X1, 262], fill=INK, width=4)
