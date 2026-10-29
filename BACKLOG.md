@@ -26,6 +26,7 @@
 - No. 48–52 After Dark (Swiss Dark): Post-Sex-Blues (Schweitzer et al. 2015/2019) · Orgasm Gap (Frederick et al. 2018) · Stoppuhr-Studie (Waldinger et al. 2005) · Ekel-Regler (Borg & de Jong 2012) · 48h-Afterglow (Meltzer et al. 2017)
 - No. 53–57 Sprint 1 (mutiger): Streit eskaliert (Shergill et al. 2003) · Lügen erkennen 54 % (Bond & DePaulo 2006) · Bystander helfen doch (Philpot et al. 2020) · Rache macht unglücklich (Carlsmith et al. 2008) · Mixed Signals (Perilloux et al. 2012, After Dark)
 - No. 54v3: Look-Test "Swiss Thread" (hell) · No. 58–60 Format-Tests (v3): Story S.M. ohne Angst (Feinstein 2011/2013) · Selbsttest Stroop (1935) · Ungelöst: Gähnen (Provine 1986)
+- 29.10.: Kanal-Fokus nur noch gewagt (Sex, Lügen, Rache, Geld, Ego). Brave Folgen geparkt: 6–9, 11, 14, 21–23, 26, 29–31, 34–37, 59, 60. Neuer Look ab Sprint 2: Typo + Raster-Silhouetten (C+D), keine Strichfiguren.
 - Geparkt (zu brav, ggf. neu hooken): 12, 15, 16, 18, 19, 20, 24, 25, 27, 28, 32, 33
 - No. 35–37 Dating: Swipe-Müdigkeit (Pronk & Denissen 2020) · Mehr fragen (Huang et al. 2017) · Dein Typ (Eastwick & Finkel 2008)
 - No. 32–34 Sprache: Semantische Sättigung · Wort auf der Zunge (Brown & McNeill 1966) · Bouba/Kiki (Ćwiek et al. 2021)
