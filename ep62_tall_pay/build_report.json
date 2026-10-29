@@ -1,0 +1,38 @@
+{
+ "episode": "ep62_tall_pay",
+ "tts": "new",
+ "asr_voice": [
+  "hook: 1/16 | Every inch or taller is worth money, about $789 a year.",
+  "study: 2/19 | Researchers followed about 8,500 people from their teens into their careers, in the US and the UK.",
+  "result: 1/12 | Even after accounting for gender, age and weight, taller people earn more.",
+  "career: 1/20 | 6 feet versus 5 foot 5. That's about $166,000 over a 30-year career."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 35.53,
+  "size_MiB": 4.7,
+  "black_intervals": [],
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -2.5,
+  "sha256": "5d34edeaeddea2efbcbf5ba4b57cf85f8627b6f75cdbf958f3c2e1cd68c0be14",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "6/92 = 6.5%",
+ "asr_final_issues": [
+  "hook: 1/16 | Every inch or taller is worth money. About $789 a year.",
+  "study: 2/19 | Researchers followed about 8,500 people from their teens into their careers, in the US and the UK.",
+  "result: 1/12 | Even after accounting for gender, age and weight, taller people earn more.",
+  "career: 2/20 | 6 feet vs. 5 foot 5. That's about $166,000 over a 30-year career."
+ ],
+ "duration_s": 35.54,
+ "cover": "ep62_tall_pay_cover.png",
+ "caption": "ok"
+}
