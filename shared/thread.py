@@ -201,3 +201,38 @@ def knife(d, x, y, s=1.0, col=INK, ang=0.0):
     pts = [(0, -16), (210, -4), (240, 6), (0, 22)]; hnd = [(-110, -18), (0, -18), (0, 24), (-110, 24)]
     rot = lambda p: (x + (p[0] * math.cos(ang) - p[1] * math.sin(ang)) * s, y + (p[0] * math.sin(ang) + p[1] * math.cos(ang)) * s)
     d.polygon([rot(p) for p in pts], fill=col); d.polygon([rot(p) for p in hnd], fill=col)
+
+# ---------------------------------------------------------------- silhouettes for halftone (look C) – draw into a mask
+def front_bust(d, cx, cy, s=1.0, col=255, tilt=0.0):
+    """front-facing head + shoulders; (cx, cy) = head centre"""
+    d.ellipse([cx - 92 * s, cy - 118 * s, cx + 92 * s, cy + 110 * s], fill=col)
+    d.polygon([(cx - 60 * s, cy + 70 * s), (cx + 60 * s, cy + 70 * s), (cx + 26 * s, cy + 128 * s), (cx - 26 * s, cy + 128 * s)], fill=col)
+    d.rectangle([cx - 42 * s, cy + 90 * s, cx + 42 * s, cy + 190 * s], fill=col)
+    d.rounded_rectangle([cx - 270 * s, cy + 170 * s, cx + 270 * s, cy + 480 * s], radius=int(150 * s), fill=col)
+
+def body(d, cx, feet, h=700, col=255, f=0, arm=0.0, step=0.0):
+    """standing figure silhouette (front, f=0) seen as a smooth shape; h = total height in px.
+    arm: 0 = arms down, 1 = arms raised; step: leg spread"""
+    s = h / 700
+    head_c = (cx, feet - 640 * s)
+    d.ellipse([cx - 50 * s, head_c[1] - 62 * s, cx + 50 * s, head_c[1] + 58 * s], fill=col)
+    d.rectangle([cx - 22 * s, head_c[1] + 40 * s, cx + 22 * s, head_c[1] + 80 * s], fill=col)
+    sh_y = feet - 540 * s; hip_y = feet - 330 * s
+    d.polygon([(cx - 105 * s, sh_y), (cx + 105 * s, sh_y), (cx + 80 * s, hip_y), (cx - 80 * s, hip_y)], fill=col)
+    d.ellipse([cx - 115 * s, sh_y - 22 * s, cx - 60 * s, sh_y + 40 * s], fill=col); d.ellipse([cx + 60 * s, sh_y - 22 * s, cx + 115 * s, sh_y + 40 * s], fill=col)
+    d.rounded_rectangle([cx - 82 * s, hip_y - 20 * s, cx + 82 * s, hip_y + 60 * s], radius=int(30 * s), fill=col)
+    for side in (-1, 1):
+        a = math.radians(8 + 150 * arm) * side
+        x0, y0 = cx + side * 95 * s, sh_y + 10 * s
+        x1, y1 = x0 + math.sin(a) * 270 * s, y0 + math.cos(a) * 270 * s
+        nx, ny = math.cos(a) * 1, -math.sin(a) * 1
+        w0, w1 = 30 * s, 20 * s
+        d.polygon([(x0 + nx * w0, y0 + ny * w0), (x1 + nx * w1, y1 + ny * w1), (x1 - nx * w1, y1 - ny * w1), (x0 - nx * w0, y0 - ny * w0)], fill=col)
+        d.ellipse([x1 - 24 * s, y1 - 24 * s, x1 + 24 * s, y1 + 24 * s], fill=col)
+        lx0 = cx + side * 42 * s; lx1 = cx + side * (52 + 40 * step) * s
+        d.polygon([(lx0 - 40 * s, hip_y + 40 * s), (lx0 + 40 * s, hip_y + 40 * s), (lx1 + 24 * s, feet - 10 * s), (lx1 - 24 * s, feet - 10 * s)], fill=col)
+        d.ellipse([lx1 - 30 * s + side * 10 * s, feet - 26 * s, lx1 + 30 * s + side * 10 * s, feet + 4 * s], fill=col)
+
+def silhouette(img, fn, box, col=INK, cell=11, k=1.0, shade=.65):
+    """shortcut: halftone of a mask-drawing function"""
+    halftone(img, fn, box, cell=cell, col=col, k=k, shade=shade)

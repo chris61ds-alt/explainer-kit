@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Every inch you're taller is worth money. About seven hundred and eighty-nine dollars a year."
+  },
+  {
+   "id": "study",
+   "text": "Researchers followed about eighty-five hundred people from their teens into their careers, in the US and the UK."
+  },
+  {
+   "id": "result",
+   "text": "Even after accounting for gender, age and weight, taller people earned more."
+  },
+  {
+   "id": "career",
+   "text": "Six feet versus five foot five? That's about a hundred and sixty-six thousand dollars over a thirty-year career."
+  },
+  {
+   "id": "why",
+   "text": "One explanation: height makes people seem more confident, and they get treated that way."
+  },
+  {
+   "id": "point",
+   "text": "Unfair? Absolutely. But now you know it's there."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Judge & Cable (2004). The effect of physical height on workplace success and income. Journal of Applied Psychology 89(3). Four longitudinal datasets (~8,500 people, US & UK) + meta-analysis of 45 studies; each inch ~ $789/year; 6' vs 5'5\" ~ $166,000 over 30 years, controlling for gender, age, weight; self-esteem/social esteem explanation. Via APA Monitor 2004."
+ ]
+}

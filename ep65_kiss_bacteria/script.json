@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "One ten-second kiss. Eighty million bacteria."
+  },
+  {
+   "id": "study",
+   "text": "Researchers studied twenty-one couples. One partner drank a yogurt drink with traceable bacteria. Then they kissed for ten seconds."
+  },
+  {
+   "id": "result",
+   "text": "Afterwards, those bacteria had tripled in the other partner's saliva. About eighty million swapped in one kiss."
+  },
+  {
+   "id": "often",
+   "text": "Couples who kissed at least nine times a day had noticeably more similar saliva bacteria."
+  },
+  {
+   "id": "twist",
+   "text": "Oh, and the men said they kissed ten times a day. The women said five."
+  },
+  {
+   "id": "point",
+   "text": "So yes, kissing literally makes you more alike. At least in your mouth."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Kort, Caspers, van de Graaf, van Egmond, Keijser & Roeselers (2014). Shaping the oral microbiota through intimate kissing. Microbiome 2:41. 21 couples; probiotic tracer (Lactobacillus, Bifidobacteria) increased threefold in partner's saliva after a 10-s intimate kiss, est. 80 million bacteria; >= 9 intimate kisses/day associated with shared salivary microbiota; 74% of men reported kissing more often than partner (men 10/day, women 5/day). Via sci.news."
+ ]
+}

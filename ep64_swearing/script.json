@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Stub your toe and swear? Good. It actually helps."
+  },
+  {
+   "id": "study",
+   "text": "Students held a hand in ice water as long as they could. Once repeating a swear word. Once repeating a neutral word."
+  },
+  {
+   "id": "result",
+   "text": "While swearing, they lasted about forty seconds longer."
+  },
+  {
+   "id": "pain",
+   "text": "And it hurt less. Their heart rate went up, too."
+  },
+  {
+   "id": "why",
+   "text": "One idea: swearing triggers a small fight-or-flight response, and that dulls the pain."
+  },
+  {
+   "id": "point",
+   "text": "So next time it hurts? Let it out."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Stephens, Atkins & Kingston (2009). Swearing as a response to pain. NeuroReport 20(12). 67 undergraduates (38 men, 29 women), cold-pressor task; mean latency swearing vs neutral: men 190.6 vs 146.7 s, women 120.3 vs 83.3 s (~40 s longer); lower perceived pain, higher heart rate; fight-or-flight hypothesis. Via paper PDF (UConn mirror) + Medical News Today."
+ ]
+}

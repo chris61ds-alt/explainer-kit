@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Can't stop thinking about your ex? Your brain treats them like a drug."
+  },
+  {
+   "id": "study",
+   "text": "Researchers scanned people who had just been dumped, but were still madly in love, while they looked at a photo of their ex."
+  },
+  {
+   "id": "result",
+   "text": "The photo lit up the brain's reward and craving system. The same areas involved in cocaine addiction."
+  },
+  {
+   "id": "pain",
+   "text": "And regions tied to physical pain lit up too."
+  },
+  {
+   "id": "hope",
+   "text": "The good news: the longer it had been since the breakup, the weaker part of that attachment signal got."
+  },
+  {
+   "id": "point",
+   "text": "So it's not weakness. It's withdrawal. And withdrawal ends."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Fisher, Brown, Aron, Strong & Mashek (2010). Reward, addiction, and emotion regulation systems associated with rejection in love. Journal of Neurophysiology 104(1). 15 recently rejected, still in love; ex's photo vs neutral: VTA, nucleus accumbens/orbitofrontal (craving/addiction, cocaine-like dopaminergic system), insula/anterior cingulate (pain); attachment-related ventral putamen/pallidum activity decreased with time since rejection. Via ScienceDaily 2010."
+ ]
+}
