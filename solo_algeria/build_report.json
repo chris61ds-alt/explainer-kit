@@ -1,0 +1,38 @@
+{
+ "episode": "solo_algeria",
+ "tts": "cached",
+ "asr_voice": [
+  "numbers: 5/30 | In 2024, Morocco had 17 million visitors. Egypt almost 16, Tunisia over 10, Algeria 3.5, and almost a third of those were Algerians living abroad.",
+  "war: 3/32 | Reason 2, the 90s. A civil war killed up to 200,000 people. The image stuck. And in 2013, terrorists took a gas plant and dozens of foreign hostages died. [BUZZER]",
+  "twist: 3/21 | The irony, 3.5 million Algerians visited Tunisia last year, about as many as all of Algeria's visitors combined.",
+  "point: 2/23 | Now it's opening up. Visa on arrival for Sahara trips, new hotels, and a goal of 12 million foreign visitors by 2030."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 72.33,
+  "size_MiB": 6.7,
+  "black_intervals": [],
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -2.4,
+  "sha256": "e00d9e61f3c5c25ad99aae5a85b45c5183cc4c05f859c9efe1856fb6c9f4c13d",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "13/179 = 7.3%",
+ "asr_final_issues": [
+  "numbers: 5/30 | In 2024, Morocco had 17 million visitors. Egypt almost 16. Tunisia over 10. Algeria, 3.5, and almost a third of those were Algerians living abroad.",
+  "war: 3/32 | Reason 2, the 90s. A civil war killed up to 200,000 people. The image stuck. And in 2013, terrorists took a gas plant and dozens of foreign hostages died.",
+  "twist: 3/21 | The irony, 3.5 million Algerians visited Tunisia last year, about as many as all of Algeria's visitors combined.",
+  "point: 2/23 | Now it's opening up. Visa on arrival for Sahara trips, new hotels, and a goal of 12 million foreign visitors by 2030."
+ ],
+ "duration_s": 72.34,
+ "cover": "solo_algeria_cover.png",
+ "caption": "ok"
+}

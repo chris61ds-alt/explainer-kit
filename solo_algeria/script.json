@@ -1,0 +1,42 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Algeria is Africa's biggest country. Roman ruins, the Sahara, the Mediterranean. So why does almost nobody go?"
+  },
+  {
+   "id": "numbers",
+   "text": "In twenty twenty-four, Morocco had seventeen million visitors. Egypt almost sixteen. Tunisia over ten. Algeria: three and a half. And almost a third of those were Algerians living abroad."
+  },
+  {
+   "id": "oil",
+   "text": "Reason one: oil and gas. They make up about eighty-five percent of exports. Algeria never needed tourists, so it never built for them."
+  },
+  {
+   "id": "war",
+   "text": "Reason two: the nineties. A civil war killed up to two hundred thousand people. The image stuck. And in twenty thirteen, terrorists took a gas plant and dozens of foreign hostages died."
+  },
+  {
+   "id": "visa",
+   "text": "Reason three: the visa. Morocco and Tunisia let Europeans in visa-free. Egypt sells it at the airport. Algeria wants paperwork at a consulate, in advance."
+  },
+  {
+   "id": "twist",
+   "text": "The irony? Three and a half million Algerians visited Tunisia last year. About as many as all of Algeria's visitors combined."
+  },
+  {
+   "id": "point",
+   "text": "Now it's opening up. Visa on arrival for Sahara trips, new hotels, and a goal of twelve million foreign visitors by twenty thirty."
+  },
+  {
+   "id": "end",
+   "text": "Africa's sleeping beauty might wake up."
+  }
+ ],
+ "sources": [
+  "Arrivals 2024: Morocco 17.4M (Ministry of Tourism), Egypt 15.7M (PM Madbouly), Tunisia >10.2M non-resident visitors (prelim.) via Le360 2025; Algeria 3.548M incl. 1.093M Algerians abroad (ONAT via Algerie Eco 2025). Oil & gas ~85% of exports (2018), civil war ~200,000 dead (IBTimes 2020, Carnegie). In Amenas 2013. 3,511,469 Algerian entries to Tunisia 2024 (Destination Tunisie via Algerie Eco). Sahara visa on arrival via approved operators; target 12M foreign arrivals by 2030 (TravelMole)."
+ ]
+}
