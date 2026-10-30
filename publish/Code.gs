@@ -11,6 +11,7 @@
  *   Fehler              → Status "error: …" + Mail an dich
  *
  * Plan: importSchedule() lädt schedule.json aus MEDIA_BASE ins Sheet (Status bleibt erhalten).
+ *   autoImport() läuft stündlich und importiert nur, wenn sich schedule.json geändert hat.
  * Insights: trackInsights() schreibt 24 h / 72 h nach dem Post Views, Reach, Likes, Shares, Saves, Watch-Time, Skip-Rate
  *   (Token braucht dafür zusätzlich instagram_manage_insights).
  * Einrichtung: siehe Setup-Anleitung. Script-Eigenschaften (Projekteinstellungen → Script-Eigenschaften):
@@ -56,8 +57,10 @@ function setup() {
   ScriptApp.newTrigger('refreshToken').timeBased().everyDays(1).atHour(4).inTimezone(TZ).create();
   ScriptApp.newTrigger('trackInsights').timeBased().everyHours(1).create();
   ScriptApp.newTrigger('weeklyTikTokDigest').timeBased().onWeekDay(ScriptApp.WeekDay.MONDAY).atHour(9).inTimezone(TZ).create();
+  ScriptApp.newTrigger('autoImport').timeBased().everyHours(1).create();
   const me = igGet_(p.IG_USER_ID, { fields: 'username' });
   Logger.log('Verbunden mit @' + me.username + ' · Trigger angelegt.');
+  autoImport();
   checkMediaUrls();
 }
 
@@ -147,10 +150,54 @@ function rescheduleFromToday() {
  * Bereits gestartete/veröffentlichte Folgen (Status nicht leer) behalten Termin und Status.
  */
 function importSchedule() {
-  const p = props_();
-  const res = UrlFetchApp.fetch(p.MEDIA_BASE + 'schedule.json', { muteHttpExceptions: true });
+  const lock = LockService.getScriptLock();             // nicht gleichzeitig mit run() ins Sheet schreiben
+  if (!lock.tryLock(60 * 1000)) throw new Error('Sheet gerade in Benutzung – bitte gleich nochmal ausführen.');
+  try {
+    const text = fetchSchedule_();
+    importData_(JSON.parse(text));
+    PropertiesService.getScriptProperties().setProperty('SCHEDULE_HASH', hash_(text));
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+/** Stündlich (Trigger): importiert schedule.json nur, wenn sich die Datei seit dem letzten Import geändert hat. */
+function autoImport() {
+  const sp = PropertiesService.getScriptProperties();
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(60 * 1000)) return;                 // run() läuft gerade → nächste Stunde
+  try {
+    const text = fetchSchedule_();
+    const h = hash_(text);
+    if (sp.getProperty('SCHEDULE_HASH') === h) return;  // unverändert → nichts tun
+    importData_(JSON.parse(text));
+    sp.setProperty('SCHEDULE_HASH', h);
+    sp.deleteProperty('IMPORT_ERR_DAY');
+  } catch (e) {
+    Logger.log('autoImport: ' + e.message);
+    const today = Utilities.formatDate(new Date(), TZ, 'yyyy-MM-dd');
+    if (sp.getProperty('IMPORT_ERR_DAY') !== today) {    // höchstens eine Fehler-Mail pro Tag
+      sp.setProperty('IMPORT_ERR_DAY', today);
+      MailApp.sendEmail(notify_(), 'Not just you – Plan-Import fehlgeschlagen', e.message);
+    }
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function fetchSchedule_() {
+  const url = props_().MEDIA_BASE + 'schedule.json?t=' + Date.now();   // Cache umgehen (GitHub Pages)
+  const res = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
   if (res.getResponseCode() !== 200) throw new Error('schedule.json nicht erreichbar (HTTP ' + res.getResponseCode() + ')');
-  const data = JSON.parse(res.getContentText('UTF-8'));          // [header, ...rows] – 12 Spalten
+  return res.getContentText('UTF-8');
+}
+
+function hash_(text) {
+  return Utilities.base64Encode(Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, text, Utilities.Charset.UTF_8));
+}
+
+function importData_(data) {                             // [header, ...rows] – 12 Spalten
+  if (!Array.isArray(data) || data.length < 2) throw new Error('schedule.json ist leer oder ungültig');
   const sh = sheet_();
   const tz = sh.getParent().getSpreadsheetTimeZone();
   const width = LAST_COL;
@@ -185,6 +232,7 @@ function importSchedule() {
   sh.getRange(1, COL.postedAt, out.length, 1).setNumberFormat('@');
   sh.getRange(1, 1, out.length, width).setValues(out);
   sh.setFrozenRows(1);
+  SpreadsheetApp.flush();
   Logger.log('Plan importiert: ' + rows.length + ' Folgen im Plan, ' + history.length + ' ältere behalten, ' +
              Object.keys(keep).length + ' mit Status übernommen.');
 }

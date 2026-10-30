@@ -18,7 +18,7 @@
 4. Seiten-Token im Debugger prüfen → "Läuft ab: Nie" → in IG_TOKEN eintragen
 
 ## Neue Folgen
-Render → `publish/media/njXX.(mp4|jpg)` → schedule.csv/json → Repo `notjustyou-media` pushen → in Apps Script `importSchedule` ausführen (Status bereits geposteter Folgen bleibt).
+Render → `publish/media/njXX.(mp4|jpg)` → schedule.csv/json → Repo `notjustyou-media` pushen → fertig: `autoImport` prüft stündlich und importiert nur bei Änderungen (Status bereits geposteter Folgen bleibt). Sofort-Import: `importSchedule` manuell ausführen.
 
 ## Plan
 2 Reels/Tag (12:30, 18:30), Test No. 17 am 27.10. 21:15 → live. Bereits vorher online: Doorway, When talks end, Focusing illusion, More pain (No. 13).
