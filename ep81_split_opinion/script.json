@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Want more messages? Some people should think you're ugly."
+  },
+  {
+   "id": "study",
+   "text": "OkCupid compared women with similar average looks scores."
+  },
+  {
+   "id": "result",
+   "text": "The ones men disagreed about got more messages. A lot more."
+  },
+  {
+   "id": "example",
+   "text": "One woman got the lowest rating far more often than another. She still got three times the messages."
+  },
+  {
+   "id": "why",
+   "text": "One guess: if others aren't into you, I see less competition. Being just cute is a curse."
+  },
+  {
+   "id": "point",
+   "text": "So don't hide what makes you different. Lean into it."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "OkCupid (2011), 'The Mathematics Of Beauty' (OkTrends): the more men disagree about a woman's looks, the more messages; one woman rated lowest 142% more often than another got 3x the messages; competition explanation; 'the curse of being cute'."
+ ]
+}

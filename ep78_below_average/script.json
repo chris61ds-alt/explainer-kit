@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Women rated eighty percent of men as below average."
+  },
+  {
+   "id": "study",
+   "text": "OkCupid analyzed how its users rated each other's looks."
+  },
+  {
+   "id": "women",
+   "text": "Women were harsh. Eighty percent of men landed below medium."
+  },
+  {
+   "id": "men",
+   "text": "Men rated women on a fair curve. Most women: right in the middle."
+  },
+  {
+   "id": "twist",
+   "text": "But men's messages? Two thirds went to the best-looking third of women."
+  },
+  {
+   "id": "point",
+   "text": "So women judge harder. Men chase harder."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "OkCupid (2009), 'Your Looks and Your Inbox' (OkTrends). Women rated ~80% of men worse-looking than medium; men's ratings of women roughly symmetric around medium; two-thirds of male messages to the best-looking third of women."
+ ]
+}

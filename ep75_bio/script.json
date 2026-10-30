@@ -1,0 +1,34 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You spent an hour on your dating bio. Nobody read it."
+  },
+  {
+   "id": "study",
+   "text": "OkCupid had people rate profiles for looks and personality. Some saw the text. Some saw only the photo."
+  },
+  {
+   "id": "result",
+   "text": "The scores barely moved. Your text made up less than ten percent of what people thought of you."
+  },
+  {
+   "id": "twist",
+   "text": "And looks versus personality? For ninety-two percent of profiles, the two scores were almost the same."
+  },
+  {
+   "id": "point",
+   "text": "So your words matter. Your photo just talks louder."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "OkCupid (2014), 'We Experiment On Human Beings!' (Christian Rudder). Profile text hidden for some raters: text is 'less than 10% of what people think of you'; 92% of sample had personality and looks scores within half a point."
+ ]
+}

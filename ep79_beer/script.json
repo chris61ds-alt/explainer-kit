@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "One harmless question predicts if your date wants sex on the first night."
+  },
+  {
+   "id": "question",
+   "text": "Do you like the taste of beer?"
+  },
+  {
+   "id": "result",
+   "text": "Beer fans were sixty percent more likely to be okay sleeping with someone they just met. Men and women."
+  },
+  {
+   "id": "long",
+   "text": "Want something long-term instead? Ask three things."
+  },
+  {
+   "id": "three",
+   "text": "Do you like horror movies? Have you ever traveled alone to another country? Would it be fun to quit everything and live on a sailboat?"
+  },
+  {
+   "id": "match",
+   "text": "Thirty-two percent of long-term couples agreed on all three. Nearly four times chance."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "OkCupid (2011), 'The Best Questions For A First Date' (OkTrends). Liking the taste of beer: 60% more likely to be okay with sex with someone just met (both genders); horror movies / travel alone abroad / sailboat: 32% of long-term couples agreed on all three, 3.7x coincidence."
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "A twenty-year-old man finds twenty-year-old women most attractive. So does a fifty-year-old man."
+  },
+  {
+   "id": "data",
+   "text": "On OkCupid, men of every age rated women in their early twenties highest."
+  },
+  {
+   "id": "women",
+   "text": "Women's taste grew up with them. Their ideal age rose with their own."
+  },
+  {
+   "id": "but",
+   "text": "But here's the twist. Men mostly messaged women close to their own age."
+  },
+  {
+   "id": "point",
+   "text": "So men's ratings say one thing. Their messages say another."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Christian Rudder (2014), Dataclysm (via TIME / Business Insider): men of all ages rate women in their early 20s most attractive; women's preferred age tracks their own; men mostly search/message near their own age."
+ ]
+}

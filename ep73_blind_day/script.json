@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "A dating site turned off every photo. For one day."
+  },
+  {
+   "id": "study",
+   "text": "On Love Is Blind Day, OkCupid hid all pictures for seven hours."
+  },
+  {
+   "id": "result",
+   "text": "People answered first messages forty-four percent more often. And conversations went deeper."
+  },
+  {
+   "id": "back",
+   "text": "Then, at four p.m., the photos came back."
+  },
+  {
+   "id": "melt",
+   "text": "Twenty-two hundred conversations had started blind. They just melted away."
+  },
+  {
+   "id": "point",
+   "text": "Without a face, we were kinder. With one, we got picky."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "OkCupid (2014), 'We Experiment On Human Beings!' (Christian Rudder, OkTrends blog). Love Is Blind Day, Jan 15 2013: photos hidden 7 h; first messages answered 44% more often, conversations deeper, contact details exchanged faster; ~2,200 blind conversations melted away after photos returned at 4 PM. Via The Week / Marginal Revolution 2014."
+ ]
+}

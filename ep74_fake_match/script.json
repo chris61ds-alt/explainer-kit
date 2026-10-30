@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "What if your perfect match is a lie?"
+  },
+  {
+   "id": "study",
+   "text": "OkCupid took pairs who were a bad match, just thirty percent, and told them they were ninety."
+  },
+  {
+   "id": "result",
+   "text": "They messaged more. And they acted like a good match, even though they weren't."
+  },
+  {
+   "id": "quote",
+   "text": "The site's own verdict: the myth of compatibility works just as well as the truth."
+  },
+  {
+   "id": "backlash",
+   "text": "When OkCupid admitted it in twenty fourteen, users were furious."
+  },
+  {
+   "id": "point",
+   "text": "So maybe chemistry is partly what you're told to expect."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "OkCupid (2014), 'We Experiment On Human Beings!' (Christian Rudder). Pairs with actual 30% match shown 90%: more first messages, acted as if good match; quote 'the mere myth of compatibility works just as well as the truth'. Backlash after disclosure, July 2014."
+ ]
+}

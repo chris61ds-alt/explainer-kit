@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "That hot profile photo? It's probably old."
+  },
+  {
+   "id": "study",
+   "text": "OkCupid compared what users claim with what its data shows."
+  },
+  {
+   "id": "height",
+   "text": "People are about two inches shorter than they say. And twenty percent poorer."
+  },
+  {
+   "id": "photos",
+   "text": "But the best part: over a third of the hottest photos were at least a year old."
+  },
+  {
+   "id": "old",
+   "text": "And hot photos were more than twice as likely to be three years old. Twelve percent versus five."
+  },
+  {
+   "id": "point",
+   "text": "So the better the photo, the older it probably is."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "OkCupid (2010), 'The Big Lies People Tell In Online Dating' (OkTrends). ~2 inches shorter; ~20% poorer than stated; over a third of the hottest photos a year old or more; 12% of hot vs 5% of average photos over 3 years old."
+ ]
+}

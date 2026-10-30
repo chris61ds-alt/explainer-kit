@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Who's really on dating apps just for sex?"
+  },
+  {
+   "id": "study",
+   "text": "On OkCupid, users could tick what they're looking for. One option: casual sex."
+  },
+  {
+   "id": "men",
+   "text": "Straight men: six point one percent."
+  },
+  {
+   "id": "others",
+   "text": "Gay men and lesbians: almost seven percent."
+  },
+  {
+   "id": "women",
+   "text": "Straight women: zero point eight percent."
+  },
+  {
+   "id": "point",
+   "text": "One in sixteen men. One in a hundred and twenty-five women. At least, that's what they were willing to tick."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Christian Rudder (2014), Dataclysm (via TIME, '9 Ugly Truths'): explicitly seeking casual sex on OkCupid: 6.1% straight men, 6.9% gay men, 6.9% lesbians, 0.8% straight women."
+ ]
+}
