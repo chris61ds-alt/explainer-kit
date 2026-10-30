@@ -1,0 +1,32 @@
+{
+ "episode": "ep79_beer",
+ "tts": "cached",
+ "asr_voice": [
+  "result: 1/19 | Beer fans were 60% more likely to be OK sleeping with someone they just met. Men and women. [BUZZER]"
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 32.5,
+  "size_MiB": 3.5,
+  "black_intervals": [],
+  "loudness_LUFS": -16.5,
+  "true_peak_dBTP": -2.4,
+  "sha256": "ceb7d2996350c8c3eb3634fa2331e00844ecdb76b78c0fa739511884d2ade738",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "1/90 = 1.1%",
+ "asr_final_issues": [
+  "result: 1/19 | Beer fans were 60% more likely to be OK sleeping with someone they just met. Men and women"
+ ],
+ "duration_s": 32.49,
+ "cover": "ep79_beer_cover.png",
+ "caption": "ok"
+}
