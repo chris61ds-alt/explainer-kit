@@ -1,0 +1,34 @@
+{
+ "episode": "ep78_below_average",
+ "tts": "cached",
+ "asr_voice": [
+  "study: 2/9 | OK, Cupid, analyzed how its users rated each other's looks.",
+  "men: 1/13 | Men raided women on a fair curve. Most women, right in the middle."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 26.53,
+  "size_MiB": 3.2,
+  "black_intervals": [],
+  "loudness_LUFS": -16.4,
+  "true_peak_dBTP": -2.5,
+  "sha256": "e1cd16a0a636c79e75e566e90c2649753ca926968b902588475f89e04336a094",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "3/64 = 4.7%",
+ "asr_final_issues": [
+  "study: 2/9 | OK, Cupid, analyzed how its users rated each other's looks.",
+  "men: 1/13 | Men raided women on a fair curve. Most women, right in the middle."
+ ],
+ "duration_s": 26.53,
+ "cover": "ep78_below_average_cover.png",
+ "caption": "ok"
+}
