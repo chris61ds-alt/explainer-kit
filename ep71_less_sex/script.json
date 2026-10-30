@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Think we're wilder than our parents? We're having less sex."
+  },
+  {
+   "id": "study",
+   "text": "A national survey has asked Americans about their sex lives since nineteen eighty-nine. Over twenty-six thousand people."
+  },
+  {
+   "id": "result",
+   "text": "By the early twenty-tens, adults had sex about nine times less per year than in the late nineties."
+  },
+  {
+   "id": "couples",
+   "text": "For married couples, the drop was even bigger. Sixteen times less a year."
+  },
+  {
+   "id": "why",
+   "text": "One reason researchers point to: fewer young people have a steady partner."
+  },
+  {
+   "id": "point",
+   "text": "So we might talk about sex more. But we're having less of it."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Twenge, Sherman & Wells (2017). Declines in sexual frequency among American adults, 1989-2014. Archives of Sexual Behavior 46(8). GSS, N > 26,000; ~9 fewer times/year in 2010-2014 vs 1995-1999; married/cohabiting ~16 fewer times/year vs 2000-2004; fewer steady partners among younger cohorts. Via Phys.org 2017."
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Who's kinkier, men or women? Brace yourself."
+  },
+  {
+   "id": "study",
+   "text": "Researchers asked over a thousand adults about unusual sexual interests."
+  },
+  {
+   "id": "result",
+   "text": "Almost half had at least one. And a third had actually tried one."
+  },
+  {
+   "id": "women",
+   "text": "Fetishes? Women reported a bit more than men. Pain and submission? Women too. Twenty-eight percent versus nineteen."
+  },
+  {
+   "id": "men",
+   "text": "Men led in other areas. But the gap was far smaller than the stereotype."
+  },
+  {
+   "id": "point",
+   "text": "So the kinky one in your relationship might not be who you think."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Joyal & Carpentier (2017). The prevalence of paraphilic interests and behaviors in the general population. Journal of Sex Research 54(2). 1,040 adults (Quebec); 45.6% desire for at least one paraphilic behavior, 33.9% experience; fetishism desire women 47.9% vs men 40.4% (n.s.); masochism desire women 27.8% vs men 19.2%; men higher in voyeurism/frotteurism; sample not fully probabilistic. Via paper PDF + Sex & Psychology."
+ ]
+}

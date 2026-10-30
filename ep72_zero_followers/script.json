@@ -1,0 +1,32 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "This account has basically no followers. Let's fix that together."
+  },
+  {
+   "id": "what",
+   "text": "Every video here is about something you think only you do. And then the data shows: you're not alone."
+  },
+  {
+   "id": "deal",
+   "text": "So here's the deal. Comment the thing you secretly think isn't normal."
+  },
+  {
+   "id": "next",
+   "text": "The top comment becomes the next video. With real research. No judgment."
+  },
+  {
+   "id": "point",
+   "text": "Go. Comments. Now."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": []
+}

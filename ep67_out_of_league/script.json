@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You're messaging people out of your league. Everyone is."
+  },
+  {
+   "id": "study",
+   "text": "Researchers analyzed a big dating site in four US cities, and ranked every user by how desirable they were to others."
+  },
+  {
+   "id": "result",
+   "text": "Most people messaged someone about twenty-five percent more desirable than themselves."
+  },
+  {
+   "id": "reply",
+   "text": "Most of those messages got no answer. But about one in five people who aimed up did get a reply."
+  },
+  {
+   "id": "age",
+   "text": "And on that site, men's desirability kept rising until about fifty. Women's fell from eighteen on."
+  },
+  {
+   "id": "point",
+   "text": "So aim high. Just don't take the silence personally."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Bruch & Newman (2018). Aspirational pursuit of mates in online dating markets. Science Advances 4(8). One dating site, New York, Boston, Chicago, Seattle; desirability via PageRank-like ranking; most users contact partners ~25% more desirable; ~21% of those pursuing out-of-league get a reply; men's desirability rises with age to ~50, women's declines from 18 to 60. Via Phys.org."
+ ]
+}
