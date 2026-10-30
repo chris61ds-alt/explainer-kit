@@ -1,6 +1,6 @@
 {
  "episode": "ep72_zero_followers",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {

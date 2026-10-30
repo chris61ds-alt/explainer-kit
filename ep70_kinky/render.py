@@ -21,7 +21,7 @@ def duo_bars(d, t, t0, label, w, m, y, sig_w=True):
         if k > .9: d.text((X0 + 840 * v / 60 * k + 14, yy + 30), f"{v:.0f} %  {lab}", font=F(BLK, 32), fill=col, anchor="lm")
 
 def sc_hook(img, d, t):
-    tb = cue("hook", "brace")
+    tb = cue("hook", "get ready")
     d.text((X0 - 6, 320), "WHO'S", font=F(BLK, 220), fill=INK); d.text((X0 - 6, 520), "KINKIER?", font=F(BLK, 180), fill=SIG)
     silhouette(img, lambda m: bust(m, 300, 880, .6, 255, f=1), (60, 760, 560, 1130), INK, cell=9)
     silhouette(img, lambda m: bust(m, 660, 880, .6, 255, f=-1), (420, 760, 900, 1130), SIG, cell=9)
@@ -68,7 +68,7 @@ def sc_point(img, d, t):
     fig(d, "fig. 2 — ask, don't assume")
 
 EP.scenes = {"hook": sc_hook, "study": sc_study, "result": sc_result, "women": sc_women, "men": sc_men, "point": sc_point}
-FX = [(0.0, thud(.5), 0), (cue("hook", "brace"), rewind_sfx(.1, .3), 0), *EP.cut_fx(), *[(S("study") + .2 + i * .1, tick(.03), (i % 5 - 2) / 3) for i in range(10)],
+FX = [(0.0, thud(.5), 0), (cue("hook", "get ready"), rewind_sfx(.1, .3), 0), *EP.cut_fx(), *[(S("study") + .2 + i * .1, tick(.03), (i % 5 - 2) / 3) for i in range(10)],
       (S("result") + .05, thud(.55), 0), (cue("result", "a third") - .2, pop(.15), 0), (S("women") + .2, pop(.15), -.2), (cue("women", "pain") - .3, thud(.4), 0),
       (cue("men", "far smaller") - .3, pop(.15), 0), (cue("point", "might not") - .2, riser(.5, .05), 0), (S("end"), thud(.5), 0)]
 if __name__ == "__main__": EP.run(FX)

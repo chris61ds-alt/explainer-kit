@@ -1,4 +1,4 @@
-Who's kinkier, men or women? Brace yourself. 🔗
+Who's kinkier, men or women? Get ready. 🔗
 
 Researchers asked over a thousand adults about unusual sexual interests. Almost half had at least one, and a third had actually tried one.
 

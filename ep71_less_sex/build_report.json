@@ -1,0 +1,34 @@
+{
+ "episode": "ep71_less_sex",
+ "tts": "new",
+ "asr_voice": [
+  "study: 5/19 | A national survey has asked Americans about their sex lives since 1989. Over 26,000 people.",
+  "result: 3/19 | By the early 2010s, adults had sex about nine times less per year than in the late '90s. [BUZZER]"
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 32.97,
+  "size_MiB": 3.8,
+  "black_intervals": [],
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.4,
+  "sha256": "8468741ca002c34cdd48071340284410f0043e4414cbfd701d06c0b388550077",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "8/89 = 9.0%",
+ "asr_final_issues": [
+  "study: 5/19 | A national survey has asked Americans about their sex lives since 1989. Over 26,000 people.",
+  "result: 3/19 | By the early 2010s, adults had sex about nine times less per year than in the late 90s."
+ ],
+ "duration_s": 32.96,
+ "cover": "ep71_less_sex_cover.png",
+ "caption": "ok"
+}
