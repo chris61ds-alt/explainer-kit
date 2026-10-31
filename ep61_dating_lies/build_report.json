@@ -1,17 +1,17 @@
 {
  "episode": "ep61_dating_lies",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 30.37,
-  "size_MiB": 3.8,
+  "duration_s": 27.7,
+  "size_MiB": 3.3,
   "black_intervals": [],
   "loudness_LUFS": -16.5,
   "true_peak_dBTP": -2.5,
-  "sha256": "f459ca5ab075ec057df4a4093c49520e87708fa6620a9ede64b040fe6d16568d",
+  "sha256": "60a19994700edb1c9d98500a85318f1869cb0e00e0082fe4c09772f31a18ccd2",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,9 +20,9 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/83 = 0.0%",
+ "asr_final_wer": "0/80 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 30.36,
+ "duration_s": 27.71,
  "cover": "ep61_dating_lies_cover.png",
  "caption": "ok"
 }
