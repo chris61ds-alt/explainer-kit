@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Think you can spot AI slop? Most people can't."
+  },
+  {
+   "id": "study",
+   "text": "Eleven thousand people took an online test. Fifty pictures. Human or AI?"
+  },
+  {
+   "id": "result",
+   "text": "The median score was sixty percent. Pure guessing gets you fifty."
+  },
+  {
+   "id": "fav",
+   "text": "The most liked picture in the whole test? Made by AI."
+  },
+  {
+   "id": "haters",
+   "text": "Even people who said they hate AI art put AI pieces in half of their top ten."
+  },
+  {
+   "id": "point",
+   "text": "So maybe we don't hate slop. We hate knowing it's slop."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Scott Alexander (2024), 'How Did You Do On The AI Art Turing Test?', Astral Codex Ten. ~11,000 participants, 50 images; median 60%, mean 60.6%; most popular picture 'Riverside Cafe' was AI; 1,278 people who rated AI art 1/5 still had 50% AI in their top ten. Voluntary online survey of blog readers, not peer-reviewed. Merriam-Webster Word of the Year 2025: slop."
+ ]
+}

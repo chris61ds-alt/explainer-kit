@@ -30,6 +30,7 @@
 - No. 61–65 Sprint 2 (Look C+D): Dating-Profil-Lügen (Toma et al. 2008) · Größe = Gehalt (Judge & Cable 2004) · Ex = Droge (Fisher et al. 2010) · Fluchen hilft (Stephens et al. 2009) · 80 Mio. Bakterien pro Kuss (Kort et al. 2014)
 - No. 66–71 Sprint 3: Fremdgehen (GSS/IFS 2018) · Out of your league (Bruch & Newman 2018) · Narzissten-Charme (Back 2010; Paulhus 1998) · Sex Toys m/w (Herbenick/Reece 2009) · Wer ist versauter (Joyal & Carpentier 2017) · Weniger Sex als in den 90ern (Twenge 2017) · No. 72 Sonderfolge „You decide“ (Kommentar → nächstes Video)
 - No. 73–81 Sprint 4 „Dataclysm“ (Label PLATFORM DATA, OkCupid/Rudder): Love Is Blind Day · Fake Match (30 % als 90 %) · Bio <10 % · Alte Fotos / −2 in / −20 % · Casual Sex 6,1 vs 0,8 % · Frauen bewerten 80 % der Männer unterdurchschnittlich · Beer Question + 3 Fragen · Forever 20 · Polarisierende Looks. Plan 13.–17.11.
+- No. 82 „This video, live“ (Live-Zuschauerkurve, INDUSTRY DATA) · No. 83–85 Sprint 5: OnlyFans-Mathe (OnlyFans Aug 2026; Ball-Schätzung) · Slop (ACX AI Art Turing Test 2024) · Die Jungen sind am einsamsten (Gallup/Meta 2023). Plan 18.–19.11.
 - Geparkt (zu brav, ggf. neu hooken): 12, 15, 16, 18, 19, 20, 24, 25, 27, 28, 32, 33
 - No. 35–37 Dating: Swipe-Müdigkeit (Pronk & Denissen 2020) · Mehr fragen (Huang et al. 2017) · Dein Typ (Eastwick & Finkel 2008)
 - No. 32–34 Sprache: Semantische Sättigung · Wort auf der Zunge (Brown & McNeill 1966) · Bouba/Kiki (Ćwiek et al. 2021)

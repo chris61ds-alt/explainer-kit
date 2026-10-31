@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Who's the loneliest age group in the world? Not your grandparents."
+  },
+  {
+   "id": "study",
+   "text": "Gallup and Meta asked people in a hundred and forty-two countries how lonely they feel."
+  },
+  {
+   "id": "world",
+   "text": "Almost one in four adults said very or fairly lonely. That's more than a billion people."
+  },
+  {
+   "id": "young",
+   "text": "The loneliest group: ages nineteen to twenty-nine. Twenty-seven percent."
+  },
+  {
+   "id": "old",
+   "text": "The least lonely: sixty-five and older. Seventeen percent."
+  },
+  {
+   "id": "point",
+   "text": "So if you're young and lonely, you're not the exception. You're the biggest group."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Gallup & Meta (2023), Global State of Social Connections. 142 countries/areas (not China), fieldwork June 2022 – Feb 2023, ~1,000 respondents per country; 24% very or fairly lonely (>1 billion people); ages 19-29: 27% (highest), 65+: 17% (lowest). Via news.gallup.com."
+ ]
+}
