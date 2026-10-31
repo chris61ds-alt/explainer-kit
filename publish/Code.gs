@@ -23,6 +23,7 @@
  *   API_HOST     – optional: graph.instagram.com (Instagram-Login, Standard) oder graph.facebook.com
  *                  (Facebook-Login; dann IG_TOKEN = Seiten-Token, läuft nicht ab)
  *   NOTIFY_EMAIL – optional, Standard: dein Google-Konto
+ *   TT_CLIENT_KEY / TT_CLIENT_SECRET / TT_REDIRECT – optional: TikTok-Postfach-Upload (Datei TikTok.gs)
  *
  * Datenschutz: Das Skript speichert nur Token und IDs in den Script-Eigenschaften deines Kontos,
  * sendet nichts an Dritte außer an die Instagram/Meta Graph API und protokolliert keine Nutzerdaten.
@@ -58,6 +59,7 @@ function setup() {
   ScriptApp.newTrigger('trackInsights').timeBased().everyHours(1).create();
   ScriptApp.newTrigger('weeklyTikTokDigest').timeBased().onWeekDay(ScriptApp.WeekDay.MONDAY).atHour(9).inTimezone(TZ).create();
   ScriptApp.newTrigger('autoImport').timeBased().everyHours(1).create();
+  if (p.TT_CLIENT_KEY) ScriptApp.newTrigger('tiktokRun').timeBased().everyMinutes(CHECK_EVERY_MIN).create();   // TikTok.gs
   const me = igGet_(p.IG_USER_ID, { fields: 'username' });
   Logger.log('Verbunden mit @' + me.username + ' · Trigger angelegt.');
   autoImport();

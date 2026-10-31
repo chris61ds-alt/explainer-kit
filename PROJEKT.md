@@ -57,7 +57,8 @@ Source: <Autor (Jahr), Quelle>
 - **Nur gewagte Themen** (Sex, Dating, Lügen, Rache, Geld, Ego). Brave Themen sind geparkt.
 - **Keine erfundenen Zahlen.** Nicht alles muss eine Peer-Review-Studie sein, aber das Label ist ehrlich: SMALL STUDY · CASE STUDY · SURVEY · UNSOLVED · PLATFORM DATA · SELF-REPORTED · INDUSTRY DATA. Quellen vor jeder Folge per Websuche prüfen.
 - **Look C+D, dark:** große Roboto-Typografie, ein Signalorange, Punktraster-Silhouetten (halftone), Zähler, Balken. **Keine Strichfiguren, keine unnötige UI** (kein Header, Titel, Fortschrittsbalken, Kapitel). Schematische Diagramme werden als „schematic“ markiert.
-- Stimme: Kokoro TTS `af_heart`, Speed 1.1 (nur Englisch möglich). Länge ca. 25–35 s. Ende: „Not just you.“ + Quellen-Endkarte.
+- Stimme: Kokoro TTS `af_heart`, Speed 1.1 (nur Englisch möglich). Länge ca. 25–35 s.
+- **Ende (seit 31.10.):** harter Schnitt auf die Pointe, ~1 s stehen lassen, dann Loop in den Hook. Kein gesprochenes „Not just you“, keine Endkarte, kein Wisch-Übergang. Quellen stehen in der Caption, das Label oben rechts bleibt. (Der `end`-Beat bleibt im script.json, wird aber stumm geschaltet; `Timeline(..., end="card")` für Ausnahmen.)
 - Automatisierung nur mit **Google Apps Script** (kein Make.com). Code immer als komplette Datei, keine großen Änderungen ohne Absprache.
 
 ## 2 · Wo was liegt
@@ -77,7 +78,7 @@ Source: <Autor (Jahr), Quelle>
 
 ## 4 · Publishing
 - **Instagram:** automatisch, 2×/Tag **12:30 + 18:30** (Graph API über Facebook-Login, Seiten-Token läuft nicht ab). Fehler → Mail.
-- **TikTok:** manuell (montags Digest-Mail; Abhak-Liste). Läuft bisher **besser als Instagram**.
+- **TikTok:** läuft **deutlich besser als Instagram** (Look C+D: 700–1.000 Aufrufe, alter Look ~260). Upload ins TikTok-Postfach per Apps Script (`TikTok.gs`, Einrichtung in SETUP.md), Posten per Tipp. Titelbild beim Posten: erster Frame.
 - Insights (24 h / 72 h) im Sheet: braucht Token mit `instagram_manage_insights` + `setup`.
 
 ## 5 · Stand

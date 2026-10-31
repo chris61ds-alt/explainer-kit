@@ -7,7 +7,7 @@ bash setup.sh                                 # einmal pro Umgebung: Pakete, Sti
 python3 shared/build.py ep77_casual           # Funktionstest: muss "verify PASS" melden
 ```
 1. **Recherche:** Quelle per Websuche prüfen, genaue Zahlen notieren. Keine erfundenen Zahlen, ehrliches Label (PROJEKT.md).
-2. **`epXX_name/script.json`:** Englisch, 5–7 Beats, 70–95 Wörter, Zahlen ausgeschrieben, letzter Beat `"end": "Not just you."`.
+2. **`epXX_name/script.json`:** Englisch, 5–7 Beats, 70–95 Wörter, Zahlen ausgeschrieben, letzter Beat `"end": "Not just you."` (wird seit 31.10. stumm geschaltet: das Video endet hart auf der Pointe und loopt in den Hook).
 3. **`epXX_name/caption.md`:** Format siehe PROJEKT.md, Abschnitt 0.
 4. **`epXX_name/render.py`:** im aktuellen **Look C+D (dark)**. Eine Vorlage kopieren und anpassen:
    - `ep77_casual` (Zähler, Raster, Checkbox) · `ep70_kinky` (Silhouetten-Duo, Balken) · `ep81_split_opinion` (Bewertungen, Glitch)
