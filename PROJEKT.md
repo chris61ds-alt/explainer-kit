@@ -59,6 +59,12 @@ Source: <Autor (Jahr), Quelle>
 - **Look C+D, dark:** große Roboto-Typografie, ein Signalorange, Punktraster-Silhouetten (halftone), Zähler, Balken. **Keine Strichfiguren, keine unnötige UI** (kein Header, Titel, Fortschrittsbalken, Kapitel). Schematische Diagramme werden als „schematic“ markiert.
 - Stimme: Kokoro TTS `af_heart`, Speed 1.1 (nur Englisch möglich). Länge ca. 25–35 s.
 - **Ende (seit 31.10.):** harter Schnitt auf die Pointe, ~1 s stehen lassen, dann Loop in den Hook. Kein gesprochenes „Not just you“, keine Endkarte, kein Wisch-Übergang. Quellen stehen in der Caption, das Label oben rechts bleibt. (Der `end`-Beat bleibt im script.json, wird aber stumm geschaltet; `Timeline(..., end="card")` für Ausnahmen.)
+- **Format v2 (Test seit 31.10., Folgen 66 50 69 39 67 49):** TikTok-Daten zeigen: die Hälfte ist nach 1 s weg. Daher:
+  1. erster Beat `guess` mit `"screen": [Zeilen]` → Rate-Frage groß ab Frame 0 + 3-2-1-Countdown („GUESS FIRST“);
+  2. pro Beat optional `"tease"` (Teilstring des Texts, offene Schleife) + `"show"` (Banner) → **Rehook nach Hook**, alle ~6–8 s einer;
+  3. oben im script.json `"ask"` → Kommentarfrage als Banner auf der letzten Szene, Caption: erste Zeile = Rate-Frage, letzte = Frage + 👇;
+  4. Pausen automatisch kurz (`NJY_PACE=tight`, max. 0,3 s), Slam-Zoom auf Frame 0. Alte Skripte liegen als `script_v1.json` daneben.
+  Auswertung nach ~6 TikToks: Views, Ø-Wiedergabe, Kommentare vs. bisherige C+D-Folgen.
 - Automatisierung nur mit **Google Apps Script** (kein Make.com). Code immer als komplette Datei, keine großen Änderungen ohne Absprache.
 
 ## 2 · Wo was liegt

@@ -4,20 +4,33 @@
  "lang": "en-us",
  "beats": [
   {
+   "id": "guess",
+   "text": "Quick, guess: which group cheats the most?",
+   "screen": [
+    "WHICH GROUP",
+    "CHEATS",
+    "THE MOST?"
+   ]
+  },
+  {
    "id": "hook",
    "text": "One in five married men has cheated. And women? Closer than you think."
   },
   {
    "id": "study",
-   "text": "A big national survey asked married Americans one question: have you ever had sex with someone else while married?"
+   "text": "A big national survey asked married Americans: have you ever had sex with someone else while married?"
   },
   {
    "id": "result",
-   "text": "Twenty percent of men said yes. Thirteen percent of women."
+   "text": "Twenty percent of men said yes. Thirteen percent of women. But the age breakdown is the real story.",
+   "tease": "But the age breakdown",
+   "show": "THE REAL STORY: AGE"
   },
   {
    "id": "young",
-   "text": "But under thirty, women were slightly ahead. Eleven percent versus ten."
+   "text": "Under thirty, women were slightly ahead. Eleven percent versus ten. And the top group? Probably not your guess.",
+   "tease": "And the top group?",
+   "show": "THE TOP GROUP: NEXT"
   },
   {
    "id": "old",
@@ -34,5 +47,7 @@
  ],
  "sources": [
   "Wang (2018), Institute for Family Studies: 'Who cheats more? The demographics of infidelity in America', analysis of the General Social Survey. Ever-married: 20% of men, 13% of women had sex with someone other than spouse while married; ages 18-29: women 11% vs men 10%; men in their 70s 26% (highest)."
- ]
+ ],
+ "format": "v2",
+ "ask": "WHAT DID YOU GUESS? COMMENT."
 }

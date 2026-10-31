@@ -163,6 +163,8 @@ class ThreadEpisode(Episode):
             img.paste(B.crop((0, Y0c, off, Y1c)), (W - off, Y0c)) if off > 0 else None
         else:
             self._scene(img, d, cur, t)
+        if cur == self.order[0] and t < .3: zoom_band(img, d, 1 + SLAM * (1 - ease(t / .3)), y0=Y0c, y1=Y1c)
+        if cur != "end": self.overlays(img, d, t, cur)
         d.rectangle([0, 0, W, Y0c - 1], fill=BG); d.rectangle([0, Y1c, W, H], fill=BG)
         self.chrome(d, t, cur)
         if self.label and cur != "end": box_label(d, X1, 270, self.label, 22, WHITE, SIG, font=MONO, anchor="ra")

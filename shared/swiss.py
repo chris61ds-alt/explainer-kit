@@ -396,13 +396,21 @@ def darken(img):
     out = np.clip(out + (out < 40) * 8, 0, 255)          # lift pure black a touch (less harsh on OLED)
     img.paste(Image.fromarray(out.astype(np.uint8)))
 
+SLAM = .10              # frame-0 slam-in: the first scene starts zoomed 10 % and snaps to place within 0.3 s
+
+def zoom_band(img, d, z, cx=480, cy=730, y0=300, y1=1180):
+    l, tp = cx - cx / z, cy - cy / z
+    img.paste(img.crop((int(l), int(tp), int(l + W / z), int(tp + H / z))).resize((W, H), Image.BILINEAR))
+    d.rectangle([0, 0, W, y0], fill=BG); d.rectangle([0, y1, W, H], fill=BG)
+
 class Episode:
     """chrome + harness. Options: layers (drawn every frame on top of the scene, for actors that carry over between scenes),
     drift (slow camera push per scene), loop (last frames wipe back to frame 0 for a seamless Instagram loop),
     music (dict for MUSIC), cover (dict for make_cover)."""
     def __init__(self, TL, no, title, chapters, order, sources=(), handle="@vascoda.soda", series="NOT JUST YOU",
                  drift=.03, loop=False, music=None, cover=None, dark=False, ui=None):
-        self.TL, self.no, self.title, self.order = TL, no, title, order
+        self.TL, self.no, self.title, self.order = TL, no, title, list(order)
+        if "guess" in TL.T and self.order[0] != "guess": self.order.insert(0, "guess")    # format v2: guess-first opener
         # ui: "minimal" (default since 28.10.2026) = no header, episode title, chapter or progress bar; "full" = old chrome
         self.ui = ui or os.environ.get("NJY_UI", "minimal")
         self.chapters = {k: (f"{i + 1:02d}", v) for i, (k, v) in enumerate(chapters.items())}
@@ -481,15 +489,59 @@ class Episode:
             for lay in self.layers: lay(img, d, t, cur)
             a, b = self.scene_span(cur)
             z = 1 + self.drift * ease_io((t - a) / max(.5, b - a))           # slow push through the scene
-            if cur != self.order[0]: z += .035 * math.exp(-(t - a) * 8)      # punch-in on every cut (none on frame 0)
-            if z > 1.002:
-                cx, cy = 480, 730; l, tp = cx - cx / z, cy - cy / z
-                img.paste(img.crop((int(l), int(tp), int(l + W / z), int(tp + H / z))).resize((W, H), Image.BILINEAR))
-                d.rectangle([0, 0, W, 300], fill=BG); d.rectangle([0, 1180, W, H], fill=BG)
+            if cur != self.order[0]: z += .035 * math.exp(-(t - a) * 8)      # punch-in on every cut
+            else: z += SLAM * (1 - ease(t / .3))                             # slam-in from frame 0 (no static first second)
+            if z > 1.002: zoom_band(img, d, z)
+            self.overlays(img, d, t, cur)
         self.chrome(d, t, cur)
         self.subtitle(d, t)
 
+    # ---- format v2 (31.10.2026): guess-first opener, re-hook banners, comment question ----------------------------
+    def last_scene(self):
+        return self.order[self.order.index("end") - 1] if "end" in self.order else self.order[-1]
+
+    def guess_scene(self, img, d, t):
+        """opener: the question in big type from frame 0, a 3-2-1 countdown until the hook starts"""
+        TL = self.TL; t0, t1 = TL.S("guess"), TL.S(self.order[1])
+        box_label(d, X0, 300, "GUESS FIRST", 40, WHITE, SIG, font=BLK)
+        lines = TL.screen.get("guess") or [TL.T["guess"]["text"].upper()]
+        size = int(min(170, 540 / (len(lines) * 1.05), *(840 / max(1, d.textlength(l, font=F(BLK, 100))) * 100 for l in lines)))
+        words_in(d, t, [(l, -1 if i == 0 else t0 + .1 + i * .2, 390 + i * int(size * 1.05), size,
+                         SIG if i == len(lines) - 1 else INK) for i, l in enumerate(lines)])
+        k = clamp((t - t0) / max(.5, t1 - t0)); n = 3 - min(2, int(k * 3))
+        cx, cy, r = X1 - 120, 1050, 92
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=RULE, width=10)
+        if k > 0: d.arc([cx - r, cy - r, cx + r, cy + r], -90, -90 + 360 * k, fill=SIG, width=14)
+        d.text((cx, cy), str(n), font=F(BLK, 120), fill=INK, anchor="mm")
+        d.text((X0, 1010), "Your number?", font=F(COND, 54), fill=INK)
+        d.text((X0, 1080), "Answer coming.", font=F(COND, 40), fill=MID)
+
+    def overlays(self, img, d, t, cur):
+        """re-hook banner (open loop) and the comment question, bottom of the content band"""
+        TL = self.TL
+        if cur in TL.tease:
+            say, show = TL.tease[cur]; ts = TL.cue(cur, say[:16]) - .1
+            if t >= ts:
+                k = ease((t - ts) / .2); size = min(46, int(840 / max(1, d.textlength(show, font=F(BLK, 100))) * 100))
+                box_label(d, X0 - (1 - k) * 70, 1122, show, size, WHITE, SIG, font=BLK)
+        if TL.ask and cur == self.last_scene():
+            ta = TL.S(cur) + TL.T[cur]["dur"] * .55
+            if t >= ta:
+                k = ease((t - ta) / .25); size = min(46, int(840 / max(1, d.textlength(TL.ask, font=F(BLK, 100))) * 100))
+                box_label(d, X0 - (1 - k) * 70, 1122, TL.ask, size, WHITE, SIG, font=BLK)
+
+    def v2_fx(self):
+        TL = self.TL; out = []
+        if "guess" in TL.T:
+            t0, t1 = TL.S("guess"), TL.S(self.order[1])
+            out += [(t0 + (t1 - t0) * i / 3, tick(.09), 0) for i in range(3)] + [(t1 - .02, thud(.5), 0)]
+        for k, (say, _) in TL.tease.items(): out.append((TL.cue(k, say[:16]) - .1, pop(.18), 0))
+        if TL.ask:
+            c = self.last_scene(); out.append((TL.S(c) + TL.T[c]["dur"] * .55, pop(.15), 0))
+        return out
+
     def draw(self, img, d, t):
+        self.scenes.setdefault("guess", self.guess_scene)
         self._draw(img, d, t)
         if self.dark: darken(img)
 
@@ -530,4 +582,4 @@ class Episode:
         global MUSIC
         MUSIC = dict(MUSIC, **self.music)
         if "--cover" in sys.argv: print("cover", self.make_cover(sys.argv[1])); return
-        cute.run(self.TL, self.draw, fx)
+        cute.run(self.TL, self.draw, list(fx) + self.v2_fx())

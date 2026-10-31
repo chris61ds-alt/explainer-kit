@@ -1,4 +1,4 @@
-You're messaging people out of your league. Everyone is. 💬
+How far out of their league do people aim? Guess. 💬
 
 Researchers analyzed a big dating site in four US cities and ranked every user by how desirable they were to others. Most people messaged someone about 25% more desirable than themselves.
 
@@ -11,5 +11,7 @@ Not just you.
 Source: Bruch & Newman (2018), Science Advances
 
 Ever got a reply from way out of your league? 👀
+
+Do you aim up? 👇
 
 #notjustyou #dating #onlinedating #psychology #relationships #science #psychologyfacts

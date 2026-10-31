@@ -1,4 +1,4 @@
-Who uses sex toys more, men or women? It's closer than you think. 🗄️
+Men or women: who uses sex toys more? Guess. 🗄️
 
 Two national surveys asked over 3,000 American adults about vibrators. 53% of women had used one. And men? 45%, most of them together with a partner.
 
@@ -10,6 +10,6 @@ Not just you · After Dark
 
 Sources: Herbenick et al. (2009) & Reece et al. (2009), Journal of Sexual Medicine (funded by a condom manufacturer)
 
-Surprised by the men? 👇
+Who did you guess? 👇
 
 #notjustyou #afterdark #intimacy #relationships #psychology #science #psychologyfacts

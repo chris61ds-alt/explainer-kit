@@ -1,4 +1,4 @@
-You lied today. Probably more than once. 🤥
+How many lies do you tell per day? Guess. 🤥
 
 In a diary study, people wrote down every lie they told for a whole week. College students lied about twice a day. Other adults, about once.
 
@@ -12,6 +12,6 @@ Not just you.
 
 Source: DePaulo, Kashy, Kirkendol, Wyer & Epstein (1996), Journal of Personality and Social Psychology
 
-What's the lie you tell most often? (No judgment.)
+What's the lie you tell most often? (No judgment.) 👇
 
 #notjustyou #lying #honesty #psychology #psychologyfacts #science #relatable

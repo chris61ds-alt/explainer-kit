@@ -36,18 +36,35 @@ END_HOLD = .35          # hard ending: seconds the last scene stays after the po
 
 class Timeline:
     """end: "hard" (default since 31.10.2026, env NJY_END) = no spoken "Not just you." and no end card; the video ends on the
-    point and loops straight back into the hook. "card" = old ending (spoken line + end card with sources)."""
-    def __init__(self, ep_dir, lead=.5, gaps=None, default_gap=.35, end=None):
+    point and loops straight back into the hook. "card" = old ending (spoken line + end card with sources).
+    pace: "tight" (default since 31.10.2026 with the hard ending, env NJY_PACE) = voice starts at 0.05 s, gaps max 0.3 s
+    (TikTok data: half the viewers are gone after 1 s); "loose" = the gaps written in render.py (needed for No. 82, timed live).
+    script.json extras (format v2, optional): a first beat "guess" with "screen": [lines] → guess-first opener with countdown;
+    per beat "tease" (substring of its text, the open loop) + "show" (banner text) → re-hook; top-level "ask" → comment
+    question on the last scene (the hard ending then holds 1.2 s so it can be read)."""
+    def __init__(self, ep_dir, lead=.5, gaps=None, default_gap=.35, end=None, pace=None):
         self.dir = ep_dir
         self.end_mode = end or os.environ.get("NJY_END", "hard")
+        self.pace = pace or os.environ.get("NJY_PACE", "tight" if self.end_mode == "hard" else "loose")
+        sp = os.path.join(ep_dir, "script.json")
+        self.script = json.load(open(sp)) if os.path.exists(sp) else {}
+        sb = {b["id"]: b for b in self.script.get("beats", [])}
+        self.ask = self.script.get("ask")
+        self.tease = {k: (b["tease"], b.get("show", b["tease"].upper())) for k, b in sb.items() if b.get("tease")}
+        self.screen = {k: b["screen"] for k, b in sb.items() if b.get("screen")}
+        gaps = dict(gaps or {})
+        if self.pace == "tight":
+            lead, default_gap = min(lead, .05), min(default_gap, .25)
+            gaps = {k: (v if k == "end" else min(v, .3)) for k, v in gaps.items()}
+            gaps.setdefault("guess", .45)
         meta = json.load(open(os.path.join(ep_dir, "vo", "meta.json")))
         self.meta = [m for m in meta if not (self.end_mode == "hard" and m["id"] == "end")]
         self.T, t = {}, lead
         for m in meta:
             if self.end_mode == "hard" and m["id"] == "end":
-                self.T["end"] = dict(start=t, dur=0.0, text="", mute=True); t += END_HOLD; continue
+                self.T["end"] = dict(start=t, dur=0.0, text="", mute=True); t += 1.2 if self.ask else END_HOLD; continue
             self.T[m["id"]] = dict(start=t, dur=m["dur"], text=m["text"])
-            t += m["dur"] + (gaps or {}).get(m["id"], default_gap)
+            t += m["dur"] + gaps.get(m["id"], default_gap)
         self.total = t
     def S(self, k): return self.T[k]["start"]
     def E(self, k): return self.T[k]["start"] + self.T[k]["dur"]

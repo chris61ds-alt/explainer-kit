@@ -1,4 +1,4 @@
-In bed, there's a gap nobody talks about. 📊
+Straight men orgasm 95% of the time. Guess women. 📊
 
 A survey of 52,588 American adults asked how often they usually orgasm during intimacy.
 Straight men: 95%
@@ -14,5 +14,7 @@ Not just you · After Dark
 Source: Frederick, St. John, Garcia & Lloyd (2018), Archives of Sexual Behavior
 
 Send this to someone who should see it 👀
+
+What did you guess? 👇
 
 #notjustyou #afterdark #psychology #relationships #intimacy #science #psychologyfacts

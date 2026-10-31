@@ -4,24 +4,37 @@
  "lang": "en-us",
  "beats": [
   {
+   "id": "guess",
+   "text": "Guess: how far out of their league do people message?",
+   "screen": [
+    "HOW FAR OUT",
+    "OF THEIR LEAGUE",
+    "DO PEOPLE AIM?"
+   ]
+  },
+  {
    "id": "hook",
    "text": "You're messaging people out of your league. Everyone is."
   },
   {
    "id": "study",
-   "text": "Researchers analyzed a big dating site in four US cities, and ranked every user by how desirable they were to others."
+   "text": "Researchers ranked every user of a big dating site by how desirable they were to others."
   },
   {
    "id": "result",
-   "text": "Most people messaged someone about twenty-five percent more desirable than themselves."
+   "text": "Most people messaged someone about twenty-five percent more desirable than themselves. Did it work?",
+   "tease": "Did it work?",
+   "show": "DID IT WORK?"
   },
   {
    "id": "reply",
-   "text": "Most of those messages got no answer. But about one in five people who aimed up did get a reply."
+   "text": "Mostly no answer. But about one in five people who aimed up did get a reply. And then there's age.",
+   "tease": "And then there's age",
+   "show": "THEN THERE'S AGE"
   },
   {
    "id": "age",
-   "text": "And on that site, men's desirability kept rising until about fifty. Women's fell from eighteen on."
+   "text": "On that site, men's desirability kept rising until about fifty. Women's fell from eighteen on."
   },
   {
    "id": "point",
@@ -34,5 +47,7 @@
  ],
  "sources": [
   "Bruch & Newman (2018). Aspirational pursuit of mates in online dating markets. Science Advances 4(8). One dating site, New York, Boston, Chicago, Seattle; desirability via PageRank-like ranking; most users contact partners ~25% more desirable; ~21% of those pursuing out-of-league get a reply; men's desirability rises with age to ~50, women's declines from 18 to 60. Via Phys.org."
- ]
+ ],
+ "format": "v2",
+ "ask": "DO YOU AIM UP? COMMENT."
 }

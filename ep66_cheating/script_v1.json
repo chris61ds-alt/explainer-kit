@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "One in five married men has cheated. And women? Closer than you think."
+  },
+  {
+   "id": "study",
+   "text": "A big national survey asked married Americans one question: have you ever had sex with someone else while married?"
+  },
+  {
+   "id": "result",
+   "text": "Twenty percent of men said yes. Thirteen percent of women."
+  },
+  {
+   "id": "young",
+   "text": "But under thirty, women were slightly ahead. Eleven percent versus ten."
+  },
+  {
+   "id": "old",
+   "text": "The highest rate of all? Men in their seventies. Twenty-six percent."
+  },
+  {
+   "id": "point",
+   "text": "So the real cheater is older than the stereotype. And most people never do it."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Wang (2018), Institute for Family Studies: 'Who cheats more? The demographics of infidelity in America', analysis of the General Social Survey. Ever-married: 20% of men, 13% of women had sex with someone other than spouse while married; ages 18-29: women 11% vs men 10%; men in their 70s 26% (highest)."
+ ]
+}

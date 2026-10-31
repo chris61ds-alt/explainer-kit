@@ -1,4 +1,4 @@
-1 in 5 married men has cheated. And women? Closer than you think. 💍
+Quick, guess: which group cheats the most? 💍
 
 A big national survey asked married Americans one question: have you ever had sex with someone else while married? 20% of men said yes. 13% of women.
 
@@ -10,6 +10,6 @@ Not just you · After Dark
 
 Source: General Social Survey, analysis by Wang (2018), Institute for Family Studies
 
-Surprised by the age thing? 👇
+What did you guess? 👇
 
 #notjustyou #afterdark #relationships #marriage #psychology #science #psychologyfacts

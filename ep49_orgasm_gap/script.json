@@ -4,16 +4,26 @@
  "lang": "en-us",
  "beats": [
   {
+   "id": "guess",
+   "text": "Straight men orgasm ninety-five percent of the time. Guess women.",
+   "screen": [
+    "MEN: 95 %.",
+    "WOMEN: ?"
+   ]
+  },
+  {
    "id": "hook",
    "text": "In bed, there's a gap nobody talks about."
   },
   {
    "id": "study",
-   "text": "A survey of over fifty thousand American adults asked how often they usually orgasm during sex."
+   "text": "A survey of over fifty thousand American adults asked how often they orgasm during sex."
   },
   {
    "id": "result",
-   "text": "Straight men: ninety-five percent. Straight women: sixty-five."
+   "text": "Straight men: ninety-five percent. Straight women: sixty-five. But one group closes the gap.",
+   "tease": "But one group",
+   "show": "ONE GROUP CLOSES IT"
   },
   {
    "id": "twist",
@@ -34,5 +44,7 @@
  ],
  "sources": [
   "Frederick, St. John, Garcia & Lloyd (2018, online 2017). Differences in orgasm frequency among gay, lesbian, bisexual, and heterosexual men and women in a U.S. national sample. Archives of Sexual Behavior 47(1). N = 52,588. Usually-always orgasm: heterosexual men 95%, gay men 89%, bisexual men 88%, lesbian women 86%, bisexual women 66%, heterosexual women 65%. Women who orgasmed more: received more oral sex, longer duration of last sex, asked for what they want, more relationship satisfaction. Via Chapman University Digital Commons abstract."
- ]
+ ],
+ "format": "v2",
+ "ask": "WHAT DID YOU GUESS? COMMENT."
 }

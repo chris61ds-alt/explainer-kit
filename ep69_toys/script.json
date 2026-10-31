@@ -4,8 +4,17 @@
  "lang": "en-us",
  "beats": [
   {
+   "id": "guess",
+   "text": "Men or women: who uses sex toys more? Guess.",
+   "screen": [
+    "WHO USES",
+    "SEX TOYS MORE?",
+    "MEN OR WOMEN?"
+   ]
+  },
+  {
    "id": "hook",
-   "text": "Who uses sex toys more, men or women? It's closer than you think."
+   "text": "It's closer than you think."
   },
   {
    "id": "study",
@@ -17,11 +26,13 @@
   },
   {
    "id": "men",
-   "text": "And men? Forty-five percent. Most of them together with a partner."
+   "text": "And men? Forty-five percent. Most of them together with a partner. And users had something else in common.",
+   "tease": "And users had something",
+   "show": "ONE MORE THING"
   },
   {
    "id": "health",
-   "text": "Users were also more likely to look after their sexual health, like doing self-exams."
+   "text": "They were more likely to look after their sexual health, like doing self-exams."
   },
   {
    "id": "point",
@@ -35,5 +46,7 @@
  "sources": [
   "Herbenick et al. (2009). Prevalence and characteristics of vibrator use by women in the United States. J Sex Med 6(7). 2,056 women 18-60: 52.5% lifetime use.",
   "Reece et al. (2009). Characteristics of vibrator use by heterosexual men in the United States. J Sex Med 6(7). 1,047 men 18-60: 44.8% lifetime use; 91% of users used it with a female partner; users more likely to do testicular self-exams. Funded by Church & Dwight (Trojan). Via ScienceDaily 2009."
- ]
+ ],
+ "format": "v2",
+ "ask": "WHO DID YOU GUESS? COMMENT."
 }
