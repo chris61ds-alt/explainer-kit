@@ -13,7 +13,7 @@ Nur wenn ein Chat **nicht rendern kann** oder keinen Schreibzugriff hat, liefert
 **2. `script.json`** als Codeblock:
 ```json
 {
- "voice": "af_heart", "speed": 1.1, "lang": "en-us",
+ "voice": "bf_emma", "speed": 1.1, "lang": "en-gb",
  "beats": [
   {"id": "hook", "text": "…"},
   {"id": "study", "text": "…"},
@@ -57,7 +57,7 @@ Source: <Autor (Jahr), Quelle>
 - **Nur gewagte Themen** (Sex, Dating, Lügen, Rache, Geld, Ego). Brave Themen sind geparkt.
 - **Keine erfundenen Zahlen.** Nicht alles muss eine Peer-Review-Studie sein, aber das Label ist ehrlich: SMALL STUDY · CASE STUDY · SURVEY · UNSOLVED · PLATFORM DATA · SELF-REPORTED · INDUSTRY DATA. Quellen vor jeder Folge per Websuche prüfen.
 - **Look C+D, dark:** große Roboto-Typografie, ein Signalorange, Punktraster-Silhouetten (halftone), Zähler, Balken. **Keine Strichfiguren, keine unnötige UI** (kein Header, Titel, Fortschrittsbalken, Kapitel). Schematische Diagramme werden als „schematic“ markiert.
-- Stimme: Kokoro TTS `af_heart`, Speed 1.1 (nur Englisch möglich). Länge ca. 25–35 s.
+- Stimme (seit 31.10.): Kokoro TTS `bf_emma` (britisch), `lang: en-gb`, Speed 1.1. Vorher `af_heart`. Länge ca. 25–35 s.
 - **Ende (seit 31.10.):** harter Schnitt auf die Pointe, ~1 s stehen lassen, dann Loop in den Hook. Kein gesprochenes „Not just you“, keine Endkarte, kein Wisch-Übergang. Quellen stehen in der Caption, das Label oben rechts bleibt. (Der `end`-Beat bleibt im script.json, wird aber stumm geschaltet; `Timeline(..., end="card")` für Ausnahmen.)
 - **Format v2 (Test seit 31.10., Folgen 66 50 69 39 67 49):** TikTok-Daten zeigen: die Hälfte ist nach 1 s weg. Daher:
   1. erster Beat `guess` mit `"screen": [Zeilen]` → Rate-Frage groß ab Frame 0 + 3-2-1-Countdown („GUESS FIRST“);
