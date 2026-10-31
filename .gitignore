@@ -7,3 +7,4 @@ __pycache__/
 publish/media/
 preview.png
 !tools/checklist/thumbs/*.jpg
+*.log

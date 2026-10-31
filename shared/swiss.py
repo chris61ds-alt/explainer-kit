@@ -401,7 +401,7 @@ class Episode:
     drift (slow camera push per scene), loop (last frames wipe back to frame 0 for a seamless Instagram loop),
     music (dict for MUSIC), cover (dict for make_cover)."""
     def __init__(self, TL, no, title, chapters, order, sources=(), handle="@vascoda.soda", series="NOT JUST YOU",
-                 drift=.03, loop=True, music=None, cover=None, dark=False, ui=None):
+                 drift=.03, loop=False, music=None, cover=None, dark=False, ui=None):
         self.TL, self.no, self.title, self.order = TL, no, title, order
         # ui: "minimal" (default since 28.10.2026) = no header, episode title, chapter or progress bar; "full" = old chrome
         self.ui = ui or os.environ.get("NJY_UI", "minimal")
@@ -415,6 +415,8 @@ class Episode:
         cur = self.order[0]
         for k in self.order[1:]:
             if t >= self.TL.S(k) - .05: cur = k
+        if cur == "end" and getattr(self.TL, "end_mode", "card") == "hard":    # hard ending: hold the last content scene
+            cur = self.order[self.order.index("end") - 1]
         return cur
 
     def scene_span(self, cur):

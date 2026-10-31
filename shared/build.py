@@ -63,6 +63,7 @@ sys.argv = [sys.argv[0], "x.png"]; mod = importlib.util.module_from_spec(spec); 
 TL = mod.TL; final = []
 with tempfile.TemporaryDirectory() as td:
     for k, b in TL.T.items():
+        if b.get("mute") or not b["text"]: continue
         w = os.path.join(td, k + ".wav")
         sh(f"ffmpeg -y -loglevel error -ss {max(0, b['start'] - .08):.2f} -t {b['dur'] + .3:.2f} -i {mp4} -ac 1 -ar 16000 {w}")
         hyp = A.transcribe(w); r_, h_ = A.norm(b["text"]), A.norm(hyp); e = A.wer(r_, h_)

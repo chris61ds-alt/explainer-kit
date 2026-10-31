@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.15, gaps={"hook": .4, "drop": .5, "glance": .5, "value": .5, "half": .5, "algo": .6, "end": 2.6})
+TL = Timeline(HERE, end="card", lead=.15, gaps={"hook": .4, "drop": .5, "glance": .5, "value": .5, "half": .5, "algo": .6, "end": 2.6})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "drop", "glance", "value", "half", "algo", "end"]
 EP = ThreadEpisode(TL, 82, "THIS VIDEO, LIVE", order=ORDER, dark=True, label="LIVE · THIS VIDEO", slide=0.0,

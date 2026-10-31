@@ -32,12 +32,20 @@ def lerp(a, b, k): return a + (b - a) * k
 def mix(a, b, k): k = clamp(k); return tuple(int(lerp(x, y, k)) for x, y in zip(a, b))
 
 # ---------------------------------------------------------------- timeline bound to the narration
+END_HOLD = .35          # hard ending: seconds the last scene stays after the point beat's gap
+
 class Timeline:
-    def __init__(self, ep_dir, lead=.5, gaps=None, default_gap=.35):
+    """end: "hard" (default since 31.10.2026, env NJY_END) = no spoken "Not just you." and no end card; the video ends on the
+    point and loops straight back into the hook. "card" = old ending (spoken line + end card with sources)."""
+    def __init__(self, ep_dir, lead=.5, gaps=None, default_gap=.35, end=None):
         self.dir = ep_dir
-        self.meta = json.load(open(os.path.join(ep_dir, "vo", "meta.json")))
+        self.end_mode = end or os.environ.get("NJY_END", "hard")
+        meta = json.load(open(os.path.join(ep_dir, "vo", "meta.json")))
+        self.meta = [m for m in meta if not (self.end_mode == "hard" and m["id"] == "end")]
         self.T, t = {}, lead
-        for m in self.meta:
+        for m in meta:
+            if self.end_mode == "hard" and m["id"] == "end":
+                self.T["end"] = dict(start=t, dur=0.0, text="", mute=True); t += END_HOLD; continue
             self.T[m["id"]] = dict(start=t, dur=m["dur"], text=m["text"])
             t += m["dur"] + (gaps or {}).get(m["id"], default_gap)
         self.total = t

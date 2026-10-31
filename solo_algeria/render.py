@@ -4,7 +4,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.15, gaps={"hook": .6, "numbers": .7, "oil": .6, "war": .6, "visa": .6, "twist": .7, "point": .8, "end": 2.6})
+TL = Timeline(HERE, end="card", lead=.15, gaps={"hook": .6, "numbers": .7, "oil": .6, "war": .6, "visa": .6, "twist": .7, "point": .8, "end": 2.6})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "numbers", "oil", "war", "visa", "twist", "point", "end"]
 EP = ThreadEpisode(TL, 0, "EMPTY GIANT", order=ORDER, dark=True, series="TRAVEL DATA", handle="", label="TRAVEL DATA · 2024",
