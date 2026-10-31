@@ -12,11 +12,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 29.2,
-  "size_MiB": 4.0,
+  "size_MiB": 4.8,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "206775052a16601988373ffc9f039119c9b764948e11fdb9a2cc136eaafd7e5a",
+  "sha256": "d23358ca0a8861d02740bede459e14a596e5deee6d5073500579e1f2b53f18d5",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -33,6 +33,7 @@
   "career: 2/20 | 6 feet vs 5 foot 5. That's about $166,000 over a 30-year career."
  ],
  "duration_s": 29.2,
+ "longest_calm_s": 4.33,
  "cover": "ep62_tall_pay_cover.png",
  "caption": "ok"
 }

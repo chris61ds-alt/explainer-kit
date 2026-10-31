@@ -1,23 +1,22 @@
 {
  "episode": "ep83_onlyfans",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
   "hook: 5/17 | Only fans paid its creators $6.3 billion last year, so is everyone on their rich?",
-  "big: 3/19 | Since 2016, it has paid out $30 billion. 5,076 creators have made over a million.",
-  "split: 3/11 | But there are about 2.5 million active creators.",
-  "avg: 4/21 | Spread the money evenly, and each gets about $2,500 a year, roughly 200 a month.",
+  "big: 2/19 | Since 2016, it has paid out 30 billion. 5,076 creators have made over a million.",
+  "avg: 4/21 | Spread the money evenly and each gets about $2,500 a year, roughly 200 a month.",
   "skew: 1/18 | and it isn't spread evenly. One analyst estimates the top 10% take about 3/4 of it."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 33.87,
-  "size_MiB": 3.6,
+  "duration_s": 30.53,
+  "size_MiB": 4.2,
   "black_intervals": [],
-  "loudness_LUFS": -16.4,
+  "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.4,
-  "sha256": "641424a1186c482eea7e9d6e15f6b7dea1580694436b45c86112bf4914d11bf9",
+  "sha256": "7bfec76e8437cbcd882c69f24faa668298553656d22422453def92a878b4ea0f",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -26,15 +25,15 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "16/95 = 16.8%",
+ "asr_final_wer": "12/95 = 12.6%",
  "asr_final_issues": [
-  "hook: 5/17 | Only fans paid its creators $6.3 billion last year. So is everyone on their rich?",
-  "big: 3/19 | Since 2016, it has paid out $30 billion. 5,076 creators have made over a million.",
-  "split: 3/11 | But there are about 2.5 million active creators.",
-  "avg: 4/21 | Spread the money evenly, and each gets about $2,500 a year, roughly 200 a month.",
+  "hook: 5/17 | Only fans paid its creators $6.3 billion last year, so is everyone on their rich?",
+  "big: 2/19 | Since 2016, it has paid out 30 billion. 5,076 creators have made over a million.",
+  "avg: 4/21 | Spread the money evenly and each gets about $2,500 a year, roughly 200 a month.",
   "skew: 1/18 | and it isn't spread evenly. One analyst estimates the top 10% take about 3/4 of it."
  ],
- "duration_s": 33.87,
+ "duration_s": 30.53,
+ "longest_calm_s": 2.47,
  "cover": "ep83_onlyfans_cover.png",
  "caption": "ok"
 }

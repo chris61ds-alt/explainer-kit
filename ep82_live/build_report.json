@@ -1,19 +1,19 @@
 {
  "episode": "ep82_live",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
-  "value: 1/17 | And up to 47% of a video adds impact lands in the first three seconds. [BUZZER]"
+  "value: 1/17 | and up to 47% of a video adds impact lands in the first three seconds."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 38.13,
-  "size_MiB": 3.4,
+  "duration_s": 36.0,
+  "size_MiB": 4.3,
   "black_intervals": [],
-  "loudness_LUFS": -16.4,
+  "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.4,
-  "sha256": "5a5ad8f515cf6f71bbde3053c2e919bf9b075d14669c8b14a1e1b34d0914a48d",
+  "sha256": "f2c2afe04cb3735b664411bc7ce798dbe8d2c4faa2a60819840495bedc862ece",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,9 +24,10 @@
  },
  "asr_final_wer": "1/112 = 0.9%",
  "asr_final_issues": [
-  "value: 1/17 | And up to 47% of a video adds impact lands in the first three seconds."
+  "value: 1/17 | and up to 47% of a video adds impact lands in the first three seconds."
  ],
- "duration_s": 38.12,
+ "duration_s": 36.01,
+ "longest_calm_s": 4.01,
  "cover": "ep82_live_cover.png",
  "caption": "ok"
 }

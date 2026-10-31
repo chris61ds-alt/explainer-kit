@@ -1,20 +1,20 @@
 {
  "episode": "ep78_below_average",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
-  "study: 2/9 | OK, Cupid, analyzed how its users rated each other's looks.",
-  "men: 1/13 | Men raided women on a fair curve. Most women, right in the middle."
+  "study: 2/9 | OK Cupid analyzed how its users rated each other's looks.",
+  "men: 1/13 | men rated women on a fair curve, most women write in the middle."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 23.87,
-  "size_MiB": 2.5,
+  "duration_s": 21.33,
+  "size_MiB": 2.7,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.4,
-  "sha256": "d24231332ddb300f04216a363db6218564387c85cbc2a951a4652eb8c8db663b",
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.6,
+  "sha256": "28a0e537694b601d4b8c2e3983f6bbe9b4e49e847dfbd4c25ead78de1f48f9cc",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,12 +23,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/61 = 4.9%",
+ "asr_final_wer": "1/61 = 1.6%",
  "asr_final_issues": [
-  "study: 2/9 | OK, Cupid, analyzed how its users rated each other's looks.",
-  "men: 1/13 | Men raided women on a fair curve. Most women, right in the middle."
+  "men: 1/13 | Men rated women on a fair curve. Most women write in the middle."
  ],
- "duration_s": 23.88,
+ "duration_s": 21.35,
+ "longest_calm_s": 2.84,
  "cover": "ep78_below_average_cover.png",
  "caption": "ok"
 }

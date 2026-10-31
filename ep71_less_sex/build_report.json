@@ -11,11 +11,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 27.23,
-  "size_MiB": 3.2,
+  "size_MiB": 3.5,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.4,
-  "sha256": "c2e27a775f594c87b9923358dbfe94aa106c2b2ac89f1af4f8a49f96b834f69f",
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.5,
+  "sha256": "43fc01b522e181e597d33bcac4d94297b0614340b36dc2df6422121511be924b",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -31,6 +31,7 @@
   "point: 2/13 | So we might talk about sex more, but we are having less of it."
  ],
  "duration_s": 27.24,
+ "longest_calm_s": 3.99,
  "cover": "ep71_less_sex_cover.png",
  "caption": "ok"
 }

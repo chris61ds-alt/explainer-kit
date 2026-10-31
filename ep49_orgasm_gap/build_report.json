@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 31.0,
+  "duration_s": 31.53,
   "size_MiB": 5.0,
   "black_intervals": [],
-  "loudness_LUFS": -16.4,
+  "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "6e1fd462914a43ff0615ff5f0b53446adc2aee62d9f568936465c613247171cc",
+  "sha256": "e36d9ee38867b14e42d934e1256df7ecb6bcd00e06173c994ab106b96ececc03",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,9 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/89 = 0.0%",
- "asr_final_issues": [],
- "duration_s": 31.0,
+ "asr_final_wer": "1/89 = 1.1%",
+ "asr_final_issues": [
+  "why: 1/22 | So it's not just biology. Women who orgasm'd more often got more oral sex longer sessions and asked for what they wanted."
+ ],
+ "duration_s": 31.53,
+ "longest_calm_s": 3.27,
  "cover": "ep49_orgasm_gap_cover.png",
  "caption": "ok"
 }

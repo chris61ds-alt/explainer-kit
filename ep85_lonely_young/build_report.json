@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 25.83,
-  "size_MiB": 3.1,
+  "size_MiB": 3.4,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.5,
-  "sha256": "e1c4c3c110c20241f27432b3f8b344bbd011f891123b90111b1f1e4df49de3db",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.3,
+  "sha256": "7a77a71c61d0e84e2ad8bb919261cd34e97e9a32acf15c174cffc50ab17c06e0",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -27,6 +27,7 @@
   "study: 1/16 | Gallup and Meta asked people in 142 countries how lonely they feel."
  ],
  "duration_s": 25.83,
+ "longest_calm_s": 3.23,
  "cover": "ep85_lonely_young_cover.png",
  "caption": "ok"
 }

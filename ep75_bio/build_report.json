@@ -1,20 +1,19 @@
 {
  "episode": "ep75_bio",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
-  "study: 2/18 | OK Cupid had people rate profiles for looks and personality. Some saw the text. Some saw only the photo. [BUZZER]",
-  "result: 2/18 | The score is barely moved. Your text made up less than 10% of what people thought of you. [BUZZER]"
+  "study: 2/18 | Ok Cupid had people rate profiles for looks and personality. Some saw the text, some saw only the photo."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 26.43,
-  "size_MiB": 2.7,
+  "duration_s": 23.77,
+  "size_MiB": 2.5,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.4,
-  "sha256": "0fea9bf8747e7455fb97498f0f0c49e8b858d79e15f5793abdb55af4d7b67407",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -1.6,
+  "sha256": "1ab4db96fe566f6cb23fc12970568df400ee0a7de1876454947fd8f37a677428",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,12 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "4/73 = 5.5%",
+ "asr_final_wer": "2/73 = 2.7%",
  "asr_final_issues": [
-  "study: 2/18 | OK Cupid had people rate profiles for looks and personality. Some saw the text. Some saw only the photo.",
-  "result: 2/18 | The score is barely moved. Your text made up less than 10% of what people thought of you."
+  "study: 2/18 | Ok Cupid had people rate profiles for looks and personality. Some saw the text, some saw only the photo."
  ],
- "duration_s": 26.42,
+ "duration_s": 23.78,
+ "longest_calm_s": 4.51,
  "cover": "ep75_bio_cover.png",
  "caption": "ok"
 }

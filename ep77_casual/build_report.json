@@ -1,22 +1,22 @@
 {
  "episode": "ep77_casual",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
-  "study: 2/13 | On OK Cupid, users could tick what they're looking for. One option, casual sex. [BUZZER]",
-  "men: 1/6 | Straight men, 6.1%.",
-  "women: 1/6 | Straight women, 0.8%.",
-  "point: 1/21 | 1 in 16 men, 1 in 125 women. At least, that's what they were willing to tick."
+  "study: 4/13 | On OK Cupid, users could tick what they are looking for. One option casual sex.",
+  "men: 1/6 | Straight men 6.1%.",
+  "women: 1/6 | Straight women 0.8%.",
+  "point: 1/21 | 1 in 16 men, 1 in 125 women. At least that's what they were willing to tick."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 23.9,
-  "size_MiB": 2.4,
+  "duration_s": 21.27,
+  "size_MiB": 2.7,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
+  "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "6a2b76d892ab0a2b17b09d7f86074212ce053fdce8e91de75a1ffac0f7516f7c",
+  "sha256": "cd9848ef23ce28c40250439051f9dca324c7b77c55cc5251e0f837b30a1466a2",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -25,14 +25,15 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "5/61 = 8.2%",
+ "asr_final_wer": "7/61 = 11.5%",
  "asr_final_issues": [
-  "study: 2/13 | On OK Cupid, users could tick what they're looking for. One option, casual sex.",
-  "men: 1/6 | Straight men, 6.1%.",
-  "women: 1/6 | Straight women, 0.8%.",
-  "point: 1/21 | 1 in 16 men, 1 in 125 women. At least, that's what they were willing to tick."
+  "study: 4/13 | On OK Cupid, users could tick what they are looking for. One option casual sex.",
+  "men: 1/6 | Straight men 6.1%.",
+  "women: 1/6 | Straight women 0.8%",
+  "point: 1/21 | 1 in 16 men, 1 in 125 women, at least that's what they were willing to tick."
  ],
- "duration_s": 23.9,
+ "duration_s": 21.28,
+ "longest_calm_s": 2.82,
  "cover": "ep77_casual_cover.png",
  "caption": "ok"
 }

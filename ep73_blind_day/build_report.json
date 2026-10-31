@@ -1,21 +1,21 @@
 {
  "episode": "ep73_blind_day",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
-  "study: 3/12 | On Love is Blind Day, OK Cupid hit all pictures for seven hours.",
+  "study: 2/12 | On Love is Blind Day, OK Cupid hid all pictures for 7 hours.",
   "back: 3/9 | Then at 4pm, the photos came back.",
-  "melt: 2/11 | 2,200 conversations had started blind. They just melted away."
+  "melt: 2/11 | 2200 conversations had started blind. They just melted away."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 26.17,
-  "size_MiB": 3.2,
+  "duration_s": 23.73,
+  "size_MiB": 3.1,
   "black_intervals": [],
-  "loudness_LUFS": -16.4,
+  "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "172d5690ead66728870de013ed9f42d7cc936e0153cfce829ac7b6dd47d94406",
+  "sha256": "db77e6a0bd304179a0d0bf40515c3cedeece8ec95ec99afbfbc40b04804d616f",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,13 +24,14 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "8/66 = 12.1%",
+ "asr_final_wer": "7/66 = 10.6%",
  "asr_final_issues": [
-  "study: 3/12 | On Love is Blind Day. OK Cupid hit all pictures for seven hours.",
+  "study: 2/12 | On Love Is Blind Day, OK Cupid hid all pictures for seven hours.",
   "back: 3/9 | Then at 4pm, the photos came back.",
-  "melt: 2/11 | 2,200 conversations had started blind. They just melted away."
+  "melt: 2/11 | 2200 conversations had started blind. They just melted away."
  ],
- "duration_s": 26.18,
+ "duration_s": 23.74,
+ "longest_calm_s": 2.69,
  "cover": "ep73_blind_day_cover.png",
  "caption": "ok"
 }

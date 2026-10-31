@@ -1,21 +1,20 @@
 {
  "episode": "ep74_fake_match",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
-  "hook: 2/8 | What if your perfect matches a lie?",
-  "study: 2/17 | OK Cupid took pairs who were a bad match, just 30% and told them they were 90.",
+  "study: 2/17 | OK Cupid took pairs who were a bad match just 30% and told them they were 90.",
   "backlash: 4/10 | When OK Cupid admitted it in 2014, users were furious."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 26.0,
+  "duration_s": 23.93,
   "size_MiB": 3.0,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.5,
-  "sha256": "8c9bfa423c88081de3d715719c1ed0a3e99190b17f35f0666f48ae8906e9a255",
+  "true_peak_dBTP": -2.6,
+  "sha256": "d7e226139bd1490d4852f4cd71fca09a42a005d38ca20b0da7b851392251ceaa",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -26,11 +25,11 @@
  },
  "asr_final_wer": "6/74 = 8.1%",
  "asr_final_issues": [
-  "study: 2/17 | OK Cupid took pairs who were a bad match, just 30% and told them they were 90.",
-  "quote: 2/15 | Besides own verdict, the myth of compatibility works just as well as the truth.",
-  "backlash: 2/10 | When OKCupid admitted it in 2014, users were furious."
+  "study: 2/17 | OK Cupid took pairs who were a bad match just 30%, and told them they were 90.",
+  "backlash: 4/10 | When OK Cupid admitted it in 2014, users were furious."
  ],
- "duration_s": 25.99,
+ "duration_s": 23.93,
+ "longest_calm_s": 3.65,
  "cover": "ep74_fake_match_cover.png",
  "caption": "ok"
 }

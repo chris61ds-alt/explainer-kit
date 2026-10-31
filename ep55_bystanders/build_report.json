@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 19.3,
-  "size_MiB": 3.3,
+  "size_MiB": 3.4,
   "black_intervals": [],
-  "loudness_LUFS": -16.4,
-  "true_peak_dBTP": -2.5,
-  "sha256": "65488a4981fd752f6a05cbc68931884763e6db8f320c2527cf48c30a5cd21648",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -3.2,
+  "sha256": "fa1b1ca48a1b55e46c2f52c8e5d40838f8580082829f6218688f7d0b6a9f4527",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -27,6 +27,7 @@
   "study: 1/16 | Researchers analyze security camera footage of 219 real street fights in three countries."
  ],
  "duration_s": 19.31,
+ "longest_calm_s": 2.74,
  "cover": "ep55_bystanders_cover.png",
  "caption": "ok"
 }
