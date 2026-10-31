@@ -6,3 +6,4 @@ vo/
 __pycache__/
 publish/media/
 preview.png
+!tools/checklist/thumbs/*.jpg
