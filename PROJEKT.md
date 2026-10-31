@@ -59,6 +59,7 @@ Source: <Autor (Jahr), Quelle>
 - **Look C+D, dark:** große Roboto-Typografie, ein Signalorange, Punktraster-Silhouetten (halftone), Zähler, Balken. **Keine Strichfiguren, keine unnötige UI** (kein Header, Titel, Fortschrittsbalken, Kapitel). Schematische Diagramme werden als „schematic“ markiert.
 - Stimme (seit 31.10.): Kokoro TTS `bf_emma` (britisch), `lang: en-gb`, Speed 1.1. Vorher `af_heart`. Länge ca. 25–35 s.
 - **Ende (seit 31.10.):** harter Schnitt auf die Pointe, ~1 s stehen lassen, dann Loop in den Hook. Kein gesprochenes „Not just you“, keine Endkarte, kein Wisch-Übergang. Quellen stehen in der Caption, das Label oben rechts bleibt. (Der `end`-Beat bleibt im script.json, wird aber stumm geschaltet; `Timeline(..., end="card")` für Ausnahmen.)
+- **Stil v3 (Standard seit 31.10.):** Orange nur für die Antwort (Banner weiß, Label grau), Wisch-Übergang 0,3 s mit Bewegungsunschärfe, Musik mit Hi-Hats/Arp, vor jeder Auflösung Riser → Stille → Bass-Schlag, Stimme komprimiert, Auflösungen langsamer mit Pause vor der Zahl. `NJY_STYLE=v2` = alter Look.
 - **Format v2 (Test seit 31.10., Folgen 66 50 69 39 67 49):** TikTok-Daten zeigen: die Hälfte ist nach 1 s weg. Daher:
   1. erster Beat `guess` mit `"screen": [Zeilen]` → Rate-Frage groß ab Frame 0 + 3-2-1-Countdown („GUESS FIRST“);
   2. pro Beat optional `"tease"` (Teilstring des Texts, offene Schleife) + `"show"` (Banner) → **Rehook nach Hook**, alle ~6–8 s einer;

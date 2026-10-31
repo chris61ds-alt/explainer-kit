@@ -7,7 +7,7 @@ for n in "$@"; do
   [ $n = 54 ] && e=ep54v3_lie_detector
   if (cd $K && python3 shared/build.py $e > /tmp/rr_$nn.txt 2>&1) && grep -q "verify PASS" /tmp/rr_$nn.txt; then
     cp $K/$e/$e.mp4 $K/publish/media/nj$nn.mp4 && cp $K/$e/$e.mp4 $M/nj$nn.mp4
-    (cd $M && git add nj$nn.mp4 && git commit -qm "No. $nn: hard ending (no end card, no wipe)
+    (cd $M && git add nj$nn.mp4 && git commit -qm "No. $nn: ${MSG:-re-render}
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01KgYR2grBe2K1ok9D17dV8B" && (git push -q origin main || git push -q origin main)) >/dev/null 2>&1 \

@@ -1,10 +1,10 @@
 """Synthesize every beat of ./script.json with Kokoro → vo/*.wav + vo/meta.json (+ proof.json with sources).
-NJY_STYLE=v3 (test): intonation per beat — guess opener a bit faster; a reveal (beat after a "tease", or "reveal": true)
+Style v3 (default since 31.10.2026, NJY_STYLE=v2 = old): intonation per beat — guess opener a bit faster; a reveal (beat after a "tease", or "reveal": true)
 a bit slower, sentence by sentence with a short pause, so the number lands. A beat's own "speed" always wins."""
 import json, os, re, numpy as np, soundfile as sf
 from kokoro_onnx import Kokoro
 K = os.path.expanduser("~/kokoro/"); k = Kokoro(K + "kokoro-v1.0.onnx", K + "voices-v1.0.bin")
-V3 = os.environ.get("NJY_STYLE") == "v3"
+V3 = os.environ.get("NJY_STYLE", "v3") == "v3"
 s = json.load(open("script.json")); os.makedirs("vo", exist_ok=True); meta = []
 reveal = {s["beats"][i + 1]["id"] for i, b in enumerate(s["beats"][:-1]) if b.get("tease")} | {b["id"] for b in s["beats"] if b.get("reveal")}
 

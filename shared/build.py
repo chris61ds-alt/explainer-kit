@@ -15,7 +15,7 @@ def sh(cmd, **kw): return subprocess.run(cmd, shell=True, capture_output=True, t
 
 # 1 TTS ------------------------------------------------------------------------------------------
 sc = json.load(open("script.json"))
-h = hashlib.sha256(json.dumps([sc["voice"], sc["speed"], sc["lang"], sc["beats"]], sort_keys=True).encode()).hexdigest()[:16]
+h = hashlib.sha256(json.dumps([sc["voice"], sc["speed"], sc["lang"], sc["beats"], os.environ.get("NJY_STYLE", "v3")], sort_keys=True).encode()).hexdigest()[:16]
 hf = os.path.join("vo", ".hash")
 if not (os.path.exists(hf) and open(hf).read() == h):
     r = sh(f"python3 {SH}/tts.py"); print(r.stdout.strip().splitlines()[-1] if r.stdout else r.stderr[-500:])
