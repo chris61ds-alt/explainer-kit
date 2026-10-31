@@ -1,20 +1,20 @@
 {
  "episode": "ep66_cheating",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
-  "young: 1/18 | under 30 women were slightly ahead. 11% vs 10, and the top group probably not your guess.",
-  "old: 1/12 | The highest rate of all, men in their 70s, 26%."
+  "young: 2/18 | under 30 women were slightly ahead, 11% vs 10, and the top grouper, probably not your guess.",
+  "old: 1/12 | the highest rate of all, men in their 70s, 26%"
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 33.43,
+  "duration_s": 35.2,
   "size_MiB": 3.8,
   "black_intervals": [],
-  "loudness_LUFS": -16.5,
-  "true_peak_dBTP": -2.5,
-  "sha256": "e0d07b3252773156fb006221434b69c5d38925b7f26b1bddff72607ccae95732",
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -1.8,
+  "sha256": "b0c3c50651ef451b372c004189faaefc7389c4fb500e1cc03a55c631c9644f7a",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,12 +23,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "2/100 = 2.0%",
+ "asr_final_wer": "3/100 = 3.0%",
  "asr_final_issues": [
-  "young: 1/18 | under 30 women were slightly ahead. 11% vs 10, and the top group probably not your guess.",
-  "old: 1/12 | The highest rate of all, men in their 70s 26 percent."
+  "young: 2/18 | Under 30 women were slightly ahead, 11% vs 10, and the top grouper, probably not your guess.",
+  "old: 1/12 | The highest rate of all, men in their 70s, 26%"
  ],
- "duration_s": 33.44,
+ "duration_s": 35.18,
  "cover": "ep66_cheating_cover.png",
  "caption": "ok"
 }

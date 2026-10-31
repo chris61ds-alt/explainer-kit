@@ -12,7 +12,7 @@ Episode usage:
     EP.sources = ("Author (Year).", "Journal.")
     EP.run(FX)
 """
-import os, sys, math, wave
+import os, sys, math, wave, re
 import numpy as np, soundfile as sf
 from PIL import Image, ImageDraw
 from scipy.signal import resample_poly
@@ -21,6 +21,7 @@ import cute
 from cute import (F, BLK, BOLD, MONO, clamp, ease, ease_io, back, lerp, mix, Timeline, W, H, SR, FPS, SAFE_R, SAFE_B,
                   tt_, bp, lp, softkick, whoosh, pop, tick, heartbeat, poof)
 
+V4 = os.environ.get("NJY_FX") == "v4"          # test 31.10.2026: impulse beat (number pulses) – carry-over lives in ThreadEpisode
 V3 = os.environ.get("NJY_STYLE", "v3") == "v3"   # default since 31.10.2026 (NJY_STYLE=v2 = old look): orange only for the answer, whip transitions, new sound
 
 # ---------------------------------------------------------------- palette + type
@@ -528,6 +529,7 @@ class Episode:
             a, b = self.scene_span(cur)
             z = 1 + self.drift * ease_io((t - a) / max(.5, b - a))           # slow push through the scene
             if V3 and cur != self.order[0] and t - a < .2: whip_in(img, (t - a) / .2)
+            z *= self.pulse_zoom(t)
             if cur != self.order[0]: z += .035 * math.exp(-(t - a) * 8)      # punch-in on every cut
             else: z += SLAM * (1 - ease(t / .3))                             # slam-in from frame 0 (no static first second)
             if z > 1.002: zoom_band(img, d, z)
@@ -577,9 +579,40 @@ class Episode:
         for k, (say, _) in TL.tease.items(): out.append((TL.cue(k, say[:16]) - .1, pop(.18), 0))
         if TL.ask:
             c = self.last_scene(); out.append((TL.S(c) + TL.T[c]["dur"] * .55, pop(.15), 0))
+        out += [(tc, tick(.07), 0) for tc in self.pulses()]
         if V3:                                        # reveal after every re-hook: riser → 0.35 s silence → sub drop
             for r in self.reveals(): out += [(r - .85, riser(.7, .07), 0), (r - .02, boom(.5), 0)]
         return out
+
+    NUM = re.compile(r"\b(\d[\d,.]*|zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|"
+                     r"sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million|billion|half)\b", re.I)
+
+    def pulses(self):
+        """impulse beat: a short zoom pulse + tick on every spoken number (min. 0.6 s apart)"""
+        if not V4: return []
+        if getattr(self, "_pulses", None) is None:
+            out = []
+            for k in self.order:
+                b = self.TL.T.get(k)
+                if not b or not b["text"] or k == "guess": continue
+                for m in self.NUM.finditer(b["text"]):
+                    tc = b["start"] + b["dur"] * m.start() / len(b["text"])
+                    if not out or tc - out[-1] >= .6: out.append(tc)
+            self._pulses = out
+        return self._pulses
+
+    def pulse_zoom(self, t):
+        z = 1.0
+        for tc in self.pulses():
+            if 0 <= t - tc < .45: z += .028 * math.exp(-(t - tc) * 9)
+        return z
+
+    def calm(self, fx=()):
+        """longest stretch (s) without a visual/sound event – the build report flags > 3 s"""
+        TL = self.TL; ev = [TL.S(k) for k in self.order if k in TL.T] + [t for t, *_ in fx] + self.pulses() + self.reveals()
+        ev += [TL.cue(k, say[:16]) for k, (say, _) in TL.tease.items()]
+        ev = sorted(e for e in ev if 0 <= e <= TL.total) + [TL.total]
+        return round(max(b - a for a, b in zip([0.0] + ev, ev)), 2)
 
     def reveals(self):
         TL = self.TL; o = self.order

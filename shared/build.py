@@ -72,6 +72,9 @@ tot = sum(x[1] for x in final); n = sum(x[2] for x in final)
 rep["asr_final_wer"] = f"{tot}/{n} = {tot / max(1, n):.1%}"
 rep["asr_final_issues"] = [f"{k}: {e}/{m} | {hyp}" for k, e, m, hyp in final if e]
 rep["duration_s"] = round(TL.total, 2)
+if hasattr(mod, "EP") and hasattr(mod.EP, "calm"):
+    rep["longest_calm_s"] = mod.EP.calm(getattr(mod, "FX", ()) + mod.EP.v2_fx())
+    if rep["longest_calm_s"] > 3: print(f"  ⚠ longest calm stretch {rep['longest_calm_s']} s (> 3 s)")
 
 # 6 cover ----------------------------------------------------------------------------------------
 if hasattr(mod, "EP"): rep["cover"] = mod.EP.make_cover(f"{name}_cover.png")

@@ -143,6 +143,9 @@ class ThreadEpisode(Episode):
     def __init__(self, *a, slide=.38, **kw):
         kw.setdefault("drift", 0.0); self.label = kw.pop("label", None)     # e.g. "CASE STUDY", "SELF-TEST", "UNSOLVED"
         super().__init__(*a, **kw); self.slide = .30 if V3 else slide
+        # carry-over ("magic move"): {dest_scene: [(src_box, dst_box), ...]} – the element flies from the old scene into its place
+        # in the new one while the rest whips past; cuts: {dest_scene: "stay"} = no whip, the new scene animates on the spot
+        self.carry, self.cuts, self.carry_dur = {}, {}, .5
 
     def _scene(self, img, d, key, t):
         self.grid(d)
@@ -154,17 +157,36 @@ class ThreadEpisode(Episode):
     def compose(self, img, d, t):
         cur = self.current(t); a, b = self.scene_span(cur); i = self.order.index(cur)
         Y0c, Y1c = 280, 1186                             # moving band (chrome + subtitles stay put)
-        if i > 0 and t < a + self.slide:
+        cr = self.carry.get(cur, []) if i > 0 else []; stay = self.cuts.get(cur) == "stay"
+        win = max(self.slide, self.carry_dur if cr else 0)
+        if i > 0 and t < a + win and not (stay and not cr):
             prev = self.order[i - 1]
             A = Image.new("RGB", (W, H), BG); self._scene(A, ImageDraw.Draw(A), prev, a - 1 / 30)
-            B = Image.new("RGB", (W, H), BG); self._scene(B, ImageDraw.Draw(B), cur, t)
-            off = int(W * ease_io((t - a) / self.slide))
-            img.paste(A.crop((off, Y0c, W, Y1c)), (0, Y0c))
-            img.paste(B.crop((0, Y0c, off, Y1c)), (W - off, Y0c)) if off > 0 else None
-            if V3:                                       # motion blur proportional to the slide speed
-                k = (t - a) / self.slide; hblur(img, (0, Y0c, W, Y1c), .5 * W * 6 * k * (1 - k) / (self.slide * FPS))
+            B = Image.new("RGB", (W, H), BG); dB = ImageDraw.Draw(B); self._scene(B, dB, cur, t)
+            kc = ease_io((t - a) / self.carry_dur)
+            pieces = [(A.crop(tuple(map(int, s_))), s_, d_) for s_, d_ in cr]
+            if kc < 1:
+                for s_, d_ in cr: dB.rectangle(d_, fill=BG)            # the element arrives by flight, not by slide
+            if stay: img.paste(B.crop((0, Y0c, W, Y1c)), (0, Y0c))
+            elif t < a + self.slide:
+                dA = ImageDraw.Draw(A)
+                for s_, d_ in cr: dA.rectangle(s_, fill=BG)
+                off = int(W * ease_io((t - a) / self.slide))
+                img.paste(A.crop((off, Y0c, W, Y1c)), (0, Y0c))
+                img.paste(B.crop((0, Y0c, off, Y1c)), (W - off, Y0c)) if off > 0 else None
+                if V3:                                   # motion blur proportional to the slide speed
+                    k = (t - a) / self.slide; hblur(img, (0, Y0c, W, Y1c), .5 * W * 6 * k * (1 - k) / (self.slide * FPS))
+            else: img.paste(B.crop((0, Y0c, W, Y1c)), (0, Y0c))
+            if kc < 1:
+                for pc, s_, d_ in pieces:
+                    bx = [lerp(p, q, kc) for p, q in zip(s_, d_)]; w_, h_ = max(2, int(bx[2] - bx[0])), max(2, int(bx[3] - bx[1]))
+                    pr = pc.resize((w_, h_), Image.BILINEAR); a_ = np.asarray(pr).astype(np.int16)
+                    m = Image.fromarray((np.abs(a_ - np.array(BG)).max(axis=2) > 14).astype(np.uint8) * 255)
+                    img.paste(pr, (int(bx[0]), int(bx[1])), m)
         else:
             self._scene(img, d, cur, t)
+        z = self.pulse_zoom(t)
+        if z > 1.002: zoom_band(img, d, z, y0=Y0c, y1=Y1c)
         if cur == self.order[0] and t < .3: zoom_band(img, d, 1 + SLAM * (1 - ease(t / .3)), y0=Y0c, y1=Y1c)
         if cur != "end": self.overlays(img, d, t, cur)
         d.rectangle([0, 0, W, Y0c - 1], fill=BG); d.rectangle([0, Y1c, W, H], fill=BG)
@@ -173,7 +195,7 @@ class ThreadEpisode(Episode):
         self.subtitle(d, t)
 
     def cut_fx(self, amp=.10):
-        if V3: return [(self.TL.S(k) - .12, whoosh(.32, amp * 1.2), 0) for k in self.order[1:]]   # matches the 0.30 s whip
+        if V3: return [(self.TL.S(k) - .12, whoosh(.32, amp * 1.2), 0) for k in self.order[1:] if self.cuts.get(k) != "stay"]
         return [(self.TL.S(k) - .3, whoosh(.45, amp), 0) for k in self.order[1:]]
 
 def ekg(x0, x1, y, t, period=180, amp=60, speed=240, step=4, chaos=0.0, seed=0):
