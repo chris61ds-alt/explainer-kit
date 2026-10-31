@@ -1,0 +1,38 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Seconds one to three. This is where you decide: swipe, or stay."
+  },
+  {
+   "id": "drop",
+   "text": "Seconds four to seven. The hook is done. Now the video has to pay off, or you're gone too."
+  },
+  {
+   "id": "glance",
+   "text": "Tests for Facebook found people remember a feed post after a quarter of a second."
+  },
+  {
+   "id": "value",
+   "text": "And up to forty-seven percent of a video ad's impact lands in the first three seconds."
+  },
+  {
+   "id": "half",
+   "text": "The median YouTube Short is watched about forty-five percent through. That point is already behind you."
+  },
+  {
+   "id": "algo",
+   "text": "Instagram says watch time is one of its top three ranking signals. So by staying, you just voted for this video."
+  },
+  {
+   "id": "end",
+   "text": "The other two? Likes and sends. You know what to do."
+  }
+ ],
+ "sources": [
+  "Fors Marsh tests for Facebook (2016, via AdAge/ITWeb): feed content recalled after 0.25 s; mobile content consumed in 1.7 s vs 2.5 s desktop. Facebook/Nielsen: up to 47% of a video campaign's value in first 3 s, 74% by 10 s (via Smart Insights). quso.ai Shorts benchmark: median average view-through ~45% (508K Shorts). Adam Mosseri, Jan 2025: top three ranking signals are watch time, likes and sends (Social Media Today). Retention curve in video = schematic."
+ ]
+}
