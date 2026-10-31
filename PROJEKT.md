@@ -1,15 +1,11 @@
 # Projekt „Not just you“ – Briefing (Stand 31.10.2026)
 
-## 0 · Zusammenarbeit: wer macht was
-Es gibt zwei Claude-Arbeitsplätze. Bitte nicht vermischen:
+## 0 · Arbeitsweise: so entstehen fertige Videos
+**Jeder Chat produziert selbst ein fertiges Video**, nicht nur ein Skript. Grundlage ist der Skill **`not-just-you-reel`**:
+Repo klonen → `bash setup.sh` → recherchieren → script.json + caption.md → render.py nach Vorlage (Look C+D) → Vorschau ansehen → `shared/build.py` → MP4 + Caption an Chris.
+Voraussetzung: Code-Ausführung und Netzzugriff auf github.com. Veröffentlichen (Push ins Media-Repo) nur dort, wo Schreibzugriff besteht.
 
-| | **Projekt-Chat** (hier) | **Produktions-Session** (Claude mit Repo-Schreibzugriff) |
-|---|---|---|
-| Aufgabe | Themen finden, Quellen prüfen, **Skript + Caption schreiben** | **render.py bauen**, Stimme erzeugen, Sprach-Check, rendern, GitHub, Posting-Plan, Checkliste |
-| Repo | nur lesen | lesen + schreiben |
-| Ergebnis | Übergabe-Paket (Format unten) | fertiges Video + Caption + eingeplant |
-
-**Der Projekt-Chat baut keine render.py und legt keine Dateien ab.** Er liefert nur das Übergabe-Paket. Chris kopiert es in die Produktions-Session.
+Nur wenn ein Chat **nicht rendern kann** oder keinen Schreibzugriff hat, liefert er das Übergabe-Paket unten. Chris kopiert es dann in eine Session, die bauen und veröffentlichen kann.
 
 ### Übergabe-Paket (genau dieses Format, je Folge)
 **1. Kopf:** Nummer + Ordnername, z. B. `No. 83 · ep83_onlyfans`. Nächste freie Nummer = höchste Nummer in `BACKLOG.md` + 1. Wenn unklar: Platzhalter `No. ??`, dann vergibt die Produktion die Nummer.
