@@ -8,3 +8,6 @@ publish/media/
 preview.png
 !tools/checklist/thumbs/*.jpg
 *.log
+
+# Hörproben / Wegwerf-Tests
+tests/
