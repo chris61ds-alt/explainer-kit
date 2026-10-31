@@ -1,17 +1,17 @@
 {
  "episode": "ep67_out_of_league",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 33.17,
-  "size_MiB": 3.1,
+  "duration_s": 33.2,
+  "size_MiB": 3.5,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.5,
-  "sha256": "c88a2d4be50187f2fd71354e32263dd2763120957587b088652b14df23964f16",
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -2.4,
+  "sha256": "04d311d6dd27955da2fb5d73629ce4efc758f7d3f444ee16c5173fa2c11f5cd5",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,9 +20,9 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/87 = 0.0%",
+ "asr_final_wer": "0/94 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 33.15,
+ "duration_s": 33.19,
  "cover": "ep67_out_of_league_cover.png",
  "caption": "ok"
 }
