@@ -1,6 +1,6 @@
 {
  "episode": "ep82_live",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "value: 1/17 | And up to 47% of a video adds impact lands in the first three seconds. [BUZZER]"
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 38.13,
-  "size_MiB": 3.6,
+  "size_MiB": 3.4,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.4,
-  "sha256": "5b559ccd87444e499264ad1434feebbaafa5981731e9bb546a8ba0e2677a8f2a",
+  "sha256": "5a5ad8f515cf6f71bbde3053c2e919bf9b075d14669c8b14a1e1b34d0914a48d",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

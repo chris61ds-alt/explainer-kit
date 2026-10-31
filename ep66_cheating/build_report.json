@@ -1,6 +1,6 @@
 {
  "episode": "ep66_cheating",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "old: 1/12 | The highest rate of all, men in their 70s, 26%."
  ],
@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 31.53,
-  "size_MiB": 3.6,
+  "duration_s": 28.9,
+  "size_MiB": 3.1,
   "black_intervals": [],
-  "loudness_LUFS": -16.5,
+  "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.5,
-  "sha256": "2c1edb22cd87253631eba17a6135d68d11bbbc6e79860afbfbea6bad11051d06",
+  "sha256": "7248302c7bc5120c8202bc7c6bba8cdf9622fd4c73e6ac381381f5abde1e8237",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,12 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "2/83 = 2.4%",
+ "asr_final_wer": "2/80 = 2.5%",
  "asr_final_issues": [
   "young: 1/11 | But under 30, women were slightly ahead. 11% vs. 10.",
   "old: 1/12 | the highest rate of all, men in their 70s, 26%."
  ],
- "duration_s": 31.54,
+ "duration_s": 28.89,
  "cover": "ep66_cheating_cover.png",
  "caption": "ok"
 }

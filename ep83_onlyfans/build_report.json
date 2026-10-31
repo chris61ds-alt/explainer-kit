@@ -1,6 +1,6 @@
 {
  "episode": "ep83_onlyfans",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "hook: 5/17 | Only fans paid its creators $6.3 billion last year, so is everyone on their rich?",
   "big: 3/19 | Since 2016, it has paid out $30 billion. 5,076 creators have made over a million.",
@@ -12,12 +12,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 36.53,
-  "size_MiB": 4.0,
+  "duration_s": 33.87,
+  "size_MiB": 3.6,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.4,
-  "sha256": "aeb7fedd3964063beb14c58c03a79424d5a6f1434f68bba7b5f7cecc537419c0",
+  "sha256": "641424a1186c482eea7e9d6e15f6b7dea1580694436b45c86112bf4914d11bf9",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -26,7 +26,7 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "16/98 = 16.3%",
+ "asr_final_wer": "16/95 = 16.8%",
  "asr_final_issues": [
   "hook: 5/17 | Only fans paid its creators $6.3 billion last year. So is everyone on their rich?",
   "big: 3/19 | Since 2016, it has paid out $30 billion. 5,076 creators have made over a million.",
@@ -34,7 +34,7 @@
   "avg: 4/21 | Spread the money evenly, and each gets about $2,500 a year, roughly 200 a month.",
   "skew: 1/18 | and it isn't spread evenly. One analyst estimates the top 10% take about 3/4 of it."
  ],
- "duration_s": 36.52,
+ "duration_s": 33.87,
  "cover": "ep83_onlyfans_cover.png",
  "caption": "ok"
 }

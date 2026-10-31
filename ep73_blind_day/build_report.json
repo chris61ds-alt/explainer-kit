@@ -10,12 +10,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.83,
-  "size_MiB": 3.6,
+  "duration_s": 26.17,
+  "size_MiB": 3.2,
   "black_intervals": [],
-  "loudness_LUFS": -16.5,
-  "true_peak_dBTP": -2.4,
-  "sha256": "95de62d7c22632a7d32b0a586be09d3e7345881e2bed3d5e5932bdc4879fc539",
+  "loudness_LUFS": -16.4,
+  "true_peak_dBTP": -2.5,
+  "sha256": "172d5690ead66728870de013ed9f42d7cc936e0153cfce829ac7b6dd47d94406",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,13 +24,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "8/69 = 11.6%",
+ "asr_final_wer": "8/66 = 12.1%",
  "asr_final_issues": [
   "study: 3/12 | On Love is Blind Day. OK Cupid hit all pictures for seven hours.",
   "back: 3/9 | Then at 4pm, the photos came back.",
   "melt: 2/11 | 2,200 conversations had started blind. They just melted away."
  ],
- "duration_s": 28.83,
+ "duration_s": 26.18,
  "cover": "ep73_blind_day_cover.png",
  "caption": "ok"
 }

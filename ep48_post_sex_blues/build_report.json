@@ -1,6 +1,6 @@
 {
  "episode": "ep48_post_sex_blues",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 3/16 | Researchers in Australia asked women, and later over 1200 men, about feelings right after sex."
  ],
@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 33.47,
-  "size_MiB": 5.5,
+  "duration_s": 30.83,
+  "size_MiB": 5.0,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.5,
-  "sha256": "07c4bc5183a75f43d36927d93e3f332c674fa5329835dcb348cbfdd0ad7323f0",
+  "sha256": "b1ece8476034449a785062bcf9c4289fb7a9b2fe9ef8638dcde1f41b22d7c513",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,11 +22,11 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/90 = 3.3%",
+ "asr_final_wer": "3/87 = 3.4%",
  "asr_final_issues": [
   "study: 3/16 | Researchers in Australia asked women, and later over 1200 men, about feelings right after sex."
  ],
- "duration_s": 33.47,
+ "duration_s": 30.82,
  "cover": "ep48_post_sex_blues_cover.png",
  "caption": "ok"
 }

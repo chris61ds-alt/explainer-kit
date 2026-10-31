@@ -9,12 +9,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 26.53,
-  "size_MiB": 3.2,
+  "duration_s": 23.87,
+  "size_MiB": 2.5,
   "black_intervals": [],
-  "loudness_LUFS": -16.4,
-  "true_peak_dBTP": -2.5,
-  "sha256": "e1cd16a0a636c79e75e566e90c2649753ca926968b902588475f89e04336a094",
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -2.4,
+  "sha256": "d24231332ddb300f04216a363db6218564387c85cbc2a951a4652eb8c8db663b",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,12 +23,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/64 = 4.7%",
+ "asr_final_wer": "3/61 = 4.9%",
  "asr_final_issues": [
   "study: 2/9 | OK, Cupid, analyzed how its users rated each other's looks.",
   "men: 1/13 | Men raided women on a fair curve. Most women, right in the middle."
  ],
- "duration_s": 26.53,
+ "duration_s": 23.88,
  "cover": "ep78_below_average_cover.png",
  "caption": "ok"
 }

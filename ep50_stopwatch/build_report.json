@@ -1,6 +1,6 @@
 {
  "episode": "ep50_stopwatch",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 1/11 | 500 couples in five countries time themselves for four weeks.",
   "result: 1/12 | The median, from start of intercourse to finish, 5.4 minutes."
@@ -9,12 +9,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 30.67,
-  "size_MiB": 4.9,
+  "duration_s": 28.0,
+  "size_MiB": 4.6,
   "black_intervals": [],
-  "loudness_LUFS": -16.4,
+  "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.5,
-  "sha256": "31f65e0a441c748ceffcce7d67228284e6b598e2245f2646e3f39aa73a4e54eb",
+  "sha256": "5dda5980176bd0c97fe4068eda84705cdd9b849a7dfbebabf7edfa836a5d3bca",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,12 +23,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "2/80 = 2.5%",
+ "asr_final_wer": "2/77 = 2.6%",
  "asr_final_issues": [
   "study: 1/11 | 500 couples in five countries time themselves for four weeks.",
   "result: 1/12 | The median, from start of intercourse to finish, 5.4 minutes."
  ],
- "duration_s": 30.67,
+ "duration_s": 28.01,
  "cover": "ep50_stopwatch_cover.png",
  "caption": "ok"
 }

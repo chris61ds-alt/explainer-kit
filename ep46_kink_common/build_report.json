@@ -1,17 +1,17 @@
 {
  "episode": "ep46_kink_common",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 29.67,
-  "size_MiB": 4.7,
+  "duration_s": 27.0,
+  "size_MiB": 4.3,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.4,
-  "sha256": "ffc72290f7647fd3c95864d02295d148d1bab30c63afef6e25a8497a389593e8",
+  "sha256": "1ca519924aaafa737f73d2947ec10555ef323a23f4a682547052f9eccaa20199",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,9 +20,9 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/79 = 0.0%",
+ "asr_final_wer": "0/76 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 29.66,
+ "duration_s": 27.01,
  "cover": "ep46_kink_common_cover.png",
  "caption": "ok"
 }

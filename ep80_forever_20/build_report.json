@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 27.5,
-  "size_MiB": 3.2,
+  "duration_s": 24.83,
+  "size_MiB": 2.5,
   "black_intervals": [],
   "loudness_LUFS": -16.5,
   "true_peak_dBTP": -2.5,
-  "sha256": "954226b321b9333295d7b563848ec56a8ee1b114b950d5853ab3231a3506d512",
+  "sha256": "5fd74eee7336c5befcc26c48052b605bf4c310d125d9a79a2355020687383d2f",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,11 +22,11 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/71 = 4.2%",
+ "asr_final_wer": "3/68 = 4.4%",
  "asr_final_issues": [
   "data: 3/13 | On OK Cupid, men of every age rated women in their early 20s highest."
  ],
- "duration_s": 27.49,
+ "duration_s": 24.84,
  "cover": "ep80_forever_20_cover.png",
  "caption": "ok"
 }

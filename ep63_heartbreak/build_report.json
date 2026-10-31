@@ -1,17 +1,17 @@
 {
  "episode": "ep63_heartbreak",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 33.17,
-  "size_MiB": 4.3,
+  "duration_s": 30.5,
+  "size_MiB": 3.9,
   "black_intervals": [],
   "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.4,
-  "sha256": "823f80ac6b760a5e495e69087e84f5a51415d7fd6a8468d88e14f566323516b3",
+  "sha256": "ae5164b6a955a8c0aa39c46b2773017dd6bac3bd6ac1bbdfdf013c62f975dfd9",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,9 +20,9 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/93 = 0.0%",
+ "asr_final_wer": "0/90 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 33.16,
+ "duration_s": 30.51,
  "cover": "ep63_heartbreak_cover.png",
  "caption": "ok"
 }

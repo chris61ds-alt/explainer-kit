@@ -1,17 +1,17 @@
 {
  "episode": "ep49_orgasm_gap",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 31.63,
-  "size_MiB": 4.9,
+  "duration_s": 28.97,
+  "size_MiB": 4.5,
   "black_intervals": [],
   "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.5,
-  "sha256": "c0de88b2ddab0605f3fd5391a645f9327ba5b1ec4a4dd0e76d0e0e68479cab85",
+  "sha256": "98803d7e3a32fb11da0fec63c58272555e2359c0d3d12616573efad347e39a34",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,9 +20,9 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/76 = 0.0%",
+ "asr_final_wer": "0/73 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 31.63,
+ "duration_s": 28.98,
  "cover": "ep49_orgasm_gap_cover.png",
  "caption": "ok"
 }

@@ -1,6 +1,6 @@
 {
  "episode": "ep70_kinky",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "hook: 1/7 | whose kinkier men or women get ready.",
   "women: 1/19 | Fettish interests, women reported a bit more than men. Pain and submission, women too, 28% versus 19."
@@ -9,12 +9,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 31.23,
-  "size_MiB": 3.7,
+  "duration_s": 28.57,
+  "size_MiB": 3.2,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.5,
-  "sha256": "5af9730f2c3797f9f3dd44c2125a2c886e0e61bfd1c95cbbf70c08c0605d0a0e",
+  "sha256": "a7a20fd40985d2b945bd7bf931ea7bf4fc2c5542d2c46909bd18b65aa92c4b5e",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,12 +23,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "4/79 = 5.1%",
+ "asr_final_wer": "4/76 = 5.3%",
  "asr_final_issues": [
   "hook: 3/7 | Whose kink your men or women, get ready.",
   "women: 1/19 | \"Fattish interests, women reported a bit more than men. Pain and submission, women too, 28% versus 19.\""
  ],
- "duration_s": 31.22,
+ "duration_s": 28.57,
  "cover": "ep70_kinky_cover.png",
  "caption": "ok"
 }

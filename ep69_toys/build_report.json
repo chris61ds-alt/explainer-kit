@@ -1,17 +1,17 @@
 {
  "episode": "ep69_toys",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 29.27,
-  "size_MiB": 3.5,
+  "duration_s": 26.6,
+  "size_MiB": 3.0,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.5,
-  "sha256": "afd6b1f2a521835c4d78e991b8c8dc0aaa43b0bfc52fef8f70742d096fadf5fe",
+  "sha256": "ce7ce5e331f04d9d04ac0d381aff0f892c48e63fd6fb3e6328b696091c4d4ebb",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,9 +20,9 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/75 = 0.0%",
+ "asr_final_wer": "0/72 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 29.25,
+ "duration_s": 26.6,
  "cover": "ep69_toys_cover.png",
  "caption": "ok"
 }

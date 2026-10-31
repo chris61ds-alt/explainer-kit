@@ -1,6 +1,6 @@
 {
  "episode": "ep84_slop",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "fav: 1/11 | The most like picture in the whole test, made by AI."
  ],
@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.7,
-  "size_MiB": 3.5,
+  "duration_s": 26.07,
+  "size_MiB": 3.1,
   "black_intervals": [],
-  "loudness_LUFS": -16.4,
+  "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.5,
-  "sha256": "f94099ab4b41623ae3819ae0814921fd191194773621a13b5ba0d0475c87f976",
+  "sha256": "98ac0013fd91b06530263f4c174359c186aa16db19bc44057393698bc88e6714",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,11 +22,11 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/74 = 1.4%",
+ "asr_final_wer": "1/71 = 1.4%",
  "asr_final_issues": [
   "fav: 1/11 | The most like picture in the whole test, made by AI."
  ],
- "duration_s": 28.7,
+ "duration_s": 26.05,
  "cover": "ep84_slop_cover.png",
  "caption": "ok"
 }

@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 29.37,
-  "size_MiB": 3.5,
+  "duration_s": 26.7,
+  "size_MiB": 3.0,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.3,
-  "sha256": "34e7c0bae3d8dfbaf75d66a39229fffeecd072c6bb8d30a318d057a10c3558ae",
+  "sha256": "525b22d849e2283d36e3730da93e24bc125b4844ef3dfa5cbd6e6e47971cfbca",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,11 +22,11 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/76 = 3.9%",
+ "asr_final_wer": "3/73 = 4.1%",
  "asr_final_issues": [
   "study: 3/8 | OK Cupid compared women with similar average look scores."
  ],
- "duration_s": 29.36,
+ "duration_s": 26.71,
  "cover": "ep81_split_opinion_cover.png",
  "caption": "ok"
 }

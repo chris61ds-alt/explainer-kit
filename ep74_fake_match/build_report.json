@@ -10,12 +10,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.63,
-  "size_MiB": 3.5,
+  "duration_s": 26.0,
+  "size_MiB": 3.0,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
+  "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "7e9ca070b66660ac79b38fb7319303cb4e9ecd92f45d1cb37d9cdb3efeb72f6a",
+  "sha256": "8c9bfa423c88081de3d715719c1ed0a3e99190b17f35f0666f48ae8906e9a255",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,13 +24,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "6/77 = 7.8%",
+ "asr_final_wer": "6/74 = 8.1%",
  "asr_final_issues": [
   "study: 2/17 | OK Cupid took pairs who were a bad match, just 30% and told them they were 90.",
   "quote: 2/15 | Besides own verdict, the myth of compatibility works just as well as the truth.",
   "backlash: 2/10 | When OKCupid admitted it in 2014, users were furious."
  ],
- "duration_s": 28.64,
+ "duration_s": 25.99,
  "cover": "ep74_fake_match_cover.png",
  "caption": "ok"
 }
