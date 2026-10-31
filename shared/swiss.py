@@ -21,7 +21,7 @@ import cute
 from cute import (F, BLK, BOLD, MONO, clamp, ease, ease_io, back, lerp, mix, Timeline, W, H, SR, FPS, SAFE_R, SAFE_B,
                   tt_, bp, lp, softkick, whoosh, pop, tick, heartbeat, poof)
 
-V4 = os.environ.get("NJY_FX") == "v4"          # test 31.10.2026: impulse beat (number pulses) – carry-over lives in ThreadEpisode
+V4 = os.environ.get("NJY_FX", "v4") == "v4"    # default since 31.10.2026: impulse beat (number pulses); NJY_FX=off disables
 V3 = os.environ.get("NJY_STYLE", "v3") == "v3"   # default since 31.10.2026 (NJY_STYLE=v2 = old look): orange only for the answer, whip transitions, new sound
 
 # ---------------------------------------------------------------- palette + type

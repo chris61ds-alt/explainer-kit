@@ -17,11 +17,18 @@ def ring(d, cx, cy, r, col, w=14):
     d.ellipse([cx - r, cy - r * .55, cx + r, cy + r * .55], outline=col, width=w)
     d.polygon([(cx - 22, cy - r * .55 - 4), (cx + 22, cy - r * .55 - 4), (cx, cy - r * .55 - 40)], fill=SIG)
 
-def bars(d, t, t0, vals, labels, cols, y0=1060, hmax=420, w=200):
+def bars(d, t, t0, vals, labels, cols, y0=1060, hmax=420, w=200, prev=None, pcols=None):
+    """prev: values (and colours) the bars morph from – carry-over from the scene before"""
     for i, (v, lab, col) in enumerate(zip(vals, labels, cols)):
-        k = ease((t - t0 - i * .3) / .5); x = X0 + 120 + i * 360; h = hmax * v / 30 * k
-        d.rectangle([x, y0 - h, x + w, y0], fill=col)
-        if k > .9: d.text((x + w / 2, y0 - h - 14), f"{v} %", font=F(BLK, 60), fill=col, anchor="md")
+        k = ease((t - t0 - i * .3) / .5); x = X0 + 120 + i * 360
+        if prev:
+            vv = lerp(prev[i], v, k); c = mix(pcols[i], col, k); h = hmax * vv / 30
+            d.rectangle([x, y0 - h, x + w, y0], fill=c)
+            d.text((x + w / 2, y0 - h - 14), f"{vv:.0f} %", font=F(BLK, 60), fill=c, anchor="md")
+        else:
+            h = hmax * v / 30 * k
+            d.rectangle([x, y0 - h, x + w, y0], fill=col)
+            if k > .9: d.text((x + w / 2, y0 - h - 14), f"{v} %", font=F(BLK, 60), fill=col, anchor="md")
         d.text((x + w / 2, y0 + 16), lab, font=F(COND, 34), fill=INK, anchor="ma")
 
 def sc_hook(img, d, t):
@@ -29,6 +36,8 @@ def sc_hook(img, d, t):
     silhouette(img, lambda m: front_bust(m, 330, 860, .55, 255), (120, 740, 560, 1130), INK, cell=9)
     silhouette(img, lambda m: front_bust(m, 640, 870, .5, 255), (440, 760, 860, 1130), MID, cell=9)
     ring(d, 480, 1020, 46, SIG, 10)
+    tw = cue("hook", "and women") - .1                                  # impulse: the second figure gets asked
+    if t >= tw: box_label(d, 640 - (1 - ease((t - tw) / .2)) * 40, 760, "WOMEN?", 40, WHITE, INK, font=BLK, anchor="ma")
     fig(d, "fig. 1 — the question nobody answers honestly. Except here.")
 
 def sc_study(img, d, t):
@@ -41,6 +50,8 @@ def sc_study(img, d, t):
         d.text((X0 + 30, 600), "other than your spouse while married?", font=F(COND, 40), fill=INK)
         for i, lab in enumerate(("YES", "NO")):
             x = X0 + 30 + i * 220; d.rectangle([x, 680, x + 40, 720], outline=INK, width=4); d.text((x + 56, 700), lab, font=F(BLK, 36), fill=INK, anchor="lm")
+        if t >= cue("study", "while married") + .2:                      # impulse: YES gets ticked
+            d.line([X0 + 38, 700, X0 + 48, 712, X0 + 66, 686], fill=SIG, width=7)
     dot_field(d, (X0 + 14, 840, X1, 1110), t, cell=30, col=MID, hit={7, 44, 81})
     fig(d, "General Social Survey (USA), ever-married adults")
 
@@ -52,8 +63,8 @@ def sc_result(img, d, t):
 
 def sc_young(img, d, t):
     t0 = S("young")
-    d.text((X0, 320), "UNDER 30:", font=F(BLK, 150), fill=INK)
-    bars(d, t, t0 + .2, (10, 11), ("men", "women"), (INK, SIG))
+    words_in(d, t, [("UNDER 30:", t0 - .05, 320, 150, INK)])
+    bars(d, t, t0 + .5, (10, 11), ("men", "women"), (INK, SIG), prev=(20, 13), pcols=(SIG, INK))
     if t >= cue("young", "eleven") + .3: box_label(d, X1, 520, "WOMEN AHEAD", 40, WHITE, SIG, font=BLK, anchor="ra")
     fig(d, "ages 18–29")
 
@@ -76,8 +87,16 @@ def sc_point(img, d, t):
         d.text((X1, 1146), "≈ 1 in 6 overall · schematic", font=F(MED, 22), fill=MID, anchor="ra")
     fig(d, "fig. 2 — the majority stays faithful")
 
+# carry-over: every scene hands one element to the next
+EP.carry = {
+    "hook":  [((680, 950, 880, 1150), (430, 952, 530, 1050))],      # countdown ring → wedding ring
+    "study": [((120, 740, 560, 1130), (277, 833, 291, 847))],       # the man → one dot in the data
+    "result": [((144, 686, 212, 714), (434, 338, 708, 447))],       # the ticked YES → the headline's YES
+}
+EP.cuts = {"young": "stay"}                                         # same bars, new values: no whip
+
 EP.scenes = {"hook": sc_hook, "study": sc_study, "result": sc_result, "young": sc_young, "old": sc_old, "point": sc_point}
-FX = [(0.0, thud(.5), 0), (.3, pop(.12), .2), *EP.cut_fx(), (cue("study", "have you ever") - .2, pop(.15), 0), (S("result") + .05, thud(.55), 0),
+FX = [(0.0, thud(.5), 0), (.3, pop(.12), .2), (cue("hook", "and women") - .1, pop(.14), .2), (cue("study", "while married") + .2, tick(.08), 0), *EP.cut_fx(), (cue("study", "have you ever") - .2, pop(.15), 0), (S("result") + .05, thud(.55), 0),
       (S("result") + .1, pop(.15), -.3), (S("result") + .4, pop(.15), .3), (cue("young", "eleven") + .3, thud(.35), 0),
       (cue("old", "twenty-six") - .3, thud(.5), 0), (cue("point", "and most") - .2, riser(.5, .05), 0), (S("end"), thud(.5), 0)]
 if __name__ == "__main__": EP.run(FX)
