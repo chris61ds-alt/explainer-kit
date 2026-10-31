@@ -142,7 +142,7 @@ class ThreadEpisode(Episode):
     """Episode whose scenes slide horizontally into each other (the thread looks continuous) and without zoom drift."""
     def __init__(self, *a, slide=.38, **kw):
         kw.setdefault("drift", 0.0); self.label = kw.pop("label", None)     # e.g. "CASE STUDY", "SELF-TEST", "UNSOLVED"
-        super().__init__(*a, **kw); self.slide = slide
+        super().__init__(*a, **kw); self.slide = .30 if V3 else slide
 
     def _scene(self, img, d, key, t):
         self.grid(d)
@@ -161,16 +161,19 @@ class ThreadEpisode(Episode):
             off = int(W * ease_io((t - a) / self.slide))
             img.paste(A.crop((off, Y0c, W, Y1c)), (0, Y0c))
             img.paste(B.crop((0, Y0c, off, Y1c)), (W - off, Y0c)) if off > 0 else None
+            if V3:                                       # motion blur proportional to the slide speed
+                k = (t - a) / self.slide; hblur(img, (0, Y0c, W, Y1c), .5 * W * 6 * k * (1 - k) / (self.slide * FPS))
         else:
             self._scene(img, d, cur, t)
         if cur == self.order[0] and t < .3: zoom_band(img, d, 1 + SLAM * (1 - ease(t / .3)), y0=Y0c, y1=Y1c)
         if cur != "end": self.overlays(img, d, t, cur)
         d.rectangle([0, 0, W, Y0c - 1], fill=BG); d.rectangle([0, Y1c, W, H], fill=BG)
         self.chrome(d, t, cur)
-        if self.label and cur != "end": box_label(d, X1, 270, self.label, 22, WHITE, SIG, font=MONO, anchor="ra")
+        if self.label and cur != "end": box_label(d, X1, 270, self.label, 22, WHITE, MID if V3 else SIG, font=MONO, anchor="ra")
         self.subtitle(d, t)
 
     def cut_fx(self, amp=.10):
+        if V3: return [(self.TL.S(k) - .12, whoosh(.32, amp * 1.2), 0) for k in self.order[1:]]   # matches the 0.30 s whip
         return [(self.TL.S(k) - .3, whoosh(.45, amp), 0) for k in self.order[1:]]
 
 def ekg(x0, x1, y, t, period=180, amp=60, speed=240, step=4, chaos=0.0, seed=0):

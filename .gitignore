@@ -11,3 +11,4 @@ preview.png
 
 # Hörproben / Wegwerf-Tests
 tests/
+*_test/

@@ -21,6 +21,8 @@ import cute
 from cute import (F, BLK, BOLD, MONO, clamp, ease, ease_io, back, lerp, mix, Timeline, W, H, SR, FPS, SAFE_R, SAFE_B,
                   tt_, bp, lp, softkick, whoosh, pop, tick, heartbeat, poof)
 
+V3 = os.environ.get("NJY_STYLE") == "v3"      # test style 31.10.2026: orange only for the answer, whip transitions, new sound
+
 # ---------------------------------------------------------------- palette + type
 COND, MED = "Roboto-Condensed-Bold.woff", "Roboto-Medium.woff"
 BG = (250, 250, 248); INK = (12, 12, 12); SIG = (255, 64, 0); RULE = (226, 226, 222); MID = (140, 140, 136)
@@ -331,6 +333,22 @@ def snare(amp=.05):
     t = tt_(.18); return amp * bp(np.random.default_rng(9).standard_normal(len(t)), 900, 3500) * np.exp(-t * 22)
 def riser(dur=.8, amp=.12):
     t = tt_(dur); return amp * bp(np.random.default_rng(3).standard_normal(len(t)), 1200, 6000) * (t / dur) ** 2
+def boom(amp=.55, dur=.9):
+    """sub drop for a reveal: pitch falls from ~100 Hz to 38 Hz"""
+    t = tt_(dur); f = 38 + 62 * np.exp(-t * 18)
+    return amp * np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 3.5) * np.minimum(1, t / .005)
+def hat(amp=.012):
+    t = tt_(.05); return amp * bp(np.random.default_rng(11).standard_normal(len(t)), 7000, 15000) * np.exp(-t * 90)
+def voice_polish(vo):
+    """v3: high-pass, gentle compression, a little presence and warmth"""
+    from scipy.signal import butter as _b, lfilter as _l
+    b, a = _b(2, 90 / (SR / 2), "high"); x = _l(b, a, vo)
+    env = np.sqrt(np.convolve(x * x, np.ones(int(.03 * SR)) / int(.03 * SR), "same")) + 1e-6
+    ref = np.percentile(env[env > env.max() * .05], 90) if (env > env.max() * .05).any() else env.max()
+    g = np.where(env > ref * .5, (env / (ref * .5)) ** (1 / 3 - 1), 1.0)       # 3:1 above the knee
+    x = x * g
+    x = x + .25 * bp(x, 2500, 6000) + .12 * lp(x, 300)
+    return np.tanh(x / (np.abs(x).max() + 1e-9) * 1.2) * np.abs(vo).max()
 
 PROGS = {   # (root offset in semitones, quality)
     "minor": [(0, "m"), (-4, "M"), (3, "M"), (-2, "M")],      # i  VI  III VII
@@ -370,7 +388,12 @@ def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
             if M["kick"] == "four" or b_ in (0, 2): put(mus, softkick(.3), tb + b_ * beat)
             if M["kick"] != "four" and b_ in (1, 3): put(mus, snare(.035), tb + b_ * beat)
             if M["kick"] == "four" and b_ in (1, 3): put(mus, snare(.03), tb + b_ * beat + beat / 2)
+        if V3:                                       # momentum: soft hats on 8ths + a quiet arp from the chord
+            for e in range(8):
+                put(mus, hat(.014 if e % 2 else .008), tb + e * beat / 2, (.3 if e % 2 else -.3))
+                put(mus, lp(.022 * np.sin(2 * np.pi * ch[e % 3] * 2 * tt_(.22)) * np.exp(-tt_(.22) * 14), 3000), tb + e * beat / 2, (-.2 if e % 2 else .2))
         tb += bar; i += 1
+    if V3: vo = voice_polish(vo)
     gate = np.ones(n); fdur = int(.06 * SR)
     for a_, b_ in gaps:
         s0, s1 = int(a_ * SR), int(b_ * SR); gate[s0:s1] = 0
@@ -402,6 +425,21 @@ def zoom_band(img, d, z, cx=480, cy=730, y0=300, y1=1180):
     l, tp = cx - cx / z, cy - cy / z
     img.paste(img.crop((int(l), int(tp), int(l + W / z), int(tp + H / z))).resize((W, H), Image.BILINEAR))
     d.rectangle([0, 0, W, y0], fill=BG); d.rectangle([0, y1, W, H], fill=BG)
+
+def hblur(img, box, w):
+    """horizontal motion blur (box filter of width w px) inside box"""
+    w = int(w)
+    if w < 2: return
+    a = np.asarray(img.crop(box)).astype(np.float32)
+    c = np.cumsum(np.pad(a, ((0, 0), (w, 0), (0, 0)), mode="edge"), axis=1)
+    img.paste(Image.fromarray(((c[:, w:] - c[:, :-w]) / w).astype(np.uint8)), box[:2])
+
+def whip_in(img, k, box=(0, 300, W, 1180)):
+    """v3 cut for Episode (no slide): the new scene arrives from the right with motion blur"""
+    off = int(140 * (1 - ease(k)))
+    if off > 0:
+        band = img.crop(box); img.paste(BG, (box[0], box[1], box[2], box[3])); img.paste(band, (box[0] + off, box[1]))
+    hblur(img, box, 70 * (1 - k) ** 2)
 
 class Episode:
     """chrome + harness. Options: layers (drawn every frame on top of the scene, for actors that carry over between scenes),
@@ -489,6 +527,7 @@ class Episode:
             for lay in self.layers: lay(img, d, t, cur)
             a, b = self.scene_span(cur)
             z = 1 + self.drift * ease_io((t - a) / max(.5, b - a))           # slow push through the scene
+            if V3 and cur != self.order[0] and t - a < .2: whip_in(img, (t - a) / .2)
             if cur != self.order[0]: z += .035 * math.exp(-(t - a) * 8)      # punch-in on every cut
             else: z += SLAM * (1 - ease(t / .3))                             # slam-in from frame 0 (no static first second)
             if z > 1.002: zoom_band(img, d, z)
@@ -503,11 +542,11 @@ class Episode:
     def guess_scene(self, img, d, t):
         """opener: the question in big type from frame 0, a 3-2-1 countdown until the hook starts"""
         TL = self.TL; t0, t1 = TL.S("guess"), TL.S(self.order[1])
-        box_label(d, X0, 300, "GUESS FIRST", 40, WHITE, SIG, font=BLK)
+        box_label(d, X0, 300, "GUESS FIRST", 40, WHITE, INK if V3 else SIG, font=BLK)
         lines = TL.screen.get("guess") or [TL.T["guess"]["text"].upper()]
         size = int(min(170, 540 / (len(lines) * 1.05), *(840 / max(1, d.textlength(l, font=F(BLK, 100))) * 100 for l in lines)))
-        words_in(d, t, [(l, -1 if i == 0 else t0 + .1 + i * .2, 390 + i * int(size * 1.05), size,
-                         SIG if i == len(lines) - 1 else INK) for i, l in enumerate(lines)])
+        words_in(d, t, [(l, -1 if i == 0 or V3 else t0 + .1 + i * .2, 390 + i * int(size * 1.05), size,
+                         SIG if i == len(lines) - 1 and not V3 else INK) for i, l in enumerate(lines)])
         k = clamp((t - t0) / max(.5, t1 - t0)); n = 3 - min(2, int(k * 3))
         cx, cy, r = X1 - 120, 1050, 92
         d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=RULE, width=10)
@@ -523,12 +562,12 @@ class Episode:
             say, show = TL.tease[cur]; ts = TL.cue(cur, say[:16]) - .1
             if t >= ts:
                 k = ease((t - ts) / .2); size = min(46, int(840 / max(1, d.textlength(show, font=F(BLK, 100))) * 100))
-                box_label(d, X0 - (1 - k) * 70, 1122, show, size, WHITE, SIG, font=BLK)
+                box_label(d, X0 - (1 - k) * 70, 1122, show, size, WHITE, INK if V3 else SIG, font=BLK)
         if TL.ask and cur == self.last_scene():
             ta = TL.S(cur) + TL.T[cur]["dur"] * .55
             if t >= ta:
                 k = ease((t - ta) / .25); size = min(46, int(840 / max(1, d.textlength(TL.ask, font=F(BLK, 100))) * 100))
-                box_label(d, X0 - (1 - k) * 70, 1122, TL.ask, size, WHITE, SIG, font=BLK)
+                box_label(d, X0 - (1 - k) * 70, 1122, TL.ask, size, WHITE, INK if V3 else SIG, font=BLK)
 
     def v2_fx(self):
         TL = self.TL; out = []
@@ -538,7 +577,13 @@ class Episode:
         for k, (say, _) in TL.tease.items(): out.append((TL.cue(k, say[:16]) - .1, pop(.18), 0))
         if TL.ask:
             c = self.last_scene(); out.append((TL.S(c) + TL.T[c]["dur"] * .55, pop(.15), 0))
+        if V3:                                        # reveal after every re-hook: riser → 0.35 s silence → sub drop
+            for r in self.reveals(): out += [(r - .85, riser(.7, .07), 0), (r - .02, boom(.5), 0)]
         return out
+
+    def reveals(self):
+        TL = self.TL; o = self.order
+        return [TL.S(o[o.index(k) + 1]) for k in TL.tease if k in o and o.index(k) + 1 < len(o) and o[o.index(k) + 1] != "end"]
 
     def draw(self, img, d, t):
         self.scenes.setdefault("guess", self.guess_scene)
@@ -581,5 +626,6 @@ class Episode:
     def run(self, fx):
         global MUSIC
         MUSIC = dict(MUSIC, **self.music)
+        if V3: MUSIC["gaps"] = list(MUSIC.get("gaps", ())) + [(r - .35, r) for r in self.reveals()]
         if "--cover" in sys.argv: print("cover", self.make_cover(sys.argv[1])); return
         cute.run(self.TL, self.draw, list(fx) + self.v2_fx())
