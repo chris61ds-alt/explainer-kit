@@ -1,4 +1,29 @@
-# Explainer-Baukasten „Not just you" (Stand 25.10.2026)
+# Explainer-Baukasten „Not just you“
+
+## START HIER (Stand 31.10.2026) – so entsteht eine Folge wie im Original-Chat
+```bash
+git clone https://github.com/chris61ds-alt/explainer-kit && cd explainer-kit
+bash setup.sh                                 # einmal pro Umgebung: Pakete, Stimme, Spracherkennung (Fonts liegen im Repo)
+python3 shared/build.py ep77_casual           # Funktionstest: muss "verify PASS" melden
+```
+1. **Recherche:** Quelle per Websuche prüfen, genaue Zahlen notieren. Keine erfundenen Zahlen, ehrliches Label (PROJEKT.md).
+2. **`epXX_name/script.json`:** Englisch, 5–7 Beats, 70–95 Wörter, Zahlen ausgeschrieben, letzter Beat `"end": "Not just you."`.
+3. **`epXX_name/caption.md`:** Format siehe PROJEKT.md, Abschnitt 0.
+4. **`epXX_name/render.py`:** im aktuellen **Look C+D (dark)**. Eine Vorlage kopieren und anpassen:
+   - `ep77_casual` (Zähler, Raster, Checkbox) · `ep70_kinky` (Silhouetten-Duo, Balken) · `ep81_split_opinion` (Bewertungen, Glitch)
+   - `ep82_live` (Live-Diagramm über das ganze Video) · `ep73_blind_day` (Profilkarten, Chat-Blasen aus `shared/dating.py`)
+   - Bausteine: `shared/thread.py` (ThreadEpisode, halftone/silhouette, bust/front_bust/body, bbox, glitch, dot_field) +
+     `shared/swiss.py` (counter, words_in, box_label, hbar, dim_v, fig, Sound: thud/pop/riser/whoosh/rewind_sfx).
+   - Glyphen →, ≈, ✓, ⅓ gibt es in Roboto nicht: als Text schreiben. Keine Strichfiguren, keine Kapitel/Titel/Fortschritts-UI.
+5. **Vorschau:** `python3 tools/preview.py epXX_name` → `epXX_name/preview.png` (2 Bilder pro Beat) ansehen, Überlappungen beheben.
+6. **Bauen:** `python3 shared/build.py epXX_name` → MP4 (1080×1920, −16 LUFS), Sprach-Check, Technik-Check, Cover. Bei ASR-Fehlern prüfen,
+   ob nur der Erkenner irrt (Eigennamen) oder die Aussprache; dann Text umformulieren und neu bauen.
+7. **Ausliefern:** MP4 + Caption an Chris. Veröffentlichen (nur mit Schreibzugriff): `publish/media/njXX.mp4/.jpg` (Cover als JPG),
+   `publish/schedule.json` erweitern, Repo `notjustyou-media` pushen – Apps Script importiert stündlich automatisch.
+
+---
+
+## Historie (Stand 25.10.2026)
 
 Programmatische Explainer-Reels: 1080×1920, 30 fps, Instagram-Safe-Zones, KI-Stimme, Sound per Code, Endprüfung.
 

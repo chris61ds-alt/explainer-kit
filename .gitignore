@@ -4,6 +4,5 @@ vo/
 *.png
 *.jpg
 __pycache__/
-fonts/
 publish/media/
 preview.png
