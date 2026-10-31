@@ -2,20 +2,20 @@
  "episode": "ep50_stopwatch",
  "tts": "new",
  "asr_voice": [
-  "guess: 1/9 | How many minutes to sex last? Guess a number.",
-  "study: 1/11 | 500 couples in five countries time themselves for four weeks.",
+  "guess: 1/9 | How many minutes does sex last? Get a number.",
+  "study: 1/11 | 500 couples in 5 countries time themselves for 4 weeks.",
   "result: 1/15 | The median from start to finish, 5.4 minutes, but the range is wild."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 27.5,
-  "size_MiB": 4.7,
+  "duration_s": 26.5,
+  "size_MiB": 4.6,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.5,
-  "sha256": "5a327bf69c542029932eff28d3771cd37f2fddd6a7dbce043661ac47fddd1b23",
+  "loudness_LUFS": -16.4,
+  "true_peak_dBTP": -2.4,
+  "sha256": "bfc324479681beb20f5f27bd8451a29eabeb8196515fae78f1ec943b03049781",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -26,11 +26,11 @@
  },
  "asr_final_wer": "3/78 = 3.8%",
  "asr_final_issues": [
-  "guess: 1/9 | How many minutes to sex last? Guess a number.",
+  "guess: 1/9 | How many minutes does sex last? Get a number.",
   "study: 1/11 | 500 couples in five countries time themselves for four weeks.",
-  "result: 1/15 | The median from start to finish. 5.4 minutes, but the range is wild."
+  "result: 1/15 | The median from start to finish 5.4 minutes, but the range is wild."
  ],
- "duration_s": 27.5,
+ "duration_s": 26.52,
  "cover": "ep50_stopwatch_cover.png",
  "caption": "ok"
 }

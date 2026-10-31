@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 34.27,
-  "size_MiB": 4.9,
+  "duration_s": 32.97,
+  "size_MiB": 4.6,
   "black_intervals": [],
-  "loudness_LUFS": -16.4,
-  "true_peak_dBTP": -2.5,
-  "sha256": "b41ac6ec0c71dffe77730337387cbe043183163fecf63aca6c00dffc532939cc",
+  "loudness_LUFS": -16.5,
+  "true_peak_dBTP": -2.4,
+  "sha256": "d9eb9f92d0aa2bbd6ebe6aa747bb8d2d7ad347950b7df1a462ec8beebb1b6429",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,7 +22,7 @@
  },
  "asr_final_wer": "0/100 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 34.25,
+ "duration_s": 32.96,
  "cover": "ep39_daily_lies_cover.png",
  "caption": "ok"
 }

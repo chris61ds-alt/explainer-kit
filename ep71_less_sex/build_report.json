@@ -1,20 +1,21 @@
 {
  "episode": "ep71_less_sex",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
   "study: 5/19 | A national survey has asked Americans about their sex lives since 1989. Over 26,000 people.",
-  "result: 3/19 | By the early 2010s, adults had sex about nine times less per year than in the late '90s. [BUZZER]"
+  "result: 3/19 | By the early 2010s, adults had sex about 9 times less per year than in the late 90s.",
+  "point: 2/13 | So we might talk about sex more, but we are having less of it."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 30.3,
-  "size_MiB": 3.3,
+  "duration_s": 27.23,
+  "size_MiB": 3.2,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.4,
-  "sha256": "6ed9357cec2e5862c39a08aaa6fa311301d29ac985a16346653c9633dd9cd47d",
+  "sha256": "c2e27a775f594c87b9923358dbfe94aa106c2b2ac89f1af4f8a49f96b834f69f",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,12 +24,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "8/86 = 9.3%",
+ "asr_final_wer": "10/86 = 11.6%",
  "asr_final_issues": [
   "study: 5/19 | A national survey has asked Americans about their sex lives since 1989. Over 26,000 people.",
-  "result: 3/19 | By the early 2010s, adults had sex about nine times less per year than in the late 90s."
+  "result: 3/19 | By the early 2010s, adults had sex about 9 times less per year than in the late 90s.",
+  "point: 2/13 | So we might talk about sex more, but we are having less of it."
  ],
- "duration_s": 30.3,
+ "duration_s": 27.24,
  "cover": "ep71_less_sex_cover.png",
  "caption": "ok"
 }

@@ -1,17 +1,20 @@
 {
  "episode": "ep67_out_of_league",
  "tts": "new",
- "asr_voice": [],
+ "asr_voice": [
+  "hook: 1/9 | your messaging people out of your league, everyone is.",
+  "result: 1/15 | Most people message someone about 25% more desirable than themselves. Did it work?"
+ ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 33.2,
-  "size_MiB": 3.5,
+  "duration_s": 32.17,
+  "size_MiB": 3.4,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.4,
-  "sha256": "04d311d6dd27955da2fb5d73629ce4efc758f7d3f444ee16c5173fa2c11f5cd5",
+  "loudness_LUFS": -16.4,
+  "true_peak_dBTP": -2.5,
+  "sha256": "708c27c125fdaeded2434c38d4d4323cb4f8c0dd2c265675d6ac04c24e76063f",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,9 +23,11 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/94 = 0.0%",
- "asr_final_issues": [],
- "duration_s": 33.19,
+ "asr_final_wer": "1/94 = 1.1%",
+ "asr_final_issues": [
+  "result: 1/15 | Most people message someone about 25% more desirable than themselves. Did it work?"
+ ],
+ "duration_s": 32.17,
  "cover": "ep67_out_of_league_cover.png",
  "caption": "ok"
 }

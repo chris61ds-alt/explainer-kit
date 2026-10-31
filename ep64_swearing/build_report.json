@@ -1,17 +1,17 @@
 {
  "episode": "ep64_swearing",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 25.3,
+  "duration_s": 22.57,
   "size_MiB": 3.0,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
+  "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.5,
-  "sha256": "6e6d55af3deb349a2991bd3aea4bbfe5f361e847db66094652de2a2d1c9f3580",
+  "sha256": "9dd460ffe8d0a2ff062a922b9f4da94ed81975e4c035e96e6ed2f0e2f441bf03",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,7 +22,7 @@
  },
  "asr_final_wer": "0/72 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 25.32,
+ "duration_s": 22.56,
  "cover": "ep64_swearing_cover.png",
  "caption": "ok"
 }

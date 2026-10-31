@@ -1,17 +1,19 @@
 {
  "episode": "ep69_toys",
  "tts": "new",
- "asr_voice": [],
+ "asr_voice": [
+  "point: 1/13 | So it's not a secret draw thing, it's half the country both halves."
+ ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 27.8,
-  "size_MiB": 3.5,
+  "duration_s": 27.0,
+  "size_MiB": 3.4,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.5,
-  "sha256": "93d53ffba1c46430413233696c27383a11f89d2dea995eb6580fb4861265ddd1",
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -2.4,
+  "sha256": "93078206b7c411bdd97c5424ebd2b58a3215c8cb87060bcc13afe7a2dc8a684d",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,9 +22,11 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/79 = 0.0%",
- "asr_final_issues": [],
- "duration_s": 27.82,
+ "asr_final_wer": "1/79 = 1.3%",
+ "asr_final_issues": [
+  "point: 1/13 | So it's not a secret draw thing. It's half the country both halves."
+ ],
+ "duration_s": 26.99,
  "cover": "ep69_toys_cover.png",
  "caption": "ok"
 }
