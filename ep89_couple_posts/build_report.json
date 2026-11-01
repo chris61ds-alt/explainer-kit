@@ -1,0 +1,33 @@
+{
+ "episode": "ep89_couple_posts",
+ "tts": "new",
+ "asr_voice": [
+  "hook: 2/11 | That couple who posts every anniversary may be not the most secure."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 37.2,
+  "size_MiB": 4.0,
+  "black_intervals": [],
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.5,
+  "sha256": "c5ad6b5ff0c92d748a28c5390a7ae82b8a52132548ef90141b66c294dad67da6",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "2/102 = 2.0%",
+ "asr_final_issues": [
+  "hook: 2/11 | That couple who posts every anniversary may be not the most secure."
+ ],
+ "duration_s": 37.19,
+ "longest_calm_s": 3.92,
+ "cover": "ep89_couple_posts_cover.png",
+ "caption": "ok"
+}
