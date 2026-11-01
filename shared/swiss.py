@@ -23,6 +23,8 @@ from cute import (F, BLK, BOLD, MONO, clamp, ease, ease_io, back, lerp, mix, Tim
 
 V4 = os.environ.get("NJY_FX", "v4") == "v4"    # default since 31.10.2026: impulse beat (number pulses); NJY_FX=off disables
 V3 = os.environ.get("NJY_STYLE", "v3") == "v3"   # default since 31.10.2026 (NJY_STYLE=v2 = old look): orange only for the answer, whip transitions, new sound
+AUDIO = os.environ.get("NJY_AUDIO", "v3")       # v5 (since 01.11.2026 for new episodes, per episode via music=dict(audio="v5")):
+                                                # arrangement follows the script + counter runs + sound kit (shared/sound5.py)
 
 # ---------------------------------------------------------------- palette + type
 COND, MED = "Roboto-Condensed-Bold.woff", "Roboto-Medium.woff"
@@ -303,7 +305,9 @@ def words_in(d, t, items, x=X0 - 8, slide=80):
         k = ease((t - tk) / .35)
         if k > 0: d.text((x - (1 - k) * slide, y), text, font=F(BLK, size), fill=mix(BG, col, k))
 
+_REC = None                                       # dry pass: collects on-screen counters for the audio (v5)
 def counter(d, x, y, t, t0, dur, to, fmt="{:,.0f}", size=200, col=SIG, anchor="la"):
+    if _REC is not None: _REC.append((round(t0, 3), dur, to))
     v = to * ease_io((t - t0) / dur)
     if t >= t0: d.text((x, y), fmt.format(v), font=F(BLK, size), fill=col, anchor=anchor)
 
@@ -379,6 +383,9 @@ def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
     beat = 60 / bpm; bar = beat * 4; base = 220.0 * 2 ** (M["root"] / 12)
     prog = [_chord(base * 2 ** (o / 12) if o >= -5 else base * 2 ** ((o + 12) / 12), q) for o, q in PROGS[M["prog"]]]
     tb, i = 0.0, 0
+    if M.get("audio", AUDIO) == "v5":
+        import sound5
+        mus = sound5.music(TL_, M, n, bpm, prog); tb = TL_.total          # skips the classic loop below
     while tb < TL_.total - .3:
         ch = prog[i % 4]
         t_ = tt_(bar); env = np.minimum(1, t_ / .4) * np.exp(-t_ * .35)
@@ -395,6 +402,9 @@ def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
                 put(mus, lp(.022 * np.sin(2 * np.pi * ch[e % 3] * 2 * tt_(.22)) * np.exp(-tt_(.22) * 14), 3000), tb + e * beat / 2, (-.2 if e % 2 else .2))
         tb += bar; i += 1
     if V3: vo = voice_polish(vo)
+    stem = os.environ.get("NJY_STEM")                 # "nomusic" = voice + fx only (for trend sounds in the app) · "music" = bed only
+    if stem == "nomusic": mus[:] = 0
+    if stem == "music": vo[:] = 0; fx_cues = []
     gate = np.ones(n); fdur = int(.06 * SR)
     for a_, b_ in gaps:
         s0, s1 = int(a_ * SR), int(b_ * SR); gate[s0:s1] = 0
@@ -404,6 +414,10 @@ def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
     env = np.convolve(np.abs(vo), np.ones(int(.12 * SR)) / int(.12 * SR), "same")
     duck = (1 - .55 * np.clip(env / (env.max() * .15 + 1e-9), 0, 1))[:, None]
     st = (vo[:, None] + mus * duck + fx)[: int(TL_.total * SR)]
+    if os.environ.get("NJY_ADBG"):
+        r = lambda x: 20 * np.log10(np.sqrt(np.mean(np.square(x))) + 1e-12)
+        sec = lambda x: " ".join(f"{r(x[int(i * SR):int((i + 1) * SR)]):.0f}" for i in range(int(TL_.total)))
+        print("vo", round(r(vo[vo != 0]), 1), "\nmus", sec((mus * duck).mean(1)), "\nvo ", sec(vo))
     st /= np.abs(st).max() / .9
     fd = int(.35 * SR); st[-fd:] *= np.linspace(1, 0, fd)[:, None]
     with wave.open(path, "wb") as w_:
@@ -661,4 +675,23 @@ class Episode:
         MUSIC = dict(MUSIC, **self.music)
         if V3: MUSIC["gaps"] = list(MUSIC.get("gaps", ())) + [(r - .35, r) for r in self.reveals()]
         if "--cover" in sys.argv: print("cover", self.make_cover(sys.argv[1])); return
-        cute.run(self.TL, self.draw, list(fx) + self.v2_fx())
+        extra = []
+        if MUSIC.get("audio", AUDIO) == "v5":
+            import sound5
+            o = [k for k in self.order if k != "end"]
+            MUSIC.update(reveals=self.reveals(), cuts=[self.TL.S(k) for k in o[1:]],
+                         intro_end=self.TL.S(o[1]) if o[0] == "guess" else 0.0, outro=self.TL.S(o[-1]) if len(o) > 2 else None)
+            extra = sound5.counter_runs(self.counters(), 220.0 * 2 ** (MUSIC["root"] / 12))
+        cute.run(self.TL, self.draw, list(fx) + self.v2_fx() + extra)
+
+    def counters(self):
+        """dry pass: draw every scene once at its end and record the counters it shows"""
+        global _REC
+        _REC = []
+        for k in self.order:
+            if k in ("end", "guess") or k not in self.scenes: continue
+            a, b = self.scene_span(k); img = Image.new("RGB", (W, H), BG)
+            try: self.scenes[k](img, ImageDraw.Draw(img), b - .02)
+            except Exception: pass
+        out, _REC = sorted(set(_REC)), None
+        return out
