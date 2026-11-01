@@ -2,18 +2,18 @@
  "episode": "ep84_slop",
  "tts": "new",
  "asr_voice": [
-  "haters: 1/17 | Even people who said they hate AI art put AI pieces in half of the top 10."
+  "fav: 1/11 | The most like picture in the whole test, made by AI."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 23.37,
+  "duration_s": 24.07,
   "size_MiB": 3.1,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.4,
-  "sha256": "a81210c99c6828bb773fbdcd671c392979939e5dc5f4ffd9d9ab42c04b49f35c",
+  "sha256": "898825be7fd1539586fb4febaf7e6bb4ace998986e82ffd7ab8e7ef844e8a82a",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,10 +24,10 @@
  },
  "asr_final_wer": "1/71 = 1.4%",
  "asr_final_issues": [
-  "haters: 1/17 | Even people who said they hate AI art put AI pieces in half of the top 10."
+  "fav: 1/11 | The most like picture in the whole test, made by AI."
  ],
- "duration_s": 23.38,
- "longest_calm_s": 2.13,
+ "duration_s": 24.05,
+ "longest_calm_s": 2.15,
  "cover": "ep84_slop_cover.png",
  "caption": "ok"
 }

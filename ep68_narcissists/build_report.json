@@ -2,19 +2,19 @@
  "episode": "ep68_narcissists",
  "tts": "new",
  "asr_voice": [
-  "why: 1/14 | It was all surface, stylish clothes, confident body language and entertaining way of talking.",
-  "flip: 1/22 | but in another study groups met again and again. By the seventh meeting the narcissist's ratings had flipped, from likable to disliked."
+  "why: 1/14 | It was all surface, stylish clothes, confident body language, and entertaining way of talking.",
+  "flip: 1/22 | But in another study, groups met again and again. By the seventh meeting, the narcissist's ratings had flipped, from likable to disliked."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 27.9,
-  "size_MiB": 3.4,
+  "duration_s": 28.97,
+  "size_MiB": 3.5,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -4.0,
-  "sha256": "8588b461232aba0180cd337cc323a821ed665703363a034f08cd202dffc70e6d",
+  "true_peak_dBTP": -2.5,
+  "sha256": "0f3b651f7709bc7e2a6656d33843e0198558b0fca55a6f793ff3be8d5cc45f25",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,13 +23,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/82 = 3.7%",
+ "asr_final_wer": "2/82 = 2.4%",
  "asr_final_issues": [
-  "why: 1/14 | It was all surface, stylish clothes, confident body language and entertaining way of talking.",
-  "flip: 2/22 | but in another study groups met again and again. By the seventh meeting the narcissist's ratings had flipped, from likeable to disliked."
+  "why: 1/14 | It was all surface, stylish clothes, confident body language, and entertaining way of talking.",
+  "flip: 1/22 | But in another study, groups met again and again. By the seventh meeting, the narcissist's ratings had flipped, from likable to disliked."
  ],
- "duration_s": 27.91,
- "longest_calm_s": 4.81,
+ "duration_s": 28.97,
+ "longest_calm_s": 5.21,
  "cover": "ep68_narcissists_cover.png",
  "caption": "ok"
 }
