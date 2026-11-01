@@ -1,4 +1,4 @@
-Quick, guess: the couples who post the most. Are they the happiest? 📸
+The couples who post the most aren't always the happiest. 📸
 
 Researchers ran three studies on how people show their relationship on Facebook, including a daily diary. On days people felt more insecure about their relationship than usual, they posted more about it.
 

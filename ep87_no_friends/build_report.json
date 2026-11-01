@@ -1,21 +1,19 @@
 {
  "episode": "ep87_no_friends",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
-  "hook: 5/12 | In 1990, almost every man had a close friend, not anymore.",
-  "zero: 5/14 | Men with no close friends at all, 3% in 1990, and now...",
-  "six: 1/15 | Men with six or more close friends drop from 55% to 27. [BUZZER]"
+  "claim: 5/14 | 15% of men have zero close friends. Back in 1990, 3%."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 34.43,
-  "size_MiB": 4.4,
+  "duration_s": 30.07,
+  "size_MiB": 3.6,
   "black_intervals": [],
-  "loudness_LUFS": -16.0,
-  "true_peak_dBTP": -1.9,
-  "sha256": "48cff5cdbd5f4d4bd0a622c3290318073d1091f7bfa75f24bd8929fd72daeca6",
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.5,
+  "sha256": "364d06f5c23039512e5ec0502b9742f96d404a1332c3cfdc8623506c1b4bc521",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,13 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "11/99 = 11.1%",
+ "asr_final_wer": "6/86 = 7.0%",
  "asr_final_issues": [
-  "hook: 5/12 | In 1990, almost every man had a close friend, not anymore.",
-  "zero: 5/14 | Men with no close friends at all, 3% in 1990, and now...",
-  "six: 1/15 | Men with six or more close friends drop from 55% to 27."
+  "claim: 5/14 | 15% of men have zero close friends. Back in 1990, 3%.",
+  "six: 1/15 | Men with six or more close friends dropped from 55% to 27%."
  ],
- "duration_s": 34.43,
+ "duration_s": 30.05,
  "longest_calm_s": 2.92,
  "cover": "ep87_no_friends_cover.png",
  "caption": "ok"

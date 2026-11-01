@@ -4,9 +4,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .6, "trick": .5, "result": .5, "brain": .6, "point": .7, "end": 2.2})
+TL = Timeline(HERE, lead=.15, gaps={"study": .6, "trick": .5, "result": .5, "brain": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
-ORDER = ["hook", "study", "trick", "result", "brain", "point", "end"]
+ORDER = ["study", "trick", "result", "brain", "point", "end"]          # opener: statement ("claim" beat)
 EP = ThreadEpisode(TL, 91, "LIKES", order=ORDER, dark=True, label="SMALL STUDY · 32 TEENS",
                    chapters={k: "" for k in ORDER[:-1]},
                    sources=("Sherman et al. (2016), The Power of the Like", "in Adolescence, Psychological Science"),
@@ -25,16 +25,12 @@ def photo(img, d, x0, y0, w=330, h=420, likes=0, col=INK, hcol=SIG, k=1.0):
     silhouette(img, lambda m: front_bust(m, x0 + w / 2, y0 + 130, .3, 255), (int(x0 + 14), int(y0 + 14), int(x0 + w - 14), int(y0 + h - 90)), col, cell=7, k=k)
     n = int(round(likes * 8))
     for i in range(8):
-        hx = x0 + 34 + i * 38
+        hx = x0 + 34 + i * (w - 68) / 7
         heart(d, hx, y0 + h - 56, .8, hcol if i < n else RULE)
 
-def sc_hook(img, d, t):
-    tb = cue("hook", "Your brain") - .2
-    d.text((X0 - 4, 320), "YOU LIKE IT", font=F(BLK, 130), fill=INK)
-    d.text((X0 - 4, 450), "BECAUSE IT'S GOOD?", font=F(BLK, 80), fill=INK)
-    photo(img, d, 315, 640, likes=.6)
-    if t >= tb: box_label(d, X1 - (1 - ease((t - tb) / .25)) * 40, 570, "YOUR BRAIN DISAGREES", 38, WHITE, SIG, font=BLK, anchor="ra")
-    fig(d, "fig. 1 — a feed post, schematic")
+def sc_claim(img, d, t):                                # toolkit statement opener + a post whose likes fill up
+    EP.claim_scene(img, d, t)
+    photo(img, d, 580, 800, w=300, h=350, likes=clamp(t / max(.5, S("study") - .2)))
 
 def sc_study(img, d, t):
     t0 = S("study")
@@ -93,8 +89,8 @@ def sc_point(img, d, t):
 # magic move: the photo with lots of likes moves into the result scene
 EP.carry = {"result": [((L_CARD[0], L_CARD[1], L_CARD[0] + 330, L_CARD[1] + 420), (X0 + 20, 640, X0 + 350, 1060))]}
 
-EP.scenes = {"hook": sc_hook, "study": sc_study, "trick": sc_trick, "result": sc_result, "brain": sc_brain, "point": sc_point}
-FX = [(0.0, thud(.5), 0), (cue("hook", "Your brain") - .2, pop(.15), .3), *EP.cut_fx(), (S("study") + .1, pop(.12), 0),
+EP.scenes = {"claim": sc_claim, "study": sc_study, "trick": sc_trick, "result": sc_result, "brain": sc_brain, "point": sc_point}
+FX = [(0.0, thud(.5), 0), *EP.cut_fx(), (S("study") + .1, pop(.12), 0),
       (cue("study", "Instagram-style") - .1, pop(.12), .2), (cue("study", "inside a brain") - .1, riser(.6, .05), 0), (cue("study", "inside a brain") + .5, tick(.06), 0), *[(cue("trick", "Same photo") - .2 + i * .075, tick(.035), -.4) for i in range(8)],
       (cue("trick", "Same photo") + .1, tick(.035), .4), (S("result") + .4, thud(.5), 0), (cue("result", "Even their own") - .2, pop(.15), .3),
       (cue("brain", "reward center") - .2, thud(.45), 0), (cue("point", "You like what's") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]

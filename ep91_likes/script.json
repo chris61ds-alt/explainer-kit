@@ -4,17 +4,13 @@
  "lang": "en-us",
  "beats": [
   {
-   "id": "guess",
-   "text": "Quick, guess: do likes change what you like?",
+   "id": "claim",
+   "text": "Likes change what you like. And your brain can't help it.",
    "screen": [
-    "DO LIKES",
+    "LIKES",
     "CHANGE WHAT",
-    "YOU LIKE?"
+    "YOU LIKE."
    ]
-  },
-  {
-   "id": "hook",
-   "text": "You think you like a photo because it's good. Your brain might disagree."
   },
   {
    "id": "study",
@@ -47,6 +43,5 @@
   "Sherman, Payton, Hernandez, Greenfield & Dapretto (2016), 'The Power of the Like in Adolescence: Effects of Peer Influence on Neural and Behavioral Responses to Social Media', Psychological Science 27(7). 32 teens aged 13-18, fMRI, 148 photos incl. 40 own; like counts assigned by the researchers. More likely to like photos with many likes (incl. own photos); greater nucleus accumbens (reward) activity for photos with many likes. Via UCLA / Neuroscience News (2016)."
  ],
  "format": "v2",
- "ask": "DO YOU CHECK THE LIKES FIRST?",
- "guess_prompt": "Yes or no?"
+ "ask": "DO YOU CHECK THE LIKES FIRST?"
 }

@@ -1,4 +1,4 @@
-Quick, guess: do likes change what you like? ❤️
+Likes change what you like. And your brain can't help it. ❤️
 
 UCLA researchers showed 32 teens an Instagram-style feed inside a brain scanner. The trick: the researchers set the likes themselves. Same photo, lots of likes or just a few.
 

@@ -1,6 +1,6 @@
-Quick, guess: how many men have zero close friends? 🫂
+15% of men have zero close friends. Back in 1990? 3%. 🫂
 
-In 1990, only 3% of American men said they had no close friends. In 2021: 15%. Five times as many.
+A national survey asked 2,019 Americans how many close friends they have. Five times as many men now have nobody.
 
 Men with 6 or more close friends dropped from 55% to 27%. And last week, 41% of women got emotional support from a friend. Men? 21%.
 

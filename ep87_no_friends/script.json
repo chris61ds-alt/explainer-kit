@@ -4,17 +4,14 @@
  "lang": "en-us",
  "beats": [
   {
-   "id": "guess",
-   "text": "Quick, guess: how many men have zero close friends?",
+   "id": "claim",
+   "text": "Fifteen percent of men have zero close friends. Back in nineteen ninety? Three percent.",
    "screen": [
-    "HOW MANY MEN",
-    "HAVE ZERO",
-    "CLOSE FRIENDS?"
-   ]
-  },
-  {
-   "id": "hook",
-   "text": "In nineteen ninety, almost every man had a close friend. Not anymore."
+    "15 % OF MEN:",
+    "ZERO CLOSE",
+    "FRIENDS."
+   ],
+   "stamp": "1990: 3 %"
   },
   {
    "id": "study",
@@ -22,13 +19,9 @@
   },
   {
    "id": "zero",
-   "text": "Men with no close friends at all: three percent in nineteen ninety. And now?",
-   "tease": "And now?",
-   "show": "TODAY: NEXT"
-  },
-  {
-   "id": "now",
-   "text": "Fifteen percent. Five times as many."
+   "text": "That's five times as many men with nobody. And it's not just the zeros.",
+   "tease": "And it's not just",
+   "show": "THERE'S MORE: NEXT"
   },
   {
    "id": "six",

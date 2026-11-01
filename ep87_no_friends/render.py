@@ -4,30 +4,19 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .6, "zero": .5, "now": .5, "six": .5, "support": .6, "point": .7, "end": 2.2})
+TL = Timeline(HERE, lead=.15, gaps={"study": .6, "zero": .5, "six": .5, "support": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
-ORDER = ["hook", "study", "zero", "now", "six", "support", "point", "end"]
+ORDER = ["study", "zero", "six", "support", "point", "end"]          # opener: statement ("claim" beat, drawn by the toolkit)
 EP = ThreadEpisode(TL, 87, "NO FRIENDS", order=ORDER, dark=True, label="SURVEY · 2,019 PEOPLE",
                    chapters={k: "" for k in ORDER[:-1]},
                    sources=("Survey Center on American Life (2021),", "The State of American Friendship"),
                    music=dict(bpm=88, root=-5, prog="tense", kick="half", audio="v5", gaps=[(E("study") + .05, S("zero") + .05)]),
-                   cover=dict(words=["ZERO FRIENDS:", "15 % OF MEN."], kicker="In 1990: 3 %."))
+                   cover=dict(words=["15 % OF MEN:", "ZERO FRIENDS."], kicker="In 1990: 3 %."))
 
 FIELD = (X0 + 14, 760, X1, 1110)
 def dot_xy(i, box=FIELD, cell=30):
     x0, y0, x1, y1 = box; cols = len(range(int(x0), int(x1), cell)); r, c = divmod(i, cols)
     return x0 + c * cell, y0 + r * cell
-
-def sc_hook(img, d, t):
-    tn = cue("hook", "Not anymore") - .15
-    d.text((X0 - 4, 320), "1990:", font=F(BLK, 130), fill=MID)
-    d.text((X0 - 4, 450), "EVERY MAN", font=F(BLK, 120), fill=INK)
-    d.text((X0 - 4, 570), "HAD A FRIEND.", font=F(BLK, 100), fill=INK)
-    k = ease((t - tn) / .3) if t >= tn else 0
-    silhouette(img, lambda m: front_bust(m, 330, 930, .4, 255), (150, 830, 510, 1125), INK, cell=9)
-    silhouette(img, lambda m: front_bust(m, 640 + 60 * k, 930, .4, 255), (460, 830, 880, 1125), mix(INK, MID, k), cell=9)
-    if t >= tn: d.text((X0 - 4 - (1 - k) * 60, 690), "NOT ANYMORE.", font=F(BLK, 100), fill=mix(BG, SIG, k))
-    fig(d, "fig. 1 — almost every man, 1990")
 
 def sc_study(img, d, t):
     t0 = S("study")
@@ -46,18 +35,11 @@ def hbars(d, t, rows, vmax):
         d.rectangle([X0, y + 75, X0 + max(6, w), y + 215], fill=col)
         d.text((X0 + max(6, w) + 16, y + 145), f"{v * k:.0f} %", font=F(BLK, 72), fill=col, anchor="lm")
 
-def zero_rows(show_now): return [("MEN, 1990", 3, MID, S("zero") + .3)] + ([("MEN, 2021", 15, SIG, S("now") + .05)] if show_now else [])
-
 def sc_zero(img, d, t):
     d.text((X0, 320), "ZERO", font=F(BLK, 170), fill=INK); d.text((X0, 490), "close friends", font=F(BLK, 70), fill=INK)
-    hbars(d, t, zero_rows(False), 15)
-    fig(d, "men with no close friends at all")
-
-def sc_now(img, d, t):
-    d.text((X0, 320), "ZERO", font=F(BLK, 170), fill=INK); d.text((X0, 490), "close friends", font=F(BLK, 70), fill=INK)
-    hbars(d, t, zero_rows(True), 15)
-    tf = cue("now", "Five times") - .1
-    if t >= tf: box_label(d, X1, 1100, "5 × AS MANY", 44, WHITE, SIG, font=BLK, anchor="ra")
+    hbars(d, t, [("MEN, 1990", 3, MID, S("zero") + .2), ("MEN, 2021", 15, SIG, S("zero") + .6)], 15)
+    tf = cue("zero", "five times") - .1
+    if t >= tf: box_label(d, X1, 1095, "5 × AS MANY", 44, WHITE, SIG, font=BLK, anchor="ra")
     fig(d, "men with no close friends at all")
 
 def sc_six(img, d, t):
@@ -92,14 +74,13 @@ def sc_point(img, d, t):
         if k >= 1: d.ellipse([x1 - 12, y1 - 12, x1 + 12, y1 + 12], fill=SIG); d.text((x1, y1 - 20), "2021 · 15 %", font=F(BLK, 30), fill=SIG, anchor="rd")
     fig(d, "men with no close friends · line schematic")
 
-# magic move: one of the two men from the hook ends up as one dot in the survey · the 1990 bar stays, 2021 grows below it
+# magic move: one man in the survey (an orange dot) grows into the 1990 bar
 _dx, _dy = dot_xy(45)
-EP.carry = {"study": [((460, 830, 880, 1125), (_dx - 7, _dy - 7, _dx + 7, _dy + 7))]}
-EP.cuts = {"now": "stay"}
+EP.carry = {"zero": [((_dx - 8, _dy - 8, _dx + 8, _dy + 8), (X0, 675, X0 + 132, 815))]}
 
-EP.scenes = {"hook": sc_hook, "study": sc_study, "zero": sc_zero, "now": sc_now, "six": sc_six, "support": sc_support, "point": sc_point}
-FX = [(0.0, thud(.5), 0), (cue("hook", "Not anymore") - .15, pop(.15), .3), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0),
-      (S("zero") + .3, pop(.12), 0), (S("now") + .05, thud(.5), 0), (cue("now", "Five times") - .1, pop(.15), .3),
+EP.scenes = {"study": sc_study, "zero": sc_zero, "six": sc_six, "support": sc_support, "point": sc_point}
+FX = [(0.0, thud(.5), 0), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0),
+      (S("zero") + .2, pop(.12), 0), (S("zero") + .6, thud(.5), 0), (cue("zero", "five times") - .1, pop(.15), .3),
       (S("six") + .2, pop(.12), -.2), (cue("six", "twenty-seven") - .2, thud(.45), 0),
       (S("support") + .7, pop(.12), -.3), (cue("support", "emotional support") - .1, whoosh(.3, .05), 0), (cue("study", "close friends") - .1, pop(.12), 0), (cue("support", "Men?") - .1, thud(.45), .3),
       (cue("point", "You're the trend") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]

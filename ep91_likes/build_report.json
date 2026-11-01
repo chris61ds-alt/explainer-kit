@@ -1,17 +1,17 @@
 {
  "episode": "ep91_likes",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 31.17,
-  "size_MiB": 3.6,
+  "duration_s": 28.0,
+  "size_MiB": 3.2,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.3,
-  "sha256": "e9cec2d5b28ce03931a33d70edf9edde5f8ff4e659e06d02f73194f159117f34",
+  "true_peak_dBTP": -2.4,
+  "sha256": "175f5d8cdd508181cc1b6f8418fb61881da6194572d1a8813f6e5e867d074a43",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,12 +20,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/95 = 3.2%",
+ "asr_final_wer": "2/85 = 2.4%",
  "asr_final_issues": [
-  "study: 2/19 | new CLA researchers showed 32 teens an Instagram-style feed inside a brain scanner. But there was a trick.",
-  "brain: 1/12 | And the Brain's Rewards Center lit up more for the popular ones."
+  "study: 1/19 | MuCLA researchers showed 32 teens an Instagram-style feed inside a brain scanner. But there was a trick.",
+  "brain: 1/12 | and the Brain's Rewards Center lit up more for the popular ones."
  ],
- "duration_s": 31.17,
+ "duration_s": 28.01,
  "longest_calm_s": 2.78,
  "cover": "ep91_likes_cover.png",
  "caption": "ok"

@@ -39,7 +39,8 @@ class Timeline:
     point and loops straight back into the hook. "card" = old ending (spoken line + end card with sources).
     pace: "tight" (default since 31.10.2026 with the hard ending, env NJY_PACE) = voice starts at 0.05 s, gaps max 0.3 s
     (TikTok data: half the viewers are gone after 1 s); "loose" = the gaps written in render.py (needed for No. 82, timed live).
-    script.json extras (format v2, optional): a first beat "guess" with "screen": [lines] → guess-first opener with countdown;
+    script.json extras (format v2, optional): a first beat "guess" with "screen": [lines] → guess-first opener with countdown,
+    or a first beat "claim" with "screen": [lines] (+ optional "stamp") → statement opener (since 01.11.2026: mix both);
     per beat "tease" (substring of its text, the open loop) + "show" (banner text) → re-hook; top-level "ask" → comment
     question on the last scene (the hard ending then holds 1.2 s so it can be read)."""
     def __init__(self, ep_dir, lead=.5, gaps=None, default_gap=.35, end=None, pace=None):
@@ -56,7 +57,7 @@ class Timeline:
         if self.pace == "tight":
             lead, default_gap = min(lead, .05), min(default_gap, .25)
             gaps = {k: (v if k == "end" else min(v, .3)) for k, v in gaps.items()}
-            gaps.setdefault("guess", .45)
+            gaps.setdefault("guess", .45); gaps.setdefault("claim", .4)
         meta = json.load(open(os.path.join(ep_dir, "vo", "meta.json")))
         self.meta = [m for m in meta if not (self.end_mode == "hard" and m["id"] == "end")]
         self.T, t = {}, lead

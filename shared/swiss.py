@@ -464,6 +464,7 @@ class Episode:
                  drift=.03, loop=False, music=None, cover=None, dark=False, ui=None):
         self.TL, self.no, self.title, self.order = TL, no, title, list(order)
         if "guess" in TL.T and self.order[0] != "guess": self.order.insert(0, "guess")    # format v2: guess-first opener
+        if "claim" in TL.T and self.order[0] != "claim": self.order.insert(0, "claim")    # or a statement opener
         # ui: "minimal" (default since 28.10.2026) = no header, episode title, chapter or progress bar; "full" = old chrome
         self.ui = ui or os.environ.get("NJY_UI", "minimal")
         self.chapters = {k: (f"{i + 1:02d}", v) for i, (k, v) in enumerate(chapters.items())}
@@ -571,6 +572,21 @@ class Episode:
         d.text((X0, 1010), TL.script.get("guess_prompt", "Your number?"), font=F(COND, 54), fill=INK)
         d.text((X0, 1080), "Answer coming.", font=F(COND, 40), fill=MID)
 
+    def claim_scene(self, img, d, t):
+        """statement opener: the claim in big type from frame 0 (last line in orange), optional stamp, then the proof"""
+        TL = self.TL; t0, t1 = TL.S("claim"), TL.S(self.order[1]); sb = {b["id"]: b for b in TL.script.get("beats", [])}
+        lines = TL.screen.get("claim") or [TL.T["claim"]["text"].upper()]
+        size = int(min(170, 600 / (len(lines) * 1.05), *(840 / max(1, d.textlength(l, font=F(BLK, 100))) * 100 for l in lines)))
+        words_in(d, t, [(l, -1, 330 + i * int(size * 1.05), size, SIG if i == len(lines) - 1 else INK) for i, l in enumerate(lines)])
+        stamp = sb.get("claim", {}).get("stamp")
+        ts = t0 + (t1 - t0) * .55; yb = 330 + len(lines) * int(size * 1.05) + 50
+        if stamp and t >= ts:                            # the stamp lands under the claim (counter-fact or source)
+            k = ease((t - ts) / .18); sz = int(80 * (1 + .4 * (1 - k)))
+            box_label(d, X0 + 4, yb, stamp, sz, WHITE, INK, font=BLK)
+        k = clamp((t - t0) / max(.5, t1 - t0))
+        d.line([X0, 1082, X0 + 300, 1082], fill=RULE, width=6); d.line([X0, 1082, X0 + 300 * k, 1082], fill=SIG, width=6)
+        d.text((X0, 1010), TL.script.get("claim_prompt", "Here's the data."), font=F(COND, 54), fill=INK)
+
     def overlays(self, img, d, t, cur):
         """re-hook banner (open loop) and the comment question, bottom of the content band"""
         TL = self.TL
@@ -590,6 +606,9 @@ class Episode:
         if "guess" in TL.T:
             t0, t1 = TL.S("guess"), TL.S(self.order[1])
             out += [(t0 + (t1 - t0) * i / 3, tick(.09), 0) for i in range(3)] + [(t1 - .02, thud(.5), 0)]
+        if "claim" in TL.T:
+            t0, t1 = TL.S("claim"), TL.S(self.order[1])
+            out += [(t0 + (t1 - t0) * .55, thud(.4), 0), (t1 - .02, thud(.5), 0)]
         for k, (say, _) in TL.tease.items(): out.append((TL.cue(k, say[:16]) - .1, pop(.18), 0))
         if TL.ask:
             c = self.last_scene(); out.append((TL.S(c) + TL.T[c]["dur"] * .55, pop(.15), 0))
@@ -608,7 +627,7 @@ class Episode:
             out = []
             for k in self.order:
                 b = self.TL.T.get(k)
-                if not b or not b["text"] or k == "guess": continue
+                if not b or not b["text"] or k in ("guess", "claim"): continue
                 for m in self.NUM.finditer(b["text"]):
                     tc = b["start"] + b["dur"] * m.start() / len(b["text"])
                     if not out or tc - out[-1] >= .6: out.append(tc)
@@ -633,7 +652,7 @@ class Episode:
         return [TL.S(o[o.index(k) + 1]) for k in TL.tease if k in o and o.index(k) + 1 < len(o) and o[o.index(k) + 1] != "end"]
 
     def draw(self, img, d, t):
-        self.scenes.setdefault("guess", self.guess_scene)
+        self.scenes.setdefault("guess", self.guess_scene); self.scenes.setdefault("claim", self.claim_scene)
         self._draw(img, d, t)
         if self.dark: darken(img)
 
@@ -680,7 +699,7 @@ class Episode:
             import sound5
             o = [k for k in self.order if k != "end"]
             MUSIC.update(reveals=self.reveals(), cuts=[self.TL.S(k) for k in o[1:]],
-                         intro_end=self.TL.S(o[1]) if o[0] == "guess" else 0.0, outro=self.TL.S(o[-1]) if len(o) > 2 else None)
+                         intro_end=self.TL.S(o[1]) if o[0] in ("guess", "claim") else 0.0, outro=self.TL.S(o[-1]) if len(o) > 2 else None)
             extra = sound5.counter_runs(self.counters(), 220.0 * 2 ** (MUSIC["root"] / 12))
         cute.run(self.TL, self.draw, list(fx) + self.v2_fx() + extra)
 
@@ -689,7 +708,7 @@ class Episode:
         global _REC
         _REC = []
         for k in self.order:
-            if k in ("end", "guess") or k not in self.scenes: continue
+            if k in ("end", "guess", "claim") or k not in self.scenes: continue
             a, b = self.scene_span(k); img = Image.new("RGB", (W, H), BG)
             try: self.scenes[k](img, ImageDraw.Draw(img), b - .02)
             except Exception: pass

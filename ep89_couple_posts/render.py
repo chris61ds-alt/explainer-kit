@@ -4,14 +4,14 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 from dating import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .6, "result": .5, "anxious": .5, "avoid": .6, "point": .7, "end": 2.2})
+TL = Timeline(HERE, lead=.15, gaps={"study": .6, "result": .5, "anxious": .5, "avoid": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
-ORDER = ["hook", "study", "result", "anxious", "avoid", "point", "end"]
+ORDER = ["study", "result", "anxious", "avoid", "point", "end"]          # opener: statement ("claim" beat)
 EP = ThreadEpisode(TL, 89, "COUPLE POSTS", order=ORDER, dark=True, label="3 STUDIES · FACEBOOK",
                    chapters={k: "" for k in ORDER[:-1]},
                    sources=("Emery, Muise, Dix & Le (2014), Personality", "and Social Psychology Bulletin 40(11)"),
                    music=dict(bpm=92, root=3, prog="warm", kick="half", audio="v5", gaps=[(E("study") + .05, S("result") + .05)]),
-                   cover=dict(words=["POSTS THE MOST:", "LEAST SECURE?"], kicker="What couple photos can mean."))
+                   cover=dict(words=["POST THE MOST:", "NOT HAPPIEST."], kicker="What couple photos can mean."))
 
 def couple_post(img, d, x0, y0, w=360, h=250, col=INK, heart=SIG, k=1.0):
     if k <= 0: return
@@ -23,14 +23,10 @@ def couple_post(img, d, x0, y0, w=360, h=250, col=INK, heart=SIG, k=1.0):
     d.polygon([(hx - 12, hy - 5), (hx + 10, hy - 5), (hx - 1, hy + 9)], fill=heart)
     d.rounded_rectangle([x0 + 50, hy - 8, x0 + w * .7, hy + 4], radius=6, fill=MID)
 
-def sc_hook(img, d, t):
-    tm = cue("hook", "Maybe not") - .15
-    d.text((X0 - 4, 320), "POSTS EVERY", font=F(BLK, 120), fill=INK)
-    d.text((X0 - 4, 440), "ANNIVERSARY?", font=F(BLK, 120), fill=INK)
-    d.rounded_rectangle([280, 625, 680, 1125], radius=40, outline=MID, width=6)        # phone
-    for i in range(2): couple_post(img, d, 300, 655 + i * 235, w=360, h=215, heart=SIG if i == 0 else MID)
-    if t >= tm: box_label(d, X1 - (1 - ease((t - tm) / .25)) * 40, 568, "MAYBE NOT THE MOST SECURE", 34, WHITE, SIG, font=BLK, anchor="ra")
-    fig(d, "fig. 1 — your feed, schematic")
+def sc_claim(img, d, t):                                # toolkit statement opener + the feed it is about
+    EP.claim_scene(img, d, t)
+    d.rounded_rectangle([560, 840, 860, 1160], radius=34, outline=MID, width=6)
+    couple_post(img, d, 580, 870, w=260, h=190, heart=SIG)
 
 DAYS = [(X0 + 10 + i * 120, 760) for i in range(7)]
 def sc_study(img, d, t):
@@ -93,8 +89,8 @@ def sc_point(img, d, t):
 # magic move: the diary day 5 flies into the result chart, where day 5 is the most insecure one
 EP.carry = {"result": [((DAYS[4][0], DAYS[4][1], DAYS[4][0] + 100, DAYS[4][1] + 100), (DAYS[4][0], DAYS[4][1], DAYS[4][0] + 100, DAYS[4][1] + 100))]}
 
-EP.scenes = {"hook": sc_hook, "study": sc_study, "result": sc_result, "anxious": sc_anxious, "avoid": sc_avoid, "point": sc_point}
-FX = [(0.0, thud(.5), 0), (cue("hook", "Maybe not") - .15, pop(.15), .3), *EP.cut_fx(), (S("study") + .1, pop(.12), 0),
+EP.scenes = {"claim": sc_claim, "study": sc_study, "result": sc_result, "anxious": sc_anxious, "avoid": sc_avoid, "point": sc_point}
+FX = [(0.0, thud(.5), 0), *EP.cut_fx(), (S("study") + .1, pop(.12), 0),
       *[(cue("study", "day by day") - .3 + i * .12, tick(.04), (i - 3) / 4) for i in range(7)],
       (cue("result", "they posted more") - .2, thud(.5), 0), (S("anxious") + .05, thud(.45), 0), (cue("study", "on Facebook") - .1, pop(.12), 0),
       *[(S("anxious") + .3 + i * .25, pop(.1), (.3 if i % 2 else -.3)) for i in range(4)], (cue("anxious", "worry") - .1, tick(.05), 0),
