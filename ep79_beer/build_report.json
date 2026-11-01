@@ -2,18 +2,18 @@
  "episode": "ep79_beer",
  "tts": "new",
  "asr_voice": [
-  "three: 1/25 | Do you like horror movies? Have you ever travelled alone to another country? Would it be fun to quit everything and live on a sailboat?"
+  "result: 1/19 | Beer fans were 60% more likely to be OK sleeping with someone they just met. Men and women. [BUZZER]"
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 26.57,
+  "duration_s": 27.73,
   "size_MiB": 3.4,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.4,
-  "sha256": "6e1392747885bfe45f1dbb7afe5535230162998f3d069c9bbd56bc76b5aa091d",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.5,
+  "sha256": "05503b0cbeb119240db5f3177fda4f10e1a85ba7e1b5cb1d6c8497e852a9f065",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,10 +24,10 @@
  },
  "asr_final_wer": "1/87 = 1.1%",
  "asr_final_issues": [
-  "three: 1/25 | Do you like horror movies? Have you ever travelled alone to another country? Would it be fun to quit everything and live on a sailboat?"
+  "result: 1/19 | Fear fans were 60% more likely to be okay sleeping with someone they just met. Men and women"
  ],
- "duration_s": 26.57,
- "longest_calm_s": 3.69,
+ "duration_s": 27.74,
+ "longest_calm_s": 3.97,
  "cover": "ep79_beer_cover.png",
  "caption": "ok"
 }

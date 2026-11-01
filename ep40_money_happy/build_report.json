@@ -2,18 +2,18 @@
  "episode": "ep40_money_happy",
  "tts": "new",
  "asr_voice": [
-  "except: 2/11 | only the unhappiest group levelled off at around 100,000."
+  "except: 1/11 | Only the unhappiest group leveled off at around 100,000."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 27.63,
-  "size_MiB": 4.2,
+  "duration_s": 28.83,
+  "size_MiB": 4.3,
   "black_intervals": [],
   "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.7,
-  "sha256": "e3c54f372a7324c76e077272722bf544ebd49019019dff3dd8c01a00a6430a01",
+  "true_peak_dBTP": -2.5,
+  "sha256": "9c47fabe3897e04cb4f6dc8b9bcdaa8ea69b569149f092e011b00360c9072101",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,10 +24,10 @@
  },
  "asr_final_wer": "1/81 = 1.2%",
  "asr_final_issues": [
-  "except: 1/11 | Only the unhappiest group leveled off, at around 100,000."
+  "except: 1/11 | only the unhappiest group leveled off at around 100,000."
  ],
- "duration_s": 27.63,
- "longest_calm_s": 3.33,
+ "duration_s": 28.82,
+ "longest_calm_s": 3.47,
  "cover": "ep40_money_happy_cover.png",
  "caption": "ok"
 }

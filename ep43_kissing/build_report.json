@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 22.8,
-  "size_MiB": 4.0,
+  "duration_s": 23.7,
+  "size_MiB": 4.1,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.3,
-  "sha256": "d9e3eedaa81b65e1f9b414657230fe6002adecae999e67960fc6bbbe955ca65d",
+  "true_peak_dBTP": -2.5,
+  "sha256": "bb878170d9aef1e3e7e2312a36272c98663edcaf21e31b6b38089392a3593d96",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,12 +22,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/70 = 1.4%",
+ "asr_final_wer": "3/70 = 4.3%",
  "asr_final_issues": [
-  "study: 1/12 | Anthropologists looked at 168 cultures around the world."
+  "study: 1/12 | Anthropologists looked at 168 cultures around the world.",
+  "regions: 2/19 | Every culture they studied in the Middle East did it. In South America, only four are 33."
  ],
- "duration_s": 22.81,
- "longest_calm_s": 2.11,
+ "duration_s": 23.69,
+ "longest_calm_s": 2.23,
  "cover": "ep43_kissing_cover.png",
  "caption": "ok"
 }
