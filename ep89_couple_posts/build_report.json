@@ -1,6 +1,6 @@
 {
  "episode": "ep89_couple_posts",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "hook: 2/11 | That couple who posts every anniversary may be not the most secure."
  ],
@@ -13,7 +13,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "c5ad6b5ff0c92d748a28c5390a7ae82b8a52132548ef90141b66c294dad67da6",
+  "sha256": "ff73c223d7922645046a49a6659b3d4a8b4a2659411734a294b6cbafc6b6f711",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -27,7 +27,7 @@
   "hook: 2/11 | That couple who posts every anniversary may be not the most secure."
  ],
  "duration_s": 37.19,
- "longest_calm_s": 3.92,
+ "longest_calm_s": 3.1,
  "cover": "ep89_couple_posts_cover.png",
  "caption": "ok"
 }

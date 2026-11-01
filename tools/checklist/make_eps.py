@@ -12,7 +12,8 @@ for d in sorted(glob.glob('ep[0-9][0-9]_*')):
     m = re.search(r'Episode\(TL, *\d+, *"([^"]+)"', src) or re.search(r'title *= *"([^"]+)"', src)
     title = m.group(1).upper() if m else d[5:].replace('_', ' ').upper()
     cap = plan[no]['caption'] if no in plan else open(f'{d}/caption.md').read().strip()
-    eps.append(dict(no=no, title=title, caption=cap, date=plan.get(no, {}).get('date', ''), time=plan.get(no, {}).get('time', '')))
+    nomusic = os.path.exists(f'{d}/{d}_nomusic.mp4') or os.path.exists(f'/home/claude/notjustyou-media/nj{no:02d}_nomusic.mp4')
+    eps.append(dict(no=no, title=title, caption=cap, date=plan.get(no, {}).get('date', ''), time=plan.get(no, {}).get('time', ''), nomusic=nomusic))
     t = f'{H}/thumbs/nj{no:02d}.jpg'
     if not os.path.exists(t):
         im = Image.open(f'publish/media/nj{no:02d}.jpg').convert('RGB'); im.thumbnail((180, 320)); im.save(t, quality=72)
