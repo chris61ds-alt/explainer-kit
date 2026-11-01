@@ -1,0 +1,52 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Quick, guess: do likes change what you like?",
+   "screen": [
+    "DO LIKES",
+    "CHANGE WHAT",
+    "YOU LIKE?"
+   ]
+  },
+  {
+   "id": "hook",
+   "text": "You think you like a photo because it's good. Your brain might disagree."
+  },
+  {
+   "id": "study",
+   "text": "UCLA researchers showed thirty-two teens an Instagram-style feed inside a brain scanner. But there was a trick.",
+   "tease": "But there was a trick.",
+   "show": "THE TRICK: NEXT"
+  },
+  {
+   "id": "trick",
+   "text": "The researchers set the likes themselves. Same photo, lots of likes or just a few."
+  },
+  {
+   "id": "result",
+   "text": "With lots of likes, teens were more likely to like it too. Even their own photos."
+  },
+  {
+   "id": "brain",
+   "text": "And the brain's reward center lit up more for the popular ones."
+  },
+  {
+   "id": "point",
+   "text": "So you don't just like what's good. You like what's already liked."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Sherman, Payton, Hernandez, Greenfield & Dapretto (2016), 'The Power of the Like in Adolescence: Effects of Peer Influence on Neural and Behavioral Responses to Social Media', Psychological Science 27(7). 32 teens aged 13-18, fMRI, 148 photos incl. 40 own; like counts assigned by the researchers. More likely to like photos with many likes (incl. own photos); greater nucleus accumbens (reward) activity for photos with many likes. Via UCLA / Neuroscience News (2016)."
+ ],
+ "format": "v2",
+ "ask": "DO YOU CHECK THE LIKES FIRST?",
+ "guess_prompt": "Yes or no?"
+}

@@ -1,0 +1,52 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Quick, guess: under thirty, who's more likely to be single? Men or women?",
+   "screen": [
+    "UNDER 30:",
+    "WHO'S MORE",
+    "SINGLE?"
+   ]
+  },
+  {
+   "id": "hook",
+   "text": "Most young men are single. Most young women are not."
+  },
+  {
+   "id": "study",
+   "text": "Pew Research asked over six thousand Americans about their love lives."
+  },
+  {
+   "id": "men",
+   "text": "Under thirty, sixty-three percent of men said they're single. And the women? About half that.",
+   "tease": "And the women?",
+   "show": "THE WOMEN: NEXT"
+  },
+  {
+   "id": "women",
+   "text": "Thirty-four percent."
+  },
+  {
+   "id": "looking",
+   "text": "And among singles of all ages, half of the men are looking for someone. Only thirty-five percent of the women."
+  },
+  {
+   "id": "point",
+   "text": "So if you're young, male and single, you're not behind. You're the majority."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Pew Research Center (Feb 8, 2023), 'For Valentine's Day, 5 facts about single Americans'. Survey of 6,034 US adults, July 5-17, 2022. Single = not married, not living with a partner, not in a committed romantic relationship. Under 30: 63% of men vs 34% of women single (same in 2019). Among singles (all ages): 50% of men vs 35% of women looking for a relationship and/or dates. Via pewresearch.org."
+ ],
+ "format": "v2",
+ "ask": "WHY? COMMENT.",
+ "guess_prompt": "Men or women?"
+}

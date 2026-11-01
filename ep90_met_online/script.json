@@ -1,0 +1,48 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Quick, guess: how do most couples meet today?",
+   "screen": [
+    "HOW DO",
+    "MOST COUPLES",
+    "MEET TODAY?"
+   ]
+  },
+  {
+   "id": "hook",
+   "text": "Meeting through friends? That's not how most couples start anymore."
+  },
+  {
+   "id": "study",
+   "text": "Stanford researchers asked thousands of American couples one question: how did you meet?"
+  },
+  {
+   "id": "friends",
+   "text": "In nineteen ninety-five, friends were the top matchmaker. Thirty-three percent. By twenty seventeen, just twenty. So who took over?",
+   "tease": "So who took over?",
+   "show": "THE NEW NUMBER 1: NEXT"
+  },
+  {
+   "id": "online",
+   "text": "The internet. From two percent to thirty-nine. Now the most common way couples meet."
+  },
+  {
+   "id": "point",
+   "text": "So if you met your partner on an app, you're not the weird story. You're the normal one."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Rosenfeld, Thomas & Hausen (2019), 'Disintermediating your friends: How online dating in the United States displaces other ways of meeting', PNAS 116(36), 17753-17758. HCMST 2009 + 2017 surveys, 5,421 heterosexual couples (Table 1). Met online: 2% (1995) -> 39% (2017); met through friends: 33% (1995) -> 20% (2017). Via PMC6731751 / Stanford News (Aug 2019)."
+ ],
+ "format": "v2",
+ "ask": "HOW DID YOU MEET? COMMENT.",
+ "guess_prompt": "Your guess?"
+}

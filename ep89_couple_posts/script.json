@@ -1,0 +1,52 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Quick, guess: the couples who post the most. Are they the happiest?",
+   "screen": [
+    "COUPLES WHO",
+    "POST THE MOST:",
+    "HAPPIEST?"
+   ]
+  },
+  {
+   "id": "hook",
+   "text": "That couple who posts every anniversary? Maybe not the most secure."
+  },
+  {
+   "id": "study",
+   "text": "Researchers ran three studies on how people show their relationship on Facebook. One followed them day by day."
+  },
+  {
+   "id": "result",
+   "text": "On days people felt more insecure about their relationship, they posted more about it. And who wants it most visible?",
+   "tease": "And who wants",
+   "show": "WHO POSTS MOST: NEXT"
+  },
+  {
+   "id": "anxious",
+   "text": "People with anxious attachment. The ones who worry their partner might leave."
+  },
+  {
+   "id": "avoid",
+   "text": "Avoidant people did the opposite. No couple photo, no relationship status."
+  },
+  {
+   "id": "point",
+   "text": "So a feed full of couple photos isn't proof of love. Sometimes it's a quiet ask for reassurance."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Emery, Muise, Dix & Le (2014), 'Can You Tell That I'm in a Relationship? Attachment and Relationship Visibility on Facebook', Personality and Social Psychology Bulletin 40(11), 1466-1479. Three studies incl. a daily diary: avoidant people less visible (fewer relationship statuses / couple profile pictures); anxious people want more visibility; on days people felt more insecure than usual they posted more about their relationship. Via SPSP blog / Psychology Today (2014)."
+ ],
+ "format": "v2",
+ "ask": "DO YOU POST YOUR PARTNER?",
+ "guess_prompt": "Yes or no?"
+}

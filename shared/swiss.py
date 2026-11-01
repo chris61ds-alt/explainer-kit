@@ -568,7 +568,7 @@ class Episode:
         d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=RULE, width=10)
         if k > 0: d.arc([cx - r, cy - r, cx + r, cy + r], -90, -90 + 360 * k, fill=SIG, width=14)
         d.text((cx, cy), str(n), font=F(BLK, 120), fill=INK, anchor="mm")
-        d.text((X0, 1010), "Your number?", font=F(COND, 54), fill=INK)
+        d.text((X0, 1010), TL.script.get("guess_prompt", "Your number?"), font=F(COND, 54), fill=INK)
         d.text((X0, 1080), "Answer coming.", font=F(COND, 40), fill=MID)
 
     def overlays(self, img, d, t, cur):

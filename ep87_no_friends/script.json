@@ -1,0 +1,56 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Quick, guess: how many men have zero close friends?",
+   "screen": [
+    "HOW MANY MEN",
+    "HAVE ZERO",
+    "CLOSE FRIENDS?"
+   ]
+  },
+  {
+   "id": "hook",
+   "text": "In nineteen ninety, almost every man had a close friend. Not anymore."
+  },
+  {
+   "id": "study",
+   "text": "A national survey asked two thousand Americans how many close friends they have."
+  },
+  {
+   "id": "zero",
+   "text": "Men with no close friends at all: three percent in nineteen ninety. And now?",
+   "tease": "And now?",
+   "show": "TODAY: NEXT"
+  },
+  {
+   "id": "now",
+   "text": "Fifteen percent. Five times as many."
+  },
+  {
+   "id": "six",
+   "text": "Men with six or more close friends dropped from fifty-five percent to twenty-seven."
+  },
+  {
+   "id": "support",
+   "text": "And last week, forty-one percent of women got emotional support from a friend. Men? Twenty-one."
+  },
+  {
+   "id": "point",
+   "text": "So if your circle got smaller, you're not the exception. You're the trend."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Survey Center on American Life (June 2021), 'The State of American Friendship: Change, Challenges, and Loss' (American Perspectives Survey, May 14-23, 2021, 2,019 US adults, MOE +/-2.4). Women vs men who received emotional support from a friend in the past week: 41% vs 21%. Via americansurveycenter.org.",
+  "Men with no close friends 3% (1990) vs 15% (2021); men with 6+ close friends 55% (1990) vs 27% (2021): Daniel Cox (director of the Survey Center), Art of Manliness podcast #726 (July 2021), also reported by The Week (2021)."
+ ],
+ "format": "v2",
+ "ask": "HOW MANY DO YOU HAVE?"
+}

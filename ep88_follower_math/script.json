@@ -1,0 +1,53 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Quick, guess: how much more popular are your followers than you?",
+   "screen": [
+    "HOW MUCH",
+    "MORE POPULAR",
+    "ARE YOUR",
+    "FOLLOWERS?"
+   ]
+  },
+  {
+   "id": "hook",
+   "text": "Feel like everyone online is more popular than you? They probably are."
+  },
+  {
+   "id": "study",
+   "text": "Researchers analyzed almost six million Twitter users and four hundred seventy-six million tweets."
+  },
+  {
+   "id": "result",
+   "text": "A typical user's followers had about ten times more followers than the user. And activity? Even worse.",
+   "tease": "And activity?",
+   "show": "ACTIVITY: NEXT"
+  },
+  {
+   "id": "active",
+   "text": "Eighty-eight percent of users posted less than the people they follow."
+  },
+  {
+   "id": "why",
+   "text": "It's math. Popular accounts follow and get followed by lots of people. So they show up in everyone's network. Including yours."
+  },
+  {
+   "id": "point",
+   "text": "So you're not boring. Your feed is just a room full of the most popular people."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Hodas, Kooti & Lerman (2013), 'Friendship Paradox Redux: Your Friends Are More Interesting Than You', ICWSM 2013 (arXiv:1304.3480). Twitter, second half of 2009: 5.8 million users, 476 million tweets. Followers typically ~10x more popular (by follower count) than the user; 88% of users less active than a typical friend (99% excluding inactive accounts). Via BPS Research Digest (May 2013).",
+  "Friendship paradox: Feld (1991), American Journal of Sociology."
+ ],
+ "format": "v2",
+ "ask": "DOES YOUR FEED FEEL LIKE THIS?"
+}
