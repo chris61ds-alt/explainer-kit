@@ -13,7 +13,7 @@ Nur wenn ein Chat **nicht rendern kann** oder keinen Schreibzugriff hat, liefert
 **2. `script.json`** als Codeblock:
 ```json
 {
- "voice": "bf_emma", "speed": 1.1, "lang": "en-gb",
+ "voice": "af_heart", "speed": 1.1, "lang": "en-us",
  "beats": [
   {"id": "hook", "text": "…"},
   {"id": "study", "text": "…"},
@@ -57,7 +57,7 @@ Source: <Autor (Jahr), Quelle>
 - **Nur gewagte Themen** (Sex, Dating, Lügen, Rache, Geld, Ego). Brave Themen sind geparkt.
 - **Keine erfundenen Zahlen.** Nicht alles muss eine Peer-Review-Studie sein, aber das Label ist ehrlich: SMALL STUDY · CASE STUDY · SURVEY · UNSOLVED · PLATFORM DATA · SELF-REPORTED · INDUSTRY DATA. Quellen vor jeder Folge per Websuche prüfen.
 - **Look C+D, dark:** große Roboto-Typografie, ein Signalorange, Punktraster-Silhouetten (halftone), Zähler, Balken. **Keine Strichfiguren, keine unnötige UI** (kein Header, Titel, Fortschrittsbalken, Kapitel). Schematische Diagramme werden als „schematic“ markiert.
-- Stimme (seit 31.10.): Kokoro TTS `bf_emma` (britisch), `lang: en-gb`, Speed 1.1. Vorher `af_heart`. Länge ca. 25–35 s.
+- Stimme: Kokoro TTS `af_heart`, `lang: en-us`, Speed 1.1. (`bf_emma` am 31.10. getestet und wieder verworfen: klang schlechter.) Länge ca. 25–35 s.
 - **Ende (seit 31.10.):** harter Schnitt auf die Pointe, ~1 s stehen lassen, dann Loop in den Hook. Kein gesprochenes „Not just you“, keine Endkarte, kein Wisch-Übergang. Quellen stehen in der Caption, das Label oben rechts bleibt. (Der `end`-Beat bleibt im script.json, wird aber stumm geschaltet; `Timeline(..., end="card")` für Ausnahmen.)
 - **Impuls-Takt (Standard seit 31.10.):** jede gesprochene Zahl = Zoom-Puls + Klick; Build-Report zeigt `longest_calm_s` – über 3 s ohne Ereignis wird markiert → in render.py einen Moment ergänzen (Label springt auf, Häkchen, Puls …).
 - **Magic Move (Pflicht für neue Folgen, ThreadEpisode):** jede Szene gibt ein Element an die nächste weiter: `EP.carry = {"zielszene": [(src_box, dst_box)]}` (Element fliegt, Rest wischt); gleiche Grafik mit neuen Werten → `EP.cuts = {"zielszene": "stay"}` und in der Szene von den alten Werten aus animieren. Nur wo es Sinn ergibt (Ring → Ring, Person → Datenpunkt, YES → Überschrift); Text → anderer Text oder Balken → Figur wirkt erzwungen, dann normal wischen. Vorbild: ep66_cheating/render.py.
