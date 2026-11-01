@@ -1,6 +1,6 @@
 {
  "episode": "ep86_single_men",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
@@ -11,7 +11,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "1f69d660b7cf9d033ef5012fcd329b091f2b0435c6a119b4ef4871dedcd64be8",
+  "sha256": "664ed78c69528066425fa7a064fd93061828d3f2e8dee4bfe819d1a8efb9fccf",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

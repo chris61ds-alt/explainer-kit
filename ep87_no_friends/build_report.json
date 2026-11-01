@@ -1,6 +1,6 @@
 {
  "episode": "ep87_no_friends",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "hook: 5/12 | In 1990, almost every man had a close friend, not anymore.",
   "zero: 5/14 | Men with no close friends at all, 3% in 1990, and now...",
@@ -14,8 +14,8 @@
   "size_MiB": 4.4,
   "black_intervals": [],
   "loudness_LUFS": -16.0,
-  "true_peak_dBTP": -2.2,
-  "sha256": "7728c4ad222b6bf04989c1b8a8961ecf59fd00b85f769cf3b7fa11360a61269c",
+  "true_peak_dBTP": -1.9,
+  "sha256": "48cff5cdbd5f4d4bd0a622c3290318073d1091f7bfa75f24bd8929fd72daeca6",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -31,7 +31,7 @@
   "six: 1/15 | Men with six or more close friends drop from 55% to 27."
  ],
  "duration_s": 34.43,
- "longest_calm_s": 3.67,
+ "longest_calm_s": 2.92,
  "cover": "ep87_no_friends_cover.png",
  "caption": "ok"
 }
