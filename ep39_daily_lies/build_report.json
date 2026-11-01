@@ -1,17 +1,17 @@
 {
  "episode": "ep39_daily_lies",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 34.37,
+  "duration_s": 34.5,
   "size_MiB": 5.0,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.5,
-  "sha256": "cceee8fdfddfefbc040934960f2b769fcf61fd4354962c48d4280963a46a6c18",
+  "true_peak_dBTP": -2.4,
+  "sha256": "c8bc03ae615cea29bf48362be18b1e04339cc43858eb42b8a8a58d85b5f24a03",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,8 +22,8 @@
  },
  "asr_final_wer": "0/100 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 34.36,
- "longest_calm_s": 3.39,
+ "duration_s": 34.49,
+ "longest_calm_s": 3.73,
  "cover": "ep39_daily_lies_cover.png",
  "caption": "ok"
 }
