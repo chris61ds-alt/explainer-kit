@@ -72,6 +72,10 @@ def sc_why(img, d, t):
         d.line([HUB, (x, y)], fill=MID, width=3)
         r = 16; d.ellipse([x - r, y - r, x + r, y + r], fill=MID if (x, y) != YOU else (SIG if t >= tm else INK))
     d.ellipse([HUB[0] - 64, HUB[1] - 64, HUB[0] + 64, HUB[1] + 64], fill=INK)
+    ts = cue("why", "So they show up") - .1
+    if t >= ts:
+        r = 64 + 60 * ease((t - ts) / .5); a = 1 - clamp((t - ts) / .8)
+        if a > 0: d.ellipse([HUB[0] - r, HUB[1] - r, HUB[0] + r, HUB[1] + r], outline=mix(BG, INK, a), width=6)
     d.text((HUB[0], HUB[1]), "POPULAR", font=F(BLK, 24), fill=BG, anchor="mm")
     d.text((YOU[0] - 26, YOU[1]), "YOU", font=F(BLK, 30), fill=SIG if t >= tm else INK, anchor="rm")
     fig(d, "friendship paradox (Feld 1991) · schematic")
@@ -90,5 +94,6 @@ EP.scenes = {"hook": sc_hook, "study": sc_study, "result": sc_result, "active": 
 FX = [(0.0, thud(.5), 0), (cue("hook", "They probably are") - .15, pop(.15), .3), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0),
       (cue("study", "four hundred") - .2, pop(.12), .2), (S("result") + .4, thud(.5), 0), (S("active") + .1, thud(.45), 0),
       *[(S("active") + .25 + i * .09, tick(.03), (i % 5 - 2) / 3) for i in range(11)],
+      *[(S("why") + .4 + i / 11, tick(.035), (i % 5 - 2) / 3) for i in range(11)], (cue("why", "So they show up") - .1, pop(.14), 0),
       (cue("why", "Including yours") - .2, pop(.15), .3), (cue("point", "Your feed") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
 if __name__ == "__main__": EP.run(FX)

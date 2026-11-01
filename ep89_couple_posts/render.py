@@ -37,7 +37,8 @@ def sc_study(img, d, t):
     t0, td = S("study"), cue("study", "day by day") - .3
     counter(d, X0, 320, t, t0 + .1, .5, 3, "{:.0f}", 230, INK)
     d.text((X0 + 170, 360), "STUDIES", font=F(BLK, 110), fill=INK)
-    d.text((X0 + 6, 570), "how people show their relationship on Facebook", font=F(COND, 40), fill=INK)
+    tf = cue("study", "on Facebook") - .1
+    if t >= tf: d.text((X0 + 6 - (1 - ease((t - tf) / .3)) * 40, 570), "how people show their relationship on Facebook", font=F(COND, 40), fill=mix(BG, INK, ease((t - tf) / .3)))
     for i, (x, y) in enumerate(DAYS):
         on = t >= td + i * .12
         d.rectangle([x, y, x + 100, y + 100], outline=INK if on else MID, width=4)
@@ -95,7 +96,8 @@ EP.carry = {"result": [((DAYS[4][0], DAYS[4][1], DAYS[4][0] + 100, DAYS[4][1] + 
 EP.scenes = {"hook": sc_hook, "study": sc_study, "result": sc_result, "anxious": sc_anxious, "avoid": sc_avoid, "point": sc_point}
 FX = [(0.0, thud(.5), 0), (cue("hook", "Maybe not") - .15, pop(.15), .3), *EP.cut_fx(), (S("study") + .1, pop(.12), 0),
       *[(cue("study", "day by day") - .3 + i * .12, tick(.04), (i - 3) / 4) for i in range(7)],
-      (cue("result", "they posted more") - .2, thud(.5), 0), (S("anxious") + .05, thud(.45), 0),
+      (cue("result", "they posted more") - .2, thud(.5), 0), (S("anxious") + .05, thud(.45), 0), (cue("study", "on Facebook") - .1, pop(.12), 0),
+      *[(S("anxious") + .3 + i * .25, pop(.1), (.3 if i % 2 else -.3)) for i in range(4)], (cue("anxious", "worry") - .1, tick(.05), 0),
       (cue("avoid", "No couple photo") - .2, pop(.12), .2), (cue("avoid", "No couple photo") + .4, pop(.12), .2),
       (cue("point", "Sometimes") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
 if __name__ == "__main__": EP.run(FX)

@@ -40,9 +40,10 @@ def sc_study(img, d, t):
     t0 = S("study")
     counter(d, X0, 320, t, t0 + .1, .6, 32, "{:.0f}", 230, INK)
     d.text((X0 + 290, 360), "TEENS", font=F(BLK, 120), fill=INK)
-    d.text((X0 + 6, 570), "ages 13 to 18 · UCLA · Instagram-style feed", font=F(COND, 40), fill=INK)
+    ti = cue("study", "Instagram-style") - .1
+    d.text((X0 + 6, 570), "ages 13 to 18 · UCLA" + (" · Instagram-style feed" if t >= ti else ""), font=F(COND, 40), fill=INK)
     silhouette(img, lambda m: bust(m, 470, 840, .9, 255), (200, 650, 760, 1125), MID, cell=9)
-    k = clamp((t - t0 - .4) / .6)
+    k = clamp((t - cue("study", "inside a brain") + .1) / .6)
     if k > 0:
         d.arc([270, 620, 690, 1000], 200, 200 + 140 * k, fill=INK, width=14); d.arc([270, 620, 690, 1000], -20, -20 + 140 * k, fill=INK, width=14)
     fig(d, "inside a brain scanner (fMRI)")
@@ -94,7 +95,7 @@ EP.carry = {"result": [((L_CARD[0], L_CARD[1], L_CARD[0] + 330, L_CARD[1] + 420)
 
 EP.scenes = {"hook": sc_hook, "study": sc_study, "trick": sc_trick, "result": sc_result, "brain": sc_brain, "point": sc_point}
 FX = [(0.0, thud(.5), 0), (cue("hook", "Your brain") - .2, pop(.15), .3), *EP.cut_fx(), (S("study") + .1, pop(.12), 0),
-      (S("study") + .4, riser(.6, .04), 0), *[(cue("trick", "Same photo") - .2 + i * .075, tick(.035), -.4) for i in range(8)],
+      (cue("study", "Instagram-style") - .1, pop(.12), .2), (cue("study", "inside a brain") - .1, riser(.6, .05), 0), (cue("study", "inside a brain") + .5, tick(.06), 0), *[(cue("trick", "Same photo") - .2 + i * .075, tick(.035), -.4) for i in range(8)],
       (cue("trick", "Same photo") + .1, tick(.035), .4), (S("result") + .4, thud(.5), 0), (cue("result", "Even their own") - .2, pop(.15), .3),
       (cue("brain", "reward center") - .2, thud(.45), 0), (cue("point", "You like what's") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
 if __name__ == "__main__": EP.run(FX)

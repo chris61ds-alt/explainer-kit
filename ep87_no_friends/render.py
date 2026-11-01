@@ -34,7 +34,7 @@ def sc_study(img, d, t):
     counter(d, X0, 320, t, t0 + .1, .8, 2019, "{:,.0f}", 230, INK)
     d.text((X0 + 6, 570), "US adults · Survey Center on American Life", font=F(COND, 40), fill=INK)
     d.text((X0 + 6, 625), "May 2021 · how many close friends do you have?", font=F(COND, 30), fill=MID)
-    dot_field(d, FIELD, t, cell=30, col=MID, hit={45})
+    dot_field(d, FIELD, t, cell=30, col=MID, hit={45} if t < cue("study", "close friends") - .1 else {45, 12, 73, 101, 160, 199})
     fig(d, "compared with a 1990 survey")
 
 def hbars(d, t, rows, vmax):
@@ -69,6 +69,8 @@ def sc_support(img, d, t):
     t0, tm = S("support"), cue("support", "Men?") - .1
     d.text((X0, 320), "SUPPORT", font=F(BLK, 160), fill=INK)
     d.text((X0, 485), "from a friend, last week", font=F(BLK, 56), fill=INK)
+    te = cue("support", "emotional support") - .1
+    if t >= te: d.line([X0, 556, X0 + 640 * ease((t - te) / .4), 556], fill=INK, width=6)
     silhouette(img, lambda m: front_bust(m, 270, 800, .4, 255), (100, 690, 440, 1010), INK, cell=8)
     counter(d, 270, 1020, t, t0 + .7, .6, 41, "{:.0f} %", 90, INK, anchor="ma")
     d.text((270, 1120), "WOMEN", font=F(BLK, 34), fill=INK, anchor="ma")
@@ -99,6 +101,6 @@ EP.scenes = {"hook": sc_hook, "study": sc_study, "zero": sc_zero, "now": sc_now,
 FX = [(0.0, thud(.5), 0), (cue("hook", "Not anymore") - .15, pop(.15), .3), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0),
       (S("zero") + .3, pop(.12), 0), (S("now") + .05, thud(.5), 0), (cue("now", "Five times") - .1, pop(.15), .3),
       (S("six") + .2, pop(.12), -.2), (cue("six", "twenty-seven") - .2, thud(.45), 0),
-      (S("support") + .7, pop(.12), -.3), (cue("support", "Men?") - .1, thud(.45), .3),
+      (S("support") + .7, pop(.12), -.3), (cue("support", "emotional support") - .1, whoosh(.3, .05), 0), (cue("study", "close friends") - .1, pop(.12), 0), (cue("support", "Men?") - .1, thud(.45), .3),
       (cue("point", "You're the trend") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
 if __name__ == "__main__": EP.run(FX)
