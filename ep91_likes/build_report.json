@@ -1,17 +1,19 @@
 {
  "episode": "ep91_likes",
  "tts": "new",
- "asr_voice": [],
+ "asr_voice": [
+  "claim: 1/11 | Lex change what you like, and your brain can't help it."
+ ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 27.97,
+  "duration_s": 28.1,
   "size_MiB": 3.3,
   "black_intervals": [],
   "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.4,
-  "sha256": "b2f28ce5a49e50970d6174ca5f92cd13bbb33226a768e3de39d0ec74d8de9318",
+  "true_peak_dBTP": -2.5,
+  "sha256": "e03b70c98bc127ccc8fe81063786b8ca41f9b1f0e9f8c9822aa02d0f3804018f",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,11 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/88 = 1.1%",
+ "asr_final_wer": "3/88 = 3.4%",
  "asr_final_issues": [
-  "study: 1/19 | MooCLA researchers showed 32 teens an Instagram-style feed inside a brain scanner, but there was a trick."
+  "claim: 1/11 | Lex change what you like and your brain can't help it.",
+  "study: 2/19 | new CLA researchers showed 32 teens an Instagram-style feed inside a brain scanner, but there was a trick."
  ],
- "duration_s": 27.95,
+ "duration_s": 28.08,
  "longest_calm_s": 3.02,
  "cover": "ep91_likes_cover.png",
  "caption": "ok"

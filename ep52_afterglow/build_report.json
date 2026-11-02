@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 24.73,
-  "size_MiB": 3.9,
+  "duration_s": 25.13,
+  "size_MiB": 4.0,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.5,
-  "sha256": "81521f926510003607f142a4d610536a1e9addc7d812c9bb345b084c6e0fc563",
+  "true_peak_dBTP": -1.1,
+  "sha256": "351debebb584382120273f5bd00866e007e0e9936f643994e2e6ccfd70cf3029",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,8 +22,8 @@
  },
  "asr_final_wer": "0/76 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 24.75,
- "longest_calm_s": 6.36,
+ "duration_s": 25.12,
+ "longest_calm_s": 6.46,
  "cover": "ep52_afterglow_cover.png",
  "caption": "ok"
 }

@@ -2,6 +2,7 @@
  "episode": "ep88_follower_math",
  "tts": "new",
  "asr_voice": [
+  "guess: 1/10 | Be honest, does everyone online see more popular than you?",
   "study: 1/14 | Researchers analyzed almost 6 million Twitter users and 476 million tweets.",
   "result: 1/16 | A typical user's followers had about 10 times more followers, 10 times an activity even worse."
  ],
@@ -9,12 +10,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 35.73,
-  "size_MiB": 4.3,
+  "duration_s": 36.13,
+  "size_MiB": 4.4,
   "black_intervals": [],
-  "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.5,
-  "sha256": "aa82c1d19785fae646022be0b2b8a81e316040a53f1ed0d1033426b2040823e8",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.4,
+  "sha256": "24a4d517ca7c9cd8768ae14e462aebd3cae9e0c88dbb55c36249d73b58d5d90c",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -25,12 +26,11 @@
  },
  "asr_final_wer": "3/105 = 2.9%",
  "asr_final_issues": [
-  "guess: 1/10 | Be honest, does everyone online see more popular than you?",
   "study: 1/14 | Researchers analyzed almost 6 million Twitter users and 476 million tweets.",
-  "result: 1/16 | A typical user's followers had about 10 times more followers, 10 times an activity even worse."
+  "result: 2/16 | The typical user's followers had about 10 times more followers, 10 times an activity even worse."
  ],
- "duration_s": 35.73,
- "longest_calm_s": 2.61,
+ "duration_s": 36.14,
+ "longest_calm_s": 2.63,
  "cover": "ep88_follower_math_cover.png",
  "caption": "ok"
 }

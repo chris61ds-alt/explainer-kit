@@ -1,17 +1,19 @@
 {
  "episode": "ep92_meet_dot",
- "tts": "cached",
- "asr_voice": [],
+ "tts": "new",
+ "asr_voice": [
+  "job: 1/20 | My job, finding the stuff you think is weird about yourself and checking the data. Spiler, it's usually not weird. [BUZZER]"
+ ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 33.13,
-  "size_MiB": 4.0,
+  "duration_s": 33.6,
+  "size_MiB": 4.2,
   "black_intervals": [],
-  "loudness_LUFS": -16.0,
+  "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "35cf4f05b5f633c2ac4e366478889165daa641110d6e10e4cf50d451d9544b43",
+  "sha256": "5b02fca7d6e390c403e550deff9ddaf20ff0acf1ecdba4042cfdcdbe471c7e35",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,10 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/107 = 0.0%",
- "asr_final_issues": [],
- "duration_s": 33.13,
- "longest_calm_s": 2.76,
+ "asr_final_wer": "1/107 = 0.9%",
+ "asr_final_issues": [
+  "job: 1/20 | My job, finding the stuff you think is weird about yourself and checking the data. Spiler, it's usually not weird."
+ ],
+ "duration_s": 33.61,
+ "longest_calm_s": 2.82,
  "cover": "ep92_meet_dot_cover.png",
  "caption": "ok"
 }

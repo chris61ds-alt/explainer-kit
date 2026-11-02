@@ -2,8 +2,7 @@
  "episode": "ep77_casual",
  "tts": "new",
  "asr_voice": [
-  "hook: 2/11 | who's really undating apps just for sex, let's find out.",
-  "study: 2/13 | On OK Cupid, users could tick what they're looking for. One option, casual sex. [BUZZER]",
+  "study: 4/13 | On OK Cupid, users could tick what they are looking for. One option, casual sex.",
   "men: 1/6 | Straight men, 6.1%.",
   "women: 1/7 | and straight women 0.8%.",
   "point: 1/21 | 1 in 16 men, 1 in 125 women, at least, that's what they were willing to tick."
@@ -12,12 +11,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 22.37,
+  "duration_s": 22.33,
   "size_MiB": 2.6,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.5,
-  "sha256": "8d75fa09b20a6659f96fc540d8b6913546ccf4d6edd8d97257ef945d75c1c495",
+  "true_peak_dBTP": -2.4,
+  "sha256": "4047aeda748876cafa2013ea46ae0a385ccfc1ea372093ee9ed7bacd6a245a31",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -26,15 +25,15 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "6/65 = 9.2%",
+ "asr_final_wer": "8/65 = 12.3%",
  "asr_final_issues": [
-  "study: 2/13 | On OK Cupid, users could tick what they're looking for. One option, casual sex.",
-  "men: 2/6 | St. Men 6.1%.",
-  "women: 1/7 | and straight women 0.8%.",
+  "study: 5/13 | An OK Cupid, users could tick what they are looking for. One option, casual sex.",
+  "men: 1/6 | Straight men, 6.1%.",
+  "women: 1/7 | and straight women 0.8 percent.",
   "point: 1/21 | One in 16 men, one in 125 women, at least, that's what they were willing to tick."
  ],
- "duration_s": 22.37,
- "longest_calm_s": 2.87,
+ "duration_s": 22.34,
+ "longest_calm_s": 2.86,
  "cover": "ep77_casual_cover.png",
  "caption": "ok"
 }
