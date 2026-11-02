@@ -5,16 +5,18 @@
  "beats": [
   {
    "id": "guess",
-   "text": "Guess: how far out of their league do people message?",
+   "text": "Okay, quick guess! How far out of their league do people message?",
    "screen": [
     "HOW FAR OUT",
     "OF THEIR LEAGUE",
     "DO PEOPLE AIM?"
-   ]
+   ],
+   "speed": 1.17
   },
   {
    "id": "hook",
-   "text": "You're messaging people out of your league. Everyone is."
+   "text": "You're messaging people out of your league. And so is everyone else!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -22,13 +24,13 @@
   },
   {
    "id": "result",
-   "text": "Most people messaged someone about twenty-five percent more desirable than themselves. Did it work?",
+   "text": "Most people messaged someone about twenty-five percent more desirable than themselves! Did it work?",
    "tease": "Did it work?",
    "show": "DID IT WORK?"
   },
   {
    "id": "reply",
-   "text": "Mostly no answer. But about one in five people who aimed up did get a reply. And then there's age.",
+   "text": "Mostly no answer. But about one in five people who aimed up did get a reply! And then there's age.",
    "tease": "And then there's age",
    "show": "THEN THERE'S AGE"
   },
@@ -38,7 +40,7 @@
   },
   {
    "id": "point",
-   "text": "So aim high. Just don't take the silence personally."
+   "text": "So aim high! Just don't take the silence personally."
   },
   {
    "id": "end",

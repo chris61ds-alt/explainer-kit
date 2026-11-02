@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "More sex, happier couple? Only up to a point."
+   "text": "More sex, happier couple? Only up to a point!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,15 +14,15 @@
   },
   {
    "id": "result",
-   "text": "For people in relationships, well-being rose with sex, up to about once a week."
+   "text": "For people in relationships, well-being rose with sex, up to about once a week!"
   },
   {
    "id": "flat",
-   "text": "After that, more didn't make people any happier."
+   "text": "After that? More didn't make people any happier."
   },
   {
    "id": "single",
-   "text": "And for singles, there was no link at all."
+   "text": "And for singles, there was no link at all!"
   },
   {
    "id": "caveat",
@@ -29,7 +30,7 @@
   },
   {
    "id": "point",
-   "text": "So stop counting. Staying connected matters more than the number."
+   "text": "So stop counting! Staying connected matters more than the number."
   },
   {
    "id": "end",

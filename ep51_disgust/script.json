@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Why is sex not gross? Think about it."
+   "text": "Why is sex not gross? Seriously, think about it!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "tasks",
-   "text": "Then came the gross part. Drink from a cup with a bug in it. Handle a condom that looked used."
+   "text": "Then came the gross part! Drink from a cup with a bug in it. Handle a condom that looked used."
   },
   {
    "id": "result",
-   "text": "The aroused group found the sexual tasks less disgusting, and was more willing to do them."
+   "text": "The aroused group found the sexual tasks less disgusting, and was more willing to do them!"
   },
   {
    "id": "why",
-   "text": "Arousal turns the disgust dial down. Otherwise, sex would be pretty hard to go through with."
+   "text": "Arousal turns the disgust dial down! Otherwise, sex would be pretty hard to go through with."
   },
   {
    "id": "point",
-   "text": "So if things feel weird afterwards? That's just the dial turning back up."
+   "text": "So if things feel weird afterwards? That's just the dial turning back up!"
   },
   {
    "id": "end",

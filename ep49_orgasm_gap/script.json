@@ -5,15 +5,17 @@
  "beats": [
   {
    "id": "guess",
-   "text": "Straight men orgasm ninety-five percent of the time. Guess women.",
+   "text": "Okay, quick guess! Straight men orgasm ninety-five percent of the time. Women?",
    "screen": [
     "MEN: 95 %.",
     "WOMEN: ?"
-   ]
+   ],
+   "speed": 1.17
   },
   {
    "id": "hook",
-   "text": "In bed, there's a gap nobody talks about."
+   "text": "In bed, there's a gap nobody talks about!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -21,21 +23,21 @@
   },
   {
    "id": "result",
-   "text": "Straight men: ninety-five percent. Straight women: sixty-five. But one group closes the gap.",
+   "text": "Straight men: ninety-five percent. Straight women: sixty-five! But one group closes the gap.",
    "tease": "But one group",
    "show": "ONE GROUP CLOSES IT"
   },
   {
    "id": "twist",
-   "text": "But lesbian women? Eighty-six percent."
+   "text": "Lesbian women? Eighty-six percent!"
   },
   {
    "id": "why",
-   "text": "So it's not just biology. Women who orgasmed more often got more oral sex, longer sessions, and asked for what they wanted."
+   "text": "So it's not just biology! Women who orgasmed more often got more oral sex, longer sessions, and asked for what they wanted."
   },
   {
    "id": "point",
-   "text": "The gap is real. And it can be closed. Start by talking."
+   "text": "The gap is real. And it can be closed! Start by talking."
   },
   {
    "id": "end",

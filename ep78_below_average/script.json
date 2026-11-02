@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Women rated eighty percent of men as below average."
+   "text": "Women rated eighty percent of men as below average! Ouch.",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "women",
-   "text": "Women were harsh. Eighty percent of men landed below medium."
+   "text": "Women were harsh! Eighty percent of men landed below medium."
   },
   {
    "id": "men",
-   "text": "Men rated women on a fair curve. Most women: right in the middle."
+   "text": "Men? They rated women on a fair curve. Most women: right in the middle."
   },
   {
    "id": "twist",
-   "text": "But men's messages? Two thirds went to the best-looking third of women."
+   "text": "But here's the twist. Men's messages? Two thirds went to the best-looking third of women!"
   },
   {
    "id": "point",
-   "text": "So women judge harder. Men chase harder."
+   "text": "So women judge harder. Men chase harder!"
   },
   {
    "id": "end",

@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Kissing is human nature. Right?"
+   "text": "Kissing is human nature. Right? Not so fast!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "Romantic kissing showed up in fewer than half."
+   "text": "Romantic kissing showed up in fewer than half!"
   },
   {
    "id": "regions",
-   "text": "Every culture they studied in the Middle East did it. In South America, only four out of thirty-three."
+   "text": "Every culture they studied in the Middle East did it. In South America? Only four out of thirty-three!"
   },
   {
    "id": "forager",
-   "text": "And among hunter-gatherers, there was little sign of it at all."
+   "text": "And among hunter-gatherers, there was little sign of it at all!"
   },
   {
    "id": "point",
-   "text": "So the kiss isn't universal. It's culture. Which makes it a little more special."
+   "text": "So the kiss isn't universal. It's culture! Which makes it a little more special."
   },
   {
    "id": "end",

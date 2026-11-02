@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Think we're wilder than our parents? We're having less sex."
+   "text": "Think we're wilder than our parents? Nope! We're having less sex.",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "By the early twenty-tens, adults had sex about nine times less per year than in the late nineties."
+   "text": "By the early twenty-tens, adults had sex about nine times less per year than in the late nineties!"
   },
   {
    "id": "couples",
-   "text": "For married couples, the drop was even bigger. Sixteen times less a year."
+   "text": "And for married couples? The drop was even bigger. Sixteen times less a year!"
   },
   {
    "id": "why",
-   "text": "One reason researchers point to: fewer young people have a steady partner."
+   "text": "One reason researchers point to? Fewer young people have a steady partner."
   },
   {
    "id": "point",
-   "text": "So we might talk about sex more. But we're having less of it."
+   "text": "So we might talk about sex more. But we're having less of it!"
   },
   {
    "id": "end",

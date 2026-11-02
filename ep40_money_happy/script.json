@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Money can't buy happiness? Sorry. It can."
+   "text": "Money can't buy happiness? Sorry. It can!",
+   "speed": 1.15
   },
   {
    "id": "old",
@@ -17,7 +18,7 @@
   },
   {
    "id": "result",
-   "text": "For most people, happiness kept rising with income. Way past seventy-five thousand."
+   "text": "For most people, happiness kept rising with income! Way past seventy-five thousand."
   },
   {
    "id": "except",
@@ -25,7 +26,7 @@
   },
   {
    "id": "point",
-   "text": "So money does help. But if you're deeply unhappy, more of it won't fix everything."
+   "text": "So money does help! But if you're deeply unhappy, more of it won't fix everything."
   },
   {
    "id": "end",

@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Can't stop thinking about your ex? Your brain treats them like a drug."
+   "text": "Can't stop thinking about your ex? Here's why: your brain treats them like a drug!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "The photo lit up the brain's reward and craving system. The same areas involved in cocaine addiction."
+   "text": "And get this: the photo lit up the brain's reward and craving system. The same areas involved in cocaine addiction!"
   },
   {
    "id": "pain",
-   "text": "And regions tied to physical pain lit up too."
+   "text": "And wait, regions tied to physical pain lit up too."
   },
   {
    "id": "hope",
-   "text": "The good news: the longer it had been since the breakup, the weaker part of that attachment signal got."
+   "text": "But here's the good news: the longer it had been since the breakup, the weaker part of that attachment signal got."
   },
   {
    "id": "point",
-   "text": "So it's not weakness. It's withdrawal. And withdrawal ends."
+   "text": "So it's not weakness. It's withdrawal! And withdrawal ends."
   },
   {
    "id": "end",

@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Want more messages? Some people should think you're ugly."
+   "text": "Want more messages? Some people should think you're ugly!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "The ones men disagreed about got more messages. A lot more."
+   "text": "The ones men disagreed about got more messages. A lot more!"
   },
   {
    "id": "example",
-   "text": "One woman got the lowest rating far more often than another. She still got three times the messages."
+   "text": "One woman got the lowest rating far more often than another. She still got three times the messages!"
   },
   {
    "id": "why",
-   "text": "One guess: if others aren't into you, I see less competition. Being just cute is a curse."
+   "text": "One guess? If others aren't into you, I see less competition. Being just cute is a curse!"
   },
   {
    "id": "point",
-   "text": "So don't hide what makes you different. Lean into it."
+   "text": "So don't hide what makes you different. Lean into it!"
   },
   {
    "id": "end",

@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "She smiled. So she's into you? Maybe not."
+   "text": "She smiled. So she's into you? Maybe not!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,15 +14,15 @@
   },
   {
    "id": "result",
-   "text": "Men tended to overestimate women's sexual interest. Women tended to underestimate men's."
+   "text": "Men tended to overestimate women's sexual interest! Women tended to underestimate men's."
   },
   {
    "id": "who",
-   "text": "The worst readers: men looking for something casual, and men who were most attracted to her."
+   "text": "And the worst readers? Men looking for something casual, and men who were most attracted to her!"
   },
   {
    "id": "point",
-   "text": "The more you want it, the worse you read it. So ask. Don't guess."
+   "text": "The more you want it, the worse you read it. So ask! Don't guess."
   },
   {
    "id": "end",

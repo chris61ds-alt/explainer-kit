@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Who's the loneliest age group in the world? Not your grandparents."
+   "text": "Who's the loneliest age group in the world? Not your grandparents!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,11 +14,11 @@
   },
   {
    "id": "world",
-   "text": "Almost one in four adults said very or fairly lonely. That's more than a billion people."
+   "text": "Almost one in four adults said very or fairly lonely! That's more than a billion people."
   },
   {
    "id": "young",
-   "text": "The loneliest group: ages nineteen to twenty-nine. Twenty-seven percent."
+   "text": "The loneliest group? Ages nineteen to twenty-nine. Twenty-seven percent!"
   },
   {
    "id": "old",
@@ -25,7 +26,7 @@
   },
   {
    "id": "point",
-   "text": "So if you're young and lonely, you're not the exception. You're the biggest group."
+   "text": "So if you're young and lonely? You're not the exception. You're the biggest group!"
   },
   {
    "id": "end",

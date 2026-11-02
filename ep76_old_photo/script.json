@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "That hot profile photo? It's probably old."
+   "text": "That hot profile photo? It's probably old!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "height",
-   "text": "People are about two inches shorter than they say. And twenty percent poorer."
+   "text": "People are about two inches shorter than they say! And twenty percent poorer."
   },
   {
    "id": "photos",
-   "text": "But the best part: over a third of the hottest photos were at least a year old."
+   "text": "But the best part? Over a third of the hottest photos were at least a year old!"
   },
   {
    "id": "old",
-   "text": "And hot photos were more than twice as likely to be three years old. Twelve percent versus five."
+   "text": "And hot photos were more than twice as likely to be three years old! Twelve percent versus five."
   },
   {
    "id": "point",
-   "text": "So the better the photo, the older it probably is."
+   "text": "So the better the photo, the older it probably is!"
   },
   {
    "id": "end",

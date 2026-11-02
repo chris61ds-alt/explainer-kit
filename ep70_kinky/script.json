@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Who's kinkier, men or women? Get ready."
+   "text": "Who's kinkier, men or women? Get ready!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "Almost half had at least one. And a third had actually tried one."
+   "text": "Almost half had at least one! And a third had actually tried one."
   },
   {
    "id": "women",
-   "text": "Fetish interests? Women reported a bit more than men. Pain and submission? Women too. Twenty-eight percent versus nineteen."
+   "text": "Fetish interests? Women reported a bit more than men. Pain and submission? Women too! Twenty-eight percent versus nineteen."
   },
   {
    "id": "men",
-   "text": "Men led in other areas. But the gap was far smaller than the stereotype."
+   "text": "Men led in other areas. But the gap was far smaller than the stereotype!"
   },
   {
    "id": "point",
-   "text": "So the kinky one in your relationship might not be who you think."
+   "text": "So the kinky one in your relationship? Might not be who you think!"
   },
   {
    "id": "end",

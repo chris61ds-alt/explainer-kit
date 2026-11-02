@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Think you can spot AI slop? Most people can't."
+   "text": "Think you can spot AI slop? Most people can't!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "The median score was sixty percent. Pure guessing gets you fifty."
+   "text": "The median score was sixty percent! Pure guessing gets you fifty."
   },
   {
    "id": "fav",
-   "text": "The most liked picture in the whole test? Made by AI."
+   "text": "And the most liked picture in the whole test? Made by AI!"
   },
   {
    "id": "haters",
-   "text": "Even people who said they hate AI art put AI pieces in half of their top ten."
+   "text": "Even people who said they hate AI art put AI pieces in half of their top ten!"
   },
   {
    "id": "point",
-   "text": "So maybe we don't hate slop. We hate knowing it's slop."
+   "text": "So maybe we don't hate slop. We hate knowing it's slop!"
   },
   {
    "id": "end",

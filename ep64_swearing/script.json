@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Stub your toe and swear? Good. It actually helps."
+   "text": "Stub your toe and swear? Good! It actually helps.",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "While swearing, they lasted about forty seconds longer."
+   "text": "While swearing, they lasted about forty seconds longer!"
   },
   {
    "id": "pain",
-   "text": "And it hurt less. Their heart rate went up, too."
+   "text": "And it hurt less! Their heart rate went up, too."
   },
   {
    "id": "why",
-   "text": "One idea: swearing triggers a small fight-or-flight response, and that dulls the pain."
+   "text": "One idea? Swearing triggers a small fight-or-flight response, and that dulls the pain."
   },
   {
    "id": "point",
-   "text": "So next time it hurts? Let it out."
+   "text": "So next time it hurts? Let it out!"
   },
   {
    "id": "end",

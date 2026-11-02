@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "One ten-second kiss. Eighty million bacteria."
+   "text": "One ten-second kiss. Eighty million bacteria!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "Afterwards, those bacteria had tripled in the other partner's saliva. About eighty million swapped in one kiss."
+   "text": "Afterwards, those bacteria had tripled in the other partner's saliva! About eighty million swapped in one kiss."
   },
   {
    "id": "often",
-   "text": "Couples who kissed at least nine times a day had noticeably more similar saliva bacteria."
+   "text": "And couples who kissed at least nine times a day had noticeably more similar saliva bacteria."
   },
   {
    "id": "twist",
-   "text": "Oh, and the men said they kissed ten times a day. The women said five."
+   "text": "Oh, and the best part? The men said they kissed ten times a day. The women said five!"
   },
   {
    "id": "point",
-   "text": "So yes, kissing literally makes you more alike. At least in your mouth."
+   "text": "So yes, kissing literally makes you more alike! At least in your mouth."
   },
   {
    "id": "end",

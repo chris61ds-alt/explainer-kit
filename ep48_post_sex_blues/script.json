@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Sad after sex? Even when it was good? You're not broken."
+   "text": "Sad after sex? Even when it was good? You're not broken!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "Forty-six percent of women had felt sad, tearful or irritable afterwards at least once."
+   "text": "Forty-six percent of women had felt sad, tearful or irritable afterwards at least once!"
   },
   {
    "id": "men",
-   "text": "And men? Forty-one percent. One in five in the past four weeks alone."
+   "text": "And men? Forty-one percent! One in five in the past four weeks alone."
   },
   {
    "id": "good",
-   "text": "It even happened in loving relationships, after sex that felt good."
+   "text": "And get this: it even happened in loving relationships, after sex that felt good."
   },
   {
    "id": "point",
-   "text": "It has a name: post-sex blues. So if it hits you, say it out loud. It's not about them."
+   "text": "It has a name: post-sex blues. So if it hits you, say it out loud! It's not about them."
   },
   {
    "id": "end",

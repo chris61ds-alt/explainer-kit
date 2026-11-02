@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "The most underrated part of intimacy? What happens after."
+   "text": "The most underrated part of intimacy? What happens after!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "On average, people spent about fifteen minutes on affection afterwards. Cuddling, kissing, talking."
+   "text": "On average, people spent about fifteen minutes on affection afterwards! Cuddling, kissing, talking."
   },
   {
    "id": "link",
-   "text": "The longer that lasted, the more satisfied people were. With their sex life, and with their relationship."
+   "text": "And the longer that lasted, the more satisfied people were! With their sex life, and with their relationship."
   },
   {
    "id": "later",
-   "text": "Three months later, they were still more satisfied. And for parents, the link was even stronger."
+   "text": "Three months later? They were still more satisfied. And for parents, the link was even stronger!"
   },
   {
    "id": "point",
-   "text": "So don't rush off. The cuddle counts."
+   "text": "So don't rush off! The cuddle counts."
   },
   {
    "id": "end",

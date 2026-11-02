@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Who's really on dating apps just for sex?"
+   "text": "Who's really on dating apps just for sex? Let's find out!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "men",
-   "text": "Straight men: six point one percent."
+   "text": "Straight men: six point one percent!"
   },
   {
    "id": "others",
-   "text": "Gay men and lesbians: almost seven percent."
+   "text": "Gay men and lesbians: almost seven percent!"
   },
   {
    "id": "women",
-   "text": "Straight women: zero point eight percent."
+   "text": "And straight women? Zero point eight percent!"
   },
   {
    "id": "point",
-   "text": "One in sixteen men. One in a hundred and twenty-five women. At least, that's what they were willing to tick."
+   "text": "One in sixteen men. One in a hundred and twenty-five women! At least, that's what they were willing to tick."
   },
   {
    "id": "end",

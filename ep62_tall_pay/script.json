@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Every inch you're taller is worth money. About seven hundred and eighty-nine dollars a year."
+   "text": "Every inch you're taller is worth money! About seven hundred and eighty-nine dollars a year.",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "Even after accounting for gender, age and weight, taller people earned more."
+   "text": "And even after accounting for gender, age and weight, taller people earned more."
   },
   {
    "id": "career",
-   "text": "Six feet versus five foot five? That's about a hundred and sixty-six thousand dollars over a thirty-year career."
+   "text": "Six feet versus five foot five? That's about a hundred and sixty-six thousand dollars over a thirty-year career!"
   },
   {
    "id": "why",
-   "text": "One explanation: height makes people seem more confident, and they get treated that way."
+   "text": "One explanation? Height makes people seem more confident, and they get treated that way."
   },
   {
    "id": "point",
-   "text": "Unfair? Absolutely. But now you know it's there."
+   "text": "Unfair? Absolutely! But now you know it's there."
   },
   {
    "id": "end",

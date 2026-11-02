@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "The most charming person in the room? Might be a narcissist."
+   "text": "The most charming person in the room? Might be a narcissist!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "The more narcissistic someone was, the more they were liked at first sight."
+   "text": "And get this: the more narcissistic someone was, the more they were liked at first sight!"
   },
   {
    "id": "why",
-   "text": "It was all surface: stylish clothes, confident body language, an entertaining way of talking."
+   "text": "It was all surface! Stylish clothes, confident body language, an entertaining way of talking."
   },
   {
    "id": "flip",
-   "text": "But in another study, groups met again and again. By the seventh meeting, the narcissists' ratings had flipped. From likable to disliked."
+   "text": "But in another study, groups met again and again. By the seventh meeting, the narcissists' ratings had flipped! From likable to disliked."
   },
   {
    "id": "point",
-   "text": "So first impressions are easy to fake. Give it seven meetings."
+   "text": "So first impressions are easy to fake. Give it seven meetings!"
   },
   {
    "id": "end",

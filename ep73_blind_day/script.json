@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "A dating site turned off every photo. For one day."
+   "text": "A dating site turned off every photo! For one day.",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,7 +14,7 @@
   },
   {
    "id": "result",
-   "text": "People answered first messages forty-four percent more often. And conversations went deeper."
+   "text": "And get this: people answered first messages forty-four percent more often! And conversations went deeper."
   },
   {
    "id": "back",
@@ -21,11 +22,11 @@
   },
   {
    "id": "melt",
-   "text": "Twenty-two hundred conversations had started blind. They just melted away."
+   "text": "Twenty-two hundred conversations had started blind. They just melted away!"
   },
   {
    "id": "point",
-   "text": "Without a face, we were kinder. With one, we got picky."
+   "text": "Without a face, we were kinder. With one? We got picky!"
   },
   {
    "id": "end",

@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Get attacked in public, and nobody helps? That's a myth."
+   "text": "Get attacked in public, and nobody helps? Nope! That's a myth.",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,15 +14,15 @@
   },
   {
    "id": "result",
-   "text": "In nine out of ten, at least one stranger stepped in."
+   "text": "In nine out of ten, at least one stranger stepped in!"
   },
   {
    "id": "more",
-   "text": "And the more people were around, the more likely someone helped."
+   "text": "And here's the twist: the more people were around, the more likely someone helped!"
   },
   {
    "id": "point",
-   "text": "So strangers do show up. Next time, be one of them."
+   "text": "So strangers do show up. Next time, be one of them!"
   },
   {
    "id": "end",

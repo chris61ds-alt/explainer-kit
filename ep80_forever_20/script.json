@@ -5,23 +5,24 @@
  "beats": [
   {
    "id": "hook",
-   "text": "A twenty-year-old man finds twenty-year-old women most attractive. So does a fifty-year-old man."
+   "text": "A twenty-year-old man finds twenty-year-old women most attractive. So does a fifty-year-old man!",
+   "speed": 1.15
   },
   {
    "id": "data",
-   "text": "On OkCupid, men of every age rated women in their early twenties highest."
+   "text": "On OkCupid, men of every age rated women in their early twenties highest!"
   },
   {
    "id": "women",
-   "text": "Women's taste grew up with them. Their ideal age rose with their own."
+   "text": "Women's taste? It grew up with them. Their ideal age rose with their own."
   },
   {
    "id": "but",
-   "text": "But here's the twist. Men mostly messaged women close to their own age."
+   "text": "But here's the twist! Men mostly messaged women close to their own age."
   },
   {
    "id": "point",
-   "text": "So men's ratings say one thing. Their messages say another."
+   "text": "So men's ratings say one thing. Their messages say another!"
   },
   {
    "id": "end",

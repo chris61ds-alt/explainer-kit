@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Slept with your ex? It might not set you back."
+   "text": "Slept with your ex? Good news: it might not set you back!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,15 +14,15 @@
   },
   {
    "id": "result",
-   "text": "Trying to have sex with an ex did not slow down their recovery. Not day to day, and not two months later."
+   "text": "Trying to have sex with an ex did not slow down their recovery! Not day to day, and not two months later."
   },
   {
    "id": "who",
-   "text": "The people most eager to hook up were the ones still attached to their ex."
+   "text": "The people most eager to hook up? The ones still attached to their ex."
   },
   {
    "id": "mood",
-   "text": "But even for them, it didn't bring more distress."
+   "text": "But even for them, it didn't bring more distress!"
   },
   {
    "id": "quote",
@@ -29,7 +30,7 @@
   },
   {
    "id": "point",
-   "text": "So, no shame. Just be honest with yourself about why."
+   "text": "So, no shame! Just be honest with yourself about why."
   },
   {
    "id": "end",

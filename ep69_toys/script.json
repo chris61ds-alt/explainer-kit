@@ -5,16 +5,18 @@
  "beats": [
   {
    "id": "guess",
-   "text": "Men or women: who uses sex toys more? Guess.",
+   "text": "Okay, quick guess! Men or women: who uses sex toys more?",
    "screen": [
     "WHO USES",
     "SEX TOYS MORE?",
     "MEN OR WOMEN?"
-   ]
+   ],
+   "speed": 1.17
   },
   {
    "id": "hook",
-   "text": "It's closer than you think."
+   "text": "It's closer than you think!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -22,11 +24,11 @@
   },
   {
    "id": "women",
-   "text": "Fifty-three percent of women had used one."
+   "text": "Fifty-three percent of women had used one!"
   },
   {
    "id": "men",
-   "text": "And men? Forty-five percent. Most of them together with a partner. And users had something else in common.",
+   "text": "And men? Forty-five percent! Most of them together with a partner. And users had something else in common.",
    "tease": "And users had something",
    "show": "ONE MORE THING"
   },
@@ -36,7 +38,7 @@
   },
   {
    "id": "point",
-   "text": "So it's not a secret-drawer thing. It's half the country. Both halves."
+   "text": "So it's not a secret-drawer thing. It's half the country. Both halves!"
   },
   {
    "id": "end",

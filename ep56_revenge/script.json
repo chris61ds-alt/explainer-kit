@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Revenge feels sweet. Until you actually get it."
+   "text": "Revenge feels sweet. Until you actually get it!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "Everyone who could punish him, did. And they ended up feeling worse than those who couldn't."
+   "text": "Everyone who could punish him, did. And they ended up feeling worse than those who couldn't!"
   },
   {
    "id": "predict",
-   "text": "Both groups were sure revenge would feel good. It didn't."
+   "text": "Both groups were sure revenge would feel good. It didn't!"
   },
   {
    "id": "why",
-   "text": "Punishing kept them thinking about it. The others just moved on."
+   "text": "Punishing kept them thinking about it. The others? They just moved on."
   },
   {
    "id": "point",
-   "text": "So revenge doesn't close the wound. It keeps it open."
+   "text": "So revenge doesn't close the wound. It keeps it open!"
   },
   {
    "id": "end",

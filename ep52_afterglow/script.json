@@ -5,7 +5,8 @@
  "beats": [
   {
    "id": "hook",
-   "text": "Good sex keeps working for two whole days."
+   "text": "Good sex keeps working for two whole days!",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -13,19 +14,19 @@
   },
   {
    "id": "result",
-   "text": "After sex, satisfaction stayed higher for about forty-eight hours."
+   "text": "After sex, satisfaction stayed higher for about forty-eight hours!"
   },
   {
    "id": "who",
-   "text": "That held for men and women, younger and older."
+   "text": "And that held for men and women, younger and older."
   },
   {
    "id": "months",
-   "text": "And couples with a stronger afterglow were happier months later. Their satisfaction dropped less over time."
+   "text": "And here's the best part: couples with a stronger afterglow were happier months later! Their satisfaction dropped less over time."
   },
   {
    "id": "point",
-   "text": "So it's not just one night. It's a two-day glow. Worth keeping warm."
+   "text": "So it's not just one night. It's a two-day glow! Worth keeping warm."
   },
   {
    "id": "end",
