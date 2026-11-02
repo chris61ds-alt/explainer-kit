@@ -23,6 +23,13 @@ h1 span{color:var(--sig)}
 .f[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 .q{flex:1;min-width:140px;border:1px solid var(--rule);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font:400 14px Roboto,sans-serif}
 .note{font-size:12px;color:var(--mid);margin:10px 0 0}
+.sel{flex:0 1 auto;min-width:0;cursor:pointer;appearance:auto}
+.donebox{margin-top:30px;border-top:4px solid var(--ink);padding-top:6px}
+.donebox>summary{font:900 20px Roboto,sans-serif;text-transform:uppercase;color:var(--ink);letter-spacing:-.01em;padding:8px 0;list-style:none}
+.donebox>summary::-webkit-details-marker{display:none}
+.donebox>summary::before{content:'+ ';color:var(--sig)}
+.donebox[open]>summary::before{content:'– '}
+.donebox .ep{opacity:.6}
 .day{font:700 13px 'Roboto Mono',monospace,monospace;color:var(--mid);margin:26px 0 8px;text-transform:uppercase;letter-spacing:.04em}
 .ep{display:grid;grid-template-columns:72px 1fr;gap:14px;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:12px;margin-bottom:10px}
 .ep.done{opacity:.55}
@@ -51,7 +58,7 @@ pre{white-space:pre-wrap;font:400 13px/1.45 Roboto,sans-serif;background:var(--c
 @media (max-width:480px){.ep{grid-template-columns:56px 1fr}.ep img{width:56px;height:100px}.t{font-size:16px}.box{width:30px;height:30px}}
 </style></head><body><div class="wrap">
 <h1>Not just you<br><span>Posting-Liste</span></h1>
-<div class="sub">@vascoda.soda · alle Reels mit Caption · Häkchen für manuell gepostet</div>
+<div class="sub">@vascoda.soda · alle Reels mit Caption · abgehakte Folgen wandern nach unten in „Gepostet“</div>
 <div class="stats">
  <div class="stat s"><b id="sTT">0</b><small>TikTok gepostet</small></div>
  <div class="stat"><b id="sIG">0</b><small>Instagram manuell</small></div>
@@ -59,8 +66,13 @@ pre{white-space:pre-wrap;font:400 13px/1.45 Roboto,sans-serif;background:var(--c
 </div>
 <div class="bar" role="toolbar" aria-label="Filter">
  <button class="f" data-f="plan" aria-pressed="true">Im Plan</button>
- <button class="f" data-f="open" aria-pressed="false">TikTok offen</button>
  <button class="f" data-f="all" aria-pressed="false">Alle</button>
+ <select class="q sel" id="sort" aria-label="Sortierung">
+  <option value="date-asc">Datum: früheste zuerst</option>
+  <option value="date-desc">Datum: späteste zuerst</option>
+  <option value="no-asc">Nummer aufsteigend</option>
+  <option value="no-desc">Nummer absteigend</option>
+ </select>
  <input class="q" id="q" type="search" placeholder="Suchen: Nr. oder Titel" aria-label="Suchen">
 </div>
 <p class="note" id="sync">Lädt …</p>
@@ -81,35 +93,56 @@ function loadLocal(){ try{ const s=JSON.parse(localStorage.getItem('njy-posted')
 function saveLocal(){ try{ localStorage.setItem('njy-posted', JSON.stringify(state)); }catch(e){} }
 const CHECK = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>';
 
-function render(){
-  const list = $('#list'); list.innerHTML='';
-  let rows = EPS.slice();
-  if(filter==='plan') rows = rows.filter(e=>e.date);
-  if(filter==='open') rows = rows.filter(e=>!(state[id(e)]||{}).tiktok);
-  if(query){ const q=query.toLowerCase(); rows = rows.filter(e=>String(e.no).includes(q)||e.title.toLowerCase().includes(q)||e.caption.toLowerCase().includes(q)); }
-  rows.sort((a,b)=> (a.date? (a.date+a.time) : 'z'+pad(b.no)).localeCompare(b.date? (b.date+b.time) : 'z'+pad(a.no)) || a.no-b.no);
-  if(!a_or(rows)){ list.innerHTML='<div class="empty">Nichts offen. Stark.</div>'; }
+let sortBy = 'date-asc';
+try{ sortBy = localStorage.getItem('njy-sort') || 'date-asc'; }catch(e){}
+const isDone = e => { const st = state[id(e)]||{}; return !!(st.tiktok && (st.ig || e.date)); };
+function sorted(rows){
+  const dk = e => e.date ? e.date + e.time : '9999';
+  const f = { 'date-asc': (a,b)=> dk(a).localeCompare(dk(b)) || a.no-b.no,
+              'date-desc': (a,b)=> dk(b).localeCompare(dk(a)) || b.no-a.no,
+              'no-asc': (a,b)=> a.no-b.no, 'no-desc': (a,b)=> b.no-a.no }[sortBy] || ((a,b)=>a.no-b.no);
+  return rows.slice().sort(f);
+}
+function card(e){
+  const st = state[id(e)]||{};
+  const el = document.createElement('article'); el.className='ep';
+  el.innerHTML = `<a href="${BASE+id(e)}.mp4" target="_blank" rel="noopener"><img loading="lazy" alt="" src="thumbs/${id(e)}.jpg"></a>
+    <div><div class="top"><div><div class="no">No. ${pad(e.no)}</div><div class="t"></div><div class="when">${e.date? fmtDay(e.date)+' · IG auto · '+e.time : 'nicht eingeplant'}</div></div>
+    <div class="checks">
+      <label class="ck"><input type="checkbox" data-k="tiktok" ${st.tiktok?'checked':''}><div class="box">${CHECK}</div><span>TikTok</span></label>
+      <label class="ck"><input type="checkbox" data-k="ig" ${st.ig?'checked':''}><div class="box">${CHECK}</div><span>IG manuell</span></label>
+    </div></div>
+    <div class="acts"><a class="btn p" href="${BASE+id(e)}.mp4" target="_blank" rel="noopener">Video öffnen</a>
+      <button class="btn" data-copy>Caption kopieren</button>
+      <a class="btn" href="${BASE+id(e)}.jpg" target="_blank" rel="noopener">Cover</a></div>
+    <details><summary>Caption anzeigen</summary><pre></pre></details></div>`;
+  el.querySelector('.t').textContent = e.title;
+  el.querySelector('pre').textContent = e.caption;
+  el.querySelector('[data-copy]').onclick = ()=>copy(e.caption);
+  el.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.onchange=()=>toggle(e, cb.dataset.k, cb.checked));
+  return el;
+}
+function fill(host, rows, headers){
   let lastDay = null;
   for(const e of rows){
-    const day = fmtDay(e.date);
-    if(day!==lastDay){ const h=document.createElement('div'); h.className='day'; h.textContent=day; list.appendChild(h); lastDay=day; }
-    const st = state[id(e)]||{};
-    const el = document.createElement('article'); el.className='ep'+(st.tiktok&&(st.ig||e.date)?' done':'');
-    el.innerHTML = `<a href="${BASE+id(e)}.mp4" target="_blank" rel="noopener"><img loading="lazy" alt="" src="thumbs/${id(e)}.jpg"></a>
-      <div><div class="top"><div><div class="no">No. ${pad(e.no)}</div><div class="t"></div><div class="when">${e.date? 'IG auto · '+e.time : 'nicht eingeplant'}</div></div>
-      <div class="checks">
-        <label class="ck"><input type="checkbox" data-k="tiktok" ${st.tiktok?'checked':''}><div class="box">${CHECK}</div><span>TikTok</span></label>
-        <label class="ck"><input type="checkbox" data-k="ig" ${st.ig?'checked':''}><div class="box">${CHECK}</div><span>IG manuell</span></label>
-      </div></div>
-      <div class="acts"><a class="btn p" href="${BASE+id(e)}.mp4" target="_blank" rel="noopener">Video öffnen</a>
-        <button class="btn" data-copy>Caption kopieren</button>
-        <a class="btn" href="${BASE+id(e)}.jpg" target="_blank" rel="noopener">Cover</a></div>
-      <details><summary>Caption anzeigen</summary><pre></pre></details></div>`;
-    el.querySelector('.t').textContent = e.title;
-    el.querySelector('pre').textContent = e.caption;
-    el.querySelector('[data-copy]').onclick = ()=>copy(e.caption);
-    el.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.onchange=()=>toggle(e, cb.dataset.k, cb.checked));
-    list.appendChild(el);
+    if(headers){ const day = fmtDay(e.date); if(day!==lastDay){ const h=document.createElement('div'); h.className='day'; h.textContent=day; host.appendChild(h); lastDay=day; } }
+    host.appendChild(card(e));
+  }
+}
+function render(){
+  const list = $('#list'); const wasOpen = !!(list.querySelector('.donebox')||{}).open; list.innerHTML='';
+  let rows = EPS.slice();
+  if(filter==='plan') rows = rows.filter(e=>e.date);
+  if(query){ const q=query.toLowerCase(); rows = rows.filter(e=>String(e.no).includes(q)||e.title.toLowerCase().includes(q)||e.caption.toLowerCase().includes(q)); }
+  rows = sorted(rows);
+  const open = rows.filter(e=>!isDone(e)), done = rows.filter(isDone);
+  const byDate = sortBy.startsWith('date');
+  if(!open.length){ list.innerHTML='<div class="empty">Nichts offen. Stark.</div>'; }
+  fill(list, open, byDate);
+  if(done.length){
+    const box = document.createElement('details'); box.className='donebox'; box.open = wasOpen;
+    box.innerHTML = `<summary>Gepostet (${done.length})</summary>`;
+    fill(box, done, false); list.appendChild(box);
   }
   const all = EPS.length, tt = EPS.filter(e=>(state[id(e)]||{}).tiktok).length, ig = EPS.filter(e=>(state[id(e)]||{}).ig).length;
   $('#sTT').textContent = tt+' / '+all; $('#sIG').textContent = ig; $('#sAll').textContent = all;
@@ -129,6 +162,8 @@ async function toggle(e, k, v){
 }
 document.querySelectorAll('.f').forEach(b=>b.onclick=()=>{ filter=b.dataset.f; document.querySelectorAll('.f').forEach(x=>x.setAttribute('aria-pressed', x===b)); render(); });
 $('#q').oninput = ev => { query = ev.target.value.trim(); render(); };
+$('#sort').value = sortBy;
+$('#sort').onchange = ev => { sortBy = ev.target.value; try{ localStorage.setItem('njy-sort', sortBy); }catch(e){} render(); };
 
 loadLocal(); render();
 $('#sync').textContent = 'Nur in diesem Browser gespeichert.';
