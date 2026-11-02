@@ -14,9 +14,9 @@ EP = ThreadEpisode(TL, 88, "FOLLOWER MATH", order=ORDER, dark=True, label="PLATF
                    cover=dict(words=["YOUR FOLLOWERS:", "10 × MORE", "POPULAR."], kicker="It's math, not you."))
 
 def sc_hook(img, d, t):
-    tp = cue("hook", "They probably are") - .15
-    d.text((X0 - 4, 320), "EVERYONE", font=F(BLK, 150), fill=INK)
-    d.text((X0 - 4, 470), "MORE POPULAR?", font=F(BLK, 105), fill=INK)
+    tp = cue("hook", "They are more") - .15
+    d.text((X0 - 4, 320), "IF YES:", font=F(BLK, 150), fill=MID)
+    d.text((X0 - 4, 470), "YOU'RE RIGHT.", font=F(BLK, 110), fill=INK)
     for i, (x, y, s) in enumerate(((190, 860, .32), (770, 860, .32), (300, 1010, .26), (660, 1010, .26))):
         silhouette(img, lambda m, x=x, y=y, s=s: front_bust(m, x, y, s, 255), (int(x - 160 * s / .32), int(y - 110 * s / .32), int(x + 160 * s / .32), int(y + 160 * s / .32)), MID, cell=7)
     silhouette(img, lambda m: front_bust(m, 480, 920, .2, 255), (400, 860, 560, 1050), INK, cell=6)
@@ -91,7 +91,7 @@ _gx, _gy = X0 + 7 * 86, 640 + 4 * 44
 EP.carry = {"why": [((_gx, _gy, _gx + 74, _gy + 34), (YOU[0] - 16, YOU[1] - 16, YOU[0] + 16, YOU[1] + 16))]}
 
 EP.scenes = {"hook": sc_hook, "study": sc_study, "result": sc_result, "active": sc_active, "why": sc_why, "point": sc_point}
-FX = [(0.0, thud(.5), 0), (cue("hook", "They probably are") - .15, pop(.15), .3), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0),
+FX = [(0.0, thud(.5), 0), (cue("hook", "They are more") - .15, pop(.15), .3), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0),
       (cue("study", "four hundred") - .2, pop(.12), .2), (S("result") + .4, thud(.5), 0), (S("active") + .1, thud(.45), 0),
       *[(S("active") + .25 + i * .09, tick(.03), (i % 5 - 2) / 3) for i in range(11)],
       *[(S("why") + .4 + i / 11, tick(.035), (i % 5 - 2) / 3) for i in range(11)], (cue("why", "So they show up") - .1, pop(.14), 0),

@@ -559,7 +559,7 @@ class Episode:
     def guess_scene(self, img, d, t):
         """opener: the question in big type from frame 0, a 3-2-1 countdown until the hook starts"""
         TL = self.TL; t0, t1 = TL.S("guess"), TL.S(self.order[1])
-        box_label(d, X0, 300, "GUESS FIRST", 40, WHITE, INK if V3 else SIG, font=BLK)
+        box_label(d, X0, 300, TL.script.get("guess_label", "GUESS FIRST"), 40, WHITE, INK if V3 else SIG, font=BLK)   # "BE HONEST" = question to the viewer
         lines = TL.screen.get("guess") or [TL.T["guess"]["text"].upper()]
         size = int(min(170, 540 / (len(lines) * 1.05), *(840 / max(1, d.textlength(l, font=F(BLK, 100))) * 100 for l in lines)))
         words_in(d, t, [(l, -1 if i == 0 or V3 else t0 + .1 + i * .2, 390 + i * int(size * 1.05), size,

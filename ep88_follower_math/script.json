@@ -5,17 +5,17 @@
  "beats": [
   {
    "id": "guess",
-   "text": "Quick, guess: how much more popular are your followers than you?",
+   "text": "Be honest: does everyone online seem more popular than you?",
    "screen": [
-    "HOW MUCH",
+    "DOES EVERYONE",
+    "ONLINE SEEM",
     "MORE POPULAR",
-    "ARE YOUR",
-    "FOLLOWERS?"
+    "THAN YOU?"
    ]
   },
   {
    "id": "hook",
-   "text": "Feel like everyone online is more popular than you? They probably are."
+   "text": "If yes, you're probably right. They are more popular. And it's not about you."
   },
   {
    "id": "study",
@@ -49,5 +49,7 @@
   "Friendship paradox: Feld (1991), American Journal of Sociology."
  ],
  "format": "v2",
- "ask": "DOES YOUR FEED FEEL LIKE THIS?"
+ "ask": "DOES YOUR FEED FEEL LIKE THIS?",
+ "guess_label": "BE HONEST",
+ "guess_prompt": "Yes or no?"
 }

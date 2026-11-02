@@ -1,4 +1,6 @@
-Quick, guess: how much more popular are your followers than you? 📱
+Be honest: does everyone online seem more popular than you? 📱
+
+If yes, you're probably right. And it's not about you.
 
 Researchers analyzed 5.8 million Twitter users and 476 million tweets. A typical user's followers had about 10 times more followers than the user.
 

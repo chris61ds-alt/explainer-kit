@@ -1,19 +1,20 @@
 {
  "episode": "ep88_follower_math",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
+  "guess: 1/10 | Be honest, does everyone online see more popular than you?",
   "study: 1/14 | Researchers analyzed almost 6 million Twitter users and 476 million tweets."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 36.73,
-  "size_MiB": 4.4,
+  "duration_s": 36.83,
+  "size_MiB": 4.3,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "6fae6be975a0955fdf86df7a0650b4be11815ab28beb1659e5b368e9c8f806f9",
+  "sha256": "4db3c7b344fb50544318247e87f8d46b3cb949eec4debde18abbfb8ce96e755b",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,11 +23,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/103 = 1.0%",
+ "asr_final_wer": "2/104 = 1.9%",
  "asr_final_issues": [
+  "guess: 1/10 | Be honest, does everyone online see more popular than you?",
   "study: 1/14 | Researchers analyzed almost 6 million Twitter users and 476 million tweets."
  ],
- "duration_s": 36.73,
+ "duration_s": 36.84,
  "longest_calm_s": 2.72,
  "cover": "ep88_follower_math_cover.png",
  "caption": "ok"
