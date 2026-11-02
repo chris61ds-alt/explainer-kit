@@ -2,18 +2,19 @@
  "episode": "ep76_old_photo",
  "tts": "new",
  "asr_voice": [
-  "study: 4/10 | OK, Cupid, compared with users' claim with what its data shows. [BUZZER]"
+  "study: 4/10 | OK, Cupid, compared with users' claim with what its data shows. [BUZZ",
+  "old: 1/18 | and hot photos were more than twice as likely to be 3 years old, 12% vs. 5."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 23.93,
+  "duration_s": 23.37,
   "size_MiB": 3.0,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.4,
-  "sha256": "27e621a12ee26c4bb6b613016bdd7e78fd91970ebea107cac261ca9df9af40d8",
+  "true_peak_dBTP": -2.5,
+  "sha256": "07e07b3ce773d3cce0e0236a772ba05a739ba6a11264721f50c20efefe5230c5",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,13 +23,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "5/75 = 6.7%",
+ "asr_final_wer": "2/75 = 2.7%",
  "asr_final_issues": [
-  "study: 4/10 | OK, Cupid, compared with users' claim with what its data shows.",
-  "old: 1/18 | And hot photos were more than twice as likely to be three years old. 12% vs. 5."
+  "study: 2/10 | OK, Cupid, compared what users claim with what its data shows."
  ],
- "duration_s": 23.93,
- "longest_calm_s": 2.87,
+ "duration_s": 23.38,
+ "longest_calm_s": 2.71,
  "cover": "ep76_old_photo_cover.png",
  "caption": "ok"
 }
