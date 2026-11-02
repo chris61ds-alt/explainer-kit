@@ -3,18 +3,18 @@
  "tts": "new",
  "asr_voice": [
   "why: 1/14 | It was all surface, stylish clothes, confident body language, and entertaining way of talking.",
-  "flip: 1/22 | But in another study, groups met again and again. By the seventh meeting, the narcissist's ratings had flipped, from likable to disliked."
+  "flip: 1/22 | But in another study, groups met again and again. By the seventh meeting, the narcissist's ratings had flipped from likable to disliked."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.97,
+  "duration_s": 29.57,
   "size_MiB": 3.5,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.5,
-  "sha256": "0f3b651f7709bc7e2a6656d33843e0198558b0fca55a6f793ff3be8d5cc45f25",
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.4,
+  "sha256": "19c43773a57b58c4d183c9abd22095d91319b12cdb4586e118b49a4acf95eb30",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,13 +23,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "2/82 = 2.4%",
+ "asr_final_wer": "2/85 = 2.4%",
  "asr_final_issues": [
   "why: 1/14 | It was all surface, stylish clothes, confident body language, and entertaining way of talking.",
-  "flip: 1/22 | But in another study, groups met again and again. By the seventh meeting, the narcissist's ratings had flipped, from likable to disliked."
+  "flip: 1/22 | But in another study, groups met again and again. By the seventh meeting, the narcissist's ratings had flipped from likable to disliked."
  ],
- "duration_s": 28.97,
- "longest_calm_s": 5.21,
+ "duration_s": 29.55,
+ "longest_calm_s": 5.13,
  "cover": "ep68_narcissists_cover.png",
  "caption": "ok"
 }
