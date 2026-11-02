@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 27.07,
-  "size_MiB": 4.2,
+  "duration_s": 27.4,
+  "size_MiB": 4.3,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.6,
-  "sha256": "b48bbd7be1bd10fd00f581bc0afc4cce2cd694b22cc8967641ed5d8199984754",
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.5,
+  "sha256": "ba95bc61dd0010eeb666c9cffb84dc22d605a2fc415bf7ce2d3ce1df81eef105",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,8 +22,8 @@
  },
  "asr_final_wer": "0/88 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 27.08,
- "longest_calm_s": 3.25,
+ "duration_s": 27.39,
+ "longest_calm_s": 3.32,
  "cover": "ep51_disgust_cover.png",
  "caption": "ok"
 }

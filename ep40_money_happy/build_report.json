@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 27.53,
+  "duration_s": 27.8,
   "size_MiB": 4.2,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
-  "true_peak_dBTP": -2.4,
-  "sha256": "b71b1eeb0c9f40791cb538a714c0d13597470b28ea6958b1179c344f5b4736ff",
+  "true_peak_dBTP": -2.5,
+  "sha256": "6086747cce8c53aa1d721d702152e941c5fd7a0486bc32a711152c5174313cda",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,10 +24,10 @@
  },
  "asr_final_wer": "1/81 = 1.2%",
  "asr_final_issues": [
-  "except: 1/11 | Only the unhappiest group leveled off at around 100,000."
+  "except: 1/11 | only the unhappiest group leveled off at around 100,000."
  ],
- "duration_s": 27.53,
- "longest_calm_s": 3.27,
+ "duration_s": 27.8,
+ "longest_calm_s": 3.32,
  "cover": "ep40_money_happy_cover.png",
  "caption": "ok"
 }

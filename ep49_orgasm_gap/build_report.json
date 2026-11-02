@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 32.8,
-  "size_MiB": 5.1,
+  "duration_s": 33.0,
+  "size_MiB": 5.2,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "b944dcd0a1d3fcb5e8428ecf4d5cad0d54dbf0480e831c17e8700d54cf750639",
+  "sha256": "25968c4d3d8db0d86c4054fb6def5a53a076a0396441ef2f71ce5eae9a855e73",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -26,8 +26,8 @@
  "asr_final_issues": [
   "twist: 2/5 | Less being women, 86%."
  ],
- "duration_s": 32.81,
- "longest_calm_s": 3.6,
+ "duration_s": 33.01,
+ "longest_calm_s": 3.61,
  "cover": "ep49_orgasm_gap_cover.png",
  "caption": "ok"
 }

@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.47,
-  "size_MiB": 5.0,
+  "duration_s": 28.9,
+  "size_MiB": 5.1,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.4,
-  "sha256": "4adf37cef1c53b09f58d5f8ffcc6719838572152c54ca03fac72854413f4b6dc",
+  "true_peak_dBTP": -2.5,
+  "sha256": "4d3174533ffe4905e83e16e4789942b0dc661b6e2eeef90fa6c339d1e8724722",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -26,8 +26,8 @@
  "asr_final_issues": [
   "study: 3/16 | Researchers in Australia asked women, and later over 1200 men, about feelings right after sex."
  ],
- "duration_s": 28.47,
- "longest_calm_s": 2.85,
+ "duration_s": 28.88,
+ "longest_calm_s": 2.91,
  "cover": "ep48_post_sex_blues_cover.png",
  "caption": "ok"
 }
