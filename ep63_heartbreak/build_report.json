@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 30.97,
-  "size_MiB": 3.9,
+  "duration_s": 29.73,
+  "size_MiB": 3.8,
   "black_intervals": [],
   "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.5,
-  "sha256": "2c2b604c1a53616c1e168d608384b7a93a17d873f6ba3bae991eb70e9233e15b",
+  "sha256": "c88a9b34d8bfe9767ee5c304e25400d89255a1407851ed01df36024d71bfff96",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -26,8 +26,8 @@
  "asr_final_issues": [
   "pain: 1/10 | And weight regions tied to physical pain lit up too."
  ],
- "duration_s": 30.95,
- "longest_calm_s": 5.71,
+ "duration_s": 29.72,
+ "longest_calm_s": 5.35,
  "cover": "ep63_heartbreak_cover.png",
  "caption": "ok"
 }

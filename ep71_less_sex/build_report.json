@@ -2,19 +2,20 @@
  "episode": "ep71_less_sex",
  "tts": "new",
  "asr_voice": [
-  "study: 5/19 | A national survey has asked Americans about their sex lives since 1989. Over 26,000 people.",
+  "hook: 1/11 | Think we're wilder than our parents? No, we're having less sex.",
+  "study: 5/19 | A national survey has asked Americans about their sex lives since 1989, over 26,000 people.",
   "result: 3/19 | By the early 2010s, adults had sex about nine times less per year than in the late '90s. [BUZZER]"
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.83,
-  "size_MiB": 3.6,
+  "duration_s": 27.53,
+  "size_MiB": 3.5,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.4,
-  "sha256": "82b9eb555615fd65cd5b3eedab84382661c5645b978dcca7d3d5242fa012770d",
+  "sha256": "32fd4d588695f9672e1c42783ba1d52f1c8a29a5738792b343565fefa7a2724f",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,13 +24,14 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "8/88 = 9.1%",
+ "asr_final_wer": "9/88 = 10.2%",
  "asr_final_issues": [
-  "study: 5/19 | A national survey has asked Americans about their sex lives since 1989. Over 26,000 people.",
+  "hook: 1/11 | Think we're wilder than our parents? No, we're having less sex.",
+  "study: 5/19 | A national survey has asked Americans about their sex lives since 1989, over 26,000 people.",
   "result: 3/19 | By the early 2010s, adults had sex about nine times less per year than in the late '90s."
  ],
- "duration_s": 28.85,
- "longest_calm_s": 3.93,
+ "duration_s": 27.54,
+ "longest_calm_s": 3.77,
  "cover": "ep71_less_sex_cover.png",
  "caption": "ok"
 }

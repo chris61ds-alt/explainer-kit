@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.53,
+  "duration_s": 27.53,
   "size_MiB": 4.2,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.4,
-  "sha256": "7f415083dc4c7338e84d5e833382b0bb048b54f2b7c404970eccd54af2198bf9",
+  "sha256": "b71b1eeb0c9f40791cb538a714c0d13597470b28ea6958b1179c344f5b4736ff",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -26,8 +26,8 @@
  "asr_final_issues": [
   "except: 1/11 | Only the unhappiest group leveled off at around 100,000."
  ],
- "duration_s": 28.52,
- "longest_calm_s": 3.38,
+ "duration_s": 27.53,
+ "longest_calm_s": 3.27,
  "cover": "ep40_money_happy_cover.png",
  "caption": "ok"
 }

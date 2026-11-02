@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 34.13,
-  "size_MiB": 3.8,
+  "duration_s": 33.37,
+  "size_MiB": 3.6,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.4,
-  "sha256": "3197e3f8af48aaa4ec55eabca3dc2bfdfa987316b8f7e184bdf5af52496523a4",
+  "sha256": "7714a97013e505801d41f10778ee7fac3122b105b0dfe1cfd19fd5e91ae3e284",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,8 +22,8 @@
  },
  "asr_final_wer": "0/99 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 34.12,
- "longest_calm_s": 4.33,
+ "duration_s": 33.38,
+ "longest_calm_s": 4.19,
  "cover": "ep67_out_of_league_cover.png",
  "caption": "ok"
 }

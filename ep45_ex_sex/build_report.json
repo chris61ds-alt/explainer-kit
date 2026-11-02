@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 29.83,
-  "size_MiB": 4.7,
+  "duration_s": 29.27,
+  "size_MiB": 4.6,
   "black_intervals": [],
-  "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.3,
-  "sha256": "50d9f0b62a557ae2cfbb14fdc86e32b3d3ae7ab861da7c0e4e2dea2612219112",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.5,
+  "sha256": "b22b6f2bb886342bd91735d29d925c5870f48c8b1da6192923d3eccdff9dc655",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,12 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/100 = 1.0%",
+ "asr_final_wer": "1/101 = 1.0%",
  "asr_final_issues": [
   "quote: 1/13 | As the lead researcher put it, the hand-ringing may not be warranted."
  ],
- "duration_s": 29.85,
- "longest_calm_s": 4.86,
+ "duration_s": 29.25,
+ "longest_calm_s": 4.47,
  "cover": "ep45_ex_sex_cover.png",
  "caption": "ok"
 }

@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 22.83,
+  "duration_s": 22.13,
   "size_MiB": 3.5,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.5,
-  "sha256": "cbbc51b121b76ce586beabd5960491be4a4d799ceddccc0579a9f9220750f4d3",
+  "true_peak_dBTP": -2.2,
+  "sha256": "ed998375c15a380f8dac53c5a218b097030caa4d279704711a4786e7da12b35a",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,8 +22,8 @@
  },
  "asr_final_wer": "0/67 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 22.83,
- "longest_calm_s": 3.51,
+ "duration_s": 22.15,
+ "longest_calm_s": 3.33,
  "cover": "ep57_mixed_signals_cover.png",
  "caption": "ok"
 }
