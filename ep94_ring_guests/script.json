@@ -1,0 +1,51 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Okay, quick guess! Big wedding or small wedding: which one lasts longer?",
+   "screen": [
+    "BIG WEDDING",
+    "OR SMALL:",
+    "WHICH LASTS?"
+   ],
+   "speed": 1.17
+  },
+  {
+   "id": "hook",
+   "text": "Plot twist: big wins! But only if it's big in the right way.",
+   "speed": 1.15
+  },
+  {
+   "id": "guests",
+   "text": "In the same survey, the more guests came, the lower the divorce risk. Up to about two hundred people!"
+  },
+  {
+   "id": "ring",
+   "text": "But the ring? Men who spent two to four thousand dollars had one point three times the divorce risk. Compared to five hundred to two thousand. And the honeymoon?",
+   "tease": "And the honeymoon?",
+   "show": "THE HONEYMOON: NEXT"
+  },
+  {
+   "id": "honey",
+   "text": "Couples who took one were less likely to divorce!"
+  },
+  {
+   "id": "point",
+   "text": "So spend less on the ring. And invite more people!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Francis-Tan & Mialon (2015), \"'A Diamond is Forever' and Other Fairy Tales: The Relationship between Wedding Expenses and Marriage Duration\", Economic Inquiry (working paper 2014, Emory University). Online survey of ~3,000+ ever-married US adults (KSL: 3,370). Correlational (hazard of divorce).",
+  "Divorce hazard decreases steadily as wedding attendance rises up to ~200 guests, slight uptick above. Men: ring $2,000-4,000 -> 1.3x hazard vs $500-2,000. Couples who had a honeymoon: significantly lower hazard. Via Aleteia (2015), KSL (2014)."
+ ],
+ "ask": "PART 3 TOMORROW: THE AGE GAP",
+ "guess_prompt": "Big or small?"
+}

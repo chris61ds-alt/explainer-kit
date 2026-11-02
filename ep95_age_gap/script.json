@@ -1,0 +1,57 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Be honest: how many years are there between you and your partner?",
+   "screen": [
+    "HOW MANY",
+    "YEARS BETWEEN",
+    "YOU AND YOUR",
+    "PARTNER?"
+   ],
+   "speed": 1.15
+  },
+  {
+   "id": "hook",
+   "text": "Because the bigger the gap, the bigger the divorce risk!",
+   "speed": 1.15
+  },
+  {
+   "id": "study",
+   "text": "Same survey, over three thousand married Americans. Compared to couples the same age:"
+  },
+  {
+   "id": "one",
+   "text": "One year apart? Three percent more likely to divorce."
+  },
+  {
+   "id": "five",
+   "text": "Five years? Eighteen percent! And ten years?",
+   "tease": "And ten years?",
+   "show": "TEN YEARS: NEXT"
+  },
+  {
+   "id": "ten",
+   "text": "Thirty-nine percent!"
+  },
+  {
+   "id": "point",
+   "text": "So love has no age. But statistics do!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Francis-Tan & Mialon (2015), \"'A Diamond is Forever' and Other Fairy Tales: The Relationship between Wedding Expenses and Marriage Duration\", Economic Inquiry (working paper 2014, Emory University). Online survey of ~3,000+ ever-married US adults (KSL: 3,370). Correlational (hazard of divorce).",
+  "Age difference vs same-aged couples: 1 year -> ~3% more likely to divorce; 5 years -> ~18%; 10 years -> ~39%. Via Megan Garber, The Atlantic (2014), as reported by Great Bend Tribune."
+ ],
+ "ask": "WHAT'S YOUR AGE GAP? COMMENT.",
+ "guess_prompt": "Your number?",
+ "guess_label": "BE HONEST"
+}

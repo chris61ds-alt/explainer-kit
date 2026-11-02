@@ -1,0 +1,50 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "claim",
+   "text": "The more you spend on your wedding, the more likely the divorce. Seriously!",
+   "screen": [
+    "BIG WEDDING,",
+    "BIGGER",
+    "DIVORCE RISK."
+   ],
+   "stamp": "WEDDING MATH 1/3",
+   "speed": 1.12
+  },
+  {
+   "id": "study",
+   "text": "Two economists surveyed over three thousand Americans who'd been married. How much did your wedding cost? And did it last?"
+  },
+  {
+   "id": "women",
+   "text": "Women who spent over twenty thousand dollars? One point six times the divorce risk! Compared to five to ten thousand. And the cheapest weddings?",
+   "tease": "And the cheapest weddings?",
+   "show": "THE CHEAPEST: NEXT"
+  },
+  {
+   "id": "men",
+   "text": "Men who spent under a thousand dollars had about half the risk!"
+  },
+  {
+   "id": "why",
+   "text": "Why? Nobody knows for sure. The researchers' guess: debt. And money stress is relationship stress."
+  },
+  {
+   "id": "point",
+   "text": "So the party ends. But the bill doesn't!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Francis-Tan & Mialon (2015), \"'A Diamond is Forever' and Other Fairy Tales: The Relationship between Wedding Expenses and Marriage Duration\", Economic Inquiry (working paper 2014, Emory University). Online survey of ~3,000+ ever-married US adults (KSL: 3,370). Correlational (hazard of divorce).",
+  "Women: wedding > $20,000 -> 1.6x hazard of divorce vs $5,000-10,000 (3.5x in recently married subsample). Men: wedding < $1,000 -> hazard 0.49 (about half). Via Aleteia (2015), KSL (2014), PBS NewsHour (2015)."
+ ],
+ "ask": "PART 2 TOMORROW: THE RING"
+}
