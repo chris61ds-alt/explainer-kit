@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 24.77,
+  "duration_s": 24.83,
   "size_MiB": 3.7,
   "black_intervals": [],
-  "loudness_LUFS": -16.4,
+  "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.5,
-  "sha256": "8698366ed5baf15f0a86466cc6f423f348af087ed96ac22453e8ef34846837fe",
+  "sha256": "5347e204149010d68b54d70e5492a7e35ed6d48d3d3516db0fd3b9ba679986ba",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,9 +20,9 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/77 = 0.0%",
+ "asr_final_wer": "0/78 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 24.76,
+ "duration_s": 24.85,
  "longest_calm_s": 4.25,
  "cover": "ep56_revenge_cover.png",
  "caption": "ok"

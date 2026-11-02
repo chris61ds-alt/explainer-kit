@@ -9,12 +9,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.3,
-  "size_MiB": 3.5,
+  "duration_s": 28.83,
+  "size_MiB": 3.6,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.5,
-  "sha256": "89ede26bdfac9502c757ed5cb56f139dcff524d3e364135818ae33726516032a",
+  "true_peak_dBTP": -2.4,
+  "sha256": "82b9eb555615fd65cd5b3eedab84382661c5645b978dcca7d3d5242fa012770d",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,13 +23,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "8/86 = 9.3%",
+ "asr_final_wer": "8/88 = 9.1%",
  "asr_final_issues": [
   "study: 5/19 | A national survey has asked Americans about their sex lives since 1989. Over 26,000 people.",
-  "result: 3/19 | By the early 2010s, adults had sex about nine times less per year than in the late 90s."
+  "result: 3/19 | By the early 2010s, adults had sex about nine times less per year than in the late '90s."
  ],
- "duration_s": 28.3,
- "longest_calm_s": 3.94,
+ "duration_s": 28.85,
+ "longest_calm_s": 3.93,
  "cover": "ep71_less_sex_cover.png",
  "caption": "ok"
 }
