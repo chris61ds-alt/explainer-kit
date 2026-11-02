@@ -109,7 +109,7 @@ function render(){
       </div></div>
       <div class="acts"><a class="btn p" href="${BASE+id(e)}.mp4" target="_blank" rel="noopener">Video öffnen</a>
         <button class="btn" data-copy>Caption kopieren</button>
-        <a class="btn" href="${BASE+id(e)}.jpg" target="_blank" rel="noopener">Cover</a>${e.nomusic? `<a class="btn" href="${BASE+id(e)}_nomusic.mp4" target="_blank" rel="noopener" title="Stimme + Effekte, für einen Trend-Sound in der App">Ohne Musik</a>`:''}</div>
+        <a class="btn" href="${BASE+id(e)}.jpg" target="_blank" rel="noopener">Cover</a></div>
       <details><summary>Caption anzeigen</summary><pre></pre></details></div>`;
     el.querySelector('.t').textContent = e.title;
     el.querySelector('pre').textContent = e.caption;
