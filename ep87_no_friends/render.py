@@ -18,6 +18,15 @@ def dot_xy(i, box=FIELD, cell=30):
     x0, y0, x1, y1 = box; cols = len(range(int(x0), int(x1), cell)); r, c = divmod(i, cols)
     return x0 + c * cell, y0 + r * cell
 
+def sc_claim(img, d, t):                                # toolkit statement opener + "Zero!" underlines the zero
+    EP.claim_scene(img, d, t)
+    tz = cue("claim", "Zero!") - .1
+    if t >= tz:
+        lines = TL.screen["claim"]
+        size = int(min(170, 600 / (len(lines) * 1.05), *(840 / max(1, d.textlength(l, font=F(BLK, 100))) * 100 for l in lines)))
+        y = 330 + int(size * 1.05) + int(size * .98); w = d.textlength("ZERO", font=F(BLK, size))
+        d.line([X0 - 8, y, X0 - 8 + (w + 10) * ease((t - tz) / .25), y], fill=SIG, width=12)
+
 def sc_study(img, d, t):
     t0 = S("study")
     counter(d, X0, 320, t, t0 + .1, .8, 2019, "{:,.0f}", 230, INK)
@@ -78,8 +87,8 @@ def sc_point(img, d, t):
 _dx, _dy = dot_xy(45)
 EP.carry = {"zero": [((_dx - 8, _dy - 8, _dx + 8, _dy + 8), (X0, 675, X0 + 132, 815))]}
 
-EP.scenes = {"study": sc_study, "zero": sc_zero, "six": sc_six, "support": sc_support, "point": sc_point}
-FX = [(0.0, thud(.5), 0), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0),
+EP.scenes = {"claim": sc_claim, "study": sc_study, "zero": sc_zero, "six": sc_six, "support": sc_support, "point": sc_point}
+FX = [(0.0, thud(.5), 0), (cue("claim", "Zero!") - .1, pop(.15), 0), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0),
       (S("zero") + .2, pop(.12), 0), (S("zero") + .6, thud(.5), 0), (cue("zero", "five times") - .1, pop(.15), .3),
       (S("six") + .2, pop(.12), -.2), (cue("six", "twenty-seven") - .2, thud(.45), 0),
       (S("support") + .7, pop(.12), -.3), (cue("support", "emotional support") - .1, whoosh(.3, .05), 0), (cue("study", "close friends") - .1, pop(.12), 0), (cue("support", "Men?") - .1, thud(.45), .3),

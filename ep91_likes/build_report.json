@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.0,
-  "size_MiB": 3.2,
+  "duration_s": 28.83,
+  "size_MiB": 3.3,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.4,
-  "sha256": "175f5d8cdd508181cc1b6f8418fb61881da6194572d1a8813f6e5e867d074a43",
+  "true_peak_dBTP": -2.5,
+  "sha256": "b0edf27978b7154e9c782d552f703d57495e57ef942087ad4b5e2123ca774fd8",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,13 +20,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "2/85 = 2.4%",
+ "asr_final_wer": "3/88 = 3.4%",
  "asr_final_issues": [
-  "study: 1/19 | MuCLA researchers showed 32 teens an Instagram-style feed inside a brain scanner. But there was a trick.",
-  "brain: 1/12 | and the Brain's Rewards Center lit up more for the popular ones."
+  "study: 2/19 | new CLA researchers showed 32 teens an Instagram-style feed inside a brain scanner. But there was a trick.",
+  "trick: 1/17 | For likes were fake, the researchers set them. Same photo, lots of likes or just a few."
  ],
- "duration_s": 28.01,
- "longest_calm_s": 2.78,
+ "duration_s": 28.85,
+ "longest_calm_s": 3.08,
  "cover": "ep91_likes_cover.png",
  "caption": "ok"
 }

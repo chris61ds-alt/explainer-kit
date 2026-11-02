@@ -64,13 +64,15 @@ YOU = LEAVES[7]
 
 def sc_why(img, d, t):
     t0, tm = S("why"), cue("why", "Including yours") - .2
-    d.text((X0, 320), "IT'S MATH.", font=F(BLK, 150), fill=INK)
+    tm0 = cue("why", "it's math") - .1
+    if t >= tm0: d.text((X0 - (1 - ease((t - tm0) / .25)) * 50, 320), "IT'S MATH.", font=F(BLK, 150), fill=mix(BG, INK, ease((t - tm0) / .25)))
     d.text((X0 + 4, 490), "popular accounts are in everyone's network", font=F(COND, 40), fill=INK)
     k = clamp((t - t0 - .4) / 1.0)
     for i, (x, y) in enumerate(LEAVES):
         if i / len(LEAVES) > k: continue
         d.line([HUB, (x, y)], fill=MID, width=3)
-        r = 16; d.ellipse([x - r, y - r, x + r, y + r], fill=MID if (x, y) != YOU else (SIG if t >= tm else INK))
+        tt_ = cue("why", "tons of people") - .1; lit = t >= tt_ and (x, y) != YOU
+        r = 16 + (4 if lit else 0); d.ellipse([x - r, y - r, x + r, y + r], fill=(INK if lit else MID) if (x, y) != YOU else (SIG if t >= tm else INK))
     d.ellipse([HUB[0] - 64, HUB[1] - 64, HUB[0] + 64, HUB[1] + 64], fill=INK)
     ts = cue("why", "So they show up") - .1
     if t >= ts:
@@ -94,6 +96,6 @@ EP.scenes = {"hook": sc_hook, "study": sc_study, "result": sc_result, "active": 
 FX = [(0.0, thud(.5), 0), (cue("hook", "They are more") - .15, pop(.15), .3), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0),
       (cue("study", "four hundred") - .2, pop(.12), .2), (S("result") + .4, thud(.5), 0), (S("active") + .1, thud(.45), 0),
       *[(S("active") + .25 + i * .09, tick(.03), (i % 5 - 2) / 3) for i in range(11)],
-      *[(S("why") + .4 + i / 11, tick(.035), (i % 5 - 2) / 3) for i in range(11)], (cue("why", "So they show up") - .1, pop(.14), 0),
+      *[(S("why") + .4 + i / 11, tick(.035), (i % 5 - 2) / 3) for i in range(11)], (cue("why", "So they show up") - .1, pop(.14), 0), (cue("why", "it's math") - .1, thud(.4), 0), (cue("why", "tons of people") - .1, pop(.13), 0),
       (cue("why", "Including yours") - .2, pop(.15), .3), (cue("point", "Your feed") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
 if __name__ == "__main__": EP.run(FX)

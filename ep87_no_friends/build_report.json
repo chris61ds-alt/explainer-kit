@@ -1,19 +1,19 @@
 {
  "episode": "ep87_no_friends",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
-  "claim: 5/14 | 15% of men have zero close friends. Back in 1990, 3%."
+  "claim: 5/16 | 15% of men have zero close friends. Zero, back in 1990, just 3%."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 30.07,
-  "size_MiB": 3.6,
+  "duration_s": 33.27,
+  "size_MiB": 3.7,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "364d06f5c23039512e5ec0502b9742f96d404a1332c3cfdc8623506c1b4bc521",
+  "sha256": "ea788ba263621cd6e7f771f22abc14cadc55513d1db9032339cabd16d599e0d5",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,13 +22,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "6/86 = 7.0%",
+ "asr_final_wer": "6/95 = 6.3%",
  "asr_final_issues": [
-  "claim: 5/14 | 15% of men have zero close friends. Back in 1990, 3%.",
-  "six: 1/15 | Men with six or more close friends dropped from 55% to 27%."
+  "claim: 5/16 | 15% of men have zero close friends. Zero, back in 1990, just 3%.",
+  "six: 1/17 | Men with six or more close friends, that dropped from 55% to just 27%."
  ],
- "duration_s": 30.05,
- "longest_calm_s": 2.92,
+ "duration_s": 33.28,
+ "longest_calm_s": 2.72,
  "cover": "ep87_no_friends_cover.png",
  "caption": "ok"
 }

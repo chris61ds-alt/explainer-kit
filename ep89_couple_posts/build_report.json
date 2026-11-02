@@ -1,17 +1,17 @@
 {
  "episode": "ep89_couple_posts",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 32.77,
-  "size_MiB": 3.3,
+  "duration_s": 33.97,
+  "size_MiB": 3.6,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "edcb6614f81e9a8d8a21475bf93244534897df6c01ff8809d9790da256b025dd",
+  "sha256": "31f8bb1b93cba91917a0da482d8a2c536ab3b33c704f21f8a7aedc86bfbc1989",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,12 +20,10 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/89 = 1.1%",
- "asr_final_issues": [
-  "result: 1/20 | On day's people felt more insecure about their relationship, they posted more about it, and who wants it most visible."
- ],
- "duration_s": 32.75,
- "longest_calm_s": 3.1,
+ "asr_final_wer": "0/93 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 33.95,
+ "longest_calm_s": 2.89,
  "cover": "ep89_couple_posts_cover.png",
  "caption": "ok"
 }

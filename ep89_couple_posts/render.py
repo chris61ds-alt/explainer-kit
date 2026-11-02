@@ -50,7 +50,7 @@ def sc_result(img, d, t):
     for i, (x, y) in enumerate(DAYS):
         v = INSEC[i]; hi = v > .7
         d.rectangle([x, y, x + 100, y + 100], outline=INK, width=4)
-        r = 12 + 30 * v; d.ellipse([x + 50 - r, y + 50 - r, x + 50 + r, y + 50 + r], fill=INK if hi else MID)
+        r = (12 + 30 * v) * ease((t - t0 - .3 - i * .25) / .2); d.ellipse([x + 50 - r, y + 50 - r, x + 50 + r, y + 50 + r], fill=INK if hi else MID)
         k = ease((t - tw - i * .05) / .4) if t >= tw else 0
         for j in range(int(1 + 4 * v)):
             if j / 4 > k: break
@@ -92,7 +92,7 @@ EP.carry = {"result": [((DAYS[4][0], DAYS[4][1], DAYS[4][0] + 100, DAYS[4][1] + 
 EP.scenes = {"claim": sc_claim, "study": sc_study, "result": sc_result, "anxious": sc_anxious, "avoid": sc_avoid, "point": sc_point}
 FX = [(0.0, thud(.5), 0), *EP.cut_fx(), (S("study") + .1, pop(.12), 0),
       *[(cue("study", "day by day") - .3 + i * .12, tick(.04), (i - 3) / 4) for i in range(7)],
-      (cue("result", "they posted more") - .2, thud(.5), 0), (S("anxious") + .05, thud(.45), 0), (cue("study", "on Facebook") - .1, pop(.12), 0),
+      (cue("result", "they posted more") - .2, thud(.5), 0), *[(S("result") + .3 + i * .25, tick(.05), (i - 3) / 4) for i in range(7)], (S("anxious") + .05, thud(.45), 0), (cue("study", "on Facebook") - .1, pop(.12), 0),
       *[(S("anxious") + .3 + i * .25, pop(.1), (.3 if i % 2 else -.3)) for i in range(4)], (cue("anxious", "worry") - .1, tick(.05), 0),
       (cue("avoid", "No couple photo") - .2, pop(.12), .2), (cue("avoid", "No couple photo") + .4, pop(.12), .2),
       (cue("point", "Sometimes") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]

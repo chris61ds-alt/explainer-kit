@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 29.53,
-  "size_MiB": 3.5,
+  "duration_s": 30.0,
+  "size_MiB": 3.6,
   "black_intervals": [],
-  "loudness_LUFS": -16.1,
+  "loudness_LUFS": -16.0,
   "true_peak_dBTP": -2.5,
-  "sha256": "536167796e5353c8f731691abb0981d00af7cf0343a1d005fa81885078be8c52",
+  "sha256": "7a2ce1017d73fab3034454c87a254c497407a3ad5fd832f32fc73d0b1cb05d4f",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,11 +22,11 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "7/85 = 8.2%",
+ "asr_final_wer": "7/86 = 8.1%",
  "asr_final_issues": [
   "friends: 7/21 | In 1995, friends were the top matchmaker, 33 percent. By 2017, just 20, so who took over?"
  ],
- "duration_s": 29.53,
+ "duration_s": 30.01,
  "longest_calm_s": 3.07,
  "cover": "ep90_met_online_cover.png",
  "caption": "ok"
