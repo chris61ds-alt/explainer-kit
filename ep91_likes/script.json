@@ -5,12 +5,13 @@
  "beats": [
   {
    "id": "claim",
-   "text": "Likes change what you like. And your brain can't help it.",
+   "text": "Likes change what you like! And your brain can't help it.",
    "screen": [
     "LIKES",
     "CHANGE WHAT",
     "YOU LIKE."
-   ]
+   ],
+   "speed": 1.12
   },
   {
    "id": "study",
@@ -20,19 +21,19 @@
   },
   {
    "id": "trick",
-   "text": "The researchers set the likes themselves. Same photo, lots of likes or just a few."
+   "text": "The likes were fake! The researchers set them. Same photo, lots of likes or just a few."
   },
   {
    "id": "result",
-   "text": "With lots of likes, teens were more likely to like it too. Even their own photos."
+   "text": "With lots of likes, teens were more likely to like it too. Even their own photos!"
   },
   {
    "id": "brain",
-   "text": "And the brain's reward center lit up more for the popular ones."
+   "text": "And their brain's reward center? It lit up more for the popular ones."
   },
   {
    "id": "point",
-   "text": "So you don't just like what's good. You like what's already liked."
+   "text": "So you don't just like what's good. You like what's already liked!"
   },
   {
    "id": "end",

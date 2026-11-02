@@ -5,16 +5,18 @@
  "beats": [
   {
    "id": "guess",
-   "text": "Quick, guess: how do most couples meet today?",
+   "text": "Okay, quick guess! How do most couples meet today?",
    "screen": [
     "HOW DO",
     "MOST COUPLES",
     "MEET TODAY?"
-   ]
+   ],
+   "speed": 1.17
   },
   {
    "id": "hook",
-   "text": "Meeting through friends? That's not how most couples start anymore."
+   "text": "Through friends? Nope! That's not how most couples start anymore.",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -28,11 +30,11 @@
   },
   {
    "id": "online",
-   "text": "The internet. From two percent to thirty-nine. Now the most common way couples meet."
+   "text": "The internet! From two percent to thirty-nine. Now the most common way couples meet."
   },
   {
    "id": "point",
-   "text": "So if you met your partner on an app, you're not the weird story. You're the normal one."
+   "text": "So if you met your partner on an app? You're not the weird story. You're the normal one!"
   },
   {
    "id": "end",

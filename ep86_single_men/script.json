@@ -5,16 +5,18 @@
  "beats": [
   {
    "id": "guess",
-   "text": "Quick, guess: under thirty, who's more likely to be single? Men or women?",
+   "text": "Okay, quick guess! Under thirty, who's more likely to be single? Men or women?",
    "screen": [
     "UNDER 30:",
     "WHO'S MORE",
     "SINGLE?"
-   ]
+   ],
+   "speed": 1.17
   },
   {
    "id": "hook",
-   "text": "Most young men are single. Most young women are not."
+   "text": "Here's the wild part. Most young men are single! Most young women? Not.",
+   "speed": 1.15
   },
   {
    "id": "study",
@@ -22,21 +24,22 @@
   },
   {
    "id": "men",
-   "text": "Under thirty, sixty-three percent of men said they're single. And the women? About half that.",
+   "text": "Under thirty, sixty-three percent of men are single! And the women? Not even close.",
    "tease": "And the women?",
-   "show": "THE WOMEN: NEXT"
+   "show": "THE WOMEN: NEXT",
+   "speed": 1.13
   },
   {
    "id": "women",
-   "text": "Thirty-four percent."
+   "text": "Just thirty-four percent."
   },
   {
    "id": "looking",
-   "text": "And among singles of all ages, half of the men are looking for someone. Only thirty-five percent of the women."
+   "text": "And it gets better. Among singles of all ages, half the men are looking. Only thirty-five percent of the women!"
   },
   {
    "id": "point",
-   "text": "So if you're young, male and single, you're not behind. You're the majority."
+   "text": "So if you're young, male and single? You're not behind. You're the majority!"
   },
   {
    "id": "end",

@@ -5,13 +5,14 @@
  "beats": [
   {
    "id": "claim",
-   "text": "The couples who post the most aren't always the happiest.",
+   "text": "The couples who post the most? Not always the happiest.",
    "screen": [
     "COUPLES WHO",
     "POST THE MOST:",
     "NOT ALWAYS",
     "THE HAPPIEST."
-   ]
+   ],
+   "speed": 1.12
   },
   {
    "id": "study",
@@ -19,8 +20,8 @@
   },
   {
    "id": "result",
-   "text": "On days people felt more insecure about their relationship, they posted more about it. And who wants it most visible?",
-   "tease": "And who wants",
+   "text": "And get this: on days people felt more insecure about their relationship, they posted more about it! So who wants it most visible?",
+   "tease": "So who wants",
    "show": "WHO POSTS MOST: NEXT"
   },
   {
@@ -29,7 +30,7 @@
   },
   {
    "id": "avoid",
-   "text": "Avoidant people did the opposite. No couple photo, no relationship status."
+   "text": "And avoidant people? The total opposite. No couple photo, no relationship status."
   },
   {
    "id": "point",

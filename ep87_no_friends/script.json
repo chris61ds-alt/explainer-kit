@@ -5,13 +5,14 @@
  "beats": [
   {
    "id": "claim",
-   "text": "Fifteen percent of men have zero close friends. Back in nineteen ninety? Three percent.",
+   "text": "Fifteen percent of men have zero close friends. Zero! Back in nineteen ninety? Just three percent.",
    "screen": [
     "15 % OF MEN:",
     "ZERO CLOSE",
     "FRIENDS."
    ],
-   "stamp": "1990: 3 %"
+   "stamp": "1990: 3 %",
+   "speed": 1.12
   },
   {
    "id": "study",
@@ -19,21 +20,22 @@
   },
   {
    "id": "zero",
-   "text": "That's five times as many men with nobody. And it's not just the zeros.",
-   "tease": "And it's not just",
-   "show": "THERE'S MORE: NEXT"
+   "text": "That's five times as many guys with nobody. And wait, it's not just the zeros.",
+   "tease": "And wait, it's not just",
+   "show": "THERE'S MORE: NEXT",
+   "speed": 1.13
   },
   {
    "id": "six",
-   "text": "Men with six or more close friends dropped from fifty-five percent to twenty-seven."
+   "text": "Men with six or more close friends? That dropped from fifty-five percent to just twenty-seven."
   },
   {
    "id": "support",
-   "text": "And last week, forty-one percent of women got emotional support from a friend. Men? Twenty-one."
+   "text": "And here's the kicker. Last week, forty-one percent of women got emotional support from a friend. Men? Only twenty-one."
   },
   {
    "id": "point",
-   "text": "So if your circle got smaller, you're not the exception. You're the trend."
+   "text": "So if your circle got smaller? You're not the exception. You're the trend!"
   },
   {
    "id": "end",
