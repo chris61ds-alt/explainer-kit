@@ -1,5 +1,5 @@
 {
- "voice": "af_heart",
+ "voice": "af_heart:0.5+af_bella:0.5",
  "speed": 1.1,
  "lang": "en-us",
  "beats": [
