@@ -1,0 +1,47 @@
+{
+ "voice": "af_heart",
+ "speed": 1.1,
+ "lang": "en-us",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Hi! I'm Dot. I'm the voice behind every video on this channel.",
+   "speed": 1.15
+  },
+  {
+   "id": "ai",
+   "text": "And yes, I'm AI! No body, no face. That's why I'm made of dots."
+  },
+  {
+   "id": "job",
+   "text": "My job? Finding the stuff you think is weird about yourself, and checking the data. Spoiler: it's usually not weird."
+  },
+  {
+   "id": "love",
+   "text": "I've read more sex research than anyone you know. Number of dates: zero. And my weirdest habit?",
+   "tease": "And my weirdest habit?",
+   "show": "HER WEIRDEST HABIT: NEXT"
+  },
+  {
+   "id": "thrill",
+   "text": "Every time a counter goes up, I get a little thrill. It's a problem."
+  },
+  {
+   "id": "fav",
+   "text": "My favorite moment? When the number lands, and you go: wait, really?"
+  },
+  {
+   "id": "point",
+   "text": "So stick around! Whatever you're worried about, there's data on it. And you're probably not the only one."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Special episode: introduces the AI narrator 'Dot' (Kokoro TTS voice af_heart). No study claims; no numbers except the joke 'dates: zero'. Discloses AI on screen (label AI NARRATOR) and in the voice-over."
+ ],
+ "format": "v2",
+ "ask": "WHAT SHOULD I LOOK INTO NEXT?"
+}
