@@ -55,8 +55,8 @@ class Timeline:
         self.screen = {k: b["screen"] for k, b in sb.items() if b.get("screen")}
         gaps = dict(gaps or {})
         if self.pace == "tight":
-            lead, default_gap = min(lead, .05), min(default_gap, .25)
-            gaps = {k: (v if k == "end" else min(v, .3)) for k, v in gaps.items()}
+            lead, default_gap = min(lead, .05), .34                    # 02.11.2026: more air between thoughts (pauses inside a beat are capped in tts.py)
+            gaps = {k: (v if k == "end" else min(max(v, .34), .4)) for k, v in gaps.items()}
             gaps.setdefault("guess", .45); gaps.setdefault("claim", .4)
         meta = json.load(open(os.path.join(ep_dir, "vo", "meta.json")))
         self.meta = [m for m in meta if not (self.end_mode == "hard" and m["id"] == "end")]

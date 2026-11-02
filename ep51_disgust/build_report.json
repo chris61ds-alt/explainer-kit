@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 27.63,
-  "size_MiB": 4.2,
+  "duration_s": 28.13,
+  "size_MiB": 4.3,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.6,
-  "sha256": "fff468edb5e85c420c15f20eca9c8c3602c55b82a03ee4c43a25f811962bb6af",
+  "sha256": "215e19f6df5467a7bce48a1d89cceba98c9b5786e08a696bd4f5dbaab0211452",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,11 +20,11 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/87 = 1.1%",
+ "asr_final_wer": "1/88 = 1.1%",
  "asr_final_issues": [
   "study: 1/14 | 90 women watch one of three films, Erotica, extreme sports, or a train ride."
  ],
- "duration_s": 27.62,
+ "duration_s": 28.12,
  "longest_calm_s": 3.42,
  "cover": "ep51_disgust_cover.png",
  "caption": "ok"

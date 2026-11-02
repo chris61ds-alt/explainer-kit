@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 19.5,
-  "size_MiB": 3.4,
+  "duration_s": 20.83,
+  "size_MiB": 3.5,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
-  "true_peak_dBTP": -2.5,
-  "sha256": "8a832d57b9e6c122e6b10ec03df48e408b481a0b400dd69b9b07fc0d61915d8d",
+  "true_peak_dBTP": -2.4,
+  "sha256": "a06192f3c624db5aa219cf8dda70557fbc577e29189285593bedadbc156ce991",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,12 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "2/59 = 3.4%",
+ "asr_final_wer": "1/63 = 1.6%",
  "asr_final_issues": [
-  "result: 2/11 | In 9/10, at least one stranger stepped in."
+  "result: 1/11 | In 9 of 10, at least one stranger stepped in."
  ],
- "duration_s": 19.49,
- "longest_calm_s": 2.69,
+ "duration_s": 20.83,
+ "longest_calm_s": 3.79,
  "cover": "ep55_bystanders_cover.png",
  "caption": "ok"
 }

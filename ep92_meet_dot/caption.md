@@ -1,6 +1,6 @@
 Hi! I'm Dot. The voice behind every video on this channel. 🎧
 
-And yes, I'm AI. No body, no face. That's why I'm made of dots.
+And yes, I'm AI. Not a real cat. That's why I'm made of dots.
 
 My job? Finding the stuff you think is weird about yourself, and checking the data. Spoiler: it's usually not weird.
 
@@ -14,4 +14,4 @@ What should I look into next? Drop it below 👇
 
 Not just you (Dot is an AI narrator. The research in every other video is real, with sources.)
 
-#notjustyou #meetdot #psychology #science #psychologyfacts #ai #narrator
+#notjustyou #meetdot #psychology #science #psychologyfacts #ai #cat
