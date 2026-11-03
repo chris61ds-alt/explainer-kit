@@ -1,6 +1,6 @@
 {
  "episode": "ep93_wedding_cost",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "women: 1/24 | Women who spent over $20,000, 1.6 times the divorce risk, compared to 5 to 10,000 and the cheapest weddings.",
   "men: 1/12 | Men who spent under $1,000 had about half the risk.",
@@ -11,11 +11,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 31.77,
-  "size_MiB": 3.5,
+  "size_MiB": 4.5,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "e2aa9f8290e7d74e315d9121c6499d7ba96ea5942381eb5489b6580eac32a674",
+  "sha256": "e92f8b73be77e82c2e7ac28ba6d08efa12bf436f3e4912cac8c1be22f71933af",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -26,7 +26,7 @@
  },
  "asr_final_wer": "3/92 = 3.3%",
  "asr_final_issues": [
-  "women: 1/24 | Women who spent over $20,000, 1.6 times the divorce risk, compared to 5 to 10,000 and the cheapest weddings.",
+  "women: 1/24 | Women who spent over $20,000, 1.6 times the divorce risk, compared to 5 to 10,000, and the cheapest weddings.",
   "men: 1/12 | Men who spent under $1,000 had about half the risk.",
   "why: 1/15 | Why nobody knows for sure. The researchers guess, debt, and money stress is relationship stress."
  ],

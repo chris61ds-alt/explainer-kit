@@ -18,6 +18,19 @@ from PIL import Image, ImageDraw
 THREAD_Y = 860                     # every scene's thread enters (x < 0) and leaves (x > W) at this height
 LX, RX = -20, W + 20
 
+# ---------------------------------------------------------------- scene backgrounds (03.11.2026, from No. 93)
+# "orange" = full-screen orange on every reveal slide (scene after a re-hook): ink → black, the answer (orange) → white
+# "light"  = soft light-grey paper (no inversion, toned down so it doesn't flash at night), default for a scene named "study"
+def _inv(a):                                          # darken() without its black lift – an involution
+    return a + 255 - a.max(axis=2, keepdims=True) - a.min(axis=2, keepdims=True)
+_SIGF, _BLKF, _WHTF = np.array(SIG, np.float32), np.array([14, 14, 14], np.float32), np.array([255, 255, 255], np.float32)
+def bg_map(L, mode):
+    """light-domain pixels → light-domain pixels that the global darken() turns into the given background mode"""
+    if mode == "light": return _inv(L * .9)
+    D = _inv(L); s = np.clip((D.max(axis=2, keepdims=True) - 15) / 225, 0, 1) ** .6
+    sig = ((D[..., 0] > 170) & (D[..., 1] < 150) & (D[..., 2] < 100))[..., None] * s
+    return _inv(_SIGF * (1 - s) + _BLKF * (s - sig) + _WHTF * sig)
+
 # ---------------------------------------------------------------- geometry
 def spline(pts, n=12):
     """Catmull-Rom through pts (list of (x, y)); returns dense point list"""
@@ -147,6 +160,38 @@ class ThreadEpisode(Episode):
         # in the new one while the rest whips past; cuts: {dest_scene: "stay"} = no whip, the new scene animates on the spot
         self.carry, self.cuts, self.carry_dur = {}, {}, .5
         self.focus = {}                                  # look v6: {scene: (x, y)} – the slow camera push heads for this point
+        env = os.environ.get("NJY_BGS")                  # scene backgrounds: default on from No. 93 (NJY_BGS=0/1 overrides)
+        self.bgs = (env == "1") if env in ("0", "1") else self.no >= 93
+        self.bg, self._pbgc = None, {}                   # bg: {scene: "dark"|"orange"|"light"} overrides the automatic choice
+
+    def bg_of(self, key):
+        if key == "end" or not self.bgs: return "dark"
+        if self.bg is not None and key in self.bg: return self.bg[key]
+        o = self.order; rev = {o[o.index(k) + 1] for k in self.TL.tease if k in o and o.index(k) + 1 < len(o)}
+        return "orange" if key in rev else ("light" if key == "study" else "dark")
+
+    def _pbg(self, key):                                 # a scene's background colour as stored before the global darken()
+        m = self.bg_of(key)
+        if m not in self._pbgc: self._pbgc[m] = BG if m == "dark" else tuple(int(v) for v in np.clip(bg_map(np.array([[BG]], np.float32), m)[0, 0], 0, 255))
+        return self._pbgc[m]
+
+    def _mapped(self, img, key):
+        m = self.bg_of(key)
+        if m != "dark": img.paste(Image.fromarray(np.clip(bg_map(np.asarray(img).astype(np.float32), m), 0, 255).astype(np.uint8)))
+
+    def draw(self, img, d, t):
+        self.scenes.setdefault("guess", self.guess_scene); self.scenes.setdefault("claim", self.claim_scene)
+        self._draw(img, d, t)
+        cur = self.current(t); i = self.order.index(cur); m1 = self.bg_of(cur); m0 = self.bg_of(self.order[i - 1]) if i > 0 else m1
+        if self.bgs and (m0 != "dark" or m1 != "dark"):  # chrome + subtitles follow the scene (fade with the cut)
+            a = self.scene_span(cur)[0]; k = ease(clamp((t - a) / (.12 if self.cuts.get(cur) == "stay" else self.slide))) if m0 != m1 else 1.0
+            L = np.asarray(img).astype(np.float32); out = L.copy()
+            for y0, y1 in ((0, 280), (1186, H)):
+                r = L[y0:y1]; A_ = r if m0 == "dark" else bg_map(r, m0); B_ = r if m1 == "dark" else bg_map(r, m1)
+                out[y0:y1] = A_ * (1 - k) + B_ * k
+            img.paste(Image.fromarray(np.clip(out, 0, 255).astype(np.uint8)))
+        if self.dark: darken(img)
+        if LOOK == "v6" and self.dark: finish6(img, t)
 
     PUSH = .04
     def push(self, key, t):
@@ -167,12 +212,13 @@ class ThreadEpisode(Episode):
             z, (fx, fy) = self.push(key, t)
             if z > 1.001: zoom_band(Sc, dS, z, cx=fx, cy=fy, y0=280, y1=1186)
             m = np.clip(np.abs(np.asarray(Sc).astype(np.int16) - np.array(BG)).max(axis=2) * 9, 0, 255).astype(np.uint8)
-            img.paste(Sc, (0, 0), Image.fromarray(m)); return
+            img.paste(Sc, (0, 0), Image.fromarray(m)); self._mapped(img, key); return
         self.grid(d)
         if key == "end": self.end_card(d, t)
         else:
             self.scenes[key](img, d, t)
             for lay in self.layers: lay(img, d, t, key)
+            self._mapped(img, key)
 
     def compose(self, img, d, t):
         cur = self.current(t); a, b = self.scene_span(cur); i = self.order.index(cur)
@@ -181,7 +227,7 @@ class ThreadEpisode(Episode):
         win = max(self.slide, self.carry_dur if cr else 0)
         if i > 0 and t < a + win and not (stay and not cr):
             prev = self.order[i - 1]
-            A = Image.new("RGB", (W, H), BG); self._scene(A, ImageDraw.Draw(A), prev, a - 1 / 30)
+            A = Image.new("RGB", (W, H), BG); self._scene(A, ImageDraw.Draw(A), prev, a - 1 / 30); bgA, bgB = self._pbg(prev), self._pbg(cur)
             B = Image.new("RGB", (W, H), BG); dB = ImageDraw.Draw(B); self._scene(B, dB, cur, t)
             kc = ease_io((t - a) / self.carry_dur)
             if LOOK == "v6" and cr:                        # source boxes follow the old scene's camera push
@@ -189,11 +235,11 @@ class ThreadEpisode(Episode):
                 cr = [((fx + (s_[0] - fx) * zA, fy + (s_[1] - fy) * zA, fx + (s_[2] - fx) * zA, fy + (s_[3] - fy) * zA), d_) for s_, d_ in cr]
             pieces = [(A.crop(tuple(map(int, s_))), s_, d_) for s_, d_ in cr]
             if kc < 1:
-                for s_, d_ in cr: dB.rectangle(d_, fill=BG)            # the element arrives by flight, not by slide
+                for s_, d_ in cr: dB.rectangle(d_, fill=bgB)           # the element arrives by flight, not by slide
             if stay: img.paste(B.crop((0, Y0c, W, Y1c)), (0, Y0c))
             elif t < a + self.slide:
                 dA = ImageDraw.Draw(A)
-                for s_, d_ in cr: dA.rectangle(s_, fill=BG)
+                for s_, d_ in cr: dA.rectangle(s_, fill=bgA)
                 off = int(W * ease_io((t - a) / self.slide))
                 img.paste(A.crop((off, Y0c, W, Y1c)), (0, Y0c))
                 img.paste(B.crop((0, Y0c, off, Y1c)), (W - off, Y0c)) if off > 0 else None
@@ -204,7 +250,7 @@ class ThreadEpisode(Episode):
                 for pc, s_, d_ in pieces:
                     bx = [lerp(p, q, kc) for p, q in zip(s_, d_)]; w_, h_ = max(2, int(bx[2] - bx[0])), max(2, int(bx[3] - bx[1]))
                     pr = pc.resize((w_, h_), Image.BILINEAR); a_ = np.asarray(pr).astype(np.int16)
-                    m = Image.fromarray((np.abs(a_ - np.array(BG)).max(axis=2) > 14).astype(np.uint8) * 255)
+                    m = Image.fromarray((np.abs(a_ - np.array(bgA)).max(axis=2) > 14).astype(np.uint8) * 255)
                     img.paste(pr, (int(bx[0]), int(bx[1])), m)
         else:
             self._scene(img, d, cur, t)
