@@ -14,7 +14,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "d0e9f8d755ed262a6eaa040eb48faff33f6561b76eb44505f843e45bc090a6dd",
+  "sha256": "e52c64edd59e31bbfae6cca161978b57b751ccf1372b1ae7cd9193c5cd95efe2",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

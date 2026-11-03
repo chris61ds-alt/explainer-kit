@@ -1,6 +1,6 @@
 {
  "episode": "ep96_first_date",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "hook: 1/12 | Here are three first state tips, all backed by research. Save this.",
   "tip2: 1/26 | Tip 2 skipped the small talk. In 12 experiments, strangers expected deep questions to feel awkward. They didn't, and they felt more connected, and Tip 3. [BUZZER]"
@@ -10,11 +10,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 34.17,
-  "size_MiB": 4.3,
+  "size_MiB": 4.7,
   "black_intervals": [],
   "loudness_LUFS": -16.0,
-  "true_peak_dBTP": -2.5,
-  "sha256": "c062ec86fcf83c12697eee5d7e6cc28522d1340b08822fa6ea1cc36ccb726a9f",
+  "true_peak_dBTP": -2.4,
+  "sha256": "faa8c7c123213efb44fff1fc20e68f3ba2788498268790f1b4e49bbfded5fd27",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
