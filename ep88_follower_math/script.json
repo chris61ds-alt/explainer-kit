@@ -5,7 +5,7 @@
  "beats": [
   {
    "id": "guess",
-   "text": "Be honest: does everyone online seem more popular than you?",
+   "text": "Does everyone online seem more popular than you?",
    "screen": [
     "DOES EVERYONE",
     "ONLINE SEEM",
@@ -53,6 +53,6 @@
  ],
  "format": "v2",
  "ask": "DOES YOUR FEED FEEL LIKE THIS?",
- "guess_label": "BE HONEST",
+ "guess_label": "QUICK QUESTION",
  "guess_prompt": "Yes or no?"
 }

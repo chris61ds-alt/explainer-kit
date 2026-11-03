@@ -1,4 +1,4 @@
-Be honest: on a first date, do you talk more? Or ask more? 💬
+On a first date: do you talk more? Or ask more? 💬
 
 3 first-date tips. All backed by research. Save this for your next date. 🔖
 

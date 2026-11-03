@@ -1,4 +1,4 @@
-Be honest: how many years are there between you and your partner? 💞
+How many years are there between you and your partner? 💞
 
 Wedding Math, part 3/3. Same survey, over 3,000 Americans who had been married. Compared with couples the same age:
 

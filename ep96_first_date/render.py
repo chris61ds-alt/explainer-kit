@@ -7,7 +7,7 @@ from thread import *
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "tip1": .5, "tip2": .5, "tip3": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
-ORDER = ["hook", "tip1", "tip2", "tip3", "point", "end"]          # opener: "BE HONEST" question to the viewer (toolkit)
+ORDER = ["hook", "tip1", "tip2", "tip3", "point", "end"]          # opener: direct question to the viewer ("QUICK QUESTION", toolkit)
 EP = ThreadEpisode(TL, 96, "FIRST DATE", order=ORDER, dark=True, label="DATING · 3 STUDIES",
                    chapters={k: "" for k in ORDER[:-1]},
                    sources=("Huang et al. (2017) JPSP · Kardas, Kumar &", "Epley (2022) JPSP · Eastwick et al. (2007) Psych. Sci."),

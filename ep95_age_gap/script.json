@@ -6,7 +6,7 @@
  "beats": [
   {
    "id": "guess",
-   "text": "Be honest: how many years are there between you and your partner?",
+   "text": "How many years are there between you and your partner?",
    "screen": [
     "HOW MANY",
     "YEARS BETWEEN",
@@ -53,5 +53,5 @@
  ],
  "ask": "WHAT'S YOUR AGE GAP? COMMENT.",
  "guess_prompt": "Your number?",
- "guess_label": "BE HONEST"
+ "guess_label": "QUICK QUESTION"
 }

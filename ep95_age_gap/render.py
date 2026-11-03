@@ -6,7 +6,7 @@ from thread import *
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .6, "one": .5, "five": .5, "ten": .5, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
-ORDER = ["hook", "study", "one", "five", "ten", "point", "end"]      # opener: "BE HONEST" question to the viewer (toolkit)
+ORDER = ["hook", "study", "one", "five", "ten", "point", "end"]      # opener: direct question to the viewer ("QUICK QUESTION", toolkit)
 EP = ThreadEpisode(TL, 95, "AGE GAP", order=ORDER, dark=True, label="WEDDING MATH 3/3 · SURVEY",
                    chapters={k: "" for k in ORDER[:-1]},
                    sources=("Francis-Tan & Mialon (2015), Economic Inquiry", "survey of 3,000+ ever-married US adults · correlation"),

@@ -1,4 +1,4 @@
-Be honest: does everyone online seem more popular than you? 📱
+Does everyone online seem more popular than you? 📱
 
 If yes, you're probably right. And it's not about you.
 

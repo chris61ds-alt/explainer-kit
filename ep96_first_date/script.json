@@ -6,7 +6,7 @@
  "beats": [
   {
    "id": "guess",
-   "text": "Be honest: on a first date, do you talk more? Or ask more?",
+   "text": "On a first date: do you talk more? Or ask more?",
    "screen": [
     "ON A FIRST",
     "DATE: DO YOU",
@@ -42,7 +42,7 @@
    "text": "Not just you."
   }
  ],
- "guess_label": "BE HONEST",
+ "guess_label": "QUICK QUESTION",
  "guess_prompt": "Talk or ask?",
  "ask": "SAVE THIS FOR YOUR NEXT DATE.",
  "sources": [
