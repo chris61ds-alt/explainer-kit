@@ -1,17 +1,17 @@
 {
  "episode": "ep95_age_gap",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 22.47,
-  "size_MiB": 4.3,
+  "duration_s": 21.87,
+  "size_MiB": 4.0,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
+  "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "7ca7e1b0b7e64cf31392bfb53c6d0fc5045656f72930cb1f7e2bb8e66f5aa37e",
+  "sha256": "8630099a3df75be1756a9cbf9ccb085e293d03942ffe49f9e68167729e452e25",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,9 +20,9 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/62 = 0.0%",
+ "asr_final_wer": "0/60 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 22.46,
+ "duration_s": 21.88,
  "longest_calm_s": 2.29,
  "cover": "ep95_age_gap_cover.png",
  "caption": "ok"
