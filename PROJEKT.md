@@ -110,3 +110,5 @@ Source: <Autor (Jahr), Quelle>
 - **TikTok-Automatisierung:** Vorschlag = Upload ins TikTok-Postfach per Apps Script testen (1 Tipp pro Video) + parallel Audit für Direct Post beantragen. Entscheidung offen.
 - Instagram-Insights aktivieren (Token-Recht `instagram_manage_insights`).
 - Option: Dataclysm-Folgen im Plan nach vorne ziehen; ältere gewagte Folgen (38–58, Strichfiguren) auf Look C+D umbauen, falls der neue Look besser performt.
+
+- Look v6 (03.11.2026, Kamera-Push + Parallaxe, handgezeichnete Markierungen, Glow/Korn/Vignette; Schalter NJY_LOOK=v6) getestet an No. 93 → **abgelehnt, Chris bleibt beim bisherigen Look.** Nicht erneut vorschlagen; Code bleibt nur als Opt-in im Toolkit.
