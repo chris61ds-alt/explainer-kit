@@ -175,6 +175,12 @@ class ThreadEpisode(Episode):
         if m not in self._pbgc: self._pbgc[m] = BG if m == "dark" else tuple(int(v) for v in np.clip(bg_map(np.array([[BG]], np.float32), m)[0, 0], 0, 255))
         return self._pbgc[m]
 
+    def _modes(self, t, cur):
+        """(previous mode, current mode, fade 0..1) for chrome, subtitles and overlays around a cut"""
+        i = self.order.index(cur); m1 = self.bg_of(cur); m0 = self.bg_of(self.order[i - 1]) if i > 0 else m1
+        a = self.scene_span(cur)[0]; k = ease(clamp((t - a) / (.12 if self.cuts.get(cur) == "stay" else self.slide))) if m0 != m1 else 1.0
+        return m0, m1, k
+
     def _mapped(self, img, key):
         m = self.bg_of(key)
         if m != "dark": img.paste(Image.fromarray(np.clip(bg_map(np.asarray(img).astype(np.float32), m), 0, 255).astype(np.uint8)))
@@ -182,14 +188,6 @@ class ThreadEpisode(Episode):
     def draw(self, img, d, t):
         self.scenes.setdefault("guess", self.guess_scene); self.scenes.setdefault("claim", self.claim_scene)
         self._draw(img, d, t)
-        cur = self.current(t); i = self.order.index(cur); m1 = self.bg_of(cur); m0 = self.bg_of(self.order[i - 1]) if i > 0 else m1
-        if self.bgs and (m0 != "dark" or m1 != "dark"):  # chrome + subtitles follow the scene (fade with the cut)
-            a = self.scene_span(cur)[0]; k = ease(clamp((t - a) / (.12 if self.cuts.get(cur) == "stay" else self.slide))) if m0 != m1 else 1.0
-            L = np.asarray(img).astype(np.float32); out = L.copy()
-            for y0, y1 in ((0, 280), (1186, H)):
-                r = L[y0:y1]; A_ = r if m0 == "dark" else bg_map(r, m0); B_ = r if m1 == "dark" else bg_map(r, m1)
-                out[y0:y1] = A_ * (1 - k) + B_ * k
-            img.paste(Image.fromarray(np.clip(out, 0, 255).astype(np.uint8)))
         if self.dark: darken(img)
         if LOOK == "v6" and self.dark: finish6(img, t)
 
@@ -255,13 +253,29 @@ class ThreadEpisode(Episode):
         else:
             self._scene(img, d, cur, t)
         z = self.pulse_zoom(t)
-        if z > 1.002: zoom_band(img, d, z, y0=Y0c, y1=Y1c)
+        if z > 1.002: zoom_band(img, d, z, y0=Y0c, y1=Y1c, fill=self._pbg(cur))
         if cur == self.order[0] and t < .3: zoom_band(img, d, 1 + SLAM * (1 - ease(t / .3)), cy=Y0c + 10, y0=Y0c, y1=Y1c)   # anchored at the top: frame 0 (= TikTok cover) shows the whole headline
-        if cur != "end": self.overlays(img, d, t, cur)
+        m0, m1, kb = self._modes(t, cur) if self.bgs else ("dark", "dark", 1.0)
+        if m0 == m1 == "dark":
+            if cur != "end": self.overlays(img, d, t, cur)
+            d.rectangle([0, 0, W, Y0c - 1], fill=BG); d.rectangle([0, Y1c, W, H], fill=BG)
+            self.chrome(d, t, cur)
+            if self.label and cur != "end": box_label(d, X1, 270, self.label, 22, WHITE, MID if V3 else SIG, font=MONO, anchor="ra")
+            self.subtitle(d, t); return
+        # scene backgrounds: chrome + subtitles follow the scene's mode (fade with the cut); overlays + label on their own layer
         d.rectangle([0, 0, W, Y0c - 1], fill=BG); d.rectangle([0, Y1c, W, H], fill=BG)
-        self.chrome(d, t, cur)
-        if self.label and cur != "end": box_label(d, X1, 270, self.label, 22, WHITE, MID if V3 else SIG, font=MONO, anchor="ra")
-        self.subtitle(d, t)
+        self.chrome(d, t, cur); self.subtitle(d, t)
+        L = np.asarray(img).astype(np.float32); out = L.copy()
+        for y0, y1 in ((0, Y0c), (Y1c, H)):
+            r = L[y0:y1]; A_ = r if m0 == "dark" else bg_map(r, m0); B_ = r if m1 == "dark" else bg_map(r, m1)
+            out[y0:y1] = A_ * (1 - kb) + B_ * kb
+        img.paste(Image.fromarray(np.clip(out, 0, 255).astype(np.uint8)))
+        O = Image.new("RGB", (W, H), BG); dO = ImageDraw.Draw(O)
+        if cur != "end": self.overlays(O, dO, t, cur)
+        if self.label and cur != "end": box_label(dO, X1, 270, self.label, 22, WHITE, MID if V3 else SIG, font=MONO, anchor="ra")
+        a_ = np.asarray(O).astype(np.float32); m = (m1 if kb >= .5 else m0)
+        mask = Image.fromarray(np.clip(np.abs(a_ - np.array(BG, np.float32)).max(axis=2) * 9, 0, 255).astype(np.uint8))
+        img.paste(Image.fromarray(np.clip(a_ if m == "dark" else bg_map(a_, m), 0, 255).astype(np.uint8)), (0, 0), mask)
 
     def cut_fx(self, amp=.10):
         if V3: return [(self.TL.S(k) - .12, whoosh(.32, amp * 1.2), 0) for k in self.order[1:] if self.cuts.get(k) != "stay"]

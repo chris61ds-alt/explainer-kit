@@ -1,8 +1,10 @@
 """NOT JUST YOU – No. 96 (tips format test): 3 first-date tips from research – follow-up questions (Huang et al. 2017),
-deep talk (Kardas, Kumar & Epley 2022), be picky (Eastwick et al. 2007). Look C+D, dark · two fixed figures: YOU + DATE."""
+deep talk (Kardas, Kumar & Epley 2022), be picky (Eastwick et al. 2007). Look C+D, dark · two fixed figures: YOU + DATE ·
+hook + recap: isometric café table on light paper (iso.py)."""
 import os, sys, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from thread import *
+from iso import Iso, drop, callout, parts_counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "tip1": .5, "tip2": .5, "tip3": .6, "point": .7, "end": 2.2})
@@ -41,17 +43,46 @@ def tip_head(d, t, n, lines, t0):
     box_label(d, X0, 300, f"TIP {n}", 40, WHITE, INK, font=BLK)
     words_in(d, t, [(l, t0 + .1 + i * .15, 370 + i * 100, 100, INK) for i, l in enumerate(lines)])
 
+I = Iso(480, 1010, .74)
+CUP_A, CUP_B, TOKEN, ZT = (-110, 70), (110, -60), (-30, -175), 224
+def table(img, d, t, times=None):
+    """isometric café table; times = drop-in time per part (None = all there)"""
+    T = times or [-9] * 8
+    I.grid(img); I.shadow(d, 0, 0, 230, k=clamp((t - T[0]) / .3) if times else 1)
+    for i, (r, z0, h, side) in enumerate(((120, 0, 14, LEFT), (22, 14, 190, RIGHT), (250, 204, 20, LEFT))):    # foot, pedestal, top
+        v, dz = drop(t, T[i])
+        if v: I.cyl(d, 0, 0, z0 + dz, r, h, side=side)
+    for j, (x, y) in enumerate((CUP_A, CUP_B)):                                       # saucer + cup each
+        v, dz = drop(t, T[3 + j])
+        if not v: continue
+        z = ZT + dz; I.cyl(d, x, y, z, 62, 6); I.cyl(d, x, y, z + 6, 38, 52)
+        cx, cy = I.P(x, y, z + 58); d.ellipse([cx - 22, cy - 10, cx + 22, cy + 10], fill=(120, 84, 60))
+        hx, hy = I.P(x + 44, y + 20, z + 34); d.arc([hx - 10, hy - 16, hx + 19, hy + 13], -100, 100, fill=INK, width=4)
+    v, dz = drop(t, T[5])
+    if v: I.box(d, 70, 60, ZT + dz, 80, 150, 9, top=INK)                             # their phone, face down
+    v, dz = drop(t, T[6])
+    if v: I.cyl(d, *TOKEN, ZT + dz, 30, 10); tx, ty = I.P(*TOKEN, ZT + 10 + dz); heart(d, tx, ty - 2, 10, SIG)
+    v, dz = drop(t, T[7])
+    if v:                                                                             # floating question bubble above your cup
+        bx, by = I.P(*CUP_A, ZT + 190 + dz)
+        d.rounded_rectangle([bx - 62, by - 44, bx + 62, by + 36], radius=24, fill=WHITE, outline=INK, width=4)
+        d.polygon([(bx - 12, by + 34), (bx + 12, by + 34), (bx, by + 58)], fill=WHITE); d.line([(bx - 12, by + 34), (bx, by + 58), (bx + 12, by + 34)], fill=INK, width=4)
+        d.text((bx, by - 4), "? ?", font=F(BLK, 44), fill=INK, anchor="mm")
+
+LEFT, RIGHT = (234, 234, 230), (212, 212, 208)
 def sc_hook(img, d, t):
     t0, ts = S("hook"), cue("hook", "Save this") - .1
-    words_in(d, t, [("3 TIPS.", t0 + .05, 320, 210, INK)])
+    PT = [t0 + .15 + i * .22 for i in range(8)]
+    table(img, d, t, PT)
+    words_in(d, t, [("3 TIPS.", t0 + .05, 320, 150, INK)])
     tb = cue("hook", "backed by") - .1
-    if t >= tb: d.text((X0 + 4 - (1 - ease((t - tb) / .25)) * 40, 560), "backed by research", font=F(COND, 54), fill=mix(BG, INK, ease((t - tb) / .25)))
+    if t >= tb: d.text((X0 + 4 - (1 - ease((t - tb) / .25)) * 40, 490), "backed by research", font=F(COND, 50), fill=mix(BG, INK, ease((t - tb) / .25)))
+    parts_counter(d, X1, 330, sum(t >= x for x in PT), 8)
     if t >= ts:                                            # bookmark = save
-        k = back(clamp((t - ts) / .3)); bx, by = X1 - 40, 420
-        d.polygon([(bx - 50 * k, by - 70 * k), (bx + 50 * k, by - 70 * k), (bx + 50 * k, by + 70 * k), (bx, by + 35 * k), (bx - 50 * k, by + 70 * k)], fill=INK)
-        if k > .7: d.text((bx, by + 100), "SAVE", font=F(BLK, 30), fill=INK, anchor="ma")
-    couple(img, d, clamp((t - t0 - .3) / .5), labels=True)
-    fig(d, "fig. 1 — you and your date, schematic")
+        k = back(clamp((t - ts) / .3)); bx, by = X1 - 50, 560
+        d.polygon([(bx - 40 * k, by - 56 * k), (bx + 40 * k, by - 56 * k), (bx + 40 * k, by + 56 * k), (bx, by + 28 * k), (bx - 40 * k, by + 56 * k)], fill=INK)
+        if k > .7: d.text((bx - 60, by), "SAVE", font=F(MONO, 30), fill=INK, anchor="rm")
+    fig(d, "fig. 1 — a first date, schematic")
 
 def sc_tip1(img, d, t):
     t0 = S("tip1"); tip_head(d, t, 1, ["ASK", "FOLLOW-UPS."], t0)
@@ -107,19 +138,22 @@ def sc_tip3(img, d, t):
     fig(d, "156 speed daters · Eastwick et al. 2007")
 
 def sc_point(img, d, t):
-    t0, tp = S("point"), cue("point", "be picky") - .2
-    words_in(d, t, [("ASK MORE.", t0 + .1, 320, 120, INK), ("GO DEEPER.", cue("point", "Go deeper") - .15, 445, 120, INK)] +
-             ([("BE PICKY.", tp, 570, 120, SIG)] if t >= tp else []))
-    couple(img, d)
-    heart(d, (YOU[0] + DATE[0]) / 2, 960, 30 + 4 * math.sin(t * 8), INK)
+    t0 = S("point")
+    table(img, d, t)
+    words_in(d, t, [("THE RECAP.", t0 + .05, 320, 130, INK)])
+    bx, by = I.P(*CUP_A, ZT + 190)
+    callout(d, (bx - 62, by - 4), "l", by - 4, 1, "ASK MORE", k=(t - cue("point", "ask more") + .1) / .4)
+    p = I.P(*CUP_B, ZT + 40); callout(d, p, "r", p[1] + 80, 2, "GO DEEPER", k=(t - cue("point", "Go deeper") + .15) / .4)
+    p = I.P(*TOKEN, ZT + 10); callout(d, (p[0] + 12, p[1] - 4), "r", p[1] - 4, 3, "BE PICKY", SIG, k=(t - cue("point", "be picky") + .2) / .4)
     fig(d, "fig. 2 — save it for your next date")
 
 # magic move: the couple stays put while the rest of the scene slides · tip 1 → 2 → 3 change on the spot
-EP.carry = {"tip1": [(COUPLE, COUPLE)], "point": [((70, 800, 300, 1135), COUPLE)]}
 EP.cuts = {"tip2": "stay", "tip3": "stay"}
+EP.bg = {"hook": "light", "point": "light"}           # isometric scenes on light paper
 
 EP.scenes = {"hook": sc_hook, "tip1": sc_tip1, "tip2": sc_tip2, "tip3": sc_tip3, "point": sc_point}
-FX = [*EP.cut_fx(), (S("hook") + .05, thud(.45), 0), (cue("hook", "backed by") - .1, tick(.06), 0), (S("hook") + .3, whoosh(.4, .04), 0),
+FX = [*EP.cut_fx(), (S("hook") + .05, thud(.45), 0), (cue("hook", "backed by") - .1, tick(.06), 0),
+      *[(S("hook") + .15 + i * .22 + .26, tick(.05), (i % 5 - 2) / 3) for i in range(8)],
       (cue("hook", "Save this") - .1, pop(.15), .3),
       (S("tip1") + .1, pop(.12), -.3), (cue("tip1", "In a speed") - .1, pop(.12), -.2), (cue("tip1", "speed-dating study") + .3, pop(.12), .3),
       (cue("tip1", "asked more") - .1, pop(.14), -.2), (cue("tip1", "more second") - .1, thud(.5), .3),
@@ -128,5 +162,5 @@ FX = [*EP.cut_fx(), (S("hook") + .05, thud(.45), 0), (cue("hook", "backed by") -
       (S("tip3") + .1, thud(.4), 0), *[(cue("tip3", "liked everyone") - .1 + i * .1, tick(.04), (i - 2) / 3) for i in range(5)],
       (cue("tip3", "got rejected") - .1, thud(.45), 0), (cue("tip3", "if you liked one") - .1, pop(.14), .2),
       (cue("tip3", "They liked you back") - .1, whoosh(.5, .05), 0), (cue("tip3", "They liked you back") + .5, pop(.16), -.3),
-      (S("point") + .1, pop(.12), 0), (cue("point", "Go deeper") - .15, pop(.12), 0), (cue("point", "be picky") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
+      (cue("point", "ask more") - .1, pop(.12), -.3), (cue("point", "Go deeper") - .15, pop(.12), .3), (cue("point", "be picky") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
 if __name__ == "__main__": EP.run(FX)

@@ -495,10 +495,10 @@ if LOOK == "v6": cute.PAPER = np.zeros_like(cute.PAPER)    # the static paper gr
 
 SLAM = .10              # frame-0 slam-in: the first scene starts zoomed 10 % and snaps to place within 0.3 s
 
-def zoom_band(img, d, z, cx=480, cy=730, y0=300, y1=1180):
+def zoom_band(img, d, z, cx=480, cy=730, y0=300, y1=1180, fill=BG):
     l, tp = cx - cx / z, cy - cy / z
     img.paste(img.crop((int(l), int(tp), int(l + W / z), int(tp + H / z))).resize((W, H), Image.BILINEAR))
-    d.rectangle([0, 0, W, y0], fill=BG); d.rectangle([0, y1, W, H], fill=BG)
+    d.rectangle([0, 0, W, y0 - 1], fill=fill); d.rectangle([0, y1, W, H], fill=fill)
 
 def hblur(img, box, w):
     """horizontal motion blur (box filter of width w px) inside box"""
