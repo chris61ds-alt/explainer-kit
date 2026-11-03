@@ -1,0 +1,53 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Be honest: on a first date, do you talk more? Or ask more?",
+   "screen": [
+    "ON A FIRST",
+    "DATE: DO YOU",
+    "TALK OR ASK?"
+   ],
+   "speed": 1.15
+  },
+  {
+   "id": "hook",
+   "text": "Here are three first-date tips. All backed by research. Save this!",
+   "speed": 1.15
+  },
+  {
+   "id": "tip1",
+   "text": "Tip one: ask follow-up questions! In a speed-dating study, people who asked more follow-ups got more second dates."
+  },
+  {
+   "id": "tip2",
+   "text": "Tip two: skip the small talk! In twelve experiments, strangers expected deep questions to feel awkward. They didn't. And they felt more connected! And tip three?",
+   "tease": "And tip three?",
+   "show": "TIP 3: NEXT"
+  },
+  {
+   "id": "tip3",
+   "text": "Be picky! Speed daters who liked everyone got rejected. But if you liked one person more than the others? They liked you back."
+  },
+  {
+   "id": "point",
+   "text": "So: ask more. Go deeper. And be picky!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "guess_label": "BE HONEST",
+ "guess_prompt": "Talk or ask?",
+ "ask": "SAVE THIS FOR YOUR NEXT DATE.",
+ "sources": [
+  "Huang, Yeomans, Brooks, Minson & Gino (2017), It Doesn't Hurt to Ask: Question-Asking Increases Liking, JPSP 113(3) – Study 3: 110 speed daters, 1,961 four-minute dates; a higher rate of follow-up questions was associated with more second-date agreements (correlational).",
+  "Kardas, Kumar & Epley (2022), Overly shallow?: Miscalibrated expectations create a barrier to deeper conversation, JPSP – 12 experiments, 1,800+ participants; deep conversations with strangers were less awkward and more connecting than expected.",
+  "Eastwick, Finkel, Mochon & Ariely (2007), Selective versus unselective romantic desire: Not all reciprocity is created equal, Psychological Science – 156 speed daters; unselective desire was not reciprocated, desire for one partner above others was reciprocated."
+ ]
+}
