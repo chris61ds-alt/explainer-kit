@@ -25,7 +25,8 @@ def sc_claim(img, d, t):                                # toolkit statement open
         lines = TL.screen["claim"]
         size = int(min(170, 600 / (len(lines) * 1.05), *(840 / max(1, d.textlength(l, font=F(BLK, 100))) * 100 for l in lines)))
         y = 330 + int(size * 1.05) + int(size * .98); w = d.textlength("BIGGER", font=F(BLK, size))
-        d.line([X0 - 8, y, X0 - 8 + (w + 10) * ease((t - ts) / .25), y], fill=INK, width=12)
+        if LOOK == "v6": scribble_under(d, X0 - 12, X0 + w + 14, y + 4, (t - ts) / .35, col=INK, w=11)
+        else: d.line([X0 - 8, y, X0 - 8 + (w + 10) * ease((t - ts) / .25), y], fill=INK, width=12)
 
 def sc_study(img, d, t):
     t0, th, tl = S("study"), cue("study", "How much") - .1, cue("study", "did it last") - .1
@@ -34,6 +35,8 @@ def sc_study(img, d, t):
     if t >= th: d.text((X0 + 6 - (1 - ease((t - th) / .25)) * 40, 630), "1. what did the wedding cost?", font=F(COND, 40), fill=mix(BG, INK, ease((t - th) / .25)))
     if t >= tl: d.text((X0 + 6 - (1 - ease((t - tl) / .25)) * 40, 685), "2. are you still married?", font=F(COND, 40), fill=mix(BG, INK, ease((t - tl) / .25)))
     dot_field(d, FIELD, t, cell=30, col=MID, hit={47} | ({12, 33, 77, 101, 140, 166, 190, 212} if t >= tl else set()), hitcol=INK)
+    if LOOK == "v6" and t >= tl:                          # circle one person: "you"
+        _x, _y = dot_xy(47); scribble_circle(d, (_x - 14, _y - 14, _x + 14, _y + 14), (t - tl) / .45, col=INK, w=6, seed=4, pad=10)
     fig(d, "online survey · Francis-Tan & Mialon, Emory University")
 
 def xbars(d, t, rows, vmax, y0=600, step=270):
@@ -54,6 +57,7 @@ def sc_women(img, d, t):
     xbars(d, t, [("$5–10K", 1.0, MID, cue("women", "Compared") - .1), ("OVER $20K", 1.6, SIG, cue("women", "twenty thousand") - .1)], 1.6)
     tr = cue("women", "One point six") - .1
     if t >= tr: box_label(d, X1, 600, "1.6 × RISK", 52, WHITE, SIG, font=BLK, anchor="ra")
+    if LOOK == "v6" and t >= tr: scribble_circle(d, (X0 + 652, 972, X0 + 808, 1058), (t - tr) / .45, seed=5)
     fig(d, "relative divorce risk · women · vs. $5,000–10,000")
 
 def sc_men(img, d, t):
@@ -61,6 +65,7 @@ def sc_men(img, d, t):
     xbars(d, t, [("$5–10K", 1.0, MID, S("men") - 1), ("UNDER $1K", .5, SIG, cue("men", "under a thousand") - .1)], 1.6)
     th = cue("men", "about half") - .1
     if t >= th: box_label(d, X1, 600, "ABOUT HALF", 52, WHITE, SIG, font=BLK, anchor="ra")
+    if LOOK == "v6" and t >= th: scribble_circle(d, (X0 + 212, 972, X0 + 368, 1058), (t - th) / .45, seed=6)
     fig(d, "relative divorce risk · men · hazard 0.49")
 
 def sc_why(img, d, t):
@@ -79,6 +84,7 @@ def sc_why(img, d, t):
         d.text((X0 + 4, 800), "money stress", font=F(COND, 50), fill=mix(BG, INK, k))
         d.text((X0 + 4, 860), "= relationship", font=F(COND, 50), fill=mix(BG, INK, k))
         d.text((X0 + 4, 920), "   stress", font=F(COND, 50), fill=mix(BG, INK, k))
+    if LOOK == "v6" and t >= td + .35: scribble_arrow(d, (X0 + 420, 700), (X1 - 360, 1000), (t - td - .35) / .5, bend=-.3)
     fig(d, "the study shows a link, not the cause")
 
 def sc_point(img, d, t):
@@ -90,12 +96,15 @@ def sc_point(img, d, t):
         y1 = y0 + 230 * k; d.rectangle([x0, y0, x1, y1], fill=INK)
         for i in range(int(5 * k)): d.rectangle([x0 + 24, y0 + 24 + i * 34, x1 - 24 - (i % 2) * 80, y0 + 36 + i * 34], fill=BG)
         if t >= tb: d.rectangle([x0 + 24, y1 - 34, x1 - 24, y1 - 16], fill=SIG)
+    if LOOK == "v6" and t >= tb + .35:
+        scribble_under(d, X0 - 8, X0 + d.textlength("DOESN'T.", font=F(BLK, 130)), 868, (t - tb - .35) / .35, seed=7)
     fig(d, "fig. — Wedding Math, part 1 of 3")
 
 # magic move: one married person in the survey grows into the "over $20K" bar
 _dx, _dy = dot_xy(47)
 EP.carry = {"women": [((_dx - 8, _dy - 8, _dx + 8, _dy + 8), (X0, 945, X0 + 132, 1085))]}
 EP.cuts = {"men": "stay"}
+EP.focus = {"claim": (480, 520), "study": (X0 + 250, 420), "women": (X0 + 720, 1015), "why": (X0 + 200, 650), "point": (480, 700)}
 
 EP.scenes = {"claim": sc_claim, "study": sc_study, "women": sc_women, "men": sc_men, "why": sc_why, "point": sc_point}
 FX = [(0.0, thud(.5), 0), (cue("claim", "Seriously") - .1, pop(.15), 0), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0),

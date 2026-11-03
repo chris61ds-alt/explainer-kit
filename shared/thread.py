@@ -146,8 +146,28 @@ class ThreadEpisode(Episode):
         # carry-over ("magic move"): {dest_scene: [(src_box, dst_box), ...]} – the element flies from the old scene into its place
         # in the new one while the rest whips past; cuts: {dest_scene: "stay"} = no whip, the new scene animates on the spot
         self.carry, self.cuts, self.carry_dur = {}, {}, .5
+        self.focus = {}                                  # look v6: {scene: (x, y)} – the slow camera push heads for this point
+
+    PUSH = .04
+    def push(self, key, t):
+        """look v6: slow camera push through a scene (continues across "stay" cuts) → (zoom, focus point)"""
+        if LOOK != "v6" or key == "end": return 1.0, (480, 730)
+        o = self.order; i = j = n = o.index(key)
+        while j > 0 and self.cuts.get(o[j]) == "stay": j -= 1
+        while n + 1 < len(o) and self.cuts.get(o[n + 1]) == "stay": n += 1
+        a, b = self.scene_span(o[j])[0], self.scene_span(o[n])[1]
+        return 1 + self.PUSH * clamp((t - a) / max(.5, b - a)), self.focus.get(o[j], (480, 730))
 
     def _scene(self, img, d, key, t):
+        if LOOK == "v6" and key != "end":                # content pushes in, the grid stays → parallax
+            self.grid(d)
+            Sc = Image.new("RGB", (W, H), BG); dS = ImageDraw.Draw(Sc)
+            self.scenes[key](Sc, dS, t)
+            for lay in self.layers: lay(Sc, dS, t, key)
+            z, (fx, fy) = self.push(key, t)
+            if z > 1.001: zoom_band(Sc, dS, z, cx=fx, cy=fy, y0=280, y1=1186)
+            m = np.clip(np.abs(np.asarray(Sc).astype(np.int16) - np.array(BG)).max(axis=2) * 9, 0, 255).astype(np.uint8)
+            img.paste(Sc, (0, 0), Image.fromarray(m)); return
         self.grid(d)
         if key == "end": self.end_card(d, t)
         else:
@@ -164,6 +184,9 @@ class ThreadEpisode(Episode):
             A = Image.new("RGB", (W, H), BG); self._scene(A, ImageDraw.Draw(A), prev, a - 1 / 30)
             B = Image.new("RGB", (W, H), BG); dB = ImageDraw.Draw(B); self._scene(B, dB, cur, t)
             kc = ease_io((t - a) / self.carry_dur)
+            if LOOK == "v6" and cr:                        # source boxes follow the old scene's camera push
+                zA, (fx, fy) = self.push(prev, a - 1 / 30)
+                cr = [((fx + (s_[0] - fx) * zA, fy + (s_[1] - fy) * zA, fx + (s_[2] - fx) * zA, fy + (s_[3] - fy) * zA), d_) for s_, d_ in cr]
             pieces = [(A.crop(tuple(map(int, s_))), s_, d_) for s_, d_ in cr]
             if kc < 1:
                 for s_, d_ in cr: dB.rectangle(d_, fill=BG)            # the element arrives by flight, not by slide

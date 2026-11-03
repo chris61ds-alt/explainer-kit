@@ -23,6 +23,7 @@ from cute import (F, BLK, BOLD, MONO, clamp, ease, ease_io, back, lerp, mix, Tim
 
 V4 = os.environ.get("NJY_FX", "v4") == "v4"    # default since 31.10.2026: impulse beat (number pulses); NJY_FX=off disables
 V3 = os.environ.get("NJY_STYLE", "v3") == "v3"   # default since 31.10.2026 (NJY_STYLE=v2 = old look): orange only for the answer, whip transitions, new sound
+LOOK = os.environ.get("NJY_LOOK", "v5")        # v6 (look test 03.11.2026): camera push + parallax, hand-drawn marks, grain / vignette / glow
 AUDIO = os.environ.get("NJY_AUDIO", "v3")       # v5 (since 01.11.2026 for new episodes, per episode via music=dict(audio="v5")):
                                                 # arrangement follows the script + counter runs + sound kit (shared/sound5.py)
 
@@ -434,6 +435,64 @@ def darken(img):
     out = np.clip(out + (out < 40) * 8, 0, 255)          # lift pure black a touch (less harsh on OLED)
     img.paste(Image.fromarray(out.astype(np.uint8)))
 
+# ---------------------------------------------------------------- look v6: hand-drawn marks + film finish
+def _wob(n, seed, amp):
+    g = np.random.default_rng(seed); ph = g.uniform(0, 2 * np.pi, 3); fr = g.uniform(1.5, 3.5, 3); u = np.linspace(0, 1, n)
+    return amp * sum(np.sin(2 * np.pi * f * u + p) / (i + 1) for i, (f, p) in enumerate(zip(fr, ph)))
+
+def _stroke(d, pts, k, col, w):
+    """marker stroke drawn up to fraction k, slightly tapered at both ends"""
+    n = int(len(pts) * clamp(k))
+    for i in range(min(n, len(pts) - 1)):
+        u = i / (len(pts) - 1); ww = max(2, w * (.55 + .45 * math.sin(math.pi * clamp(u * 1.15))))
+        d.line([pts[i], pts[i + 1]], fill=col, width=int(ww))
+        x, y = pts[i + 1]; d.ellipse([x - ww / 2, y - ww / 2, x + ww / 2, y + ww / 2], fill=col)
+
+def scribble_circle(d, box, k, col=SIG, w=9, seed=1, pad=18):
+    """hand-drawn loop around box (overshoots its start like a real marker)"""
+    if k <= 0: return
+    x0, y0, x1, y1 = box; cx, cy = (x0 + x1) / 2, (y0 + y1) / 2; rx, ry = (x1 - x0) / 2 + pad, (y1 - y0) / 2 + pad
+    n, a0, sw = 90, -2.1, 2 * math.pi * 1.12; jr = _wob(n, seed, .06)
+    pts = [(cx + rx * (1 + jr[i]) * math.cos(a0 + sw * i / (n - 1)) + 8 * i / n, cy + ry * (1 + jr[i]) * math.sin(a0 + sw * i / (n - 1)) - 5 * i / n) for i in range(n)]
+    _stroke(d, pts, ease(k), col, w)
+
+def scribble_under(d, x0, x1, y, k, col=SIG, w=10, seed=2):
+    if k <= 0: return
+    n = 40; jy = _wob(n, seed, 4)
+    _stroke(d, [(lerp(x0, x1, i / (n - 1)), y + jy[i] - 7 * i / (n - 1)) for i in range(n)], ease(k), col, w)
+
+def scribble_arrow(d, p0, p1, k, col=INK, w=8, bend=.25, seed=3):
+    if k <= 0: return
+    (x0, y0), (x1, y1) = p0, p1; dx, dy = x1 - x0, y1 - y0; cx, cy = (x0 + x1) / 2 - dy * bend, (y0 + y1) / 2 + dx * bend
+    n = 50; jw = _wob(n, seed, 3); us = np.linspace(0, 1, n)
+    pts = [((1 - u) ** 2 * x0 + 2 * (1 - u) * u * cx + u * u * x1 + jw[i], (1 - u) ** 2 * y0 + 2 * (1 - u) * u * cy + u * u * y1 - jw[i]) for i, u in enumerate(us)]
+    _stroke(d, pts, ease(clamp(k / .8)), col, w)
+    if k > .8:
+        (ax, ay), (bx, by) = pts[-5], pts[-1]; ang = math.atan2(by - ay, bx - ax); kk = ease((k - .8) / .2)
+        for s_ in (-1, 1):
+            a_ = ang + math.pi - s_ * .5
+            _stroke(d, [(bx, by), (bx + 36 * kk * math.cos(a_), by + 36 * kk * math.sin(a_))], 1, col, w)
+
+_VIG, _GRAIN = None, None
+def finish6(img, t):
+    """film finish in the dark domain: glow on orange, warm black, vignette, moving grain (12 fps)"""
+    global _VIG, _GRAIN
+    from PIL import ImageFilter
+    if _VIG is None:
+        yy, xx = np.mgrid[0:H, 0:W]; r = np.hypot((xx - W / 2) / (W * .78), (yy - H * .45) / (H * .62))
+        _VIG = (1 - .2 * np.clip(r, 0, 1.4) ** 2.2)[..., None].astype(np.float32)
+        g = np.random.default_rng(7); _GRAIN = [g.normal(0, 4.5, (H // 2, W // 2, 1)).astype(np.float32) for _ in range(6)]
+    a = np.asarray(img).astype(np.float32)
+    sig = (a[..., 0] > 170) & (a[..., 1] < 150) & (a[..., 2] < 100)
+    if sig.any():
+        sm = Image.fromarray((a * sig[..., None]).astype(np.uint8)).resize((W // 4, H // 4), Image.BILINEAR).filter(ImageFilter.GaussianBlur(6))
+        gl = np.asarray(sm.resize((W, H), Image.BILINEAR)).astype(np.float32)
+        a = 255 - (255 - a) * (255 - gl * .6) / 255                    # screen blend
+    a = a + np.array([5, 2, -1], np.float32) * (1 - a.max(axis=2, keepdims=True) / 255)
+    a = a * _VIG + np.repeat(np.repeat(_GRAIN[int(t * 12) % 6], 2, 0), 2, 1)
+    img.paste(Image.fromarray(np.clip(a, 0, 255).astype(np.uint8)))
+if LOOK == "v6": cute.PAPER = np.zeros_like(cute.PAPER)    # the static paper grain is replaced by the moving film grain
+
 SLAM = .10              # frame-0 slam-in: the first scene starts zoomed 10 % and snaps to place within 0.3 s
 
 def zoom_band(img, d, z, cx=480, cy=730, y0=300, y1=1180):
@@ -655,6 +714,7 @@ class Episode:
         self.scenes.setdefault("guess", self.guess_scene); self.scenes.setdefault("claim", self.claim_scene)
         self._draw(img, d, t)
         if self.dark: darken(img)
+        if LOOK == "v6" and self.dark: finish6(img, t)
 
     def _draw(self, img, d, t):
         T = self.TL.total; L = .5
