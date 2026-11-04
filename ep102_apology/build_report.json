@@ -1,0 +1,34 @@
+{
+ "episode": "ep102_apology",
+ "tts": "new",
+ "asr_voice": [
+  "point: 1/7 | So own it, fix it, don't bag"
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 18.57,
+  "size_MiB": 2.8,
+  "black_intervals": [],
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.4,
+  "sha256": "bb6cf5833e44b2f555324b3f7702523fd14e1501895630fa33468eefa10132c5",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "2/52 = 3.8%",
+ "asr_final_issues": [
+  "own: 1/9 | 1. Own It Say This was my fault",
+  "point: 1/7 | So own it, fix it, don't bag."
+ ],
+ "duration_s": 18.55,
+ "longest_calm_s": 2.33,
+ "cover": "ep102_apology_cover.png",
+ "caption": "ok"
+}
