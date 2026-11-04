@@ -1,6 +1,6 @@
 {
  "episode": "ep55_bystanders",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "hook: 1/11 | Get attacked in public and nobody helps. No, that's a myth.",
   "result: 2/11 | In 9/10, at least one stranger stepped in."
@@ -10,11 +10,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 20.6,
-  "size_MiB": 3.6,
+  "size_MiB": 3.7,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.4,
-  "sha256": "4ae3f479f69743fbfd502d1d2622925af783fec9474d78b0e1ec04450c2948b9",
+  "sha256": "f920461c5d21ecd086c275168eec9a17638603b51267906a7beceef18cc3e6f5",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -29,7 +29,7 @@
   "result: 2/11 | In 9/10, at least one stranger stepped in."
  ],
  "duration_s": 20.61,
- "longest_calm_s": 3.77,
+ "longest_calm_s": 2.6,
  "cover": "ep55_bystanders_cover.png",
  "caption": "ok"
 }

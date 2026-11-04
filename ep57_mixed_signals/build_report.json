@@ -1,17 +1,17 @@
 {
  "episode": "ep57_mixed_signals",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 22.5,
-  "size_MiB": 3.5,
+  "size_MiB": 3.2,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.4,
-  "sha256": "a12742f63b577786432b548f25539da4c5eb6906cb86c483ee55b1f05fb29b56",
+  "sha256": "35ab7036fba3663dc894338f0ec1a9c71a75cc04617b466421c8bc8dd09cf7f4",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,7 +23,7 @@
  "asr_final_wer": "0/67 = 0.0%",
  "asr_final_issues": [],
  "duration_s": 22.51,
- "longest_calm_s": 3.43,
+ "longest_calm_s": 2.44,
  "cover": "ep57_mixed_signals_cover.png",
  "caption": "ok"
 }
