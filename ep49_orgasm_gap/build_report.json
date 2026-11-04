@@ -1,6 +1,6 @@
 {
  "episode": "ep49_orgasm_gap",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "twist: 2/5 | Less being women, 86%."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 33.0,
-  "size_MiB": 5.2,
+  "size_MiB": 5.0,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
+  "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "25968c4d3d8db0d86c4054fb6def5a53a076a0396441ef2f71ce5eae9a855e73",
+  "sha256": "8423b65b6403cd19f35fac60df8bc17c38619fc3def5fbe69f0499fad49a0a95",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -27,7 +27,7 @@
   "twist: 2/5 | Less being women, 86%."
  ],
  "duration_s": 33.01,
- "longest_calm_s": 3.61,
+ "longest_calm_s": 2.45,
  "cover": "ep49_orgasm_gap_cover.png",
  "caption": "ok"
 }
