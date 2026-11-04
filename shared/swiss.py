@@ -369,6 +369,17 @@ def _chord(root_hz, q):
     third = 3 if q == "m" else 4
     return [root_hz, root_hz * 2 ** (third / 12), root_hz * 2 ** (7 / 12)]
 
+def fx_reverb(x, rt=.8, wet=.22, pre=.02, seed=5):
+    """send reverb: synthetic stereo plate (decorrelated noise, -60 dB after rt s), high-passed at 300 Hz so the lows stay clean"""
+    from scipy.signal import fftconvolve
+    if not np.any(x): return np.zeros_like(x)
+    g = np.random.default_rng(seed); t_ = np.arange(int((rt * 1.2) * SR)) / SR; env = np.exp(-6.9 * t_ / rt)
+    out = np.zeros_like(x)
+    for c in range(2):
+        ir = g.normal(0, 1, len(t_)) * env; ir = bp(ir, 300, 7000); ir /= np.sqrt(np.sum(ir ** 2)) + 1e-9
+        ir = np.concatenate([np.zeros(int(pre * SR)), ir]); out[:, c] = fftconvolve(x[:, c], ir)[: len(x)]
+    return out * wet
+
 def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
     """dark minimal bed (pad + sub + soft kick/snare) in the episode's key/tempo; music_gaps = hard silences (e.g. before a reveal)"""
     M = dict(MUSIC); bpm = bpm or M["bpm"]; gaps = list(M.get("gaps", ())) + list(music_gaps)
@@ -414,6 +425,11 @@ def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
     for (t0, sig, pan) in fx_cues: put(fx, sig, t0, pan)
     env = np.convolve(np.abs(vo), np.ones(int(.12 * SR)) / int(.12 * SR), "same")
     duck = (1 - .55 * np.clip(env / (env.max() * .15 + 1e-9), 0, 1))[:, None]
+    if M.get("fxverb", os.environ.get("NJY_FXVERB") == "1"):   # reverb on the sound effects only (voice stays dry)
+        rev = [r_ - .02 for r_ in M.get("reveals", [])]; fx_l = np.zeros_like(fx)
+        for (t0, sig, pan) in fx_cues:
+            if any(abs(t0 - r_) < .06 for r_ in rev): put(fx_l, sig, t0, pan)   # reveal drops get the long tail
+        fx = fx + (fx_reverb(fx, .8, .32) + fx_reverb(fx_l, 1.8, .4)) * (.6 + .4 * duck)
     st = (vo[:, None] + mus * duck + fx)[: int(TL_.total * SR)]
     if os.environ.get("NJY_ADBG"):
         r = lambda x: 20 * np.log10(np.sqrt(np.mean(np.square(x))) + 1e-12)
