@@ -1,0 +1,51 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Quick guess: what's the average erect penis length?",
+   "screen": [
+    "THE AVERAGE",
+    "ERECT",
+    "LENGTH?"
+   ],
+   "speed": 1.15
+  },
+  {
+   "id": "study",
+   "text": "A review pooled seventeen studies and up to fifteen thousand men. Measured by health professionals. Not self-reported!"
+  },
+  {
+   "id": "avg",
+   "text": "The average erect length: thirteen point one centimeters. About five point two inches."
+  },
+  {
+   "id": "worry",
+   "text": "Yet in a survey of over fifty thousand people, only fifty-five percent of men were happy with their size. And their partners?",
+   "tease": "And their partners?",
+   "show": "THEIR PARTNERS: NEXT"
+  },
+  {
+   "id": "partners",
+   "text": "Eighty-five percent of women were satisfied with their partner's size!"
+  },
+  {
+   "id": "point",
+   "text": "So the worry is bigger than the problem."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "guess_label": "GUESS FIRST",
+ "guess_prompt": "Your guess?",
+ "ask": "SEND THIS TO A FRIEND WHO WORRIES.",
+ "sources": [
+  "Veale, Miles, Bramley, Muir & Hodsoll (2015), Am I normal? A systematic review and construction of nomograms for flaccid and erect penis length and circumference in up to 15,521 men, BJU International 115(6) – 17 studies, measured by health professionals; mean erect length 13.12 cm, erect circumference 11.66 cm.",
+  "Lever, Frederick & Peplau (2006), Does size matter? Men's and women's views on penis size across the lifespan, Psychology of Men & Masculinity 7(3) – 52,031 heterosexual men and women: 55% of men satisfied with their size, 85% of women satisfied with their partner's size."
+ ]
+}

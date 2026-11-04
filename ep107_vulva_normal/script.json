@@ -1,0 +1,50 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "claim",
+   "text": "There's no such thing as a normal vulva. Scientists measured it!",
+   "screen": [
+    "THERE'S NO",
+    "\"NORMAL\"",
+    "VULVA."
+   ],
+   "stamp": "657 WOMEN",
+   "speed": 1.13
+  },
+  {
+   "id": "study",
+   "text": "Swiss gynecologists measured six hundred fifty-seven women, aged fifteen to eighty-four."
+  },
+  {
+   "id": "range",
+   "text": "The inner labia ranged from five millimeters to ten centimeters. The outer ones: from about one to eighteen centimeters. So what's normal?",
+   "tease": "So what's normal?",
+   "show": "WHAT'S NORMAL: NEXT"
+  },
+  {
+   "id": "normal",
+   "text": "All of it! Every single one!"
+  },
+  {
+   "id": "inside",
+   "text": "And by the way: what you see is the vulva. The vagina is inside!"
+  },
+  {
+   "id": "point",
+   "text": "So if yours looks different: that's the normal part."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "ask": "SEND THIS TO SOMEONE WHO NEEDS IT.",
+ "sources": [
+  "Kreklau, Vâz, Oehme, Strub, Brechbühl, Christmann & Günthert (2018), Measurements of a 'normal vulva' in women aged 15–84: a cross-sectional prospective single-centre study, BJOG 125(13) – 657 women, Lucerne: labia minora 5–100 mm, labia majora 12–180 mm.",
+  "Lloyd, Crouch, Minto, Liao & Creighton (2005), Female genital appearance: 'normality' unfolds, BJOG 112(5) – 50 women: labia minora length 20–100 mm, width 5–60 mm."
+ ]
+}
