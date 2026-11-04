@@ -2,19 +2,18 @@
  "episode": "ep108_size_normal",
  "tts": "new",
  "asr_voice": [
-  "guess: 1/8 | Quick guess, what's the average direct penis length?",
   "avg: 3/13 | The average erect length 13.1 cm, about 5.2 inches."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.6,
-  "size_MiB": 4.5,
+  "duration_s": 28.77,
+  "size_MiB": 4.6,
   "black_intervals": [],
-  "loudness_LUFS": -16.1,
+  "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.4,
-  "sha256": "57df1a5b9558297a56b6fd288088445847b06c32cc451776945bb9f6b8e15157",
+  "sha256": "4137656d7d24ea54cfc78fe3066b4ecb59ab6ebe0014b6c0f951185094c0c0ff",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,12 +22,11 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "4/81 = 4.9%",
+ "asr_final_wer": "3/83 = 3.6%",
  "asr_final_issues": [
-  "guess: 1/8 | Quick guess, what's the average direct penis length?",
   "avg: 3/13 | The average erect length 13.1 cm, about 5.2 inches."
  ],
- "duration_s": 28.6,
+ "duration_s": 28.76,
  "longest_calm_s": 2.64,
  "cover": "ep108_size_normal_cover.png",
  "caption": "ok"
