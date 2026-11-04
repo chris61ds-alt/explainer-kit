@@ -1,6 +1,6 @@
 {
  "episode": "ep79_beer",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "three: 1/25 | Do you like horror movies? Have you ever travelled alone to another country? Would it be fun to quit everything and live on a sailboat?"
  ],
@@ -12,8 +12,8 @@
   "size_MiB": 3.3,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.5,
-  "sha256": "286e53fc2e1b151777b36fd3168e5334c52890850a1ae7b42f5e9845e055b950",
+  "true_peak_dBTP": -2.3,
+  "sha256": "57c78f2a015bff21cfad58731d58d96c5b6c129b8292c25e72765bf278c97239",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,7 +24,7 @@
  },
  "asr_final_wer": "1/87 = 1.1%",
  "asr_final_issues": [
-  "result: 1/19 | Fear fans were 60% more likely to be okay sleeping with someone they just met, men and women."
+  "result: 1/19 | Fear fans were 60% more likely to be okay sleeping with someone they just met. Men and women."
  ],
  "duration_s": 26.77,
  "longest_calm_s": 3.92,
