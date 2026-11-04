@@ -1,6 +1,6 @@
 {
  "episode": "ep77_casual",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 4/13 | On OK Cupid, users could tick what they are looking for. One option, casual sex.",
   "men: 1/6 | Straight men, 6.1%.",
@@ -12,11 +12,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 22.33,
-  "size_MiB": 2.6,
+  "size_MiB": 3.5,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.4,
-  "sha256": "4047aeda748876cafa2013ea46ae0a385ccfc1ea372093ee9ed7bacd6a245a31",
+  "sha256": "53f9c1f2ee62665cf2fc33c8eac63a3c74c3bfd016139caa0faa7fe39af8d1f0",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

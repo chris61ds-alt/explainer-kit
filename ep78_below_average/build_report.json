@@ -1,6 +1,6 @@
 {
  "episode": "ep78_below_average",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 2/9 | OK Cupid, analyzed how its users rated each other's looks."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 22.73,
-  "size_MiB": 2.7,
+  "size_MiB": 3.3,
   "black_intervals": [],
-  "loudness_LUFS": -16.1,
+  "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.4,
-  "sha256": "6fe06aff7a1cdf3c353fa99a278e974bb0c314dbe6bf10779bef4ce78fc6d5aa",
+  "sha256": "0510820b4aa60c7a48aa4d4d8901130e342eed9c86b2ce33707330e05e35f7cb",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,7 +24,7 @@
  },
  "asr_final_wer": "2/66 = 3.0%",
  "asr_final_issues": [
-  "study: 2/9 | OK, Cupid analyzed how its users rated each other's looks."
+  "study: 2/9 | OK Cupid, analyzed how its users rated each other's looks."
  ],
  "duration_s": 22.74,
  "longest_calm_s": 3.01,
