@@ -1,6 +1,6 @@
 {
  "episode": "ep43_kissing",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 1/12 | Anthropologists looked at 168 cultures around the world."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 23.5,
-  "size_MiB": 4.1,
+  "size_MiB": 3.5,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.4,
-  "sha256": "da261702378a2644297af4703856a89ef8d8a0b13bccc28e67781a80010af5a2",
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.5,
+  "sha256": "2a9980808a0892d101475fb64406b93b5ec24fba4405ba284a39536701ddb3ae",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -28,7 +28,7 @@
   "regions: 2/19 | Every culture they studied in the Middle East did it. In South America, only four are 33."
  ],
  "duration_s": 23.5,
- "longest_calm_s": 2.66,
+ "longest_calm_s": 2.22,
  "cover": "ep43_kissing_cover.png",
  "caption": "ok"
 }

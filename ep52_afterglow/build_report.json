@@ -1,6 +1,6 @@
 {
  "episode": "ep52_afterglow",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
@@ -10,8 +10,8 @@
   "size_MiB": 4.0,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -1.1,
-  "sha256": "351debebb584382120273f5bd00866e007e0e9936f643994e2e6ccfd70cf3029",
+  "true_peak_dBTP": -2.4,
+  "sha256": "92e271c3d2f3081b16e16851c4528caa28eebb470e17b805925d6c6cbd5f55ba",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,7 +23,7 @@
  "asr_final_wer": "0/76 = 0.0%",
  "asr_final_issues": [],
  "duration_s": 25.12,
- "longest_calm_s": 6.46,
+ "longest_calm_s": 2.39,
  "cover": "ep52_afterglow_cover.png",
  "caption": "ok"
 }

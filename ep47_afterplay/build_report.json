@@ -1,6 +1,6 @@
 {
  "episode": "ep47_afterplay",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 1/14 | Researchers surveyed over 300 people, then followed 100 couples for three weeks.",
   "result: 1/13 | On average, people spend about 15 minutes on affection afterwards, cuddling, kissing, talking."
@@ -10,11 +10,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 27.1,
-  "size_MiB": 4.1,
+  "size_MiB": 4.0,
   "black_intervals": [],
   "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.4,
-  "sha256": "6f0d85d4ac1b7ab7cadfa4817f7fc84646f704a3f46e95a0d6465fec309046e9",
+  "true_peak_dBTP": -2.3,
+  "sha256": "7edf35ae5446cd173ee9435888f33fce15b2f29f884addc3603d8d15b82ad686",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -29,7 +29,7 @@
   "result: 1/13 | On average, people spend about 15 minutes on affection afterwards, cuddling, kissing, talking."
  ],
  "duration_s": 27.11,
- "longest_calm_s": 5.33,
+ "longest_calm_s": 2.77,
  "cover": "ep47_afterplay_cover.png",
  "caption": "ok"
 }
