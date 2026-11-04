@@ -1,0 +1,29 @@
+{
+ "episode": "ep97_happy_couples",
+ "tts": "new",
+ "asr_voice": [],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 31.63,
+  "size_MiB": 3.7,
+  "black_intervals": [],
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -2.0,
+  "sha256": "7e2e01c14e789fc8bd354a5aedf985cfc80114dd0be75f2fe70d243895199b40",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "0/87 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 31.62,
+ "longest_calm_s": 4.2,
+ "cover": "ep97_happy_couples_cover.png",
+ "caption": "ok"
+}
