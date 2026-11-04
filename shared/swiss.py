@@ -376,6 +376,16 @@ def _chord(root_hz, q):
     third = 3 if q == "m" else 4
     return [root_hz, root_hz * 2 ** (third / 12), root_hz * 2 ** (7 / 12)]
 
+def widen(x, amt=.5, lo=200, delay=.012):
+    """mono-safe stereo width: everything above lo Hz gets a side signal made of a delayed copy (L = h + a·d, R = h − a·d),
+    so the mono sum stays exactly the same; lows (kick, bass, thuds) stay centred"""
+    from scipy.signal import butter, sosfilt
+    if not np.any(x): return x
+    sos = butter(2, lo / (SR / 2), "high", output="sos"); m = x.mean(axis=1); h = sosfilt(sos, m)
+    k = int(delay * SR); dl = np.concatenate([np.zeros(k), h[:-k]]) * amt
+    out = x.copy(); out[:, 0] += dl; out[:, 1] -= dl
+    return out
+
 def fx_reverb(x, rt=.8, wet=.22, pre=.02, seed=5):
     """send reverb: synthetic stereo plate (decorrelated noise, -60 dB after rt s), high-passed at 300 Hz so the lows stay clean"""
     from scipy.signal import fftconvolve
@@ -429,7 +439,9 @@ def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
         s0, s1 = int(a_ * SR), int(b_ * SR); gate[s0:s1] = 0
         gate[max(0, s0 - fdur):s0] = np.linspace(1, 0, s0 - max(0, s0 - fdur)); gate[s1:s1 + fdur] = np.linspace(0, 1, len(gate[s1:s1 + fdur]))
     mus *= gate[:, None]
-    for (t0, sig, pan) in fx_cues: put(fx, sig, t0, pan)
+    fw = os.environ.get("NJY_WIDE"); wide = (fw == "1") if fw in ("0", "1") else M.get("wide", False)
+    for (t0, sig, pan) in fx_cues: put(fx, sig, t0, float(np.clip(pan * 2, -.8, .8)) if wide else pan)   # wide: fx sit further out
+    if wide: mus = widen(mus, .7); fx = widen(fx, .4)
     env = np.convolve(np.abs(vo), np.ones(int(.12 * SR)) / int(.12 * SR), "same")
     duck = (1 - .55 * np.clip(env / (env.max() * .15 + 1e-9), 0, 1))[:, None]
     fv = os.environ.get("NJY_FXVERB")
@@ -439,6 +451,9 @@ def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
             if any(abs(t0 - r_) < .06 for r_ in rev): put(fx_l, sig, t0, pan)   # reveal drops get the long tail
         fx = fx + (fx_reverb(fx, .8, .32) + fx_reverb(fx_l, 1.8, .4)) * (.6 + .4 * duck)
     st = (vo[:, None] + mus * duck + fx)[: int(TL_.total * SR)]
+    if wide:                                          # mono check: the mono sum must not lose level against the stereo mix
+        L_, R_ = st[:, 0], st[:, 1]; rms = lambda a: np.sqrt(np.mean(a ** 2)) + 1e-12
+        print(f"stereo: L/R corr {np.corrcoef(L_, R_)[0, 1]:.2f} · mono vs stereo {20 * np.log10(rms((L_ + R_) / 2) / rms(st)):+.1f} dB", flush=True)
     if os.environ.get("NJY_ADBG"):
         r = lambda x: 20 * np.log10(np.sqrt(np.mean(np.square(x))) + 1e-12)
         sec = lambda x: " ".join(f"{r(x[int(i * SR):int((i + 1) * SR)]):.0f}" for i in range(int(TL_.total)))
