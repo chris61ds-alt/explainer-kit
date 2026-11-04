@@ -11,13 +11,16 @@ EP = ThreadEpisode(TL, 101, "LIKING GAP", order=ORDER, dark=True, label="5 STUDI
                    music=dict(bpm=100, root=2, prog="major", kick="four", audio="v5", gaps=[(E("study") + .05, S("result") + .05)]),
                    cover=dict(words=["THEY LIKE YOU", "MORE THAN", "YOU THINK."], kicker="The liking gap."))
 
+IS = Iso(480, 1020, .7)
 def sc_study(img, d, t):
     t0, tq = S("study"), cue("study", "how much do I like") - .1; tm = cue("study", "do they like me") - .1
+    IS.grid(img); IS.shadow(d, 0, 0, 300, k=clamp((t - t0 - .1) / .3))
+    A = chairs(IS, d, t, [t0 + .1 + i * .2 for i in range(4)])
     d.text((X0, 320), "5-MINUTE", font=F(BLK, 150), fill=INK); d.text((X0, 470), "CHAT", font=F(BLK, 150), fill=INK)
-    clock(d, X1 - 80, 600, 56, (t - t0) / 3)
-    couple(img, d, labels=("YOU", "STRANGER"))
-    if t >= tq: bubble(d, "you", "I like them…", (t - tq) / .3, y=680)
-    if t >= tm: bubble(d, "you", "…but do they like me?", (t - tm) / .3, col=MID, y=760, size=30)
+    clock(d, X1 - 80, 640, 56, (t - t0) / 3)
+    xy = IS.P(*A["you"]); xp = IS.P(*A["them"])
+    if t >= tq: bubble(d, "you", "I like them…", (t - tq) / .3, y=620, x=xy[0])
+    if t >= tm: bubble(d, "you", "…but do they like me?", (t - tm) / .3, col=MID, y=700, size=30, x=xy[0])
     fig(d, "conversation study · schematic")
 
 def gapbars(d, t, k_all=1.0):

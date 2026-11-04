@@ -48,14 +48,18 @@ def bars(d, t, show_div):
 def sc_married(img, d, t): bars(d, t, False); fig(d, "share of bids answered by turning toward")
 def sc_divorced(img, d, t): bars(d, t, True); fig(d, "share of bids answered by turning toward")
 
+IP = Iso(480, 1010, .9)
 def sc_point(img, d, t):
     t0, tl = S("point"), cue("point", "Look!") - .15
-    words_in(d, t, [("WHEN THEY", t0 + .05, 320, 120, MID), ("SAY: LOOK!", t0 + .2, 440, 120, INK)] + ([("LOOK.", tl, 590, 170, SIG)] if t >= tl else []))
-    couple(img, d)
+    IP.grid(img); IP.shadow(d, 0, 0, 210)
+    A = phone(IP, d, t, msgs=[("l", t0 + .1, MID), ("r", tl, SIG)])
+    words_in(d, t, [("WHEN THEY", t0 + .05, 320, 110, MID), ("SAY: LOOK!", t0 + .2, 430, 110, INK)] + ([("LOOK.", tl, 545, 150, SIG)] if t >= tl else []))
+    if t >= tl: p = IP.P(*A["bubble"]); callout(d, p, "r", p[1] - 60, 1, "TURN TOWARD", SIG, k=(t - tl) / .4)
     fig(d, "fig. 2 — turn toward")
 
 EP.carry = {"study": [((100, 820, 860, 1135), (X0 + 14 + 10 * 30 - 8, 760 + 30 - 8, X0 + 14 + 11 * 30 + 8, 760 + 30 + 8))]}
 EP.cuts = {"divorced": "stay"}
+EP.bg = {"point": "light"}
 EP.scenes = {"hook": sc_hook, "study": sc_study, "married": sc_married, "divorced": sc_divorced, "point": sc_point}
 FX = [*EP.cut_fx(), (S("hook") + .05, thud(.45), 0), (S("hook") + .2, pop(.12), .2), (cue("hook", "look at this bird") - .1, pop(.15), .3),
       (S("study") + .1, riser(.8, .04), 0), (cue("study", "little bids") - .1, pop(.13), 0),

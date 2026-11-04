@@ -29,12 +29,12 @@ def sc_list(img, d, t):
     if say: bubble(d, "you", say, (t - S(cur) - .2) / .3, col=MID if cur == "least" else INK, y=500, x=700, size=34)
     fig(d, "ranked by how much each part helped")
 
-def sc_point(img, d, t):
-    t0 = S("point")
-    words_in(d, t, [("OWN IT.", t0 + .05, 320, 170, INK), ("FIX IT.", cue("point", "Fix it") - .15, 500, 170, INK), ("DON'T BEG.", cue("point", "Don't beg") - .15, 680, 150, SIG)])
-    fig(d, "fig. 2 — the apology")
+IP = Iso(480, 1000, .9)
+sc_point = iso_recap(TL, "point", IP, envelope, "SO:", [("letter", "l", -60, "OWN IT", INK, "own it"), ("flap", "l", 90, "FIX IT", INK, "Fix it"),
+                     ("env", "r", -30, "DON'T BEG", SIG, "Don't beg")], figtxt="fig. 2 — the apology")
 
 EP.cuts = {"own": "stay", "fix": "stay", "least": "stay"}
+EP.bg = {"point": "light"}
 EP.scenes = {"hook": sc_list, "own": sc_list, "fix": sc_list, "least": sc_list, "point": sc_point}
 FX = [*EP.cut_fx(), (S("hook") + .05, thud(.45), 0), *[(S("hook") + .4 + i * .18, tick(.04), (i % 5 - 2) / 3) for i in range(6)],
       (S("own") + .05, thud(.45), 0), (S("own") + .2, pop(.13), -.2), (S("fix") + .05, thud(.45), 0), (S("fix") + .2, pop(.13), -.2),

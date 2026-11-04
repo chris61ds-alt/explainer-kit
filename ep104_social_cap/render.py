@@ -3,6 +3,7 @@
 import os, sys, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
+from tips import phone as _iso_phone
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .6, "limit": .5, "result": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
@@ -56,13 +57,17 @@ def sc_result(img, d, t):
         ax = X1 - 60; d.polygon([(ax - 40, y + 10 + 40 * k), (ax + 40, y + 10 + 40 * k), (ax, y + 90 + 40 * k)], fill=SIG)
     fig(d, "vs. the usual-use group")
 
+IP = Iso(470, 960, .95)
 def sc_point(img, d, t):
     t0, tc = S("point"), cue("point", "Just cap it") - .2
+    IP.grid(img); IP.shadow(d, 0, 0, 230)
+    A = _iso_phone(IP, d, t, msgs=[("l", t0 + .1, MID), ("r", t0 + .3, MID)], timer=(tc, "30"), timer_col=SIG if t >= tc else TOP)
     words_in(d, t, [("DON'T QUIT.", t0 + .05, 320, 140, MID)] + ([("CAP IT.", tc, 480, 200, SIG)] if t >= tc else []))
-    phone(d, 480, 920, .65); d.text((480, 920), "30 MIN", font=F(BLK, 32), fill=INK, anchor="mm")
+    if t >= tc: p = IP.P(*A["timer"]); callout(d, p, "r", p[1] - 70, 1, "30 MIN A DAY", SIG, k=(t - tc) / .4)
     fig(d, "fig. 2 — schematic")
 
 EP.cuts = {"result": "stay"}
+EP.bg = {"point": "light"}
 EP.scenes = {"hook": sc_hook, "study": sc_study, "limit": sc_limit, "result": sc_result, "point": sc_point}
 FX = [*EP.cut_fx(), (S("hook") + .05, thud(.45), 0), (S("hook") + .3, whoosh(.2, .05), 0), (S("study") + .1, riser(.8, .04), 0), (cue("study", "as usual") - .1, thud(.4), 0), (cue("study", "three weeks") - .1, tick(.06), .2),
       *[(cue("study", "half of them") - .1 + i * .15, pop(.12), (i - 1) / 2) for i in range(3)],

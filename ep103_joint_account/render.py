@@ -48,12 +48,16 @@ def sc_joint(img, d, t):
     if t >= tm: box_label(d, X0, 560, "MORE IN SYNC ABOUT MONEY", 38, WHITE, SIG, font=BLK)
     fig(d, "lines schematic")
 
+IP = Iso(480, 1010, .95)
 def sc_point(img, d, t):
     t0, tm = S("point"), cue("point", "Maybe money") - .2
-    words_in(d, t, [("LOVE IS", t0 + .05, 320, 150, MID), ("SHARED.", t0 + .2, 470, 150, MID)] + ([("MONEY", tm, 650, 170, SIG), ("TOO?", tm + .15, 820, 170, SIG)] if t >= tm else []))
+    IP.grid(img); IP.shadow(d, 0, 0, 230)
+    A = coin_stacks(IP, d, t, merge=(t - tm) / .8, top=SIG if t >= tm + .8 else TOP)
+    words_in(d, t, [("LOVE IS", t0 + .05, 320, 140, MID), ("SHARED.", t0 + .2, 460, 140, MID)] + ([("MONEY TOO?", tm, 610, 130, SIG)] if t >= tm else []))
     fig(d, "fig. 2 — not for every couple")
 
 EP.cuts = {"joint": "stay"}
+EP.bg = {"point": "light"}
 EP.scenes = {"study": sc_study, "separate": sc_separate, "joint": sc_joint, "point": sc_point}
 FX = [(0.0, thud(.5), 0), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0), (cue("study", "randomly") - .1, thud(.4), 0), (cue("study", "separate accounts") - .1, pop(.12), .2), (cue("study", "engaged or") - .1, tick(.06), -.2),
       *[(cue("study", c) - .1, pop(.13), (i - 1) / 2) for i, (l, c) in enumerate(GROUPS)],

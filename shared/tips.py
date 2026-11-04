@@ -97,6 +97,71 @@ def bed(I, d, t, T=None, lamp_col=TOP):
     if v: I.box(d, -255, -90, 130 + dz, 490, 385, 18)                                                     # blanket
     return {"lamp": (360, -270, 220), "pillow_l": (-125, -180, 160), "pillow_r": (105, -180, 160), "blanket": (0, 100, 148), "stand": (360, -270, 120)}
 
+def iso_quad(I, d, x0, y0, x1, y1, z, fill, outline=None, w=3):
+    """flat rectangle on the plane at height z (e.g. content on a phone screen)"""
+    pts = [I.P(x0, y0, z), I.P(x1, y0, z), I.P(x1, y1, z), I.P(x0, y1, z)]
+    d.polygon(pts, fill=fill)
+    if outline: d.line(pts + [pts[0]], fill=outline, width=w)
+
+def phone(I, d, t, T=None, msgs=(), timer=None, timer_col=TOP):
+    """smartphone lying flat; msgs = [(side 'l'|'r', t_in, col)] chat bubbles on the screen; timer = (t_in, label) dial beside it"""
+    T = _T(T, 3)
+    v, dz = drop(t, T[0])
+    if v:
+        I.box(d, -90, -170, dz, 180, 340, 18)
+        iso_quad(I, d, -78, -155, 78, 155, 18 + dz, INK)                                               # screen
+        for j, (side, ti, col) in enumerate(msgs):
+            if t < ti: continue
+            k = ease(clamp((t - ti) / .25)); y = -130 + j * 62; x0, x1 = ((-66, 20) if side == "l" else (-20, 66))
+            iso_quad(I, d, x0, y, x0 + (x1 - x0) * k, y + 44, 18.5 + dz, col)
+    if timer:
+        v, dz = drop(t, T[1])
+        if v: I.cyl(d, 190, 60, dz, 60, 40, top=timer_col); px, py = I.P(190, 60, 40 + dz); d.line([px, py, px + 22, py - 14], fill=INK, width=5)
+    return {"screen": (0, -100, 20), "bubble": (40, -40, 20), "timer": (190, 60, 40), "phone": (60, 120, 18)}
+
+def chairs(I, d, t, T=None):
+    """two chairs facing each other across a small round table"""
+    T = _T(T, 5)
+    def chair(x, y, f, dz):
+        for lx, ly in ((0, 0), (90, 0), (0, 90), (90, 90)): I.box(d, x + lx, y + ly, dz, 14, 14, 110)
+        I.box(d, x - 4, y - 4, 110 + dz, 112, 112, 14)
+        bx = x - 4 if f > 0 else x + 94
+        I.box(d, bx, y - 4, 124 + dz, 14, 112, 130)
+    v, dz = drop(t, T[0])
+    if v: chair(-330, -60, 1, dz)
+    v, dz = drop(t, T[1])
+    if v: I.cyl(d, 0, 0, dz, 40, 10); I.cyl(d, 0, 0, 10 + dz, 10, 150); I.cyl(d, 0, 0, 160 + dz, 110, 12)
+    v, dz = drop(t, T[2])
+    if v: chair(230, -60, -1, dz)
+    v, dz = drop(t, T[3])
+    if v: I.cyl(d, -30, -20, 172 + dz, 26, 40); I.cyl(d, 40, 30, 172 + dz, 26, 40)                      # two cups
+    return {"you": (-280, 0, 250), "them": (280, 0, 250), "table": (0, 0, 172), "cup": (40, 30, 212)}
+
+def envelope(I, d, t, T=None, letter_k=1.0):
+    T = _T(T, 2)
+    v, dz = drop(t, T[0])
+    if v:
+        I.box(d, -200, -130, dz, 400, 260, 14)
+        x0, y0, z = -200, -130, 14 + dz; P = I.P
+        d.line([P(x0, y0, z), P(0, 10, z), P(x0, 130, z)], fill=INK, width=4); d.line([P(200, y0, z), P(0, 10, z), P(200, 130, z)], fill=INK, width=4)
+    v, dz = drop(t, T[1])
+    if v and letter_k > 0:                                                                                # the letter lifts out
+        z = 30 + 140 * ease(clamp(letter_k)) + dz
+        I.box(d, -160, -100, z, 320, 200, 4)
+        for i in range(4): iso_quad(I, d, -130, -70 + i * 40, 90 - (i % 2) * 60, -56 + i * 40, z + 4.5, INK)
+    return {"letter": (0, -40, 180), "flap": (0, 10, 14), "env": (150, 100, 14)}
+
+def coin_stacks(I, d, t, merge=0.0, n=(6, 6), top=TOP, gap=170):
+    """two coin stacks that slide together into one (merge 0..1)"""
+    k = ease_io(clamp(merge)); out = {}
+    for j, (cnt, sx) in enumerate(zip(n, (-1, 1))):
+        x = sx * gap * (1 - k); y = 0
+        z0 = 0 if (k < 1 or j == 0) else n[0] * 18
+        for i in range(cnt): I.cyl(d, x, y, z0 + i * 18 if k >= 1 else i * 18, 70, 18, top=top)
+        out[f"s{j}"] = (x, y, (z0 + cnt * 18) if k >= 1 else cnt * 18)
+    out["top"] = (0, 0, sum(n) * 18) if k >= 1 else out["s1"]
+    return out
+
 def cube_stack(I, d, t, x0, y0, n, t0=-9, step=.05, size=56, top=TOP, gap=4):
     """n cubes stacked in a 2×2 footprint, dropping in one by one from t0 → top anchor"""
     s = size + gap; slots = [(0, 0), (s, 0), (0, s), (s, s)]
