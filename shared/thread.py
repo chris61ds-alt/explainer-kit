@@ -161,9 +161,10 @@ class ThreadEpisode(Episode):
         self.carry, self.cuts, self.carry_dur = {}, {}, .5
         self.focus = {}                                  # look v6: {scene: (x, y)} – the slow camera push heads for this point
         env = os.environ.get("NJY_BGS")                  # scene backgrounds: default on from No. 93 (NJY_BGS=0/1 overrides)
-        self.bgs = (env == "1") if env in ("0", "1") else self.no >= 93
+        up = self.no >= 93 or os.environ.get("NJY_UPGRADE") == "1"   # NJY_UPGRADE=1: older episodes get the 04.11.2026 upgrade too
+        self.bgs = (env == "1") if env in ("0", "1") else up
         self.bg, self._pbgc = None, {}                   # bg: {scene: "dark"|"orange"|"light"} overrides the automatic choice
-        if self.no >= 93:                                # from No. 93: fx reverb on (B test, 04.11.2026) + fig line = caveats only
+        if up:                                           # from No. 93: fx reverb on (B test, 04.11.2026) + fig line = caveats only
             self.music.setdefault("fxverb", True); self.music.setdefault("wide", True); FIG["caveats"] = True
 
     def bg_of(self, key):
