@@ -7,7 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "guests": .5, "ring": .5, "honey": .5, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "guests", "ring", "honey", "point", "end"]           # opener: guess (toolkit)
-EP = ThreadEpisode(TL, 94, "RING & GUESTS", order=ORDER, dark=True, label="WEDDING MATH 2/3 · SURVEY",
+EP = ThreadEpisode(TL, 94, "RING & GUESTS", order=ORDER, dark=True, label="SURVEY · CORRELATION",
                    chapters={k: "" for k in ORDER[:-1]},
                    sources=("Francis-Tan & Mialon (2015), Economic Inquiry", "survey of 3,000+ ever-married US adults · correlation"),
                    music=dict(bpm=104, root=2, prog="major", kick="four", audio="v5", gaps=[(E("hook") + .05, S("guests") + .05)]),

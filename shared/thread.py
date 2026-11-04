@@ -163,6 +163,8 @@ class ThreadEpisode(Episode):
         env = os.environ.get("NJY_BGS")                  # scene backgrounds: default on from No. 93 (NJY_BGS=0/1 overrides)
         self.bgs = (env == "1") if env in ("0", "1") else self.no >= 93
         self.bg, self._pbgc = None, {}                   # bg: {scene: "dark"|"orange"|"light"} overrides the automatic choice
+        if self.no >= 93:                                # from No. 93: fx reverb on (B test, 04.11.2026) + fig line = caveats only
+            self.music.setdefault("fxverb", True); FIG["caveats"] = True
 
     def bg_of(self, key):
         if key == "end" or not self.bgs: return "dark"

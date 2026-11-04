@@ -219,7 +219,14 @@ def giant(d, text, y=Y_TOP, size=230, col=INK, k=1.0, x=X0 - 8, slide=100):
     if k <= 0: return
     e = ease(k); d.text((x - (1 - e) * slide, y), text, font=F(BLK, size), fill=mix(BG, col, e))
 
-def fig(d, text): d.text((X0, 1146), text, font=F(MED, 22), fill=MID)
+FIG = {"caveats": False}        # from No. 93 (ThreadEpisode): the fig line only shows honesty caveats, big enough to read
+def fig(d, text):
+    if not FIG["caveats"]: d.text((X0, 1146), text, font=F(MED, 22), fill=MID); return
+    lo = text.lower(); tags = []
+    if "not proof" in lo or "a link" in lo: tags.append("A LINK, NOT PROOF")
+    if "schematic" in lo: tags.append("SCHEMATIC")
+    if "small study" in lo: tags.append("SMALL STUDY")
+    if tags: d.text((X0 + 30, 1136), " · ".join(tags), font=F(MONO, 28), fill=MID)
 
 def legend(d, items, y=1100):
     x = X0
@@ -425,7 +432,8 @@ def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
     for (t0, sig, pan) in fx_cues: put(fx, sig, t0, pan)
     env = np.convolve(np.abs(vo), np.ones(int(.12 * SR)) / int(.12 * SR), "same")
     duck = (1 - .55 * np.clip(env / (env.max() * .15 + 1e-9), 0, 1))[:, None]
-    if M.get("fxverb", os.environ.get("NJY_FXVERB") == "1"):   # reverb on the sound effects only (voice stays dry)
+    fv = os.environ.get("NJY_FXVERB")
+    if (fv == "1") if fv in ("0", "1") else M.get("fxverb", False):   # reverb on the sound effects only (voice stays dry)
         rev = [r_ - .02 for r_ in M.get("reveals", [])]; fx_l = np.zeros_like(fx)
         for (t0, sig, pan) in fx_cues:
             if any(abs(t0 - r_) < .06 for r_ in rev): put(fx_l, sig, t0, pan)   # reveal drops get the long tail
