@@ -1,0 +1,51 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Quick guess: what's the most important part of an apology?",
+   "screen": [
+    "THE MOST",
+    "IMPORTANT PART",
+    "OF A SORRY?"
+   ],
+   "speed": 1.15
+  },
+  {
+   "id": "hook",
+   "text": "Researchers tested six parts of an apology with over seven hundred people.",
+   "speed": 1.12
+  },
+  {
+   "id": "own",
+   "text": "Number one: own it. Say: this was my fault!"
+  },
+  {
+   "id": "fix",
+   "text": "Number two: offer to fix it. And the least useful part?",
+   "tease": "And the least useful part?",
+   "show": "THE LEAST USEFUL: NEXT"
+  },
+  {
+   "id": "least",
+   "text": "Asking for forgiveness!"
+  },
+  {
+   "id": "point",
+   "text": "So: own it. Fix it. Don't beg!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "guess_label": "GUESS FIRST",
+ "guess_prompt": "Your guess?",
+ "ask": "SAVE THIS FOR YOUR NEXT SORRY.",
+ "sources": [
+  "Lewicki, Polin & Lount (2016), An exploration of the structure of effective apologies, Negotiation and Conflict Management Research 9(2) – 333 adults online + 422 students: acknowledgment of responsibility most important, then offer of repair; request for forgiveness least important."
+ ]
+}

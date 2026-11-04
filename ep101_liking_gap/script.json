@@ -1,0 +1,45 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "claim",
+   "text": "After a first conversation, people like you more than you think. Seriously!",
+   "screen": [
+    "THEY LIKE YOU",
+    "MORE THAN",
+    "YOU THINK."
+   ],
+   "stamp": "5 STUDIES",
+   "speed": 1.13
+  },
+  {
+   "id": "study",
+   "text": "Researchers paired strangers for a five-minute chat. Then both rated: how much do I like them? And how much do they like me?"
+  },
+  {
+   "id": "result",
+   "text": "People underestimated how much they were liked. Even in longer talks. And with roommates?",
+   "tease": "And with roommates?",
+   "show": "ROOMMATES: NEXT"
+  },
+  {
+   "id": "roommates",
+   "text": "The gap lasted for months!"
+  },
+  {
+   "id": "point",
+   "text": "So that awkward chat? It went better than you think!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "ask": "SEND THIS TO SOMEONE YOU JUST MET.",
+ "sources": [
+  "Boothby, Cooney, Sandstrom & Clark (2018), The liking gap in conversations: Do people like us more than we think?, Psychological Science 29(11) – five studies; strangers' 5-minute conversations, longer conversations, real-world settings; gap persisted for months among college roommates."
+ ]
+}

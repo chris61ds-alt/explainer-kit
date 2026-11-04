@@ -1,0 +1,55 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Quick guess: how many hours does it take to make a close friend?",
+   "screen": [
+    "HOW MANY HOURS",
+    "TO MAKE A",
+    "CLOSE FRIEND?"
+   ],
+   "speed": 1.15
+  },
+  {
+   "id": "hook",
+   "text": "It's more than you think. Here's the math!",
+   "speed": 1.15
+  },
+  {
+   "id": "study",
+   "text": "A researcher surveyed hundreds of adults who had just moved. And followed new college students for weeks."
+  },
+  {
+   "id": "casual",
+   "text": "From stranger to casual friend: about fifty hours."
+  },
+  {
+   "id": "friend",
+   "text": "To real friend: about ninety. And a close friend?",
+   "tease": "And a close friend?",
+   "show": "CLOSE FRIEND: NEXT"
+  },
+  {
+   "id": "close",
+   "text": "Over two hundred hours!"
+  },
+  {
+   "id": "point",
+   "text": "So if it's not clicking yet: keep showing up!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "guess_label": "GUESS FIRST",
+ "guess_prompt": "Your guess?",
+ "ask": "WHO'S YOUR 200-HOUR FRIEND? COMMENT.",
+ "sources": [
+  "Hall (2019), How many hours does it take to make a friend?, Journal of Social and Personal Relationships 36(4) – 355 adults who had recently moved + 112 first-year students: ~50 h to casual friend, ~90 h to friend, 200+ h to close friend."
+ ]
+}

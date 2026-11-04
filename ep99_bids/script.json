@@ -1,0 +1,51 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Quick guess: how often do happy couples respond when their partner wants attention?",
+   "screen": [
+    "HAPPY COUPLES:",
+    "HOW OFTEN DO",
+    "THEY RESPOND?"
+   ],
+   "speed": 1.15
+  },
+  {
+   "id": "hook",
+   "text": "It's about tiny moments. Like: hey, look at this bird!",
+   "speed": 1.13
+  },
+  {
+   "id": "study",
+   "text": "Psychologist John Gottman followed newlyweds for six years. He watched how they answered these little bids for attention."
+  },
+  {
+   "id": "married",
+   "text": "Couples who were still married turned toward each other eighty-six percent of the time. And the divorced couples?",
+   "tease": "And the divorced couples?",
+   "show": "THE DIVORCED: NEXT"
+  },
+  {
+   "id": "divorced",
+   "text": "Thirty-three percent!"
+  },
+  {
+   "id": "point",
+   "text": "So when they say: look! Look!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "guess_label": "GUESS FIRST",
+ "guess_prompt": "Your guess?",
+ "ask": "SEND THIS TO YOUR PARTNER.",
+ "sources": [
+  "Gottman (with Driver) – newlywed study, six-year follow-up: couples still married had turned toward partners' bids 86% of the time, divorced couples 33% (Gottman Institute, 'Turn Toward Instead of Away'; Gottman & DeClaire, The Relationship Cure, 2001)."
+ ]
+}

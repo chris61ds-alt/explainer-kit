@@ -1,0 +1,51 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Quick guess: how much social media a day made students less lonely?",
+   "screen": [
+    "HOW MUCH",
+    "SOCIAL MEDIA",
+    "A DAY?"
+   ],
+   "speed": 1.15
+  },
+  {
+   "id": "hook",
+   "text": "Not zero! Here's the experiment.",
+   "speed": 1.15
+  },
+  {
+   "id": "study",
+   "text": "A hundred forty-three students. For three weeks, half of them used Facebook, Instagram and Snapchat as usual."
+  },
+  {
+   "id": "limit",
+   "text": "The other half: ten minutes per app, per day. Thirty minutes total. And their loneliness?",
+   "tease": "And their loneliness?",
+   "show": "LONELINESS: NEXT"
+  },
+  {
+   "id": "result",
+   "text": "It dropped. Depression too!"
+  },
+  {
+   "id": "point",
+   "text": "So you don't have to quit. Just cap it!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "guess_label": "GUESS FIRST",
+ "guess_prompt": "Minutes?",
+ "ask": "WHAT'S YOUR SCREEN TIME? COMMENT.",
+ "sources": [
+  "Hunt, Marx, Lipson & Young (2018), No more FOMO: Limiting social media decreases loneliness and depression, Journal of Social and Clinical Psychology 37(10) – 143 students, 3 weeks; limit 10 min per platform per day (Facebook, Instagram, Snapchat) vs usual use; significant reductions in loneliness and depression."
+ ]
+}

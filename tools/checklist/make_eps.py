@@ -5,8 +5,9 @@ H = os.path.dirname(os.path.abspath(__file__)); K = os.path.dirname(os.path.dirn
 rows = json.load(open('publish/schedule.json')); hdr = rows[0]; plan = {int(r[2]): dict(zip(hdr, r)) for r in rows[1:]}
 eps = []
 os.makedirs(f'{H}/thumbs', exist_ok=True)
-for d in sorted(glob.glob('ep[0-9][0-9]_*')):
-    no = int(d[2:4])
+for d in sorted(glob.glob('ep[0-9]*_*'), key=lambda x: int(re.match(r'ep(\d+)', x).group(1))):
+    if not re.match(r'ep\d+_', d): continue
+    no = int(re.match(r'ep(\d+)', d).group(1))
     if not os.path.exists(f'publish/media/nj{no:02d}.mp4'): continue
     src = open(f'{d}/render.py').read()
     m = re.search(r'Episode\(TL, *\d+, *"([^"]+)"', src) or re.search(r'title *= *"([^"]+)"', src)

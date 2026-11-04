@@ -1,0 +1,47 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "claim",
+   "text": "Happy couples aren't just lucky. They do three things. Save this!",
+   "screen": [
+    "HAPPY COUPLES",
+    "AREN'T LUCKY.",
+    "THEY DO THIS."
+   ],
+   "stamp": "3 STUDIES",
+   "speed": 1.13
+  },
+  {
+   "id": "tip1",
+   "text": "Tip one: do something new together! In an experiment, couples who tackled a new, exciting challenge together felt better about their relationship than couples who did something boring."
+  },
+  {
+   "id": "tip2",
+   "text": "Tip two: celebrate their good news! Couples who react with real excitement feel closer and more satisfied. And tip three costs nothing.",
+   "tease": "And tip three costs nothing.",
+   "show": "TIP 3: NEXT"
+  },
+  {
+   "id": "tip3",
+   "text": "Say thank you! In a diary study, feeling grateful to your partner predicted feeling closer the next day."
+  },
+  {
+   "id": "point",
+   "text": "So: try new things. Cheer louder. Say thanks!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "ask": "SEND THIS TO YOUR PARTNER.",
+ "sources": [
+  "Aron, Norman, Aron, McKenna & Heyman (2000), Couples' shared participation in novel and arousing activities and experienced relationship quality, JPSP 78(2) – experiments: novel/arousing joint task vs mundane task → higher relationship quality.",
+  "Gable, Reis, Impett & Asher (2004), What do you do when things go right?, JPSP 87(2) – active-constructive responses to a partner's good news linked to intimacy and satisfaction.",
+  "Algoe, Gable & Maisel (2010), It's the little things: Everyday gratitude as a booster shot for romantic relationships, Personal Relationships 17(2) – daily diary: gratitude predicted next-day connection and satisfaction."
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "claim",
+   "text": "Three sex facts worth saving. All backed by research!",
+   "screen": [
+    "3 SEX FACTS",
+    "WORTH",
+    "SAVING."
+   ],
+   "stamp": "3 STUDIES",
+   "speed": 1.13
+  },
+  {
+   "id": "tip1",
+   "text": "One: once a week is enough. In data from over thirty thousand people, well-being rose with sex up to once a week. More didn't help."
+  },
+  {
+   "id": "tip2",
+   "text": "Two: don't skip the cuddle. Couples who spent more time on affection after sex felt more satisfied. And fact three?",
+   "tease": "And fact three?",
+   "show": "FACT 3: NEXT"
+  },
+  {
+   "id": "tip3",
+   "text": "The afterglow lasts about two days!"
+  },
+  {
+   "id": "point",
+   "text": "So: once a week. Cuddle after. Enjoy the glow!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "ask": "SAVE THIS.",
+ "sources": [
+  "Muise, Schimmack & Impett (2016), Sexual frequency predicts greater well-being, but more is not always better, Social Psychological and Personality Science 7(4) – 30,000+ Americans; no further gain beyond once a week.",
+  "Muise, Giang & Impett (2014), Post sex affectionate exchanges promote sexual and relationship satisfaction, Archives of Sexual Behavior 43(7).",
+  "Meltzer et al. (2017), Quantifying the sexual afterglow, Psychological Science 28(5) – sexual satisfaction stays elevated ~48 hours after sex."
+ ]
+}

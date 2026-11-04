@@ -1,0 +1,53 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Do your fights get worse the longer they go?",
+   "screen": [
+    "DO YOUR FIGHTS",
+    "GET WORSE",
+    "AS THEY GO?"
+   ],
+   "speed": 1.15
+  },
+  {
+   "id": "hook",
+   "text": "Then here are three tips from decades of couples research. Save this!",
+   "speed": 1.15
+  },
+  {
+   "id": "tip1",
+   "text": "Tip one: start soft! In one study, the first three minutes of a fight predicted whether newlyweds divorced years later."
+  },
+  {
+   "id": "tip2",
+   "text": "Tip two: keep it five to one. Stable couples have about five positive moments for every negative one. Even while fighting! And tip three?",
+   "tease": "And tip three?",
+   "show": "TIP 3: NEXT"
+  },
+  {
+   "id": "tip3",
+   "text": "Take a break! When your heart races, you stop listening. Gottman recommends at least twenty minutes."
+  },
+  {
+   "id": "point",
+   "text": "So: start soft. Stay kind. And pause!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "guess_label": "QUICK QUESTION",
+ "guess_prompt": "Yes or no?",
+ "ask": "SAVE THIS FOR YOUR NEXT FIGHT.",
+ "sources": [
+  "Carrère & Gottman (1999), Predicting divorce among newlyweds from the first three minutes of a marital conflict discussion, Family Process 38(3).",
+  "Gottman & Levenson – observational conflict studies; stable couples ~5:1 positive-to-negative interactions during conflict (Gottman Institute, 'The Magic Relationship Ratio').",
+  "Gottman – physiological 'flooding'; recommended break of at least 20 minutes (Gottman Institute; The Seven Principles for Making Marriage Work, 1999)."
+ ]
+}

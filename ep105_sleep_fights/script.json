@@ -1,0 +1,51 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "guess",
+   "text": "Do you fight more after a bad night's sleep?",
+   "screen": [
+    "DO YOU FIGHT",
+    "MORE AFTER",
+    "BAD SLEEP?"
+   ],
+   "speed": 1.15
+  },
+  {
+   "id": "hook",
+   "text": "You're not imagining it!",
+   "speed": 1.15
+  },
+  {
+   "id": "study",
+   "text": "Berkeley psychologists asked people in relationships to track their sleep and their fights for two weeks."
+  },
+  {
+   "id": "result",
+   "text": "After a bad night, they had more conflict the next day. Even good sleepers! And in the lab?",
+   "tease": "And in the lab?",
+   "show": "IN THE LAB: NEXT"
+  },
+  {
+   "id": "lab",
+   "text": "Tired couples were worse at reading each other's feelings!"
+  },
+  {
+   "id": "point",
+   "text": "So before the big talk: sleep on it. Literally!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "guess_label": "QUICK QUESTION",
+ "guess_prompt": "Yes or no?",
+ "ask": "SEND THIS TO YOUR TIRED PARTNER.",
+ "sources": [
+  "Gordon & Chen (2014), The role of sleep in interpersonal conflict: Do sleepless nights mean worse fights?, Social Psychological and Personality Science 5(2) – Study 1: 78 people in relationships, 14-day diary: more conflict after poor sleep; Study 2: 71 couples in the lab: after poor sleep, more negative affect during conflict and lower empathic accuracy."
+ ]
+}

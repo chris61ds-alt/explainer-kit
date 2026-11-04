@@ -1,0 +1,45 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "claim",
+   "text": "Couples who shared one bank account stayed happier. And that's an experiment!",
+   "screen": [
+    "ONE BANK",
+    "ACCOUNT,",
+    "HAPPIER COUPLE."
+   ],
+   "stamp": "2-YEAR EXPERIMENT",
+   "speed": 1.13
+  },
+  {
+   "id": "study",
+   "text": "Researchers took two hundred thirty engaged or newly married couples with separate accounts. And randomly told them: merge, stay separate, or do whatever you want."
+  },
+  {
+   "id": "separate",
+   "text": "Over two years, couples with separate accounts became less happy with their relationship. And the joint accounts?",
+   "tease": "And the joint accounts?",
+   "show": "JOINT ACCOUNTS: NEXT"
+  },
+  {
+   "id": "joint",
+   "text": "No decline! And more in sync about money."
+  },
+  {
+   "id": "point",
+   "text": "So love is shared. Maybe money too!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "ask": "JOINT OR SEPARATE? COMMENT.",
+ "sources": [
+  "Olson, Rick, Small & Finkel (2023), Common cents: Bank account structure and couples' relationship dynamics, Journal of Consumer Research 50(4) – 230 engaged/newlywed couples randomly assigned (joint / separate / no instruction), two years; joint-account couples avoided the decline in relationship quality and reported more financial harmony."
+ ]
+}
