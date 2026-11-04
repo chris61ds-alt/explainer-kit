@@ -40,7 +40,19 @@ def seg(d, a, b, w, col):
     d.line([a, b], fill=col, width=int(w)); r = w / 2
     for p in (a, b): d.ellipse([p[0] - r, p[1] - r, p[0] + r, p[1] + r], fill=col)
 
+PICTO = {"half": False}          # 04.11.2026: True = pictograms in the halftone dot look (look C+D); set by NJY_UPGRADE=1
 def picto(d, x, y=FLOOR, s=1.0, col=INK, f=1, tilt=0.0, arms=None, legs=None, head_dy=0.0, pose=None):
+    if not PICTO["half"] or not hasattr(d, "_image"):
+        return _picto(d, x, y, s, col, f, tilt, arms, legs, head_dy, pose)
+    import thread
+    out = {}
+    def fn(m): out["hc"] = _picto(m, x, y, s, 255, f, tilt, arms, legs, head_dy, pose)
+    box = (max(0, x - 260 * s), max(0, y - 460 * s), min(W, x + 260 * s), min(H, y + 30 * s))
+    thread.halftone(d._image, fn, box, cell=max(5, int(10 * s)), col=col, shade=.45)
+    if "hc" not in out: out["hc"] = _picto(ImageDraw.Draw(Image.new("L", (1, 1))), x, y, s, 0, f, tilt, arms, legs, head_dy, pose)
+    return out["hc"]
+
+def _picto(d, x, y=FLOOR, s=1.0, col=INK, f=1, tilt=0.0, arms=None, legs=None, head_dy=0.0, pose=None):
     """Pictogram figure. (x, y) = feet line. Angles in degrees from straight down, positive = towards facing f (±1).
     arms: ((upper, fore) front, (upper, fore) back) · legs likewise · tilt leans the torso · pose: dict with any of these.
     Returns the head centre."""
@@ -561,6 +573,7 @@ class Episode:
     def __init__(self, TL, no, title, chapters, order, sources=(), handle="@vascoda.soda", series="NOT JUST YOU",
                  drift=.03, loop=False, music=None, cover=None, dark=False, ui=None):
         self.TL, self.no, self.title, self.order = TL, no, title, list(order)
+        if os.environ.get("NJY_UPGRADE") == "1": PICTO["half"] = True
         if "guess" in TL.T and self.order[0] != "guess": self.order.insert(0, "guess")    # format v2: guess-first opener
         if "claim" in TL.T and self.order[0] != "claim": self.order.insert(0, "claim")    # or a statement opener
         # ui: "minimal" (default since 28.10.2026) = no header, episode title, chapter or progress bar; "full" = old chrome
