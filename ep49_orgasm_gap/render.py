@@ -1,14 +1,14 @@
 """NOT JUST YOU · AFTER DARK – No. 49: the orgasm gap (Frederick, St. John, Garcia & Lloyd 2018)."""
 import os, sys, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
-from swiss import *
+from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .8, "result": .5, "twist": .6, "why": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "study", "result", "twist", "why", "point", "end"]
-EP = Episode(TL, 49, "THE GAP", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
-             chapters={"hook": "THE GAP", "study": "52,588 PEOPLE", "result": "THE GAP", "twist": "THE TWIST", "why": "WHAT HELPS", "point": "CLOSE IT"},
+EP = ThreadEpisode(TL, 49, "THE GAP", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
+             chapters={k: "" for k in ORDER[:-1]},
              sources=("Frederick, St. John, Garcia & Lloyd (2018),", "Archives of Sexual Behavior 47(1)"),
              music=dict(bpm=94, root=0, prog="tense", kick="four", gaps=[(E("study") + .05, S("result") + .05)]),
              cover=dict(words=["MIND", "THE GAP."], kicker="The one nobody talks about."))
@@ -25,18 +25,18 @@ def sc_hook(img, d, t):
     d.text((X0 - 6, 300), "THE GAP", font=F(BLK, 210), fill=INK)
     d.text((X0, 510), "nobody talks about", font=F(COND, 44), fill=MID)
     g = 40 + 200 * ease((t - .4) / 1.0)
-    d.rectangle([X0, 760, 480 - g / 2, 900], fill=INK); d.rectangle([480 + g / 2, 760, X1, 900], fill=SIG)
-    if g > 60: dim_h(d, 480 - g / 2, 480 + g / 2, 940, 1, SIG, None)
-    d.text((480, 960), "?", font=F(BLK, 90), fill=SIG, anchor="ma")
+    d.rectangle([X0, 760, 480 - g / 2, 900], fill=INK); d.rectangle([480 + g / 2, 760, X1, 900], fill=INK)
+    if g > 60: dim_h(d, 480 - g / 2, 480 + g / 2, 940, 1, INK, None)
+    d.text((480, 960), "?", font=F(BLK, 90), fill=INK, anchor="ma")
     fig(d, "fig. 1 — mind the gap")
 
 def sc_study(img, d, t):
     t0 = S("study"); k = clamp((t - t0 - .2) / 2.2)
-    counter(d, X0, 300, t, t0 + .1, 1.2, 52588, "{:,.0f}", 190, SIG)
+    counter(d, X0, 300, t, t0 + .1, 1.2, 52588, "{:,.0f}", 190, INK)
     d.text((X0 + 6, 520), "US adults · how often do you usually orgasm?", font=F(COND, 34), fill=INK)
     for i in range(int(500 * k)):
         r, c = divmod(i, 25); x = X0 + 20 + c * 34; y = 620 + r * 24
-        d.ellipse([x - 7, y - 7, x + 7, y + 7], fill=INK if i % 11 else SIG)
+        d.ellipse([x - 7, y - 7, x + 7, y + 7], fill=INK if i % 11 else INK)
     fig(d, "online national sample · Frederick et al., 2018")
 
 def sc_result(img, d, t):
@@ -54,21 +54,21 @@ def sc_twist(img, d, t):
     d.text((X0, 300), "BUT…", font=F(BLK, 150), fill=INK)
     vbar(d, X0 + 0, 95, 1, MID, "straight men", w=150)
     vbar(d, X0 + 210, 65, 1, MID, "straight women", w=150)
-    vbar(d, X0 + 440, 86, (t - tl + .2) / .5, SIG, "lesbian women", w=170)
-    if t >= tl + .4: box_label(d, X1, 470, "SAME BODIES.", 40, WHITE, SIG, anchor="ra"); box_label(d, X1, 540, "DIFFERENT SEX.", 40, WHITE, INK, anchor="ra")
+    vbar(d, X0 + 440, 86, (t - tl + .2) / .5, INK, "lesbian women", w=170)
+    if t >= tl + .4: box_label(d, X1, 470, "SAME BODIES.", 40, WHITE, INK, anchor="ra"); box_label(d, X1, 540, "DIFFERENT SEX.", 40, WHITE, INK, anchor="ra")
     fig(d, "women with women: 86 %")
 
 def sc_why(img, d, t):
     t0 = S("why")
     tb = cue("why", "not just biology")
-    words_in(d, t, [("NOT JUST", tb - .1, 300, 120, INK), ("BIOLOGY.", tb + .2, 420, 120, SIG)])
+    words_in(d, t, [("NOT JUST", tb - .1, 300, 120, INK), ("BIOLOGY.", tb + .2, 420, 120, INK)])
     items = [("MORE ORAL", "oral"), ("LONGER", "longer"), ("ASKED FOR IT", "asked for")]
     for i, (lab, w) in enumerate(items):
         tk = cue("why", w) - .2; k = ease((t - tk) / .35)
         if k <= 0: continue
         y = 620 + i * 150
-        d.text((X0, y + 10), "+", font=F(BLK, 70), fill=SIG)
-        box_label(d, X0 + 70 + (1 - k) * 40, y, lab, 60, WHITE, SIG if i == 2 else INK)
+        d.text((X0, y + 10), "+", font=F(BLK, 70), fill=INK)
+        box_label(d, X0 + 70 + (1 - k) * 40, y, lab, 60, WHITE, INK if i == 2 else INK)
     fig(d, "what women who orgasmed more often reported")
 
 def sc_point(img, d, t):

@@ -1,32 +1,32 @@
 """NOT JUST YOU · AFTER DARK – No. 43: the romantic kiss is not universal (Jankowiak, Volsche & Garcia 2015)."""
 import os, sys, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
-from swiss import *
+from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .6, "study": .8, "result": .5, "regions": .5, "forager": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "study", "result", "regions", "forager", "point", "end"]
-EP = Episode(TL, 43, "THE KISS", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
-             chapters={"hook": "HUMAN NATURE?", "study": "168 CULTURES", "result": "THE RESULT", "regions": "BY REGION", "forager": "HUNTER-GATHERERS", "point": "CULTURE"},
+EP = ThreadEpisode(TL, 43, "THE KISS", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
+             chapters={k: "" for k in ORDER[:-1]},
              sources=("Jankowiak, Volsche & Garcia (2015),", "American Anthropologist 117(3) · via ScienceAlert"),
              music=dict(bpm=88, root=1, prog="dream", kick="half", gaps=[(E("study") + .05, S("result") + .05)]),
              cover=dict(words=["NOT", "UNIVERSAL."], kicker="Most cultures don't kiss."))
 
 LEAN = {"arms": ((40, 30), (-10, -5)), "tilt": 10}
-def couple(d, t, cx=480, s=1.0, kiss=True, col2=SIG):
+def couple(d, t, cx=480, s=1.0, kiss=True, col2=MID):
     gap = 70 * s if kiss else 150 * s
     picto(d, cx - gap, FLOOR, s, INK, f=1, pose=LEAN if kiss else IDLE)
     picto(d, cx + gap, FLOOR, s, col2, f=-1, pose=LEAN if kiss else IDLE)
 
 def sc_hook(img, d, t):
-    d.text((X0 - 6, 300), "HUMAN", font=F(BLK, 200), fill=INK); d.text((X0 - 6, 490), "NATURE?", font=F(BLK, 170), fill=SIG)
+    d.text((X0 - 6, 300), "HUMAN", font=F(BLK, 200), fill=INK); d.text((X0 - 6, 490), "NATURE?", font=F(BLK, 170), fill=INK)
     couple(d, t, kiss=True)
     fig(d, "fig. 1 — the assumption")
 
 def sc_study(img, d, t):
     t0 = S("study"); k = clamp((t - t0 - .2) / 2.2)
-    counter(d, X0, 300, t, t0 + .1, 1.0, 168, "{:.0f}", 220, SIG); d.text((X0 + 6, 540), "cultures, worldwide", font=F(COND, 36), fill=INK)
+    counter(d, X0, 300, t, t0 + .1, 1.0, 168, "{:.0f}", 220, INK); d.text((X0 + 6, 540), "cultures, worldwide", font=F(COND, 36), fill=INK)
     for i in range(int(168 * k)):
         r, c = divmod(i, 14); x = X0 + 20 + c * 60; y = 620 + r * 40
         d.rectangle([x, y, x + 48, y + 30], outline=INK, width=2)
@@ -50,8 +50,8 @@ def sc_regions(img, d, t):
     for i, (lab, a, b, tk) in enumerate(rows):
         y = 500 + i * 150; k = ease((t - tk) / .5)
         if k <= 0: continue
-        d.text((X0, y), lab, font=F(COND, 32), fill=INK); d.text((X1, y), f"{a} of {b}", font=F(BLK, 34), fill=SIG if i in (0, 3) else INK, anchor="ra")
-        d.rectangle([X0, y + 50, X1, y + 100], outline=INK, width=3); d.rectangle([X0 + 4, y + 54, X0 + 4 + (X1 - X0 - 8) * a / b * k, y + 96], fill=SIG if i in (0, 3) else INK)
+        d.text((X0, y), lab, font=F(COND, 32), fill=INK); d.text((X1, y), f"{a} of {b}", font=F(BLK, 34), fill=INK if i in (0, 3) else INK, anchor="ra")
+        d.rectangle([X0, y + 50, X1, y + 100], outline=INK, width=3); d.rectangle([X0 + 4, y + 54, X0 + 4 + (X1 - X0 - 8) * a / b * k, y + 96], fill=INK if i in (0, 3) else INK)
     fig(d, "cultures studied per region")
 
 def sc_forager(img, d, t):
@@ -59,7 +59,7 @@ def sc_forager(img, d, t):
     d.text((X0, 300), "FORAGERS", font=F(BLK, 150), fill=INK)
     for i, x in enumerate((220, 420, 620, 800)):
         picto(d, x, FLOOR, .7, MID if i % 2 else INK, f=1 if i < 2 else -1, pose=TALK(t, i) if i % 2 else IDLE)
-    if t >= cue("forager", "little sign"): box_label(d, 480, 600, "LITTLE SIGN OF IT", 34, WHITE, SIG, anchor="ma")
+    if t >= cue("forager", "little sign"): box_label(d, 480, 600, "LITTLE SIGN OF IT", 34, WHITE, INK, anchor="ma")
     fig(d, "hunter-gatherer societies in the sample")
 
 def sc_point(img, d, t):

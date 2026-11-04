@@ -1,19 +1,19 @@
 """NOT JUST YOU · AFTER DARK – No. 42: once a week is enough (Muise, Schimmack & Impett 2016)."""
 import os, sys, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
-from swiss import *
+from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .8, "result": .5, "flat": .5, "single": .5, "caveat": .5, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "study", "result", "flat", "single", "caveat", "point", "end"]
-EP = Episode(TL, 42, "ONCE A WEEK", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
-             chapters={"hook": "MORE?", "study": "THE DATA", "result": "THE CURVE", "flat": "THE PLATEAU", "single": "SINGLES", "caveat": "THE CAVEAT", "point": "STOP COUNTING"},
+EP = ThreadEpisode(TL, 42, "ONCE A WEEK", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
+             chapters={k: "" for k in ORDER[:-1]},
              sources=("Muise, Schimmack & Impett (2016), Social", "Psychological and Personality Science 7(4)"),
              music=dict(bpm=92, root=2, prog="warm", kick="half", gaps=[(E("study") + .05, S("result") + .05)]),
              cover=dict(words=["ONCE", "A WEEK."], kicker="Intimacy, by the numbers."))
 
-def heart(d, cx, cy, r, col=SIG):
+def heart(d, cx, cy, r, col=MID):
     d.ellipse([cx - r, cy - r * .9, cx, cy + r * .1], fill=col); d.ellipse([cx, cy - r * .9, cx + r, cy + r * .1], fill=col)
     d.polygon([(cx - r * .98, cy - r * .3), (cx + r * .98, cy - r * .3), (cx, cy + r * .95)], fill=col)
 
@@ -28,18 +28,18 @@ def pts_for(vals): return [(OX + GW * (i + .5) / 6, OY - GH * v) for i, v in enu
 COUPLE = [.3, .45, .58, .74, .74, .75]
 
 def sc_hook(img, d, t):
-    d.text((X0 - 6, 300), "MORE =", font=F(BLK, 190), fill=INK); d.text((X0 - 6, 490), "HAPPIER?", font=F(BLK, 160), fill=SIG)
-    picto(d, 370, FLOOR, .95, INK, f=1, pose=IDLE); picto(d, 590, FLOOR, .95, SIG, f=-1, pose=IDLE)
+    d.text((X0 - 6, 300), "MORE =", font=F(BLK, 190), fill=INK); d.text((X0 - 6, 490), "HAPPIER?", font=F(BLK, 160), fill=INK)
+    picto(d, 370, FLOOR, .95, INK, f=1, pose=IDLE); picto(d, 590, FLOOR, .95, INK, f=-1, pose=IDLE)
     heart(d, 480, 760 - 10 * math.sin(t * 4), 40 + 6 * math.sin(t * 6))
     fig(d, "fig. 1 — a couple, wondering")
 
 def sc_study(img, d, t):
     t0 = S("study")
-    counter(d, X0, 300, t, t0 + .1, 1.2, 30000, "{:,.0f}+", 190, SIG)
+    counter(d, X0, 300, t, t0 + .1, 1.2, 30000, "{:,.0f}+", 190, INK)
     d.text((X0 + 6, 520), "Americans, three studies", font=F(COND, 36), fill=INK)
     for i in range(40):
         r, c = divmod(i, 10); k = ease((t - t0 - i * .02) / .3)
-        if k > 0: picto(d, X0 + 40 + c * 86, 700 + r * 120, .26, MID if i % 4 else SIG, pose=IDLE)
+        if k > 0: picto(d, X0 + 40 + c * 86, 700 + r * 120, .26, MID if i % 4 else INK, pose=IDLE)
     fig(d, "national surveys incl. 2,400 married couples · Muise et al., 2016")
 
 def sc_result(img, d, t):
@@ -54,9 +54,9 @@ def sc_result(img, d, t):
 
 def sc_flat(img, d, t):
     t0 = S("flat")
-    d.text((X0, 300), "THEN: FLAT.", font=F(BLK, 150), fill=SIG)
+    d.text((X0, 300), "THEN: FLAT.", font=F(BLK, 150), fill=INK)
     axes(d); P = pts_for(COUPLE); k = clamp((t - t0) / 1.2)
-    d.line(P[:4], fill=SIG, width=8); d.line([P[3], (lerp(P[3][0], P[5][0], k), lerp(P[3][1], P[5][1], k))], fill=INK, width=8)
+    d.line(P[:4], fill=INK, width=8); d.line([P[3], (lerp(P[3][0], P[5][0], k), lerp(P[3][1], P[5][1], k))], fill=INK, width=8)
     for x, y in P[:4]: heart(d, x, y, 16)
     if k > .9: dim_h(d, P[3][0], P[5][0], P[3][1] - 40, 1, INK, None); box_label(d, (P[3][0] + P[5][0]) / 2, P[3][1] - 110, "NO EXTRA GAIN", 24, WHITE, INK, anchor="ma")
     d.text((X1, 1146), "schematic", font=F(MED, 22), fill=MID, anchor="ra")
@@ -71,11 +71,11 @@ def sc_single(img, d, t):
 
 def sc_caveat(img, d, t):
     t0 = S("caveat")
-    d.text((X0, 300), "CHICKEN", font=F(BLK, 150), fill=INK); d.text((X0, 460), "OR EGG?", font=F(BLK, 150), fill=SIG)
+    d.text((X0, 300), "CHICKEN", font=F(BLK, 150), fill=INK); d.text((X0, 460), "OR EGG?", font=F(BLK, 150), fill=INK)
     for i, (lab, y) in enumerate((("more intimacy", 760), ("happier couple", 960))):
-        box_label(d, 480, y, lab, 40, WHITE, INK if i == 0 else SIG, anchor="ma")
+        box_label(d, 480, y, lab, 40, WHITE, INK if i == 0 else INK, anchor="ma")
     a = t * 2
-    d.arc([620, 780, 820, 1000], -80 + math.degrees(a) % 30, 80, fill=INK, width=6); d.arc([140, 780, 340, 1000], 100, 260, fill=SIG, width=6)
+    d.arc([620, 780, 820, 1000], -80 + math.degrees(a) % 30, 80, fill=INK, width=6); d.arc([140, 780, 340, 1000], 100, 260, fill=INK, width=6)
     fig(d, "correlation, not proof of cause")
 
 def sc_point(img, d, t):

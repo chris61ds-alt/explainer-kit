@@ -1,14 +1,14 @@
 """NOT JUST YOU · AFTER DARK – No. 48: post-sex blues are common (Schweitzer et al. 2015; Maczkowiack & Schweitzer 2019)."""
 import os, sys, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
-from swiss import *
+from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .8, "result": .5, "men": .5, "good": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "study", "result", "men", "good", "point", "end"]
-EP = Episode(TL, 48, "THE BLUES", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
-             chapters={"hook": "AFTERWARDS", "study": "THE SURVEYS", "result": "WOMEN", "men": "MEN", "good": "EVEN WHEN", "point": "IT HAS A NAME"},
+EP = ThreadEpisode(TL, 48, "THE BLUES", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
+             chapters={k: "" for k in ORDER[:-1]},
              sources=("Schweitzer et al. (2015), Sexual Medicine 3(4);", "Maczkowiack & Schweitzer (2019), JSMT 45(2)"),
              music=dict(bpm=76, root=-5, prog="minor", kick="half", gaps=[(E("study") + .05, S("result") + .05)]),
              cover=dict(words=["SAD", "AFTER?"], kicker="Even when it was good."))
@@ -20,7 +20,7 @@ def cloud(d, cx, cy, s=1.0, col=MID, t=0.0, rain=True):
         for i in range(5):
             x = cx + (-60 + i * 30) * s; ph = (t * 1.6 + i * .37) % 1
             y = cy + (60 + ph * 120) * s
-            d.line([x, y, x - 6 * s, y + 22 * s], fill=SIG, width=int(5 * s))
+            d.line([x, y, x - 6 * s, y + 22 * s], fill=MID, width=int(5 * s))
 
 def grid100(d, x0, y0, n, k, col, cell=56, gap=10):
     for i in range(100):
@@ -33,7 +33,7 @@ def sad_sitter(d, t, x=380, s=1.0, col=INK):
     picto(d, x + 80 * s, FLOOR - 50 * s, .8 * s, col, f=-1, pose=merge(SIT, {"tilt": 8, "arms": ((10, 30), (-10, -5))}), head_dy=8)
 
 def sc_hook(img, d, t):
-    d.text((X0 - 6, 300), "SAD", font=F(BLK, 230), fill=INK); d.text((X0 - 6, 510), "AFTER?", font=F(BLK, 170), fill=SIG)
+    d.text((X0 - 6, 300), "SAD", font=F(BLK, 230), fill=INK); d.text((X0 - 6, 510), "AFTER?", font=F(BLK, 170), fill=INK)
     bed(d, 240, FLOOR, 480, INK)
     picto(d, 600, FLOOR - 90, .8, INK, f=-1, pose=merge(SIT, {"tilt": 10}), head_dy=10)
     cloud(d, 640, 760, .7 * ease((t - .5) / .4), MID, t)
@@ -42,10 +42,10 @@ def sc_hook(img, d, t):
 def sc_study(img, d, t):
     t0 = S("study"); tm = cue("study", "twelve hundred")
     d.text((X0, 300), "TWO SURVEYS", font=F(BLK, 120), fill=INK)
-    box_label(d, X0, 470, "WOMEN · AUSTRALIA · 2015", 34, WHITE, SIG)
+    box_label(d, X0, 470, "WOMEN · AUSTRALIA · 2015", 34, WHITE, INK)
     for i in range(30):
         k = ease((t - t0 - .3 - i * .02) / .3)
-        if k > 0: picto(d, X0 + 40 + (i % 15) * 58, 640 + (i // 15) * 110, .22, SIG, pose=IDLE)
+        if k > 0: picto(d, X0 + 40 + (i % 15) * 58, 640 + (i // 15) * 110, .22, INK, pose=IDLE)
     if t >= tm - .3:
         counter(d, X0, 860, t, tm - .3, .8, 1208, "{:,.0f} men", 110, INK)
     fig(d, "anonymous online questionnaires · Schweitzer et al.")
@@ -67,19 +67,19 @@ def sc_men(img, d, t):
     grid100(d, X0, 640, 41, clamp((t - t0 - .3) / 1.2), INK)
     if t >= tf - .2:
         k = ease((t - tf + .2) / .4)
-        grid100(d, X0, 640, 20, k, SIG)
-        box_label(d, X1, 470, "20 % · LAST 4 WEEKS", 32, WHITE, SIG, anchor="ra")
+        grid100(d, X0, 640, 20, k, INK)
+        box_label(d, X1, 470, "20 % · LAST 4 WEEKS", 32, WHITE, INK, anchor="ra")
     fig(d, "Maczkowiack & Schweitzer, 2019")
 
 def sc_good(img, d, t):
     t0 = S("good"); tl = cue("good", "loving")
-    d.text((X0, 300), "EVEN WHEN", font=F(BLK, 140), fill=INK); d.text((X0, 450), "IT'S GOOD.", font=F(BLK, 140), fill=SIG)
+    d.text((X0, 300), "EVEN WHEN", font=F(BLK, 140), fill=INK); d.text((X0, 450), "IT'S GOOD.", font=F(BLK, 140), fill=INK)
     bed(d, 160, FLOOR, 640, INK)
-    picto(d, 380, FLOOR - 90, .75, INK, f=1, pose=merge(SIT, {"arms": ((60, 20), (-10, -5))})); picto(d, 560, FLOOR - 90, .75, SIG, f=-1, pose=merge(SIT, {"arms": ((60, 20), (-10, -5)), "tilt": 8}), head_dy=8)
+    picto(d, 380, FLOOR - 90, .75, INK, f=1, pose=merge(SIT, {"arms": ((60, 20), (-10, -5))})); picto(d, 560, FLOOR - 90, .75, INK, f=-1, pose=merge(SIT, {"arms": ((60, 20), (-10, -5)), "tilt": 8}), head_dy=8)
     if t >= tl:
         r = 30 * back((t - tl) / .4); cx, cy = 470, 760
-        d.ellipse([cx - r, cy - r * .9, cx, cy + r * .1], fill=SIG); d.ellipse([cx, cy - r * .9, cx + r, cy + r * .1], fill=SIG)
-        d.polygon([(cx - r * .98, cy - r * .3), (cx + r * .98, cy - r * .3), (cx, cy + r * .95)], fill=SIG)
+        d.ellipse([cx - r, cy - r * .9, cx, cy + r * .1], fill=INK); d.ellipse([cx, cy - r * .9, cx + r, cy + r * .1], fill=INK)
+        d.polygon([(cx - r * .98, cy - r * .3), (cx + r * .98, cy - r * .3), (cx, cy + r * .95)], fill=INK)
     cloud(d, 640, 700, .5 * ease((t - tl - .6) / .4), MID, t)
     fig(d, "a heart and a cloud at the same time")
 

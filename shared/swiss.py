@@ -742,8 +742,31 @@ class Episode:
                 for m in self.NUM.finditer(b["text"]):
                     tc = b["start"] + b["dur"] * m.start() / len(b["text"])
                     if not out or tc - out[-1] >= .6: out.append(tc)
+            if getattr(self, "autofill", False) and getattr(self, "_fx_times", None) is not None:
+                out = sorted(out + self._fill_calm(out))
             self._pulses = out
         return self._pulses
+
+    def _fill_calm(self, base, maxgap=2.8):
+        """auto impulse (04.11.2026): wherever nothing happens for > maxgap s, add a pulse (zoom punch + tick) on the
+        spoken word closest to the middle of the gap"""
+        TL = self.TL; extra = []
+        words = []
+        for k in self.order:
+            b = TL.T.get(k)
+            if not b or not b.get("text") or k in ("end",): continue
+            for m in re.finditer(r"\b\w", b["text"]): words.append(b["start"] + b["dur"] * m.start() / len(b["text"]))
+        for _ in range(20):
+            ev = [TL.S(k) for k in self.order if k in TL.T] + list(self._fx_times) + base + extra + self.reveals()
+            ev += [TL.cue(k, say[:16]) for k, (say, _) in TL.tease.items()]
+            ev = sorted(e for e in ev if 0 <= e <= TL.total) + [TL.total]
+            gaps = [(a, b) for a, b in zip([0.0] + ev, ev) if b - a > maxgap]
+            if not gaps: break
+            a, b = max(gaps, key=lambda g: g[1] - g[0]); mid = (a + b) / 2
+            cand = [w for w in words if a + .5 < w < b - .5]
+            if not cand: break
+            extra.append(min(cand, key=lambda w: abs(w - mid)))
+        return extra
 
     def pulse_zoom(self, t):
         z = 1.0
@@ -753,6 +776,7 @@ class Episode:
 
     def calm(self, fx=()):
         """longest stretch (s) without a visual/sound event – the build report flags > 3 s"""
+        if getattr(self, "autofill", False): self._fx_times = [t for t, *_ in fx]; self._pulses = None
         TL = self.TL; ev = [TL.S(k) for k in self.order if k in TL.T] + [t for t, *_ in fx] + self.pulses() + self.reveals()
         ev += [TL.cue(k, say[:16]) for k, (say, _) in TL.tease.items()]
         ev = sorted(e for e in ev if 0 <= e <= TL.total) + [TL.total]
@@ -803,6 +827,7 @@ class Episode:
 
     def run(self, fx):
         global MUSIC
+        if getattr(self, "autofill", False): self._fx_times = [t for t, *_ in fx]; self._pulses = None
         MUSIC = dict(MUSIC, **self.music)
         if V3: MUSIC["gaps"] = list(MUSIC.get("gaps", ())) + [(r - .35, r) for r in self.reveals()]
         if "--cover" in sys.argv: print("cover", self.make_cover(sys.argv[1])); return

@@ -1,14 +1,14 @@
 """NOT JUST YOU · AFTER DARK – No. 57: misperceiving sexual interest (Perilloux, Easton & Buss 2012)."""
 import os, sys, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
-from swiss import *
+from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .8, "result": .6, "who": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "study", "result", "who", "point", "end"]
-EP = Episode(TL, 57, "MIXED SIGNALS", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
-             chapters={"hook": "A SMILE", "study": "SPEED DATING", "result": "THE MISREAD", "who": "THE WORST", "point": "ASK"},
+EP = ThreadEpisode(TL, 57, "MIXED SIGNALS", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
+             chapters={k: "" for k in ORDER[:-1]},
              sources=("Perilloux, Easton & Buss (2012),", "Psychological Science 23(2)"),
              music=dict(bpm=90, root=1, prog="dream", kick="half", gaps=[(E("study") + .05, S("result") + .05)]),
              cover=dict(words=["INTO", "YOU?"], kicker="Maybe not."))
@@ -20,16 +20,16 @@ def meter(d, x, y, w, real, guess, k, col):
 
 def sc_hook(img, d, t):
     tm = cue("hook", "maybe not")
-    d.text((X0 - 6, 300), "INTO", font=F(BLK, 230), fill=INK); d.text((X0 - 6, 510), "YOU?", font=F(BLK, 230), fill=SIG)
+    d.text((X0 - 6, 300), "INTO", font=F(BLK, 230), fill=INK); d.text((X0 - 6, 510), "YOU?", font=F(BLK, 230), fill=INK)
     picto(d, 340, FLOOR, .95, INK, f=1, pose=OPEN)
-    h = picto(d, 640, FLOOR, .95, SIG, f=-1, pose=IDLE)
+    h = picto(d, 640, FLOOR, .95, INK, f=-1, pose=IDLE)
     d.arc([h[0] - 18, h[1] - 4, h[0] + 18, h[1] + 20], 20, 160, fill=BG, width=5)
     if t >= tm: box_label(d, X1, 800, "MAYBE NOT.", 40, WHITE, INK, anchor="ra")
     fig(d, "fig. 1 — one smile, many theories")
 
 def sc_study(img, d, t):
     t0 = S("study")
-    counter(d, X0, 300, t, t0 + .1, .9, 199, "{:.0f}", 220, SIG)
+    counter(d, X0, 300, t, t0 + .1, .9, 199, "{:.0f}", 220, INK)
     d.text((X0 + 6, 540), "students · 3-minute speed dates", font=F(COND, 36), fill=INK)
     for i in range(5):
         k = ease((t - t0 - .4 - i * .3) / .3)
@@ -58,11 +58,11 @@ def sc_who(img, d, t):
         if k <= 0: continue
         y = 500 + i * 150
         d.text((X0, y + 8), f"0{i + 1}", font=F(MONO, 30), fill=MID)
-        box_label(d, X0 + 70 + (1 - k) * 40, y, lab, 44, WHITE, SIG if i else INK)
+        box_label(d, X0 + 70 + (1 - k) * 40, y, lab, 44, WHITE, INK if i else INK)
     h = picto(d, 480, FLOOR, .8, INK, f=1, pose=OPEN)
     heart_r = 26 + 6 * math.sin(t * 6); cx, cy = h[0] + 70, h[1] - 90
-    d.ellipse([cx - heart_r, cy - heart_r * .9, cx, cy + heart_r * .1], fill=SIG); d.ellipse([cx, cy - heart_r * .9, cx + heart_r, cy + heart_r * .1], fill=SIG)
-    d.polygon([(cx - heart_r * .98, cy - heart_r * .3), (cx + heart_r * .98, cy - heart_r * .3), (cx, cy + heart_r * .95)], fill=SIG)
+    d.ellipse([cx - heart_r, cy - heart_r * .9, cx, cy + heart_r * .1], fill=INK); d.ellipse([cx, cy - heart_r * .9, cx + heart_r, cy + heart_r * .1], fill=INK)
+    d.polygon([(cx - heart_r * .98, cy - heart_r * .3), (cx + heart_r * .98, cy - heart_r * .3), (cx, cy + heart_r * .95)], fill=INK)
     fig(d, "overperception was strongest here")
 
 def sc_point(img, d, t):

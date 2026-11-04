@@ -1,14 +1,14 @@
 """NOT JUST YOU – No. 55: bystanders do intervene (Philpot et al. 2020, CCTV). Swiss Dark."""
 import os, sys, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
-from swiss import *
+from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .6, "study": .8, "result": .6, "more": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "study", "result", "more", "point", "end"]
-EP = Episode(TL, 55, "NOBODY HELPS?", order=ORDER, dark=True,
-             chapters={"hook": "THE MYTH", "study": "THE FOOTAGE", "result": "9 IN 10", "more": "MORE PEOPLE", "point": "BE ONE"},
+EP = ThreadEpisode(TL, 55, "NOBODY HELPS?", order=ORDER, dark=True,
+             chapters={k: "" for k in ORDER[:-1]},
              sources=("Philpot, Liebst, Levine, Bernasco & Lindegaard", "(2020), American Psychologist 75(1)"),
              music=dict(bpm=92, root=0, prog="tense", kick="four", gaps=[(E("study") + .05, S("result") + .05)]),
              cover=dict(words=["NOBODY", "HELPS?"], kicker="Wrong. 9 out of 10 times."))
@@ -16,23 +16,23 @@ EP = Episode(TL, 55, "NOBODY HELPS?", order=ORDER, dark=True,
 def cctv(d, x0, y0, x1, y1, t, label="CAM 03"):
     d.rectangle([x0, y0, x1, y1], outline=INK, width=5)
     for i in range(int(y0) + 10, int(y1), 14): d.line([x0 + 5, i, x1 - 5, i], fill=mix(BG, INK, .05), width=2)
-    if int(t * 2) % 2 == 0: d.ellipse([x0 + 20, y0 + 20, x0 + 40, y0 + 40], fill=SIG)
+    if int(t * 2) % 2 == 0: d.ellipse([x0 + 20, y0 + 20, x0 + 40, y0 + 40], fill=MID)
     d.text((x0 + 52, y0 + 18), "REC " + label, font=F(MONO, 22), fill=INK)
     d.text((x1 - 20, y1 - 36), f"00:{int(t * 7) % 60:02d}:{int(t * 30) % 30:02d}", font=F(MONO, 20), fill=MID, anchor="ra")
 
 def sc_hook(img, d, t):
     tm = cue("hook", "that's a myth")
-    d.text((X0 - 6, 300), "NOBODY", font=F(BLK, 210), fill=INK if t < tm else RULE); d.text((X0 - 6, 500), "HELPS?", font=F(BLK, 210), fill=SIG if t < tm else RULE)
+    d.text((X0 - 6, 300), "NOBODY", font=F(BLK, 210), fill=INK if t < tm else RULE); d.text((X0 - 6, 500), "HELPS?", font=F(BLK, 210), fill=INK if t < tm else RULE)
     if t >= tm - .1:
-        k = ease((t - tm + .1) / .3); d.line([X0, 640, X0 + 760 * k, 560], fill=SIG, width=14)
-        box_label(d, X1, 760, "MYTH.", 70, WHITE, SIG, font=BLK, anchor="ra")
+        k = ease((t - tm + .1) / .3); d.line([X0, 640, X0 + 760 * k, 560], fill=INK, width=14)
+        box_label(d, X1, 760, "MYTH.", 70, WHITE, INK, font=BLK, anchor="ra")
     picto(d, 300, FLOOR, .8, INK, f=1, pose=WORRY)
     for i, x in enumerate((560, 680, 800)): picto(d, x, FLOOR, .6, MID, f=-1, pose=IDLE)
     fig(d, "fig. 1 — the story everyone knows")
 
 def sc_study(img, d, t):
     t0 = S("study")
-    counter(d, X0, 300, t, t0 + .1, 1.0, 219, "{:.0f}", 220, SIG)
+    counter(d, X0, 300, t, t0 + .1, 1.0, 219, "{:.0f}", 220, INK)
     d.text((X0 + 6, 540), "real street fights on camera", font=F(COND, 36), fill=INK)
     for i, (c, lab) in enumerate((("AMS", "Amsterdam"), ("CPT", "Cape Town"), ("LAN", "Lancaster"))):
         k = ease((t - cue("study", "three countries") + .3 - i * .15) / .3)
@@ -54,11 +54,11 @@ def sc_result(img, d, t):
 
 def sc_more(img, d, t):
     t0 = S("more")
-    d.text((X0, 300), "MORE PEOPLE", font=F(BLK, 120), fill=INK); d.text((X0, 430), "= MORE HELP", font=F(BLK, 120), fill=SIG)
+    d.text((X0, 300), "MORE PEOPLE", font=F(BLK, 120), fill=INK); d.text((X0, 430), "= MORE HELP", font=F(BLK, 120), fill=INK)
     k = clamp((t - t0 - .2) / 2.0); n = 1 + int(7 * k)
     for i in range(n):
-        x = 180 + i * 90; picto(d, x, FLOOR, .55, SIG if i % 2 == 0 else MID, f=1, pose=OPEN if i % 2 == 0 else IDLE)
-    hbar(d, 640, .3 + .6 * k, 1, SIG, "odds that someone helps", h=70)
+        x = 180 + i * 90; picto(d, x, FLOOR, .55, INK if i % 2 == 0 else MID, f=1, pose=OPEN if i % 2 == 0 else IDLE)
+    hbar(d, 640, .3 + .6 * k, 1, INK, "odds that someone helps", h=70)
     fig(d, "each extra bystander raised the odds · schematic")
 
 def sc_point(img, d, t):

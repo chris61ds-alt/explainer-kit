@@ -165,7 +165,7 @@ class ThreadEpisode(Episode):
         self.bgs = (env == "1") if env in ("0", "1") else up
         self.bg, self._pbgc = None, {}                   # bg: {scene: "dark"|"orange"|"light"} overrides the automatic choice
         if up:                                           # from No. 93: fx reverb on (B test, 04.11.2026) + fig line = caveats only
-            self.music.setdefault("fxverb", True); self.music.setdefault("wide", True); FIG["caveats"] = True
+            self.music.setdefault("fxverb", True); self.music.setdefault("wide", True); FIG["caveats"] = True; self.autofill = True
 
     def bg_of(self, key):
         if key == "end" or not self.bgs: return "dark"

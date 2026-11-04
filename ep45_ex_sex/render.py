@@ -1,19 +1,19 @@
 """NOT JUST YOU · AFTER DARK – No. 45: sex with an ex doesn't hinder breakup recovery (Spielmann, Joel & Impett 2019)."""
 import os, sys, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
-from swiss import *
+from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .8, "result": .5, "who": .5, "mood": .5, "quote": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "study", "result", "who", "mood", "quote", "point", "end"]
-EP = Episode(TL, 45, "THE EX", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
-             chapters={"hook": "MISTAKE?", "study": "THE DIARIES", "result": "RECOVERY", "who": "WHO", "mood": "THE MOOD", "quote": "THE QUOTE", "point": "NO SHAME"},
+EP = ThreadEpisode(TL, 45, "THE EX", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
+             chapters={k: "" for k in ORDER[:-1]},
              sources=("Spielmann, Joel & Impett (2019),", "Archives of Sexual Behavior 48 · via ScienceDaily"),
              music=dict(bpm=86, root=-4, prog="tense", kick="half", gaps=[(E("study") + .05, S("result") + .05)]),
              cover=dict(words=["SLEPT WITH", "YOUR EX?"], kicker="It might not set you back."))
 
-def heart(d, cx, cy, r, col=SIG, split=0.0):
+def heart(d, cx, cy, r, col=MID, split=0.0):
     """heart; split > 0 pulls the halves apart along a zig-zag"""
     for side in (-1, 1):
         ox = cx + side * split
@@ -26,19 +26,19 @@ def heart(d, cx, cy, r, col=SIG, split=0.0):
 def sc_hook(img, d, t):
     d.text((X0 - 6, 300), "YOUR EX?", font=F(BLK, 190), fill=INK)
     k = ease((t - .5) / .8)
-    picto(d, lerp(260, 380, k), FLOOR, .9, INK, f=1, pose=IDLE); picto(d, lerp(700, 580, k), FLOOR, .9, SIG, f=-1, pose=IDLE)
-    heart(d, 480, 760, 50, SIG, split=26 * (1 - k))
+    picto(d, lerp(260, 380, k), FLOOR, .9, INK, f=1, pose=IDLE); picto(d, lerp(700, 580, k), FLOOR, .9, INK, f=-1, pose=IDLE)
+    heart(d, 480, 760, 50, INK, split=26 * (1 - k))
     if t >= cue("hook", "might not"): box_label(d, 480, 560, "A MISTAKE?", 40, WHITE, INK, anchor="ma")
     fig(d, "fig. 1 — the classic bad idea")
 
 def sc_study(img, d, t):
     t0 = S("study"); k = clamp((t - t0 - .2) / 2.4)
-    counter(d, X0, 300, t, t0 + .1, 1.0, 485, "{:.0f}", 220, SIG)
+    counter(d, X0, 300, t, t0 + .1, 1.0, 485, "{:.0f}", 220, INK)
     d.text((X0 + 6, 540), "people after a recent breakup", font=F(COND, 36), fill=INK)
     for i in range(28):
         r, c = divmod(i, 7); x = X0 + 10 + c * 120; y = 630 + r * 110
         on = i < 28 * k
-        d.rectangle([x, y, x + 100, y + 90], outline=INK, width=3, fill=SIG if on and i % 5 == 2 else None)
+        d.rectangle([x, y, x + 100, y + 90], outline=INK, width=3, fill=INK if on and i % 5 == 2 else None)
         d.text((x + 8, y + 6), f"{i + 1}", font=F(MONO, 18), fill=MID)
         if on: d.line([x + 25, y + 55, x + 45, y + 72, x + 78, y + 32], fill=INK if i % 5 != 2 else WHITE, width=5)
     fig(d, "daily diaries + follow-up after 2 months")
@@ -69,8 +69,8 @@ def sc_who(img, d, t):
     d.text((X0, 300), "WHO?", font=F(BLK, 150), fill=INK)
     h = picto(d, 330, FLOOR, .8, INK, f=1, pose=WORRY)
     box = think_box(d, h, 220, 130, (t - t0 - .2) / .4, "", INK, 1)
-    if box: heart(d, (box[0] + box[2]) / 2, (box[1] + box[3]) / 2, 34, SIG)
-    if t >= cue("who", "still attached"): box_label(d, X1, 560, "STILL ATTACHED", 34, WHITE, SIG, anchor="ra")
+    if box: heart(d, (box[0] + box[2]) / 2, (box[1] + box[3]) / 2, 34, INK)
+    if t >= cue("who", "still attached"): box_label(d, X1, 560, "STILL ATTACHED", 34, WHITE, INK, anchor="ra")
     picto(d, 760, FLOOR, .7, MID, f=-1, pose=IDLE)
     fig(d, "most eager: those who hadn't let go")
 
@@ -78,16 +78,16 @@ def sc_mood(img, d, t):
     t0 = S("mood")
     d.text((X0, 300), "DISTRESS?", font=F(BLK, 150), fill=INK)
     hbar(d, 560, .45, (t - t0 - .1) / .5, MID, "attached, no ex sex", h=90)
-    hbar(d, 740, .45, (t - t0 - .5) / .5, SIG, "attached, with ex sex", h=90)
+    hbar(d, 740, .45, (t - t0 - .5) / .5, INK, "attached, with ex sex", h=90)
     if t >= cue("mood", "more distress"): box_label(d, X0 + 840 * .45 + 40, 770, "NO EXTRA HARM", 40, WHITE, INK)
     d.text((X1, 1146), "schematic", font=F(MED, 22), fill=MID, anchor="ra")
 
 def sc_quote(img, d, t):
-    d.text((X0 - 10, 300), "“", font=F(BLK, 280), fill=SIG)
+    d.text((X0 - 10, 300), "“", font=F(BLK, 280), fill=INK)
     lines = [("The hand-wringing", cue("quote", "hand-wringing") - .2), ("may not be", cue("quote", "may not")), ("warranted.", cue("quote", "warranted") - .2)]
     for i, (l, tk) in enumerate(lines):
         k = ease((t - tk) / .3)
-        if k > 0: d.text((X0, 580 + i * 100 + (1 - k) * 30), l, font=F(BLK, 80), fill=mix(BG, SIG if i == 2 else INK, k))
+        if k > 0: d.text((X0, 580 + i * 100 + (1 - k) * 30), l, font=F(BLK, 80), fill=mix(BG, INK if i == 2 else INK, k))
     box_label(d, X0, 960, "STEPHANIE SPIELMANN · LEAD AUTHOR", 26, WHITE, INK)
 
 def sc_point(img, d, t):

@@ -1,14 +1,14 @@
 """NOT JUST YOU · AFTER DARK – No. 52: the 48-hour sexual afterglow (Meltzer et al. 2017)."""
 import os, sys, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
-from swiss import *
+from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .8, "result": .5, "who": .5, "months": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "study", "result", "who", "months", "point", "end"]
-EP = Episode(TL, 52, "THE AFTERGLOW", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
-             chapters={"hook": "48 HOURS", "study": "THE DIARIES", "result": "THE GLOW", "who": "EVERYONE", "months": "MONTHS LATER", "point": "KEEP IT WARM"},
+EP = ThreadEpisode(TL, 52, "THE AFTERGLOW", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
+             chapters={k: "" for k in ORDER[:-1]},
              sources=("Meltzer et al. (2017),", "Psychological Science 28(5)"),
              music=dict(bpm=84, root=4, prog="warm", kick="half", gaps=[(E("study") + .05, S("result") + .05)]),
              cover=dict(words=["THE 48-HOUR", "GLOW."], kicker="One night, two days."))
@@ -16,24 +16,24 @@ EP = Episode(TL, 52, "THE AFTERGLOW", order=ORDER, dark=True, series="NOT JUST Y
 def glow(d, cx, cy, r, k, t=0.0):
     for i in range(6, 0, -1):
         rr = r * (1 + i * .28) * (1 + .03 * math.sin(t * 3 + i))
-        d.ellipse([cx - rr, cy - rr, cx + rr, cy + rr], fill=mix(BG, SIG, k * (.08 + .1 * (6 - i) / 6)))
-    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=mix(BG, SIG, k))
+        d.ellipse([cx - rr, cy - rr, cx + rr, cy + rr], fill=mix(BG, MID, k * (.08 + .1 * (6 - i) / 6)))
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=mix(BG, MID, k))
 
-def pair(d, cx=480, s=.9, col2=SIG):
+def pair(d, cx=480, s=.9, col2=MID):
     p = {"arms": ((70, 20), (-10, -5))}
     picto(d, cx - 80 * s, FLOOR, s, INK, f=1, pose=p); picto(d, cx + 80 * s, FLOOR, s, col2, f=-1, pose=p)
 
 def sc_hook(img, d, t):
     k = ease((t - .2) / .6)
     glow(d, 480, 900, 90, k, t)
-    d.text((X0 - 6, 300), "48 H", font=F(BLK, 230), fill=SIG)
+    d.text((X0 - 6, 300), "48 H", font=F(BLK, 230), fill=INK)
     d.text((X0, 540), "of afterglow", font=F(COND, 44), fill=INK)
     pair(d)
     fig(d, "fig. 1 — the night is only the start")
 
 def sc_study(img, d, t):
     t0 = S("study")
-    counter(d, X0, 300, t, t0 + .1, .9, 214, "{:.0f} couples", 140, SIG)
+    counter(d, X0, 300, t, t0 + .1, .9, 214, "{:.0f} couples", 140, INK)
     d.text((X0 + 6, 470), "newlyweds · two separate studies", font=F(COND, 36), fill=INK)
     tk = cue("study", "every single")
     for i in range(14):
@@ -64,8 +64,8 @@ def sc_result(img, d, t):
 
 def sc_who(img, d, t):
     t0 = S("who")
-    d.text((X0, 300), "FOR", font=F(BLK, 150), fill=INK); d.text((X0, 450), "EVERYONE.", font=F(BLK, 150), fill=SIG)
-    specs = [(200, .95, INK, "men and"), (380, .95, SIG, "women"), (600, .75, INK, "younger"), (780, .85, SIG, "older")]
+    d.text((X0, 300), "FOR", font=F(BLK, 150), fill=INK); d.text((X0, 450), "EVERYONE.", font=F(BLK, 150), fill=INK)
+    specs = [(200, .95, INK, "men and"), (380, .95, INK, "women"), (600, .75, INK, "younger"), (780, .85, INK, "older")]
     for i, (x, s, col, w) in enumerate(specs):
         k = ease((t - cue("who", w) + .2) / .3)
         if k > 0: picto(d, x, FLOOR + (1 - k) * 40, s, col, f=1 if i % 2 == 0 else -1, pose=WAVE(t) if i == 3 else IDLE)
@@ -78,10 +78,10 @@ def sc_months(img, d, t):
     d.text((OX, OY + 20), "wedding", font=F(MONO, 20), fill=MID); d.text((OX + GW, OY + 20), "4–6 months", font=F(MONO, 20), fill=MID, anchor="ra")
     d.text((OX + 10, OY - GH - 50), "marital satisfaction", font=F(COND, 26), fill=INK, anchor="ld")
     x2 = OX + GW * k
-    d.line([OX, OY - GH * .85, x2, OY - GH * (.85 - .12 * k)], fill=SIG, width=8)
+    d.line([OX, OY - GH * .85, x2, OY - GH * (.85 - .12 * k)], fill=INK, width=8)
     d.line([OX, OY - GH * .7, x2, OY - GH * (.7 - .38 * k)], fill=MID, width=8)
     if k > .95:
-        d.text((x2 - 8, OY - GH * .73 - 14), "strong afterglow", font=F(BLK, 26), fill=SIG, anchor="rd")
+        d.text((x2 - 8, OY - GH * .73 - 14), "strong afterglow", font=F(BLK, 26), fill=INK, anchor="rd")
         d.text((x2 - 8, OY - GH * .32 + 14), "weak afterglow", font=F(BLK, 26), fill=MID, anchor="ra")
     d.text((X1, 1146), "schematic", font=F(MED, 22), fill=MID, anchor="ra")
 

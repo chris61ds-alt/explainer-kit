@@ -1,14 +1,14 @@
 """NOT JUST YOU – No. 40: money and happiness (Killingsworth, Kahneman & Mellers 2023). Series: Swiss Dark (edgy)."""
 import os, sys, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
-from swiss import *
+from thread import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "old": .5, "study": .8, "result": .5, "except": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "old", "study", "result", "except", "point", "end"]
-EP = Episode(TL, 40, "MONEY & HAPPINESS", order=ORDER, dark=True,
-             chapters={"hook": "SORRY", "old": "THE OLD STORY", "study": "THE TEAM-UP", "result": "THE CURVE", "except": "THE EXCEPTION", "point": "THE CATCH"},
+EP = ThreadEpisode(TL, 40, "MONEY & HAPPINESS", order=ORDER, dark=True,
+             chapters={k: "" for k in ORDER[:-1]},
              sources=("Killingsworth, Kahneman & Mellers (2023),", "PNAS 120(10) · via ScienceDaily"),
              music=dict(bpm=100, root=0, prog="tense", kick="four", gaps=[(E("study") + .05, S("result") + .05)]),
              cover=dict(words=["MONEY", "BUYS", "HAPPINESS."], kicker="Mostly. Sorry."))
@@ -32,15 +32,15 @@ def most_fn(v): return .25 + .55 * math.log(v / 10) / math.log(22.5)
 def unhappy_fn(v): return .08 + .22 * math.log(min(v, 100) / 10) / math.log(10)
 
 def coins_stack(d, x, y, n, t):
-    for i in range(n): d.ellipse([x - 50, y - i * 18 - 16, x + 50, y - i * 18 + 16], fill=SIG if i % 2 else INK, outline=BG, width=3)
+    for i in range(n): d.ellipse([x - 50, y - i * 18 - 16, x + 50, y - i * 18 + 16], fill=MID if i % 2 else INK, outline=BG, width=3)
 
 def sc_hook(img, d, t):
     sr = cue("hook", "sorry")
     d.text((X0 - 6, 300), "CAN'T BUY", font=F(BLK, 150), fill=INK if t < sr else RULE)
     d.text((X0 - 6, 450), "HAPPINESS?", font=F(BLK, 150), fill=INK if t < sr else RULE)
     if t >= sr - .1:
-        k = ease((t - sr + .1) / .3); d.line([X0, 530, X0 + 840 * k, 470], fill=SIG, width=14)
-        words_in(d, t, [("IT CAN.", cue("hook", "it can") - .1, 640, 190, SIG)])
+        k = ease((t - sr + .1) / .3); d.line([X0, 530, X0 + 840 * k, 470], fill=INK, width=14)
+        words_in(d, t, [("IT CAN.", cue("hook", "it can") - .1, 640, 190, INK)])
     coins_stack(d, X1 - 120, 1100, int(4 + 8 * clamp(t / 2.5)), t)
     fig(d, "fig. 1 — the saying")
 
@@ -49,20 +49,20 @@ def sc_old(img, d, t):
     d.text((X0, 300), "THE OLD STORY", font=F(BLK, 110), fill=INK)
     axes(d); pts = curve(d, old_fn, (t - t0 - .3) / 2.5, MID)
     if t >= cue("old", "seventy-five"):
-        x = xpos(75); d.line([x, OY, x, OY - GH], fill=SIG, width=3)
-        box_label(d, x, OY - GH - 60, "$75k: FLAT?", 30, WHITE, SIG, anchor="ma")
+        x = xpos(75); d.line([x, OY, x, OY - GH], fill=INK, width=3)
+        box_label(d, x, OY - GH - 60, "$75k: FLAT?", 30, WHITE, INK, anchor="ma")
     fig(d, "Kahneman & Deaton, 2010 · schematic")
 
 def sc_study(img, d, t):
     t0 = S("study"); rv = cue("study", "rival")
     d.text((X0, 300), "THE TEAM-UP", font=F(BLK, 120), fill=INK)
     picto(d, 250, 900, .8, INK, f=1, pose=STOP if False else IDLE)
-    picto(d, 710, 900, .8, SIG, f=-1, pose=IDLE)
+    picto(d, 710, 900, .8, INK, f=-1, pose=IDLE)
     if t >= rv + .3:
         k = ease((t - rv - .3) / .5); x = lerp(250, 380, k); x2 = lerp(710, 580, k)
         d.line([x + 60, 760, x2 - 60, 760], fill=INK, width=8)
     if t >= cue("study", "app"):
-        phone(d, 480, 1030, .8, INK, lit=True); speech_box(d, 520, 900, 300, (t - cue("study", "app")) / .3, SIG, 1, "How do you feel?", 26)
+        phone(d, 480, 1030, .8, INK, lit=True); speech_box(d, 520, 900, 300, (t - cue("study", "app")) / .3, INK, 1, "How do you feel?", 26)
     fig(d, "adversarial collaboration · Killingsworth, Kahneman & Mellers, 2023")
 
 def sc_result(img, d, t):
@@ -78,7 +78,7 @@ def sc_result(img, d, t):
 def sc_except(img, d, t):
     t0 = S("except")
     d.text((X0, 300), "EXCEPT…", font=F(BLK, 130), fill=INK)
-    axes(d); curve(d, most_fn, 1, SIG, 6)
+    axes(d); curve(d, most_fn, 1, INK, 6)
     pts = curve(d, unhappy_fn, (t - t0) / 2.2, INK, 8)
     if t >= cue("except", "hundred"):
         x = xpos(100); d.line([x, OY, x, OY - GH * .5], fill=INK, width=3)
