@@ -1,4 +1,4 @@
-Quick, guess: how do most couples meet today? 💘
+Most couples don't meet through friends anymore! 💘
 
 Stanford researchers asked thousands of American couples how they met. In 1995, friends were the top matchmaker: 33%. By 2017, just 20%.
 

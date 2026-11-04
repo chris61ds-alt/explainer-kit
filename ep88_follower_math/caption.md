@@ -1,4 +1,4 @@
-Does everyone online seem more popular than you? 📱
+Your followers are more popular than you. And that's just math! 📱
 
 If yes, you're probably right. And it's not about you.
 

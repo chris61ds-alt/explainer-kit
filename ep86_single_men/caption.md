@@ -1,4 +1,4 @@
-Quick, guess: under 30, who's more likely to be single, men or women? 💔
+Under thirty, there's a dating gap. And it's huge! 💔
 
 Pew Research asked over 6,000 Americans about their love lives. Under 30, 63% of men said they're single. Women? 34%.
 

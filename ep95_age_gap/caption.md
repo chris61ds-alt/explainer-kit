@@ -1,4 +1,4 @@
-How many years are there between you and your partner? 💞
+Your age gap is linked to your divorce risk. Here's the math! 💞
 
 Wedding Math, part 3/3. Same survey, over 3,000 Americans who had been married. Compared with couples the same age:
 

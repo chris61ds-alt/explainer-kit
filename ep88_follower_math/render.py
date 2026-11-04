@@ -15,8 +15,8 @@ EP = ThreadEpisode(TL, 88, "FOLLOWER MATH", order=ORDER, dark=True, label="PLATF
 
 def sc_hook(img, d, t):
     tp = cue("hook", "They are more") - .15
-    d.text((X0 - 4, 320), "IF YES:", font=F(BLK, 150), fill=MID)
-    d.text((X0 - 4, 470), "YOU'RE RIGHT.", font=F(BLK, 110), fill=INK)
+    d.text((X0 - 4, 320), "FEELS PERSONAL?", font=F(BLK, 105), fill=MID)
+    d.text((X0 - 4, 450), "IT ISN'T.", font=F(BLK, 130), fill=INK)
     for i, (x, y, s) in enumerate(((190, 860, .32), (770, 860, .32), (300, 1010, .26), (660, 1010, .26))):
         silhouette(img, lambda m, x=x, y=y, s=s: front_bust(m, x, y, s, 255), (int(x - 160 * s / .32), int(y - 110 * s / .32), int(x + 160 * s / .32), int(y + 160 * s / .32)), MID, cell=7)
     silhouette(img, lambda m: front_bust(m, 480, 920, .2, 255), (400, 860, 560, 1050), INK, cell=6)

@@ -5,19 +5,19 @@
  "format": "v2",
  "beats": [
   {
-   "id": "guess",
-   "text": "How many years are there between you and your partner?",
+   "id": "claim",
+   "text": "Your age gap is linked to your divorce risk. Here's the math!",
    "screen": [
-    "HOW MANY",
-    "YEARS BETWEEN",
-    "YOU AND YOUR",
-    "PARTNER?"
+    "YOUR AGE GAP,",
+    "YOUR",
+    "DIVORCE RISK."
    ],
-   "speed": 1.15
+   "speed": 1.13,
+   "stamp": "WEDDING MATH 3/3"
   },
   {
    "id": "hook",
-   "text": "Because the bigger the gap, the bigger the divorce risk!",
+   "text": "The rule: the bigger the gap, the bigger the divorce risk!",
    "speed": 1.15
   },
   {
@@ -51,7 +51,5 @@
   "Francis-Tan & Mialon (2015), \"'A Diamond is Forever' and Other Fairy Tales: The Relationship between Wedding Expenses and Marriage Duration\", Economic Inquiry (working paper 2014, Emory University). Online survey of ~3,000+ ever-married US adults (KSL: 3,370). Correlational (hazard of divorce).",
   "Age difference vs same-aged couples: 1 year -> ~3% more likely to divorce; 5 years -> ~18%; 10 years -> ~39%. Via Megan Garber, The Atlantic (2014), as reported by Great Bend Tribune."
  ],
- "ask": "WHAT'S YOUR AGE GAP? COMMENT.",
- "guess_prompt": "Your number?",
- "guess_label": "QUICK QUESTION"
+ "ask": "WHAT'S YOUR AGE GAP? COMMENT."
 }

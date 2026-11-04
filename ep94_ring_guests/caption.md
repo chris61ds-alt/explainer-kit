@@ -1,4 +1,4 @@
-Big wedding or small wedding: which one lasts longer? 🤔
+The size of your wedding is linked to your divorce risk. 🤔
 
 Wedding Math, part 2/3. Plot twist: big wins. But only if it's big in the right way.
 
@@ -8,7 +8,7 @@ But the ring? Men who spent $2,000–4,000 had 1.3× the divorce risk of those w
 
 So spend less on the ring. And invite more people.
 
-What was your guess? 👇
+Big wedding or small: what did yours look like? 👇
 
 Part 3 tomorrow: the age gap.
 

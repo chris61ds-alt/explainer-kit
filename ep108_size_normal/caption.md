@@ -1,4 +1,4 @@
-Quick guess: what's the average erect penis length? 📏
+Most men worry about their size. Most don't need to! 📏
 
 A review pooled 17 studies and up to 15,521 men. Measured by health professionals, not self-reported.
 

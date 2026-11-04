@@ -5,18 +5,19 @@
  "format": "v2",
  "beats": [
   {
-   "id": "guess",
-   "text": "Quick guess: how often do happy couples respond when their partner wants attention?",
+   "id": "claim",
+   "text": "Happy couples don't just talk more. They answer tiny moments!",
    "screen": [
-    "HAPPY COUPLES:",
-    "HOW OFTEN DO",
-    "THEY RESPOND?"
+    "HAPPY COUPLES",
+    "ANSWER TINY",
+    "MOMENTS."
    ],
-   "speed": 1.15
+   "speed": 1.13,
+   "stamp": "6-YEAR STUDY"
   },
   {
    "id": "hook",
-   "text": "It's about tiny moments. Like: hey, look at this bird!",
+   "text": "Like this one: hey, look at this bird!",
    "speed": 1.13
   },
   {
@@ -42,8 +43,6 @@
    "text": "Not just you."
   }
  ],
- "guess_label": "GUESS FIRST",
- "guess_prompt": "Your guess?",
  "ask": "SEND THIS TO YOUR PARTNER.",
  "sources": [
   "Gottman (with Driver) – newlywed study, six-year follow-up: couples still married had turned toward partners' bids 86% of the time, divorced couples 33% (Gottman Institute, 'Turn Toward Instead of Away'; Gottman & DeClaire, The Relationship Cure, 2001)."

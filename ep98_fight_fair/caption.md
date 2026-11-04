@@ -1,4 +1,4 @@
-Do your fights get worse the longer they go? 😤
+Most fights get worse the longer they go. Here's how to stop that! 😤
 
 3 tips from decades of couples research. Save this for your next fight.
 

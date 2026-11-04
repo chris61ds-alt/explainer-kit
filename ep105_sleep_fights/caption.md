@@ -1,4 +1,4 @@
-Do you fight more after a bad night's sleep? 😴
+Bad sleep makes couples fight more. That's science! 😴
 
 You're not imagining it. Berkeley psychologists asked people in relationships to track their sleep and their fights for two weeks.
 

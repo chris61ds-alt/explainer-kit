@@ -1,4 +1,4 @@
-Quick guess: what's the most important part of an apology? 🙏
+Most apologies miss the most important part! 🙏
 
 Researchers tested six parts of an apology with over 700 people.
 

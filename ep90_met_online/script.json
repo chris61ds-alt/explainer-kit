@@ -4,18 +4,19 @@
  "lang": "en-us",
  "beats": [
   {
-   "id": "guess",
-   "text": "Okay, quick guess! How do most couples meet today?",
+   "id": "claim",
+   "text": "Most couples don't meet through friends anymore!",
    "screen": [
-    "HOW DO",
     "MOST COUPLES",
-    "MEET TODAY?"
+    "DON'T MEET",
+    "THROUGH FRIENDS."
    ],
-   "speed": 1.17
+   "speed": 1.13,
+   "stamp": "STANFORD SURVEY"
   },
   {
    "id": "hook",
-   "text": "Through friends? Nope! That's not how most couples start anymore.",
+   "text": "Friends used to be the top matchmaker. That's not how most couples start anymore.",
    "speed": 1.15
   },
   {
@@ -45,6 +46,5 @@
   "Rosenfeld, Thomas & Hausen (2019), 'Disintermediating your friends: How online dating in the United States displaces other ways of meeting', PNAS 116(36), 17753-17758. HCMST 2009 + 2017 surveys, 5,421 heterosexual couples (Table 1). Met online: 2% (1995) -> 39% (2017); met through friends: 33% (1995) -> 20% (2017). Via PMC6731751 / Stanford News (Aug 2019)."
  ],
  "format": "v2",
- "ask": "HOW DID YOU MEET? COMMENT.",
- "guess_prompt": "Your guess?"
+ "ask": "HOW DID YOU MEET? COMMENT."
 }

@@ -1,6 +1,6 @@
 There's no such thing as a "normal" vulva. Scientists measured it. 🌸
 
-Swiss gynecologists measured 657 women aged 15 to 84. The inner labia ranged from 5 millimeters to 10 centimeters. A factor of 20. The outer ones: from about 1 to 18 centimeters.
+Swiss gynecologists measured 657 women aged 15 to 84. How far the inner lips stick out: from 1 millimeter to 6 centimeters. Their length: from half a centimeter to 10.
 
 So what's normal? All of it.
 

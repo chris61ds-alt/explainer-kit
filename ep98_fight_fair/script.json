@@ -5,18 +5,18 @@
  "format": "v2",
  "beats": [
   {
-   "id": "guess",
-   "text": "Do your fights get worse the longer they go?",
+   "id": "claim",
+   "text": "Most fights get worse the longer they go. Here's how to stop that!",
    "screen": [
-    "DO YOUR FIGHTS",
-    "GET WORSE",
-    "AS THEY GO?"
+    "FIGHTS GET",
+    "WORSE THE",
+    "LONGER THEY GO."
    ],
-   "speed": 1.15
+   "speed": 1.13
   },
   {
    "id": "hook",
-   "text": "Then here are three tips from decades of couples research. Save this!",
+   "text": "Three tips from decades of couples research. Save this!",
    "speed": 1.15
   },
   {
@@ -42,8 +42,6 @@
    "text": "Not just you."
   }
  ],
- "guess_label": "QUICK QUESTION",
- "guess_prompt": "Yes or no?",
  "ask": "SAVE THIS FOR YOUR NEXT FIGHT.",
  "sources": [
   "Carrère & Gottman (1999), Predicting divorce among newlyweds from the first three minutes of a marital conflict discussion, Family Process 38(3).",

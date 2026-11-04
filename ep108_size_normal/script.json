@@ -5,14 +5,15 @@
  "format": "v2",
  "beats": [
   {
-   "id": "guess",
-   "text": "Quick guess: what's the average erect penis length?",
+   "id": "claim",
+   "text": "Most men worry about their size. Most don't need to!",
    "screen": [
-    "THE AVERAGE",
-    "ERECT",
-    "LENGTH?"
+    "MOST MEN",
+    "WORRY ABOUT",
+    "THEIR SIZE."
    ],
-   "speed": 1.15
+   "speed": 1.13,
+   "stamp": "15,521 MEN"
   },
   {
    "id": "study",
@@ -41,8 +42,6 @@
    "text": "Not just you."
   }
  ],
- "guess_label": "GUESS FIRST",
- "guess_prompt": "Your guess?",
  "ask": "SEND THIS TO A FRIEND WHO WORRIES.",
  "sources": [
   "Veale, Miles, Bramley, Muir & Hodsoll (2015), Am I normal? A systematic review and construction of nomograms for flaccid and erect penis length and circumference in up to 15,521 men, BJU International 115(6) – 17 studies, measured by health professionals; mean erect length 13.12 cm, erect circumference 11.66 cm.",
