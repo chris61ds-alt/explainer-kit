@@ -281,6 +281,9 @@ class ThreadEpisode(Episode):
         img.paste(Image.fromarray(np.clip(a_ if m == "dark" else bg_map(a_, m), 0, 255).astype(np.uint8)), (0, 0), mask)
 
     def cut_fx(self, amp=.10):
+        if getattr(self, "autofill", False):           # from No. 93 / NJY_UPGRADE: signature swoosh 'H' (04.11.2026)
+            from swoosh import swoosh_h, SNAP_AT
+            return [(self.TL.S(k) + .10 - SNAP_AT, swoosh_h(), 0) for k in self.order[1:] if self.cuts.get(k) != "stay"]
         if V3: return [(self.TL.S(k) - .12, whoosh(.32, amp * 1.2), 0) for k in self.order[1:] if self.cuts.get(k) != "stay"]
         return [(self.TL.S(k) - .3, whoosh(.45, amp), 0) for k in self.order[1:]]
 

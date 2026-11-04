@@ -417,7 +417,8 @@ def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
         s = int(t0 * SR)
         if s < 0 or s >= n: return
         e = min(n, s + len(x)); x = x[:e - s]
-        if buf.ndim == 1: buf[s:e] += x
+        if x.ndim == 2: buf[s:e] += x                 # stereo sample (e.g. the signature swoosh): pan baked in
+        elif buf.ndim == 1: buf[s:e] += x
         else: buf[s:e, 0] += x * (1 - max(0, pan)); buf[s:e, 1] += x * (1 + min(0, pan))
     for m in TL_.meta:
         a, sr = sf.read(os.path.join(TL_.dir, "vo", m["id"] + ".wav")); put(vo, resample_poly(a, SR, sr), TL_.T[m["id"]]["start"])
