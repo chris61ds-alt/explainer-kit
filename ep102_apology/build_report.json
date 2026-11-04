@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 18.57,
-  "size_MiB": 2.8,
+  "duration_s": 18.23,
+  "size_MiB": 2.7,
   "black_intervals": [],
-  "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.4,
-  "sha256": "bb6cf5833e44b2f555324b3f7702523fd14e1501895630fa33468eefa10132c5",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.5,
+  "sha256": "3048c1c7510fbc6169ee5afe58673517d6a020ffb073789b48610fef02625eaf",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,12 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "2/52 = 3.8%",
+ "asr_final_wer": "2/49 = 4.1%",
  "asr_final_issues": [
-  "own: 1/9 | 1. Own It Say This was my fault",
+  "own: 1/9 | 1. Own It Say This Was My Fault",
   "point: 1/7 | So own it, fix it, don't bag."
  ],
- "duration_s": 18.55,
+ "duration_s": 18.25,
  "longest_calm_s": 2.33,
  "cover": "ep102_apology_cover.png",
  "caption": "ok"

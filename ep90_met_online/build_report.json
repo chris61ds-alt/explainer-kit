@@ -1,6 +1,6 @@
 {
  "episode": "ep90_met_online",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
   "friends: 9/21 | In 1995, friends with a top matchmaker, 33% by 2017 just 20, so who took over?"
  ],
@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 29.03,
-  "size_MiB": 4.7,
+  "duration_s": 29.4,
+  "size_MiB": 4.4,
   "black_intervals": [],
-  "loudness_LUFS": -16.0,
-  "true_peak_dBTP": -2.5,
-  "sha256": "10290bf870efdf68f710a732eadeae7f6eb2e7c679205ede5d0e34c5f69b7429",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.4,
+  "sha256": "346e640af327876a6b75669b2eaa09e378243f518fbb4f7e837b3f552645bba9",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,12 +22,11 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "8/86 = 9.3%",
+ "asr_final_wer": "7/88 = 8.0%",
  "asr_final_issues": [
-  "hook: 1/10 | Three friends, nope, that's not how most couples start anymore.",
-  "friends: 7/21 | In 1995, friends were the top matchmaker, 33% by 2017 just 20, so who took over?"
+  "friends: 7/21 | In 1995, friends were the top matchmaker, 33 percent, by 2017 just 20, so who took over?"
  ],
- "duration_s": 29.02,
+ "duration_s": 29.39,
  "longest_calm_s": 2.29,
  "cover": "ep90_met_online_cover.png",
  "caption": "ok"

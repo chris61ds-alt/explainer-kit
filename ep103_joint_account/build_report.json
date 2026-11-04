@@ -1,6 +1,6 @@
 {
  "episode": "ep103_joint_account",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 1/25 | Researchers took 230 engaged or newly married couples with separate accounts, and randomly told them, \"Merge, stay separate or do whatever you want.\""
  ],
@@ -13,7 +13,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "c5c4bb18de45761e81f0a88e5497a3a680d7845be6d266e4e6dfc9c509b4c282",
+  "sha256": "06bcf65d70d99af1f760254272f80dd3ef32f125a834f6df7842a4635a34a176",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,9 +22,10 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/69 = 1.4%",
+ "asr_final_wer": "3/69 = 4.3%",
  "asr_final_issues": [
-  "study: 1/25 | Researchers took 230 engaged or newly married couples with separate accounts, and randomly told them, \"Merge, stay separate or do whatever you want.\""
+  "study: 1/25 | Researchers took 230 engaged or newly married couples with separate accounts, and randomly told them, \"Merge, stay separate or do whatever you want.\"",
+  "point: 2/7 | For love as shared, maybe money too."
  ],
  "duration_s": 25.05,
  "longest_calm_s": 2.76,

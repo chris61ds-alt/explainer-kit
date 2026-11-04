@@ -1,17 +1,17 @@
 {
  "episode": "ep86_single_men",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 30.2,
-  "size_MiB": 4.9,
+  "duration_s": 28.4,
+  "size_MiB": 4.7,
   "black_intervals": [],
-  "loudness_LUFS": -16.0,
-  "true_peak_dBTP": -2.4,
-  "sha256": "e31bd41e711c8dd5cd3fe6456226cb5e997890ac6ffbbde981b7c4fd52b7fe80",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.5,
+  "sha256": "2ff98280e9b58d7d55474d84cfc7a571c2d2ce76f7a4b197fa21c047cecfc982",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,12 +20,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/91 = 1.1%",
+ "asr_final_wer": "1/86 = 1.2%",
  "asr_final_issues": [
   "study: 1/11 | Few research asked over 6,000 Americans about their love lives."
  ],
- "duration_s": 30.21,
- "longest_calm_s": 2.78,
+ "duration_s": 28.39,
+ "longest_calm_s": 2.62,
  "cover": "ep86_single_men_cover.png",
  "caption": "ok"
 }

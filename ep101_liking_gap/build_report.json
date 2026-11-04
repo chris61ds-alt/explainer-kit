@@ -1,17 +1,17 @@
 {
  "episode": "ep101_liking_gap",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 21.97,
-  "size_MiB": 3.3,
+  "size_MiB": 3.4,
   "black_intervals": [],
   "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.4,
-  "sha256": "97c511f0a5fdf9d57efb04b5ed1ce0c4be7aed823bafa37a384272000cd0bce2",
+  "true_peak_dBTP": -2.5,
+  "sha256": "72ed08663759b7672f29a929223f334d81deb5d534aacdf12e225f57391c825b",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

@@ -1,6 +1,6 @@
 {
  "episode": "ep104_social_cap",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 2/18 | 143 students. For three weeks, half of them used Facebook, Instagram and Snapchat as usual."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 22.1,
-  "size_MiB": 3.7,
+  "size_MiB": 3.6,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.9,
-  "sha256": "10d8a7ee5a82de1f99bc29ffb24aec632eee570bef3274af028862de952d3bdf",
+  "true_peak_dBTP": -2.5,
+  "sha256": "fa60d06c4523c2306c915f6ffb95dbdbf84841aeed8e4113ce55c1772645368d",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,10 +22,10 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/63 = 4.8%",
+ "asr_final_wer": "5/63 = 7.9%",
  "asr_final_issues": [
   "study: 2/18 | 143 students. For three weeks, half of them used Facebook, Instagram and Snapchat as usual.",
-  "limit: 1/15 | The other half 10 minutes per hour per day, 30 minutes total, and their loneliness."
+  "limit: 3/15 | Another half 10 minutes per hour per day, 30 minutes total, and their loneliness."
  ],
  "duration_s": 22.1,
  "longest_calm_s": 2.4,

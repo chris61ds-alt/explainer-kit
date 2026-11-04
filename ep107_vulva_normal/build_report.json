@@ -3,18 +3,18 @@
  "tts": "new",
  "asr_voice": [
   "study: 1/13 | Swiss gynecologists measured 657 women, aged 15 to 84.",
-  "range: 3/22 | The inner labia ranged from 5 mm to 10 cm, the outer ones from about 1 to 18 cm. So what's normal?"
+  "range: 4/24 | How far the inner lips stick out, from 1mm to 6cm, their length from half a centimeter to 10. So what's normal?"
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 26.53,
-  "size_MiB": 4.5,
+  "duration_s": 25.97,
+  "size_MiB": 4.6,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.3,
-  "sha256": "295d316d21b7c7356eb5385b3cd3eeb8d42f856b28983b10a864b27cc54cc7d5",
+  "true_peak_dBTP": -2.5,
+  "sha256": "ac3a8224ec6565283730cdd26fae8f405841f15f3dfce3bf68b4eb10a0b95ee6",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,12 +23,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "4/75 = 5.3%",
+ "asr_final_wer": "3/77 = 3.9%",
  "asr_final_issues": [
   "study: 1/13 | Swiss gynecologists measured 657 women aged 15 to 84.",
-  "range: 3/22 | The inner labia ranged from 5 mm to 10 cm. The outer ones, from about 1 to 18 cm. So what's normal?"
+  "range: 2/24 | How far the inner lips stick out, from 1 mm to 6 cm, their length from half a centimeter to 10. So what's normal?"
  ],
- "duration_s": 26.55,
+ "duration_s": 25.98,
  "longest_calm_s": 1.99,
  "cover": "ep107_vulva_normal_cover.png",
  "caption": "ok"
