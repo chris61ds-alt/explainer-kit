@@ -31,7 +31,7 @@ def sc_study(img, d, t):
             k = back(clamp((t - th - i * .15) / .3)); x = X0 + 30 + i * 280; y = 720
             d.rounded_rectangle([x, y, x + 220 * k, y + 220 * k], radius=40, fill=MID)
             if k > .8: d.text((x + 110, y + 250), a, font=F(MONO, 28), fill=INK, anchor="ma")
-        box_label(d, X0, 1040, "HALF: AS USUAL", 38, WHITE, MID, font=BLK)
+        if t >= cue("study", "as usual") - .1: box_label(d, X0, 1040, "HALF: AS USUAL", 38, WHITE, MID, font=BLK)
     fig(d, "randomized")
 
 def apps(d, t, t0):
@@ -64,7 +64,7 @@ def sc_point(img, d, t):
 
 EP.cuts = {"result": "stay"}
 EP.scenes = {"hook": sc_hook, "study": sc_study, "limit": sc_limit, "result": sc_result, "point": sc_point}
-FX = [*EP.cut_fx(), (S("hook") + .05, thud(.45), 0), (S("hook") + .3, whoosh(.2, .05), 0), (S("study") + .1, riser(.8, .04), 0),
+FX = [*EP.cut_fx(), (S("hook") + .05, thud(.45), 0), (S("hook") + .3, whoosh(.2, .05), 0), (S("study") + .1, riser(.8, .04), 0), (cue("study", "as usual") - .1, thud(.4), 0), (cue("study", "three weeks") - .1, tick(.06), .2),
       *[(cue("study", "half of them") - .1 + i * .15, pop(.12), (i - 1) / 2) for i in range(3)],
       *[(S("limit") + .1 + i * .3, tick(.05), (i - 1) / 2) for i in range(3)], (cue("limit", "Thirty minutes") - .1, thud(.45), .3),
       (S("result") + .1, thud(.55), 0), (cue("result", "Depression") - .1, pop(.15), 0),

@@ -16,7 +16,8 @@ GROUPS = [("MERGE", "merge"), ("STAY SEPARATE", "stay separate"), ("YOUR CHOICE"
 def sc_study(img, d, t):
     t0 = S("study")
     counter(d, X0, 320, t, t0 + .1, .8, 230, "{:.0f}", 230, INK); d.text((X0 + 6, 565), "engaged or newly married couples", font=F(COND, 44), fill=INK)
-    tr = cue("study", "randomly") - .1
+    tr = cue("study", "randomly") - .1; tsa = cue("study", "separate accounts") - .1
+    if tsa <= t < tr: box_label(d, X0 + 4, 640, "ALL WITH SEPARATE ACCOUNTS", 40, WHITE, MID, font=BLK)
     if t >= tr: box_label(d, X0 + 4, 640, "RANDOMLY ASSIGNED", 40, WHITE, INK, font=BLK)
     for i, (lab, c) in enumerate(GROUPS):
         tc = cue("study", c) - .1
@@ -54,7 +55,7 @@ def sc_point(img, d, t):
 
 EP.cuts = {"joint": "stay"}
 EP.scenes = {"study": sc_study, "separate": sc_separate, "joint": sc_joint, "point": sc_point}
-FX = [(0.0, thud(.5), 0), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0), (cue("study", "randomly") - .1, thud(.4), 0),
+FX = [(0.0, thud(.5), 0), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0), (cue("study", "randomly") - .1, thud(.4), 0), (cue("study", "separate accounts") - .1, pop(.12), .2), (cue("study", "engaged or") - .1, tick(.06), -.2),
       *[(cue("study", c) - .1, pop(.13), (i - 1) / 2) for i, (l, c) in enumerate(GROUPS)],
       (S("separate") + .2, whoosh(.8, .04), 0), (S("separate") + 1.4, tick(.06), 0), (S("joint") + .1, thud(.55), 0), (cue("joint", "more in sync") - .1, pop(.15), .3),
       (S("point") + .1, pop(.12), 0), (cue("point", "Maybe money") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]

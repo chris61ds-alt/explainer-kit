@@ -49,6 +49,8 @@ def sc_tip3(img, d, t):
     if t >= tr and t < tm + .3:                            # heart rate racing (schematic)
         pts = ekg(X0, X1, 860, t, period=110, amp=70, speed=420, chaos=.25)
         d.line(pts, fill=INK, width=6)
+    tl = cue("tip3", "stop listening") - .1
+    if tl <= t < tm: box_label(d, X0, 1000, "YOU STOP LISTENING", 38, WHITE, INK, font=BLK)
     if t >= tm: clock(d, 480, 860, 110, (t - tm) / 1.5, col=SIG, label="20 MIN")
     fig(d, "heart rate · schematic")
 
@@ -63,6 +65,6 @@ FX = [*EP.cut_fx(), (S("hook") + .05, thud(.45), 0), *iso_fx(TL, "hook"), (cue("
       (cue("tip1", "first three minutes") - .1, tick(.06), .3), (cue("tip1", "divorced years later") - .1, thud(.5), .3),
       (S("tip2") + .1, thud(.4), 0), *[(cue("tip2", "Stable couples") + .1 + i * .18, pop(.1), (i - 2.5) / 3) for i in range(6)],
       (cue("tip2", "Even while") - .1, thud(.45), 0),
-      (S("tip3") + .1, thud(.4), 0), (cue("tip3", "heart races") - .1, riser(.8, .05), 0), (cue("tip3", "twenty minutes") - .15, thud(.5), 0),
+      (S("tip3") + .1, thud(.4), 0), (cue("tip3", "heart races") - .1, riser(.8, .05), 0), (cue("tip3", "stop listening") - .1, pop(.14), -.2), (cue("tip3", "twenty minutes") - .15, thud(.5), 0),
       (cue("point", "start soft") - .15, pop(.12), -.3), (cue("point", "Stay kind") - .15, pop(.12), -.3), (cue("point", "pause") - .15, thud(.45), .3), (S("end"), thud(.5), 0)]
 if __name__ == "__main__": EP.run(FX)

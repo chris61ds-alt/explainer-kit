@@ -48,6 +48,9 @@ def sc_tip3(img, d, t):
     words_in(d, t, [("SAY", t0 + .05, 370, 170, INK), ("THANK YOU.", t0 + .2, 540, 150, INK)])
     couple(img, d)
     bubble(d, "you", "Thank you!", (t - cue("tip3", "In a diary") + .1) / .3, y=760)
+    tg, tp = cue("tip3", "feeling grateful") - .1, cue("tip3", "predicted") - .1
+    if t >= tg: box_label(d, X1 - (1 - ease((t - tg) / .25)) * 50, 660, "GRATEFUL TODAY", 36, WHITE, INK, font=BLK, anchor="ra")
+    if t >= tp: heart(d, PARTNER[0], 860 - 30 * ease(clamp((t - tp) / .4)), 18, INK)
     tn = cue("tip3", "the next day") - .1
     if t >= tn:
         box_label(d, X1 - (1 - ease((t - tn) / .25)) * 50, 760, "NEXT DAY: CLOSER", 40, WHITE, SIG, font=BLK, anchor="ra")
@@ -64,6 +67,6 @@ FX = [(0.0, thud(.5), 0), *EP.cut_fx(), (S("tip1") + .1, pop(.12), -.3), (cue("t
       (cue("tip1", "new, exciting") - .1, whoosh(.5, .04), .2), (cue("tip1", "felt better") - .1, thud(.45), .3), (cue("tip1", "something boring") - .1, tick(.06), 0),
       (S("tip2") + .1, pop(.12), -.3), (S("tip2") + .6, pop(.13), .3), (cue("tip2", "react with") - .1, whoosh(.2, .05), 0), (cue("tip2", "react with") + .2, pop(.14), -.2),
       (cue("tip2", "feel closer") - .1, riser(.5, .04), 0),
-      (S("tip3") + .1, thud(.4), 0), (cue("tip3", "In a diary") - .1, pop(.14), -.2), (cue("tip3", "the next day") - .1, thud(.45), .3),
+      (S("tip3") + .1, thud(.4), 0), (cue("tip3", "In a diary") - .1, pop(.14), -.2), (cue("tip3", "feeling grateful") - .1, pop(.13), .3), (cue("tip3", "predicted") - .1, tick(.06), .2), (cue("tip3", "the next day") - .1, thud(.45), .3),
       (cue("point", "try new") - .15, pop(.12), -.3), (cue("point", "Cheer louder") - .15, pop(.12), -.3), (cue("point", "Say thanks") - .15, thud(.45), .3), (S("end"), thud(.5), 0)]
 if __name__ == "__main__": EP.run(FX)

@@ -26,6 +26,8 @@ def sc_study(img, d, t):
     t0, tc = S("study"), cue("study", "followed new") - .1
     counter(d, X0, 320, t, t0 + .1, .8, 355, "{:.0f}", 230, INK)
     d.text((X0 + 6, 570), "adults who had just moved", font=F(COND, 46), fill=INK)
+    tj = cue("study", "just moved") - .1
+    if tj <= t < tc: box_label(d, X0 + 4, 660, "JUST MOVED", 40, WHITE, INK, font=BLK)
     if t >= tc: counter(d, X0, 660, t, tc, .6, 112, "+ {:.0f}", 120, MID); d.text((X0 + 6, 800), "new college students, followed for weeks", font=F(COND, 40), fill=MID)
     dot_field(d, (X0 + 14, 880, X1, 1110), t, cell=30, col=MID, hit={44} if t < tc else {44, 12, 70, 101, 150}, hitcol=INK)
     fig(d, "online survey + follow-up")
@@ -53,7 +55,7 @@ EP.cuts = {"friend": "stay", "close": "stay"}
 EP.bg = {"casual": "light", "friend": "light"}
 EP.scenes = {"hook": sc_hook, "study": sc_study, "casual": sc_casual, "friend": sc_friend, "close": sc_close, "point": sc_point}
 FX = [*EP.cut_fx(), (S("hook") + .05, thud(.45), 0), (S("hook") + .2, riser(1.2, .04), 0),
-      (S("study") + .1, riser(.8, .04), 0), (cue("study", "followed new") - .1, pop(.13), .2),
+      (S("study") + .1, riser(.8, .04), 0), (cue("study", "followed new") - .1, pop(.13), .2), (cue("study", "just moved") - .1, pop(.12), -.2),
       *[(S(b) + .1 + i * (.05 if n < 20 else .035), tick(.035), (i % 5 - 2) / 3) for (x, y, n, lab, hrs, b) in COLS for i in range(n)],
       (S("casual") + .4, pop(.14), -.3), (S("friend") + .4, pop(.14), 0), (S("close") + .1, thud(.55), 0), (S("close") + .8, pop(.16), .3),
       (S("point") + .1, pop(.12), 0), (cue("point", "keep showing up") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]

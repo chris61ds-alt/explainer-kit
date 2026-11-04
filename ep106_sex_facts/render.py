@@ -29,6 +29,8 @@ def sc_tip2(img, d, t):
     t0, tm = S("tip2"), cue("tip2", "felt more satisfied") - .1; tip_head(d, t, 2, ["DON'T SKIP", "THE CUDDLE."], t0, size=105)
     couple(img, d, you=(380, 950), partner=(580, 950))
     if t >= t0 + .8: heart(d, 480, 760, 30 + 4 * math.sin(t * 8), INK)
+    ta = cue("tip2", "affection after") - .1
+    if t >= ta: box_label(d, X0, 640, "AFFECTION AFTER SEX", 36, WHITE, INK, font=BLK)
     if t >= tm: box_label(d, X1, 640, "MORE SATISFIED", 44, WHITE, SIG, font=BLK, anchor="ra")
     fig(d, "a link, not proof")
 
@@ -46,7 +48,7 @@ EP.cuts = {"tip3": "stay"}
 EP.bg = {"point": "light"}
 EP.scenes = {"tip1": sc_tip1, "tip2": sc_tip2, "tip3": sc_tip3, "point": sc_point}
 FX = [(0.0, thud(.5), 0), *EP.cut_fx(), (S("tip1") + .1, pop(.12), -.3), (cue("tip1", "well-being rose") - .1, riser(1.0, .04), 0), (cue("tip1", "More didn't") - .1, thud(.45), .2),
-      (S("tip2") + .1, pop(.12), -.3), (S("tip2") + .8, pop(.14), 0), (cue("tip2", "felt more satisfied") - .1, thud(.45), .3),
+      (S("tip2") + .1, pop(.12), -.3), (S("tip2") + .8, pop(.14), 0), (cue("tip2", "affection after") - .1, pop(.13), -.3), (cue("tip2", "felt more satisfied") - .1, thud(.45), .3),
       (S("tip3") + .1, thud(.55), 0), (S("tip3") + .3, tick(.06), -.3), (S("tip3") + .6, tick(.06), .3),
       (cue("point", "once a week") - .15, pop(.12), -.3), (cue("point", "Cuddle after") - .15, pop(.12), -.3), (cue("point", "Enjoy the glow") - .15, thud(.45), .3), (S("end"), thud(.5), 0)]
 if __name__ == "__main__": EP.run(FX)
