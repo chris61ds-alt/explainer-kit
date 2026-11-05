@@ -2,32 +2,34 @@
  "episode": "ep82_live",
  "tts": "new",
  "asr_voice": [
+  "drop: 1/19 | Seconds 4-7, the hook is done, now the video has to pay off or you're gone too.",
   "value: 1/17 | And up to 47% of a video adds impact lands in the first three seconds. [BUZZER]"
  ],
- "verify": "PASS",
+ "verify": "FAIL",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 38.13,
+  "duration_s": 36.43,
   "size_MiB": 4.4,
   "black_intervals": [],
   "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.5,
-  "sha256": "5357b73f5784dbc175627323abcf78d2b909046313cc250724227d413b9cd66a",
+  "true_peak_dBTP": 0.4,
+  "sha256": "e4aa7b06ce975848c58800fb646dcc0fc63cdd5fb8440d304a2d9263cd610617",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
    "no_black": true,
    "loudness -18..-14": true,
-   "true_peak<=-1": true
+   "true_peak<=-1": false
   }
  },
- "asr_final_wer": "2/112 = 1.8%",
+ "asr_final_wer": "4/112 = 3.6%",
  "asr_final_issues": [
-  "value: 2/17 | An up to 47% of a video adds impact lands in the first three seconds."
+  "value: 2/17 | An up to 47% of a video adds impact lands in the first three seconds.",
+  "algo: 2/21 | Instagram says WatchTime is one of its top three ranking signals, so by staying, you just voted for this video."
  ],
- "duration_s": 38.12,
- "longest_calm_s": 4.05,
+ "duration_s": 36.43,
+ "longest_calm_s": 4.2,
  "cover": "ep82_live_cover.png",
  "caption": "ok"
 }

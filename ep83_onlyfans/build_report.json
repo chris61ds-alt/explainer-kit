@@ -11,12 +11,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 30.8,
-  "size_MiB": 4.2,
+  "duration_s": 30.63,
+  "size_MiB": 4.1,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
+  "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.4,
-  "sha256": "d9b3b8566273b7b5acd4f80cb220ac1b71dff496643e4e95a8bf770df5cb260e",
+  "sha256": "875c72c4a1e8dcb571d20a412ecfe156e39c771869ff95b5d5d14bacd03abc3d",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -25,15 +25,15 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "16/96 = 16.7%",
+ "asr_final_wer": "15/96 = 15.6%",
  "asr_final_issues": [
-  "hook: 6/17 | Only fans paid its creators $6.3 billion last year, so is everyone on their hitch.",
-  "big: 3/19 | Since 2016, it has paid out $30 billion. 5,076 creators have made over a million.",
+  "hook: 6/17 | Only fans paid its creators $6.3 billion last year, so is everyone on their reach?",
+  "big: 2/19 | Since 2016, it has paid out 30 billion. 5,076 creators have made over a million.",
   "split: 3/12 | But wait, there are about 2.5 million active creators.",
   "avg: 4/21 | Spread the money evenly, and each gets about $2,500 a year, roughly 200 a month."
  ],
- "duration_s": 30.8,
- "longest_calm_s": 2.54,
+ "duration_s": 30.62,
+ "longest_calm_s": 2.45,
  "cover": "ep83_onlyfans_cover.png",
  "caption": "ok"
 }

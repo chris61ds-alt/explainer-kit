@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 31.13,
-  "size_MiB": 4.8,
+  "duration_s": 31.3,
+  "size_MiB": 5.1,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.5,
-  "sha256": "35d1ae436482481a68082234513d2d754914cd16aaed7923082138d266ca830b",
+  "true_peak_dBTP": -2.4,
+  "sha256": "bd96d539bf0e5082ebc5084dd3e73cdfb9bb42cd661fdb4a0f207ff98b106052",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,7 +22,7 @@
  },
  "asr_final_wer": "0/89 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 31.12,
+ "duration_s": 31.32,
  "longest_calm_s": 2.76,
  "cover": "ep98_fight_fair_cover.png",
  "caption": "ok"

@@ -56,6 +56,8 @@ def rise(a, sr, st=QRISE_ST, dur=QRISE_DUR):
     if len(y) < len(a): y = np.pad(y, (0, len(a) - len(y)))
     s0 = max(0, int((t0 - .04) * sr)); x = int(.03 * sr); out = a.copy(); w = np.linspace(0, 1, x)
     out[s0:s0 + x] = a[s0:s0 + x] * (1 - w) + y[s0:s0 + x] * w; out[s0 + x:] = y[s0 + x:]       # 30 ms crossfade into the resynth
+    pk, pk2 = np.max(np.abs(a[s0:])) + 1e-9, np.max(np.abs(out[s0:]))      # the resynth can overshoot → keep the original peak
+    if pk2 > pk: out[s0:] *= pk / pk2                                       # (else the final mix fails true peak ≤ −1 dBTP)
     return out
 
 for b in s["beats"]:

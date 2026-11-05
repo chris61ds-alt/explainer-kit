@@ -2,18 +2,18 @@
  "episode": "ep94_ring_guests",
  "tts": "new",
  "asr_voice": [
-  "ring: 5/29 | But the ring, men who spent $2,000 to $4,000 had 1.3 times the divorce risk, compared to $500 to $2,000 and the honeymoon."
+  "ring: 5/29 | But the ring, men who spent $2,000 to $4,000 had 1.3 times the divorce risk, compared to $500 to $2,000, and the honeymoon..."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.07,
-  "size_MiB": 4.2,
+  "duration_s": 28.1,
+  "size_MiB": 4.1,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.1,
-  "sha256": "f1cf3800273e24c6f2bb294e38c0ea5baf5d810eab61877697080c619fce476d",
+  "true_peak_dBTP": -2.4,
+  "sha256": "00a4cc155ad79e25b7a636d1c31f017224bc301fba1f8b99d5a4f5874a1049de",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -27,8 +27,8 @@
   "hook: 1/13 | Hot twist, big wins, but only if it's big in the right way.",
   "ring: 5/29 | But the ring, men who spent $2,000 to $4,000 had 1.3 times the divorce risk, compared to $500 to $2,000, and the honeymoon."
  ],
- "duration_s": 28.06,
- "longest_calm_s": 2.0,
+ "duration_s": 28.11,
+ "longest_calm_s": 2.01,
  "cover": "ep94_ring_guests_cover.png",
  "caption": "ok"
 }

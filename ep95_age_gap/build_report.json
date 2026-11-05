@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 22.7,
-  "size_MiB": 4.4,
+  "duration_s": 23.2,
+  "size_MiB": 4.3,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.4,
-  "sha256": "69030528b955a0187460985843a8834266b3d30b687c8b5defdd0d76f4bce57c",
+  "sha256": "e339d1d9b3761a8b0543d4f1b4959f4daf64afad194ed94b23f1f3bc666a8346",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,12 +20,10 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/63 = 1.6%",
- "asr_final_issues": [
-  "five: 1/7 | 5 years, 18% in 10 years."
- ],
- "duration_s": 22.69,
- "longest_calm_s": 2.29,
+ "asr_final_wer": "0/63 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 23.21,
+ "longest_calm_s": 2.45,
  "cover": "ep95_age_gap_cover.png",
  "caption": "ok"
 }

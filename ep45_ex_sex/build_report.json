@@ -1,6 +1,6 @@
 {
  "episode": "ep45_ex_sex",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
   "quote: 1/13 | As the lead researcher put it, the hand-ringing may not be warranted."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 29.43,
-  "size_MiB": 4.1,
+  "size_MiB": 4.3,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.5,
-  "sha256": "c13079715a0aa7dfbafe1b672057687d33fe49728b2438d97254935dac84e25c",
+  "true_peak_dBTP": -2.4,
+  "sha256": "a77f47325933867a0c3863147d853c87b09cf1fe890d4884ef2f3514b03e7b87",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,12 +22,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/101 = 1.0%",
+ "asr_final_wer": "3/101 = 3.0%",
  "asr_final_issues": [
-  "quote: 1/13 | As the lead researcher put it, the hand-ringing may not be warranted."
+  "result: 1/22 | Find to have sex with an ex did not slow down their recovery, not day to day, and not two months later.",
+  "quote: 2/13 | As the lead researcher put it, the handringing may not be warranted."
  ],
- "duration_s": 29.45,
- "longest_calm_s": 2.37,
+ "duration_s": 29.43,
+ "longest_calm_s": 2.3,
  "cover": "ep45_ex_sex_cover.png",
  "caption": "ok"
 }

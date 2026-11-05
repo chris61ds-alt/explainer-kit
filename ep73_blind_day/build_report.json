@@ -1,6 +1,6 @@
 {
  "episode": "ep73_blind_day",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
   "study: 3/12 | On Love is Blind Day, OK Cupid hit all pictures for 7 hours.",
   "back: 3/9 | Then at 4pm, the photos came back.",
@@ -10,12 +10,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 24.23,
-  "size_MiB": 3.7,
+  "duration_s": 24.63,
+  "size_MiB": 3.9,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.4,
-  "sha256": "a1a57f0618ab56eeff43b8d8d3a0609b38c962d7687ce5518c8852d06aa1452d",
+  "loudness_LUFS": -16.5,
+  "true_peak_dBTP": -2.2,
+  "sha256": "9beaf1f508f461493ce0f112dd573ee9f061a93e76b7b1354f2bf86b3d28ee6b",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -30,7 +30,7 @@
   "back: 3/9 | Then at 4pm, the photos came back.",
   "melt: 2/11 | 2,200 conversations had started blind. They just melted away."
  ],
- "duration_s": 24.22,
+ "duration_s": 24.62,
  "longest_calm_s": 2.57,
  "cover": "ep73_blind_day_cover.png",
  "caption": "ok"

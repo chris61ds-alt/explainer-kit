@@ -1,33 +1,35 @@
 {
  "episode": "ep78_below_average",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
-  "study: 2/9 | OK Cupid, analyzed how its users rated each other's looks."
+  "study: 2/9 | OK Cupid, analyzed how its users rated each other's looks.",
+  "men: 1/14 | Men, they rated women on a fair curve. Most women write in the middle."
  ],
- "verify": "PASS",
+ "verify": "FAIL",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 22.73,
+  "duration_s": 23.37,
   "size_MiB": 3.3,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.4,
-  "sha256": "0510820b4aa60c7a48aa4d4d8901130e342eed9c86b2ce33707330e05e35f7cb",
+  "true_peak_dBTP": -0.6,
+  "sha256": "2d057533d01cd377148d8350f1129bb93d04ea3bcb036865822e72ce56408ae9",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
    "no_black": true,
    "loudness -18..-14": true,
-   "true_peak<=-1": true
+   "true_peak<=-1": false
   }
  },
- "asr_final_wer": "2/66 = 3.0%",
+ "asr_final_wer": "3/66 = 4.5%",
  "asr_final_issues": [
-  "study: 2/9 | OK Cupid, analyzed how its users rated each other's looks."
+  "study: 2/9 | OK, Cupid analyzed how its users rated each other's looks.",
+  "men: 1/14 | Men, they rated women on a fair curve. Most women ride in the middle."
  ],
- "duration_s": 22.74,
- "longest_calm_s": 3.01,
+ "duration_s": 23.36,
+ "longest_calm_s": 2.79,
  "cover": "ep78_below_average_cover.png",
  "caption": "ok"
 }

@@ -1,17 +1,17 @@
 {
  "episode": "ep101_liking_gap",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 21.97,
+  "duration_s": 22.0,
   "size_MiB": 3.4,
   "black_intervals": [],
   "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.5,
-  "sha256": "72ed08663759b7672f29a929223f334d81deb5d534aacdf12e225f57391c825b",
+  "true_peak_dBTP": -2.4,
+  "sha256": "9d28ceac305e3d3fce78b97b1c8c0f3c215d83820dacc1fee32327109ef81906",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,10 +20,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/65 = 0.0%",
- "asr_final_issues": [],
- "duration_s": 21.95,
- "longest_calm_s": 2.32,
+ "asr_final_wer": "1/65 = 1.5%",
+ "asr_final_issues": [
+  "point: 1/10 | For that awkward chat, it went better than you think."
+ ],
+ "duration_s": 22.0,
+ "longest_calm_s": 2.28,
  "cover": "ep101_liking_gap_cover.png",
  "caption": "ok"
 }

@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 23.17,
+  "duration_s": 23.1,
   "size_MiB": 3.8,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.4,
-  "sha256": "fefd9f7e0f418c426610f2f7f61071ba40e0cacaaca4a7760b66de2324a9f392",
+  "true_peak_dBTP": -2.5,
+  "sha256": "e9aa30e5434a18361feec7eb389aca788cb8f61a92052da57cf1a407f958414b",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,7 +22,7 @@
  },
  "asr_final_wer": "0/64 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 23.16,
+ "duration_s": 23.09,
  "longest_calm_s": 2.59,
  "cover": "ep99_bids_cover.png",
  "caption": "ok"

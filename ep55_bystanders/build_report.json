@@ -1,20 +1,19 @@
 {
  "episode": "ep55_bystanders",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
-  "hook: 1/11 | Get attacked in public and nobody helps. No, that's a myth.",
   "result: 2/11 | In 9/10, at least one stranger stepped in."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 20.6,
-  "size_MiB": 3.7,
+  "duration_s": 20.97,
+  "size_MiB": 3.8,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.4,
-  "sha256": "f920461c5d21ecd086c275168eec9a17638603b51267906a7beceef18cc3e6f5",
+  "sha256": "c7cd3d4eeb65e81f744bb2e3a69bfdb5e8923823bd3cb07c471e8fdb1f80def3",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,12 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/63 = 4.8%",
+ "asr_final_wer": "4/63 = 6.3%",
  "asr_final_issues": [
-  "hook: 1/11 | Get attacked in public and nobody helps, note that's a myth.",
+  "hook: 2/11 | Get attacked in public and nobody helps. NOPE. Got the myth.",
   "result: 2/11 | In 9/10, at least one stranger stepped in."
  ],
- "duration_s": 20.61,
+ "duration_s": 20.98,
  "longest_calm_s": 2.6,
  "cover": "ep55_bystanders_cover.png",
  "caption": "ok"
