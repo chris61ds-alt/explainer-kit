@@ -1,6 +1,6 @@
 {
  "episode": "ep90_met_online",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "friends: 9/21 | In 1995, friends with a top matchmaker, 33% by 2017 just 20, so who took over?"
  ],
@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 29.4,
+  "duration_s": 29.63,
   "size_MiB": 4.4,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.4,
-  "sha256": "346e640af327876a6b75669b2eaa09e378243f518fbb4f7e837b3f552645bba9",
+  "true_peak_dBTP": -2.3,
+  "sha256": "4a0a2b4397959e148b85ef8de64657dde8148f15724b425c299b48cfc146f609",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,11 +22,11 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "7/88 = 8.0%",
+ "asr_final_wer": "9/88 = 10.2%",
  "asr_final_issues": [
-  "friends: 7/21 | In 1995, friends were the top matchmaker, 33 percent, by 2017 just 20, so who took over?"
+  "friends: 9/21 | In 1995, friends with a top matchmaker, 33% by 2017 just 20, so who took over?"
  ],
- "duration_s": 29.39,
+ "duration_s": 29.64,
  "longest_calm_s": 2.29,
  "cover": "ep90_met_online_cover.png",
  "caption": "ok"

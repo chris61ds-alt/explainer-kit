@@ -1,20 +1,19 @@
 {
  "episode": "ep85_lonely_young",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
-  "study: 1/16 | Gallup and Meta asked people in 142 countries how lonely they feel.",
-  "young: 1/11 | The Loneliest Group, ages 19-29, 27%."
+  "study: 1/16 | Gallup and Meta asked people in 142 countries how lonely they feel."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 25.7,
-  "size_MiB": 4.0,
+  "duration_s": 26.0,
+  "size_MiB": 4.2,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.4,
-  "sha256": "e7ade2d35ffe02d10a0ce08e8d1662e12ea5debcd1e209547b1ff3eee6afebde",
+  "sha256": "a8e375a15bbf81347e941f28f1de932319337dfe8135d0c5ad8df184d35e4bc8",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -25,11 +24,11 @@
  },
  "asr_final_wer": "3/77 = 3.9%",
  "asr_final_issues": [
-  "study: 1/16 | Gallup and meta asked people in 142 countries how lonely they feel.",
+  "study: 1/16 | Gallup and Meta asked people in 142 countries how lonely they feel.",
   "old: 2/9 | Police lonely, 65 and older, 17%."
  ],
- "duration_s": 25.71,
- "longest_calm_s": 3.16,
+ "duration_s": 26.0,
+ "longest_calm_s": 2.66,
  "cover": "ep85_lonely_young_cover.png",
  "caption": "ok"
 }

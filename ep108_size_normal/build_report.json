@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.77,
+  "duration_s": 28.73,
   "size_MiB": 4.6,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.4,
-  "sha256": "4137656d7d24ea54cfc78fe3066b4ecb59ab6ebe0014b6c0f951185094c0c0ff",
+  "true_peak_dBTP": -2.5,
+  "sha256": "03169ef7e3294f51a097df35d1d1c35f9abc6449a9ba711253337feff842822a",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -26,8 +26,8 @@
  "asr_final_issues": [
   "avg: 3/13 | The average erect length 13.1 cm, about 5.2 inches."
  ],
- "duration_s": 28.76,
- "longest_calm_s": 2.64,
+ "duration_s": 28.73,
+ "longest_calm_s": 2.63,
  "cover": "ep108_size_normal_cover.png",
  "caption": "ok"
 }

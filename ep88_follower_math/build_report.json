@@ -2,19 +2,18 @@
  "episode": "ep88_follower_math",
  "tts": "new",
  "asr_voice": [
-  "study: 1/14 | Researchers analyzed almost 6 million Twitter users and 476 million tweets.",
-  "result: 1/16 | A typical user's followers had about 10 times more followers, 10 times an activity even worse."
+  "study: 1/14 | Researchers analyzed almost 6 million Twitter users and 476 million tweets."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 36.2,
+  "duration_s": 36.73,
   "size_MiB": 5.2,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.0,
-  "sha256": "4c558f2cd60ac1120f30fa717aaa6910b6526c6f05ded32bec3b98bce3fedbc1",
+  "sha256": "93bbb0ff28733e98813e91fe245d3edaa13eaa57ae5272e769048c124b240f00",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,11 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/103 = 1.0%",
+ "asr_final_wer": "5/103 = 4.9%",
  "asr_final_issues": [
-  "study: 1/14 | Researchers analyzed almost 6 million Twitter users and 476 million tweets."
+  "study: 3/14 | The searchers analyzed almost 6 million Twitter users and 476 million tweets.",
+  "result: 2/16 | Typical users' followers had about 10 times more followers, 10 times, and activity even worse."
  ],
- "duration_s": 36.19,
+ "duration_s": 36.73,
  "longest_calm_s": 2.47,
  "cover": "ep88_follower_math_cover.png",
  "caption": "ok"

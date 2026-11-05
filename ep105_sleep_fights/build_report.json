@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 22.07,
+  "duration_s": 22.4,
   "size_MiB": 3.7,
   "black_intervals": [],
   "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.4,
-  "sha256": "fd88a618f25be0c01e6806c8cbfa1779d1e6482a3660dcdca723bf93e8efdbd0",
+  "true_peak_dBTP": -2.3,
+  "sha256": "ac96e852713167dd30ce4aae50d5f66bd8c73ba8e88c3c41145bb7f3488babaa",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,7 +24,7 @@
  "asr_final_issues": [
   "hook: 1/4 | Not imagining it."
  ],
- "duration_s": 22.08,
+ "duration_s": 22.39,
  "longest_calm_s": 2.13,
  "cover": "ep105_sleep_fights_cover.png",
  "caption": "ok"
