@@ -37,14 +37,37 @@ def squeeze(a, sr, max_pause=MAX_PAUSE, thr=.012):
 def trim(a, sr, head=.03, tail=.08):
     idx = np.where(np.abs(a) > .01)[0]; return a[max(0, idx[0] - int(head * sr)): idx[-1] + int(tail * sr)].astype(np.float64)
 
+# Question rise (since 05.11.2026, variant "C", env NJY_QRISE=0 = off): Kokoro ends every question falling (−2…−4 semitones),
+# so yes/no and fragment questions ("And men?", "Did it work?") sounded like statements. Each such question is synthesized
+# as its own sentence and the pitch of its last 0.34 s is lifted by up to QRISE_ST semitones (WORLD resynthesis of the
+# tail only, spectral envelope kept). Questions with a wh-word ("How did you meet?") and "Or …?" keep their natural fall.
+QRISE = os.environ.get("NJY_QRISE", "1") == "1"; QRISE_ST, QRISE_DUR = 12.0, .34
+WH = re.compile(r"\b(what|who|whom|whose|how|why|which|where|when)\b|^or\b", re.I)
+def rising(p): return QRISE and p.rstrip().endswith("?") and not WH.search(p)
+
+def rise(a, sr, st=QRISE_ST, dur=QRISE_DUR):
+    import pyworld as pw
+    f0, t = pw.harvest(a, sr, f0_floor=120, f0_ceil=500, frame_period=5); sp_ = pw.cheaptrick(a, f0, t, sr); ap = pw.d4c(a, f0, t, sr)
+    vi = np.where(f0 > 0)[0]
+    if len(vi) < 10: return a
+    t0 = t[vi[-1]] - dur
+    f2 = f0 * 2 ** (np.clip((t - t0) / dur, 0, 1) ** 1.6 * st / 12)          # ease-in ramp up to +st at the very end
+    y = pw.synthesize(f2, sp_, ap, sr, frame_period=5)[:len(a)]
+    if len(y) < len(a): y = np.pad(y, (0, len(a) - len(y)))
+    s0 = max(0, int((t0 - .04) * sr)); x = int(.03 * sr); out = a.copy(); w = np.linspace(0, 1, x)
+    out[s0:s0 + x] = a[s0:s0 + x] * (1 - w) + y[s0:s0 + x] * w; out[s0 + x:] = y[s0 + x:]       # 30 ms crossfade into the resynth
+    return out
+
 for b in s["beats"]:
     sp = b.get("speed") or (s["speed"] * (1.06 if b["id"] == "guess" else .94 if b["id"] in reveal else 1.0) if V3 else s["speed"])
-    if V3 and b["id"] in reveal:
-        parts = [p for p in re.split(r"(?<=[.?!])\s+", b["text"]) if p]
-        out = []
+    parts = [p for p in re.split(r"(?<=[.?!])\s+", b["text"]) if p]
+    if V3 and (b["id"] in reveal or any(rising(p) for p in parts)):
+        out = []; gap = .16 if b["id"] in reveal else .14
         for j, p in enumerate(parts):
-            a, sr = k.create(p, voice=VOICE, speed=sp, lang=s["lang"]); out.append(squeeze(trim(a, sr, tail=.04), sr))
-            if j < len(parts) - 1: out.append(np.zeros(int(.16 * sr)))
+            a, sr = k.create(p, voice=VOICE, speed=sp, lang=s["lang"]); a = trim(a, sr, tail=.04)
+            if rising(p): a = rise(a, sr)
+            out.append(squeeze(a, sr))
+            if j < len(parts) - 1: out.append(np.zeros(int(gap * sr)))
         a = np.concatenate(out)
     else:
         a, sr = k.create(b["text"], voice=VOICE, speed=sp, lang=s["lang"]); a = squeeze(trim(a, sr), sr)
