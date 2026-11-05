@@ -1,6 +1,6 @@
 {
  "episode": "ep84_slop",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
   "point: 1/11 | So maybe we don't hate slop. We hate knowing it's sl"
  ],
@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 23.4,
+  "duration_s": 23.47,
   "size_MiB": 3.7,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.4,
-  "sha256": "70d8d2fd0173c3b06ad3af21f1882d278aee5f4a29b550ac6f152ff1d07ac269",
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.3,
+  "sha256": "e61b6cb3c5775215b9fe16cb70a49cb43dcf86f3e2a6d3d9eb6213997f75d758",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,10 +24,10 @@
  },
  "asr_final_wer": "1/72 = 1.4%",
  "asr_final_issues": [
-  "result: 1/11 | Median score was 60%. Pure guessing gets you 50."
+  "fav: 1/12 | And the most liked picture in the whole test, moved by AI."
  ],
- "duration_s": 23.39,
- "longest_calm_s": 2.2,
+ "duration_s": 23.48,
+ "longest_calm_s": 2.15,
  "cover": "ep84_slop_cover.png",
  "caption": "ok"
 }

@@ -5,7 +5,7 @@
   "study: 2/9 | OK Cupid, analyzed how its users rated each other's looks.",
   "men: 1/14 | Men, they rated women on a fair curve. Most women write in the middle."
  ],
- "verify": "FAIL",
+ "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
@@ -13,14 +13,14 @@
   "size_MiB": 3.3,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -0.6,
-  "sha256": "2d057533d01cd377148d8350f1129bb93d04ea3bcb036865822e72ce56408ae9",
+  "true_peak_dBTP": -1.1,
+  "sha256": "e1cc836f9ca0eae90fb5ea8ed7d6c4a44e232ba09450f6c7f7473002bc7207cd",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
    "no_black": true,
    "loudness -18..-14": true,
-   "true_peak<=-1": false
+   "true_peak<=-1": true
   }
  },
  "asr_final_wer": "3/66 = 4.5%",

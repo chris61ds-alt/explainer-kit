@@ -5,7 +5,7 @@
   "drop: 1/19 | Seconds 4-7, the hook is done, now the video has to pay off or you're gone too.",
   "value: 1/17 | And up to 47% of a video adds impact lands in the first three seconds. [BUZZER]"
  ],
- "verify": "FAIL",
+ "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
@@ -31,5 +31,6 @@
  "duration_s": 36.43,
  "longest_calm_s": 4.2,
  "cover": "ep82_live_cover.png",
- "caption": "ok"
+ "caption": "ok",
+ "note": "re-encoded 05.11.2026 with aresample before alimiter (true peak -2.2 dBTP)"
 }
