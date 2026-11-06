@@ -53,10 +53,10 @@ def sc_young(img, d, t):
         d.text((X0 + max(8, w) + 14, y + 84), f"{v * k:.0f} %", font=F(BLK, 48), fill=col, anchor="lm")
     fig(d, "sleep apart at least sometimes")
 
-I = Iso(560, 1020, .5)
+I = Iso(620, 1000, .38)
 def sc_point(img, d, t):
     t0, tk = S("point"), cue("point", "Just keep some") - .15
-    words_in(d, t, [("NOT A", t0 + .05, 320, 150, MID), ("BREAKUP.", t0 + .2, 470, 150, MID)] + ([("KEEP SOME", tk, 640, 110, SIG), ("BED TIME.", tk + .15, 750, 110, SIG)] if t >= tk else []))
+    words_in(d, t, [("NOT A", t0 + .05, 320, 130, MID), ("BREAKUP.", t0 + .2, 450, 130, MID)] + ([("KEEP SOME", tk, 600, 100, SIG), ("BED TIME.", tk + .15, 700, 100, SIG)] if t >= tk else []))
     I.grid(img); I.shadow(d, 0, 0, 220)
     split = ease(clamp((t - t0 - .4) / .8))                  # one bed slides apart into two
     for sx in (-1, 1):

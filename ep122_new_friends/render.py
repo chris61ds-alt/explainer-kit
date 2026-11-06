@@ -22,7 +22,7 @@ def sc_study(img, d, t):
     dot_field(d, (X0 + 14, 760, X1, 1110), t, cell=26, col=MID, hit=set(range(0, 600, 7)), hitcol=INK)
     fig(d, "one European country, 2007")
 
-I = Iso(470, 1050, .7)
+I = Iso(560, 990, .62)
 AGES = [(18, .78), (25, 1.0), (35, .74), (45, .58), (55, .57), (65, .45)]
 def columns(img, d, t, t0, hi=True, upto=6):
     I.grid(img)
