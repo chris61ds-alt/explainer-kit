@@ -61,13 +61,14 @@ def sc_friends(img, d, t):
 
 def sc_twist(img, d, t):
     t0, tc = S("twist"), cue("twist", "The checking was") - .15
-    words_in(d, t, [("STAYING FRIENDS:", t0 + .05, 320, 110, INK), ("NOT THE PROBLEM.", t0 + .2, 430, 110, INK)])
+    words_in(d, t, [("STAYING FRIENDS:", t0 + .05, 320, 96, INK), ("NOT THE PROBLEM.", t0 + .2, 420, 96, INK)])
     friends_card(d, t, t0, 0)
-    if t >= tc: words_in(d, t, [("THE CHECKING", tc, 960, 120, SIG), ("WAS.", tc + .12, 1080, 120, SIG)])
+    if t >= tc: words_in(d, t, [("THE CHECKING", tc, 880, 120, SIG), ("WAS.", tc + .12, 1000, 120, SIG)])
     fig(d, "friends: fewer negative feelings · a link, not proof")
 
+IQ = Iso(500, 900, .95)
 def sc_point(img, d, t):
-    t0, tp = S("point"), cue("point", "put the phone down") - .25
+    t0, tp = S("point"), cue("point", "put the phone down") - .25; IP = IQ
     IP.grid(img); IP.shadow(d, 0, 0, 230)
     if t < tp: A = _iso_phone(IP, d, t, msgs=[("l", t0 + .1, MID), ("l", t0 + .2, MID)])
     else:                                                  # face-down: back of the phone, screen hidden
@@ -77,7 +78,7 @@ def sc_point(img, d, t):
         A = {"phone": (60, 120, 18)}
     words_in(d, t, [("KEEP THE", t0 + .05, 320, 120, MID), ("FRIEND LIST.", t0 + .2, 440, 120, MID)] +
              ([("PUT IT DOWN.", tp, 580, 130, SIG)] if t >= tp else []))
-    if t >= tp + .3: p = IP.P(60, 120, 18); callout(d, p, "r", p[1] + 60, 1, "FACE DOWN", SIG, k=(t - tp - .3) / .4)
+    if t >= tp + .3: p = IP.P(60, 120, 18); callout(d, p, "r", p[1] - 40, 1, "FACE DOWN", SIG, k=(t - tp - .3) / .4)
     fig(d, "fig. 2 — schematic")
 
 EP.cuts = {"twist": "stay"}
