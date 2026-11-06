@@ -1,0 +1,31 @@
+{
+ "episode": "ep118_dishes",
+ "tts": "new",
+ "asr_voice": [],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 28.07,
+  "size_MiB": 3.8,
+  "black_intervals": [],
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -2.2,
+  "sha256": "8ded79f6e9621163e653e8d603254b357cada738244e36be2f55a79b9843073b",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "1/80 = 1.2%",
+ "asr_final_issues": [
+  "point: 1/13 | We don't just divide the chores, do some together, start with the dishes."
+ ],
+ "duration_s": 28.05,
+ "longest_calm_s": 2.55,
+ "cover": "ep118_dishes_cover.png",
+ "caption": "ok"
+}
