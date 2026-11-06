@@ -14,14 +14,14 @@ EP = ThreadEpisode(TL, 119, "DEEP TALK", order=ORDER, dark=True, label="12 EXPER
                    music=dict(bpm=96, root=1, prog="dream", kick="four", audio="v5", gaps=[(E("study") + .05, S("example") + .05)]),
                    cover=dict(words=["YOU AVOID", "DEEP", "TALKS."], kicker="You think they'll be awkward. They're not."))
 
-I = Iso(500, 1000, .78)
+I = Iso(500, 1060, .68)
 def sc_study(img, d, t):
     t0, ts, tdp = S("study"), cue("study", "small talk") - .1, cue("study", "deep ones") - .1
     d.text((X0, 320), "STRANGERS,", font=F(BLK, 120), fill=INK); d.text((X0, 440), "PAIRED UP", font=F(BLK, 120), fill=INK)
     I.grid(img); I.shadow(d, 0, 0, 280)
     A = chairs(I, d, t, T=[t0 + .05 + i * .1 for i in range(4)])
-    if t >= ts: p = I.P(*A["you"]); box_label(d, p[0] - 120, p[1] - 140, "THE WEATHER?", 34, WHITE, MID, font=BLK)
-    if t >= tdp: p = I.P(*A["them"]); box_label(d, p[0] - 60, p[1] - 200, "WHEN DID YOU CRY?", 34, WHITE, INK, font=BLK)
+    if t >= ts: p = I.P(*A["you"]); box_label(d, X0 + 4, 600, "THE WEATHER?", 40, WHITE, MID, font=BLK)
+    if t >= tdp: p = I.P(*A["them"]); box_label(d, X1, 680, "WHEN DID YOU CRY?", 40, WHITE, INK, font=BLK, anchor="ra")
     fig(d, "fig. 1 — schematic")
 
 def sc_example(img, d, t):
