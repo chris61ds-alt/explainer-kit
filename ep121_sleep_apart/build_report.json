@@ -1,6 +1,6 @@
 {
  "episode": "ep121_sleep_apart",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
@@ -11,7 +11,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "3227c6a201c4cef9018b37452634257f3e48324b532be16403b0b8021e9e9e70",
+  "sha256": "50ef5c181249fee2b912652611daa24eea700382520c336a53f6463e019f7562",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
