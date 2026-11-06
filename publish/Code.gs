@@ -133,7 +133,7 @@ function run() {
  * ab START_DAYS_FROM_NOW Tagen, eine Folge pro Slot (TIMES), Reihenfolge bleibt erhalten.
  */
 function rescheduleFromToday() {
-  const START_DAYS_FROM_NOW = 1, TIMES = ['12:30', '18:30'];   // Slots pro Tag
+  const START_DAYS_FROM_NOW = 1, TIMES = ['09:00', '12:30', '18:30', '21:30'];   // Slots pro Tag (4× seit 07.11.2026)
   const sh = sheet_(); const values = sh.getDataRange().getValues();
   let day = new Date(); day.setDate(day.getDate() + START_DAYS_FROM_NOW); let slot = 0;
   for (let i = 1; i < values.length; i++) {
