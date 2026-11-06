@@ -1,0 +1,56 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "claim",
+   "text": "Your friend's success stings. That doesn't make you a bad friend!",
+   "screen": [
+    "YOUR FRIEND'S",
+    "SUCCESS",
+    "STINGS."
+   ],
+   "speed": 1.13,
+   "stamp": "NOT A BAD FRIEND."
+  },
+  {
+   "id": "game",
+   "text": "In a classic experiment, men brought a friend to a word-guessing game. They could give easy clues or hard ones."
+  },
+  {
+   "id": "matters",
+   "text": "Then the researchers said the game measured intelligence. Here's the twist.",
+   "tease": "Here's the twist.",
+   "show": "THE TWIST: NEXT"
+  },
+  {
+   "id": "harder",
+   "text": "They gave their friend harder clues than a stranger! In ten of thirteen sessions."
+  },
+  {
+   "id": "why",
+   "text": "When it's not your thing, you cheer for your friend. When it is your thing, their win can feel like your loss."
+  },
+  {
+   "id": "fix",
+   "text": "What helps: celebrate anyway. In studies on good news, an excited, curious reply went with closer relationships."
+  },
+  {
+   "id": "point",
+   "text": "So feel the sting. Then say: tell me everything!"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "TAG A FRIEND YOU'RE PROUD OF.",
+ "sources": [
+  "Tesser & Smith (1980), Some effects of task relevance and friendship on helping: You don't always help the one you like, Journal of Experimental Social Psychology 16(6), 582–590 – men brought a friend; Password-style game, clues could be easy or hard; when the task was described as measuring important verbal skills, the stranger was helped more than the friend in 10 of 13 sessions; when described as unimportant, the friend was helped more in 10 of 13 sessions.",
+  "Tesser (1988), Toward a self-evaluation maintenance model of social behavior, Advances in Experimental Social Psychology 21.",
+  "Gable, Reis, Impett & Asher (2004), What do you do when things go right? The intrapersonal and interpersonal benefits of sharing positive events, Journal of Personality and Social Psychology 87(2), 228–245 – active-constructive (enthusiastic, engaged) responses to good news went with higher intimacy, satisfaction and trust; correlational."
+ ]
+}
