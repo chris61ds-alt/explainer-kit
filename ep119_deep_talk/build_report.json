@@ -1,6 +1,6 @@
 {
  "episode": "ep119_deep_talk",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
@@ -11,7 +11,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.4,
-  "sha256": "9ef1703212f11bf0443142e2fe12df7c309bc87a8bfd1a4e2cc018bebd3b6a89",
+  "sha256": "80cbd2b42edb09d5b51bd1fed6c22a2f789a1ac7afbeb92ca2bab1d13606cf57",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
