@@ -1,6 +1,6 @@
 {
  "episode": "ep117_stay_leave",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 3/19 | Researchers followed over 1300 people in relationships for 10 weeks, then 500 who were thinking about leaving."
  ],
@@ -13,7 +13,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.5,
   "true_peak_dBTP": -2.5,
-  "sha256": "af0380aaf0003435793719eaff98d54ccb5683e4fceee8f2d2d879b685733490",
+  "sha256": "b55d1ce0a8e0c3c639135ea7a99c18e25b96559c5d85f23a0030246d1bf995d3",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
