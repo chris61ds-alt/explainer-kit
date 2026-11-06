@@ -1,6 +1,6 @@
 {
  "episode": "ep109_someone_else",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 1/19 | 349 people, all in relationships. They were asked about their fantasies over the past two months."
  ],
@@ -13,7 +13,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.4,
-  "sha256": "e543a8a26211c0bc160ae6df828e6adfb487482c2566ebb11a1cc5ebc803ecc6",
+  "sha256": "556e8eecf98bd0d968c6d539e0e90ef10689fc68c67278a874022e290206234e",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

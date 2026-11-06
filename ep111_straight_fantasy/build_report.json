@@ -1,0 +1,34 @@
+{
+ "episode": "ep111_straight_fantasy",
+ "tts": "new",
+ "asr_voice": [
+  "study: 3/16 | Researchers asked over 1500 adults about their fantasies. 85% of them were straight."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 25.57,
+  "size_MiB": 4.7,
+  "black_intervals": [],
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.5,
+  "sha256": "0e86852d86be6a896b910b13b777595f6ed119290b3bad214f3f6c39ad9fa1e1",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "4/78 = 5.1%",
+ "asr_final_issues": [
+  "study: 3/16 | Researchers asked over 1500 adults about their fantasies. 85% of them were straight.",
+  "gap: 1/18 | with only 6% of the women and under 2% of the men said they were gay."
+ ],
+ "duration_s": 25.57,
+ "longest_calm_s": 2.09,
+ "cover": "ep111_straight_fantasy_cover.png",
+ "caption": "ok"
+}

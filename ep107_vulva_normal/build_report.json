@@ -9,12 +9,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 25.97,
-  "size_MiB": 4.6,
+  "duration_s": 35.83,
+  "size_MiB": 6.0,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.5,
-  "sha256": "ac3a8224ec6565283730cdd26fae8f405841f15f3dfce3bf68b4eb10a0b95ee6",
+  "true_peak_dBTP": -1.6,
+  "sha256": "e0a04f60fa728cedab1bcc7dd63b538f4782f36c03e76a94eee343d7aa22cb91",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,13 +23,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/77 = 3.9%",
+ "asr_final_wer": "3/107 = 2.8%",
  "asr_final_issues": [
   "study: 1/13 | Swiss gynecologists measured 657 women aged 15 to 84.",
   "range: 2/24 | How far the inner lips stick out, from 1 mm to 6 cm, their length from half a centimeter to 10. So what's normal?"
  ],
- "duration_s": 25.98,
- "longest_calm_s": 1.99,
+ "duration_s": 35.84,
+ "longest_calm_s": 2.62,
  "cover": "ep107_vulva_normal_cover.png",
  "caption": "ok"
 }
