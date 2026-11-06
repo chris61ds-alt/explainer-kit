@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.1, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "claim", "text": "Your friends have more friends than you. That's math, not you!", "screen": ["YOUR FRIENDS", "HAVE MORE", "FRIENDS THAN YOU."], "speed": 1.13, "stamp": "IT'S MATH."},
+  {"id": "hub", "text": "Picture one very popular person. Lots of people count them as a friend."},
+  {"id": "why", "text": "So whenever people look at their friends, that person shows up again and again. And the average goes up."},
+  {"id": "school", "text": "A sociologist checked this in a high school. And here's what he found.", "tease": "And here's what he found.", "show": "THE RESULT: NEXT"},
+  {"id": "result", "text": "Most students had fewer friends than their friends! Fifty-five percent of the girls."},
+  {"id": "point", "text": "So if everyone seems more social than you: that's an illusion. Not a you problem."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "claim_prompt": "Here's the math.",
+ "ask": "SEND THIS TO A FRIEND. THEY HAVE MORE.",
+ "sources": ["Feld (1991), Why your friends have more friends than you do, American Journal of Sociology 96(6), 1464–1477 – the 'friendship paradox': popular people appear in many friend lists, so the mean number of friends of friends exceeds the mean number of friends; in Coleman's Marketville high-school data 80 of 146 girls (55%) had fewer friends than the mean of their friends, 41 had more, 25 the same; mean 2.7 friends vs 3.4 for friends."]
+}

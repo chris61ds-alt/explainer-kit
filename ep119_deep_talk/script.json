@@ -1,0 +1,16 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.1, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "claim", "text": "You avoid deep talks because you think they'll be awkward. They're not!", "screen": ["YOU AVOID", "DEEP", "TALKS."], "speed": 1.13, "stamp": "1,800 PEOPLE TESTED"},
+  {"id": "study", "text": "In twelve experiments, strangers were paired up. Some got small talk questions. Others got deep ones."},
+  {"id": "example", "text": "Like: when did you last cry in front of someone?"},
+  {"id": "guess", "text": "First, they predicted how awkward it would be. Then they talked.", "tease": "Then they talked.", "show": "THE RESULT: NEXT"},
+  {"id": "result", "text": "Far less awkward than expected! And the deep talks felt closer and more fun."},
+  {"id": "interest", "text": "People also underestimated how interested the other person was in them."},
+  {"id": "point", "text": "So skip the weather. Ask the real question."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "WHAT'S YOUR BEST DEEP QUESTION? COMMENT.",
+ "sources": ["Kardas, Kumar & Epley (2021), Overly shallow? Miscalibrated expectations create a barrier to deeper conversation, Journal of Personality and Social Psychology – 12 experiments, more than 1,800 participants, mostly pairs of strangers; deep and shallow conversations were both less awkward than predicted, deep ones especially; deep conversations were more enjoyable and created more connection; people underestimated how interested their partner would be in them."]
+}

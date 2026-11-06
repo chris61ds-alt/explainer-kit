@@ -1,0 +1,17 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.1, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "claim", "text": "You think everyone has more sex than you. They don't!", "screen": ["YOU THINK", "EVERYONE HAS", "MORE SEX."], "speed": 1.13, "stamp": "THEY DON'T."},
+  {"id": "guess", "text": "Across nineteen countries, people guessed how often young adults have sex. About twenty times a month. Now the real number.", "tease": "Now the real number.", "show": "REAL NUMBER: NEXT"},
+  {"id": "real", "text": "Five to six times! That's what young adults themselves report."},
+  {"id": "week", "text": "And in couples, happiness rose with sex only up to about once a week. More didn't add more."},
+  {"id": "point", "text": "So stop comparing. You're probably closer to normal than you think."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "SEND THIS TO SOMEONE WHO COMPARES.",
+ "sources": [
+  "Ipsos (2018), Perils of Perception – across 19 countries, people guessed that 18–29-year-old women have sex 20 times and men 22 times every four weeks; national surveys put the self-reported figures at about 5 (women) and 6 (men).",
+  "Muise, Schimmack & Impett (2016), Sexual frequency predicts greater well-being, but more is not always better, Social Psychological and Personality Science 7(4), 295–302 – 25,000+ Americans (GSS 1989–2012) plus two couple samples; in relationships, well-being rose with sexual frequency up to about once a week, with no further gain beyond; correlational; no link for singles."
+ ]
+}

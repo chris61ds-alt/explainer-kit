@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.1, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "claim", "text": "You lost touch with a friend. Text them today!", "screen": ["YOU LOST TOUCH", "WITH A", "FRIEND."], "speed": 1.13, "stamp": "5,900 PEOPLE TESTED"},
+  {"id": "study", "text": "In a series of experiments, people sent a short note to someone they hadn't talked to in a while."},
+  {"id": "guess", "text": "First, they guessed how much it would be appreciated. Then the friends answered.", "tease": "Then the friends answered.", "show": "THEIR ANSWER: NEXT"},
+  {"id": "result", "text": "They loved it more than the senders expected!"},
+  {"id": "surprise", "text": "And the more out of the blue the message was, the bigger the gap."},
+  {"id": "point", "text": "So send the text. Right now. It means more than you think."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "WHO ARE YOU TEXTING? COMMENT.",
+ "sources": ["Liu, Rim, Min & Min (2022), The surprise of reaching out: Appreciated more than we think, Journal of Personality and Social Psychology – series of experiments with more than 5,900 participants; senders of a short note (or note + small gift) to someone they had not been in touch with consistently underestimated how much recipients appreciated it; underestimation was larger when the contact was more surprising and when the tie was weaker."]
+}

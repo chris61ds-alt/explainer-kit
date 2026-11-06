@@ -1,0 +1,14 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.1, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "claim", "text": "You've thought about breaking up. And you stayed.", "screen": ["YOU'VE THOUGHT", "ABOUT", "BREAKING UP."], "speed": 1.13, "stamp": "AND STAYED."},
+  {"id": "study", "text": "Researchers followed over thirteen hundred people in relationships for ten weeks. Then five hundred who were thinking about leaving."},
+  {"id": "who", "text": "So who stayed? Here's the surprise.", "tease": "Here's the surprise.", "show": "THE SURPRISE: NEXT"},
+  {"id": "result", "text": "The ones who believed their partner needed them! Even when they weren't happy themselves."},
+  {"id": "point", "text": "So staying often comes from caring. That's kind. Just don't forget your own needs."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "SAVE THIS FOR A HARD DAY.",
+ "sources": ["Joel, Impett, Spielmann & MacDonald (2018), How interdependent are stay/leave decisions? On staying in the relationship for the sake of the romantic partner, Journal of Personality and Social Psychology 115(5), 805–824 – Study 1: 1,348 people in relationships, followed 10 weeks; Study 2: 500 people considering a breakup, followed 2 months; people who believed their partner was more dependent on the relationship were less likely to initiate a breakup, even when their own satisfaction or commitment was low."]
+}

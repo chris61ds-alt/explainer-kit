@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.1, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "claim", "text": "You sleep better alone. About a third of people sleep apart, at least sometimes!", "screen": ["YOU SLEEP", "BETTER", "ALONE."], "speed": 1.13, "stamp": "~1 IN 3 SLEEP APART"},
+  {"id": "survey", "text": "In a survey of two thousand Americans, one in five sometimes sleeps in another room because of their partner. Fifteen percent do it regularly."},
+  {"id": "who", "text": "And the ones who move out most often? Here's the surprise.", "tease": "Here's the surprise.", "show": "WHO MOVES: NEXT"},
+  {"id": "men", "text": "Men! Forty-five percent, versus twenty-five percent of women."},
+  {"id": "young", "text": "And millennials most of all: forty-three percent."},
+  {"id": "point", "text": "So sleeping apart isn't a breakup. Good sleep comes first. Just keep some time in bed together."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "TEAM ONE BED OR TWO? COMMENT.",
+ "sources": ["American Academy of Sleep Medicine (2023), Sleep Prioritization Survey (Atomik Research, 2,005 US adults, March 2023) – to accommodate a bed partner, 20% sleep in another room on occasion and 15% consistently; more than one-third overall; 45% of men vs 25% of women; millennials 43%, Gen X 33%, Gen Z 28%, boomers 22%."]
+}

@@ -1,0 +1,18 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.1, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "claim", "text": "You fight about the dishes. That's not a small thing!", "screen": ["YOU FIGHT", "ABOUT THE", "DISHES."], "speed": 1.13, "stamp": "NOT SMALL."},
+  {"id": "survey", "text": "Asked what makes a good marriage, Americans said: faithfulness, ninety-three percent. Good sex, seventy. Sharing chores, sixty-two!"},
+  {"id": "split", "text": "But a newer study found that splitting chores fifty-fifty isn't enough. Here's what works.", "tease": "Here's what works.", "show": "WHAT WORKS: NEXT"},
+  {"id": "together", "text": "Sharing the tasks themselves! Of couples who shared every task, ninety-nine percent called it fair. Split fifty-fifty without sharing: only half."},
+  {"id": "point", "text": "So don't just divide the chores. Do some together. Start with the dishes."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "WHO DOES THE DISHES? COMMENT.",
+ "sources": [
+  "Pew Research Center (2007), Modern Marriage – share of US adults rating items 'very important' for a successful marriage: faithfulness 93%, happy sexual relationship 70%, sharing household chores 62%.",
+  "Carlson (2022), Sex Roles (Council on Contemporary Families brief) – nationally representative US surveys; among couples who equally shared all tasks, 99% said the division was fair; among couples with a 50/50 split but no shared tasks, only about half did; the number of equally shared tasks mattered for both men's and women's relationship quality.",
+  "Carlson et al. (2018), Council on Contemporary Families brief – of all chores, sharing the dishes was most closely tied to women's relationship satisfaction."
+ ]
+}
