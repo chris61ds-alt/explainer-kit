@@ -1,6 +1,6 @@
 {
  "episode": "ep111_straight_fantasy",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 3/16 | Researchers asked over 1500 adults about their fantasies. 85% of them were straight."
  ],
@@ -13,7 +13,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "0e86852d86be6a896b910b13b777595f6ed119290b3bad214f3f6c39ad9fa1e1",
+  "sha256": "af4427d6fa0d5c9098c9d4f7f0f87f67cd46d268860fcc50c59a0f2c772c300d",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
