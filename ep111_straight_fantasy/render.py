@@ -36,8 +36,8 @@ def bars(d, t, show_m):
 def sc_women(img, d, t): bars(d, t, False); fig(d, "whole sample, mostly straight")
 def sc_men(img, d, t): bars(d, t, True); fig(d, "whole sample, mostly straight")
 
-I = Iso(520, 1040, .8)
-COLS = [(-330, 60, 37, "FANTASY", "WOMEN", INK), (-190, 60, 6, "SAY GAY", "WOMEN", MID), (90, -60, 21, "FANTASY", "MEN", INK), (230, -60, 1.5, "SAY GAY", "MEN", MID)]
+I = Iso(530, 1010, .85)
+COLS = [(-230, 230, 37, "FANTASY", "WOMEN", INK), (-120, 120, 6, "SAY GAY", "WOMEN", MID), (110, -110, 21, "FANTASY", "MEN", INK), (220, -220, 1.5, "SAY GAY", "MEN", MID)]
 def sc_gap(img, d, t):
     t0, tg = S("gap"), cue("gap", "only six") - .15
     d.text((X0, 320), "FANTASY", font=F(BLK, 120), fill=INK); d.text((X0, 440), "VS. LABEL", font=F(BLK, 120), fill=MID)
@@ -46,9 +46,9 @@ def sc_gap(img, d, t):
         tk = t0 + .1 + (i // 2) * .25 if lab == "FANTASY" else tg + (i // 2) * .25
         if t < tk: continue
         k = ease(clamp((t - tk) / .5)); h = max(6, v * 11 * k)
-        I.box(d, x, y, 0, 100, 100, h, top=RIGHT if lab == "SAY GAY" else TOP)
-        px, py = I.P(x + 50, y + 50, h); d.text((px, py - 40), f"{v:g} %", font=F(BLK, 46), fill=INK, anchor="mm")
-        fx, fy = I.P(x + 50, y + 150, 0); d.text((fx, fy + 10), lab, font=F(MONO, 24), fill=col, anchor="ma"); d.text((fx, fy + 42), who, font=F(MONO, 24), fill=MID, anchor="ma")
+        I.box(d, x, y, 0, 90, 90, h, top=RIGHT if lab == "SAY GAY" else TOP)
+        px, py = I.P(x + 45, y + 45, h); d.text((px, py - 34), f"{v:g} %", font=F(BLK, 42), fill=INK, anchor="mm")
+        fx, fy = I.P(x + 90, y + 90, 0); d.text((fx, fy + 12), lab, font=F(MONO, 22), fill=col, anchor="ma"); d.text((fx, fy + 40), who, font=F(MONO, 22), fill=MID, anchor="ma")
     fig(d, "share of all 1,516 · schematic")
 
 def sc_point(img, d, t):

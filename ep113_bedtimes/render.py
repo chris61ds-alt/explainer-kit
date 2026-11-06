@@ -60,12 +60,12 @@ def sc_sync(img, d, t):
 
 def sc_point(img, d, t):
     t0, ti, to = S("point"), cue("point", "go to bed together") - .2, cue("point", "night owl") - .1
-    words_in(d, t, [("SAME TYPE?", t0 + .05, 320, 130, MID), ("NOT NEEDED.", t0 + .2, 450, 130, MID)])
-    I2 = Iso(540, 1080, .6); I2.grid(img); I2.shadow(d, 0, 0, 240)
+    words_in(d, t, [("SAME TYPE?", t0 + .05, 320, 110, MID), ("NOT NEEDED.", t0 + .2, 430, 110, MID)])
+    I2 = Iso(600, 1020, .46); I2.grid(img); I2.shadow(d, 0, 0, 240)
     A = bed(I2, d, t, T=[t0 - 1] * 7)
     head(I2, d, "l", 1, INK); head(I2, d, "r", (t - ti) / .3, INK)
-    if t >= ti: words_in(d, t, [("GO TO BED", ti, 590, 110, SIG), ("TOGETHER.", ti + .12, 700, 110, SIG)])
-    if t >= to: p = I2.P(105, -190, 175); callout(d, p, "r", p[1] - 60, 1, "GET UP AGAIN", INK, k=(t - to) / .4)
+    if t >= ti: words_in(d, t, [("GO TO BED", ti, 560, 100, SIG), ("TOGETHER.", ti + .12, 660, 100, SIG)])
+    if t >= to: p = I2.P(105, -190, 175); callout(d, p, "l", p[1] + 60, 1, "GET UP AGAIN", INK, k=(t - to) / .4)
     fig(d, "an idea, not a study result")
 
 EP.cuts = {"sex": "stay"}

@@ -1,0 +1,34 @@
+{
+ "episode": "ep113_bedtimes",
+ "tts": "new",
+ "asr_voice": [
+  "study: 2/14 | A study compared 150 couples, morning people, night owls and mixed pairs."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 28.8,
+  "size_MiB": 4.8,
+  "black_intervals": [],
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.4,
+  "sha256": "c7fc37130a4a22269e0143ad65fd2c178a249486075f240bef34a4c647f7c6d7",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "3/89 = 3.4%",
+ "asr_final_issues": [
+  "study: 2/14 | A study compared 150 couples, morning people, night owls and mixed pairs.",
+  "sex: 1/2 | Less X"
+ ],
+ "duration_s": 28.8,
+ "longest_calm_s": 2.23,
+ "cover": "ep113_bedtimes_cover.png",
+ "caption": "ok"
+}

@@ -21,7 +21,7 @@ def sc_common(img, d, t):
     dot_field(d, (X0 + 14, 680, X1, 1110), t, cell=42, col=MID, hit=set(range(0, 200, 5)) | set(range(1, 200, 5)) | set(range(2, 200, 5)) | set(range(3, 200, 5)), hitcol=INK)
     fig(d, "4 of 5 · schematic")
 
-I = Iso(500, 1050, .62)
+I = Iso(560, 1040, .52)
 def gauges(I, d, t, a, b, col_a=INK, col_b=MID):
     """two desire gauges above the pillows: cylinders of different height"""
     A = {"l": (-125, -180, 160), "r": (105, -180, 160)}
@@ -33,15 +33,15 @@ def gauges(I, d, t, a, b, col_a=INK, col_b=MID):
 def sc_diary(img, d, t):
     t0, tr = S("diary"), cue("diary", "Every day") - .1
     counter(d, X0, 320, t, t0 + .1, .6, 21, "{:.0f} DAYS", 170, INK)
-    d.text((X0 + 6, 500), "couples, every day: how much desire?", font=F(COND, 44), fill=INK)
+    d.text((X0 + 6, 520), "couples, every day: how much desire?", font=F(COND, 44), fill=INK)
     I.grid(img); I.shadow(d, 0, 0, 240)
     A = bed(I, d, t, T=[t0 + .05 + i * .06 for i in range(7)])
     if t >= tr:
         day = (t - tr) * 2.2                                 # the two gauges wander, rarely in sync
         a = .55 + .35 * math.sin(day * 1.7); b = .45 + .35 * math.sin(day * 1.1 + 2.2)
         gauges(I, d, t, clamp(a), clamp(b))
-        p = I.P(-125, -300, 200); d.text((p[0] - 10, p[1] - 330), "YOU", font=F(MONO, 26), fill=INK, anchor="ma")
-        p = I.P(105, -300, 200); d.text((p[0] + 10, p[1] - 330), "PARTNER", font=F(MONO, 26), fill=MID, anchor="ma")
+        p = I.P(-125, -300, 200); d.text((p[0] - 95, p[1] - 40), "YOU", font=F(MONO, 26), fill=INK, anchor="rm")
+        p = I.P(105, -300, 200); d.text((p[0] + 60, p[1] - 40), "PARTNER", font=F(MONO, 26), fill=MID, anchor="lm")
     fig(d, "21-day diary · schematic")
 
 def sc_care(img, d, t):
@@ -60,7 +60,7 @@ def sc_pressure(img, d, t):
     if t >= tp:
         box_label(d, X0 + 4, 680, "GUILT", 64, WHITE, MID, font=BLK); box_label(d, X0 + 280, 680, "PRESSURE", 64, WHITE, MID, font=BLK)
         k = ease((t - tp - .25) / .25)
-        if k > 0: d.line([X0 - 10, 730, X0 - 10 + 700 * k, 730], fill=INK, width=12)
+        if k > 0: d.line([X0 - 10, 712, X0 - 10 + 700 * k, 712], fill=INK, width=12)
     if t >= tn: words_in(d, t, [("A NO IS OK.", tn, 860, 130, INK)])
     fig(d, "consent first, always")
 
