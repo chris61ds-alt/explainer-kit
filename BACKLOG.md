@@ -50,3 +50,9 @@
 - Mini-Reihe „Other people are nicer than you think“: Einfach melden (Liu et al. 2023), Fremde in der Bahn (Epley & Schroeder 2014), Tiefe Gespräche (Kardas et al. 2022), Um Hilfe bitten (Flynn & Lake 2008)
 
 Vor jeder Folge: Quellen per Websuche prüfen, Zahlen nur mit Quelle.
+
+## Idee (06.11.2026, noch nicht freigegeben): Reihe „Internet Mysteries“
+- Pilot 1: „Tinder: das letzte Foto“ – Scammer bestehen den Face Check mit 1 eigenen Foto, Rest geklaut (Haubursin-Video, Tinder-Statement ggü. Mashable, April 2026). Neutrale Dating-App, keine Logos/Screenshots.
+- Pilot 2: „Dead Internet“ – nur der belegte Kern: ~die Hälfte des Traffics sind Bots (Imperva Bad Bot Report prüfen).
+- Später evtl.: Cicada 3301 (visuell schwer).
+- Neues Label-Set: VERIFIED / RUMOR / UNSOLVED · Länge eher 40–50 s · dunkler, weniger Orange.
