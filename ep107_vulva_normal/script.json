@@ -30,12 +30,16 @@
    "text": "All of it! Every single one!"
   },
   {
-   "id": "inside",
-   "text": "And by the way: what you see is the vulva. The vagina is inside!"
+   "id": "feel",
+   "text": "But normal doesn't mean you have to love it."
+  },
+  {
+   "id": "helps",
+   "text": "In one small experiment, women looked at photos of real vulvas. Afterwards, they felt better about their own. Two weeks later, too. Neutral photos changed nothing."
   },
   {
    "id": "point",
-   "text": "So if yours looks different: that's the normal part."
+   "text": "So look at real ones, like these. And if it still weighs on you, talk to a doctor."
   },
   {
    "id": "end",
@@ -45,6 +49,7 @@
  "ask": "SEND THIS TO SOMEONE WHO NEEDS IT.",
  "sources": [
   "Kreklau et al. (2018), Measurements of a 'normal vulva' in women aged 15–84, BJOG 125(13) – 657 women, Lucerne: labia minora width (from the infralabial sulcus to the margin, i.e. how far they extend) 1–61 mm; labia minora length (clitoris to lower margin) 5–100 mm; labia majora length 12–180 mm.",
-  "Lloyd, Crouch, Minto, Liao & Creighton (2005), Female genital appearance: 'normality' unfolds, BJOG 112(5) – 50 women: labia minora length 20–100 mm, width 5–60 mm."
+  "Lloyd, Crouch, Minto, Liao & Creighton (2005), Female genital appearance: 'normality' unfolds, BJOG 112(5) – 50 women: labia minora length 20–100 mm, width 5–60 mm.",
+  "Laan, Martoredjo, Hesselink, Snijders & van Lunsen (2017), Young women's genital self-image and effects of exposure to pictures of natural vulvas, Journal of Psychosomatic Obstetrics & Gynecology 38(4), 249–255 – 43 women; pictures of natural vulvas (n=29) vs neutral objects (n=14); genital self-image improved after natural-vulva pictures and stayed improved 2 weeks later; no change in the control group; small convenience sample."
  ]
 }

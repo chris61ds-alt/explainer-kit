@@ -1,0 +1,50 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "claim",
+   "text": "You're straight. And you've had a same-sex fantasy. You're far from alone!",
+   "screen": [
+    "YOU'RE STRAIGHT.",
+    "AND YOU'VE HAD",
+    "A SAME-SEX FANTASY."
+   ],
+   "speed": 1.13,
+   "stamp": "1,516 ADULTS ASKED"
+  },
+  {
+   "id": "study",
+   "text": "Researchers asked over fifteen hundred adults about their fantasies. Eighty-five percent of them were straight."
+  },
+  {
+   "id": "women",
+   "text": "Women: thirty-seven percent had fantasized about sex with a woman. Now the men.",
+   "tease": "Now the men.",
+   "show": "THE MEN: NEXT"
+  },
+  {
+   "id": "men",
+   "text": "Twenty-one percent! One in five men."
+  },
+  {
+   "id": "gap",
+   "text": "Yet only six percent of the women, and under two percent of the men, said they were gay."
+  },
+  {
+   "id": "point",
+   "text": "So a fantasy isn't a label. It's just a fantasy."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "NO LABEL NEEDED. JUST SAVE IT.",
+ "sources": [
+  "Joyal, Cossette & Lapierre (2015), What exactly is an unusual sexual fantasy?, Journal of Sexual Medicine 12(2), 328–340 – 1,516 adults in Quebec (799 women, 717 men); 85.1% heterosexual, 3.6% homosexual (women 6%, men 1.5%), rest bisexual; item 'I have fantasized about having homosexual (or gay) sex': women 36.9%, men 20.6% (whole sample, not straight-only)."
+ ]
+}

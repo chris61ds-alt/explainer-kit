@@ -1,0 +1,51 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "claim",
+   "text": "You want sex more than your partner. Or less. Most couples know this!",
+   "screen": [
+    "YOU WANT SEX",
+    "MORE THAN",
+    "YOUR PARTNER."
+   ],
+   "speed": 1.13,
+   "stamp": "OR LESS."
+  },
+  {
+   "id": "common",
+   "text": "In one study, eighty percent remembered a recent time their desire didn't match their partner's."
+  },
+  {
+   "id": "diary",
+   "text": "So researchers followed couples for three weeks. Every day, both partners rated their desire. Here's what helped.",
+   "tease": "Here's what helped.",
+   "show": "WHAT HELPED: NEXT"
+  },
+  {
+   "id": "care",
+   "text": "Caring about each other's needs! People who wanted their partner to feel loved were more open, even when they weren't in the mood. And both partners were happier."
+  },
+  {
+   "id": "pressure",
+   "text": "But only when it was free. Out of guilt or pressure, it doesn't work. And a no gets accepted."
+  },
+  {
+   "id": "point",
+   "text": "So it's not about who's right. It's about caring. Both ways."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "SEND THIS TO YOUR PARTNER.",
+ "sources": [
+  "Day, Muise, Joel & Impett (2015), To do it or not to do it? How communally motivated people navigate sexual interdependence dilemmas, Personality and Social Psychology Bulletin 41(6), 791–804 – three studies (experiment, recall, 21-day couples diary); about 80% could recall a recent time their partner wanted sex and they did not; people high in sexual communal strength were more willing to engage when their own desire was low, and they and their partners reported higher relationship and sexual satisfaction. Authors stress this applies to freely chosen, consensual sex – not coercion or ignoring one's own needs.",
+  "Muise (2015), When your partner wants to do it and you don't, Psychology Today (summary by a co-author)."
+ ]
+}

@@ -4,14 +4,16 @@ Swiss gynecologists measured 657 women aged 15 to 84. How far the inner lips sti
 
 So what's normal? All of it.
 
-And by the way: what you see is the vulva. The vagina is inside.
+But normal doesn't mean you have to love it.
 
-So if yours looks different: that's the normal part.
+In one small experiment, women looked at photos of real vulvas. Afterwards, they felt better about their own, and still did two weeks later. Neutral photos changed nothing.
+
+So look at real ones, like these. And if it still weighs on you, talk to a doctor.
 
 Send this to someone who needs it. 👇
 
-Not just you (Bodies: all normal, part 1. Measurements in one Swiss hospital.)
+Not just you (Bodies: all normal, part 1. Measurements in one Swiss hospital. The photo experiment was small: 43 women.)
 
-Sources: Kreklau et al. (2018), "Measurements of a 'normal vulva' in women aged 15–84", BJOG · Lloyd et al. (2005), "Female genital appearance: 'normality' unfolds", BJOG
+Sources: Kreklau et al. (2018), "Measurements of a 'normal vulva' in women aged 15–84", BJOG · Lloyd et al. (2005), "Female genital appearance: 'normality' unfolds", BJOG · Laan et al. (2017), "Young women's genital self-image and effects of exposure to pictures of natural vulvas", J. of Psychosomatic Obstetrics & Gynecology
 
 #notjustyou #bodypositivity #womenshealth #sexeducation #bodyimage #health #science #psychologyfacts

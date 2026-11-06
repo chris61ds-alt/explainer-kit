@@ -34,8 +34,16 @@
    "text": "Eighty-five percent of women were satisfied with their partner's size!"
   },
   {
+   "id": "feel",
+   "text": "But knowing the average doesn't make the worry go away."
+  },
+  {
+   "id": "helps",
+   "text": "In one clinic, ninety-two men came in worried about their size. Getting measured and learning the real numbers relieved most of them."
+  },
+  {
    "id": "point",
-   "text": "So the worry is bigger than the problem."
+   "text": "So if it still bothers you, talk to a doctor. That's what helped."
   },
   {
    "id": "end",
@@ -45,6 +53,7 @@
  "ask": "SEND THIS TO A FRIEND WHO WORRIES.",
  "sources": [
   "Veale, Miles, Bramley, Muir & Hodsoll (2015), Am I normal? A systematic review and construction of nomograms for flaccid and erect penis length and circumference in up to 15,521 men, BJU International 115(6) – 17 studies, measured by health professionals; mean erect length 13.12 cm, erect circumference 11.66 cm.",
-  "Lever, Frederick & Peplau (2006), Does size matter? Men's and women's views on penis size across the lifespan, Psychology of Men & Masculinity 7(3) – 52,031 heterosexual men and women: 55% of men satisfied with their size, 85% of women satisfied with their partner's size."
+  "Lever, Frederick & Peplau (2006), Does size matter? Men's and women's views on penis size across the lifespan, Psychology of Men & Masculinity 7(3) – 52,031 heterosexual men and women: 55% of men satisfied with their size, 85% of women satisfied with their partner's size.",
+  "Shamloul (2005), Treatment of men complaining of short penis, Urology 65(6), 1183–1185 – 92 men complaining of a short penis; sex education plus standard penile measurements (flaccid and stretched); most men found the combination helpful and relieving."
  ]
 }

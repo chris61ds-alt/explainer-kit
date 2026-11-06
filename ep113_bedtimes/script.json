@@ -1,0 +1,51 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "claim",
+   "text": "You and your partner go to bed at different times. That costs more than sleep!",
+   "screen": [
+    "YOU GO TO BED",
+    "AT DIFFERENT",
+    "TIMES."
+   ],
+   "speed": 1.13,
+   "stamp": "150 COUPLES"
+  },
+  {
+   "id": "study",
+   "text": "A study compared a hundred fifty couples: morning people, night owls, and mixed pairs."
+  },
+  {
+   "id": "cost",
+   "text": "The mismatched couples had more conflict. Less serious talk. Less time together. And one more thing.",
+   "tease": "And one more thing.",
+   "show": "ONE MORE: NEXT"
+  },
+  {
+   "id": "sex",
+   "text": "Less sex!"
+  },
+  {
+   "id": "sync",
+   "text": "A newer study tracked couples with sleep sensors. When wives were happier with the marriage, the couple slept more in sync."
+  },
+  {
+   "id": "point",
+   "text": "You don't have to be the same type. One idea: go to bed together. The night owl can get up again."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "WHO'S THE NIGHT OWL? COMMENT.",
+ "sources": [
+  "Larson, Crane & Smith (1991), Morning and night couples: The effect of wake and sleep patterns on marital adjustment, Journal of Marital and Family Therapy 17(1), 53–65 – 150 couples; mismatched wake/sleep patterns went with less marital adjustment, more conflict, less time in serious conversation and shared activities, and less frequent sex.",
+  "Gunn, Buysse, Hasler, Begley & Troxel (2015), Sleep concordance in couples is associated with relationship characteristics, Sleep 38(6), 933–939 – couples wore wrist actigraphs for 10 days; minute-by-minute sleep-wake concordance 53–88%; high marital satisfaction in wives went with higher concordance; correlational."
+ ]
+}
