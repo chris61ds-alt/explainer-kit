@@ -1,6 +1,6 @@
 {
  "episode": "ep113_bedtimes",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 2/14 | A study compared 150 couples, morning people, night owls and mixed pairs."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 28.8,
-  "size_MiB": 4.8,
+  "size_MiB": 4.7,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.4,
-  "sha256": "c7fc37130a4a22269e0143ad65fd2c178a249486075f240bef34a4c647f7c6d7",
+  "sha256": "45b8a7fa5f698f743335b0df049517b1da2f086f62a507be0a11df220746d6b0",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
