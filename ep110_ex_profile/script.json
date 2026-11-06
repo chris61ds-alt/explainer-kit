@@ -1,0 +1,51 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "claim",
+   "text": "You still check your ex's profile. Most people do!",
+   "screen": [
+    "YOU STILL",
+    "CHECK YOUR",
+    "EX'S PROFILE."
+   ],
+   "speed": 1.13,
+   "stamp": "88 % ADMIT IT"
+  },
+  {
+   "id": "study",
+   "text": "But it has a price. A study asked four hundred sixty-four people after a breakup how often they checked their ex on Facebook."
+  },
+  {
+   "id": "longing",
+   "text": "The more they checked, the more they longed for their ex. More distress. Less personal growth."
+  },
+  {
+   "id": "friends",
+   "text": "So should you unfriend them? Here's the surprise.",
+   "tease": "Here's the surprise.",
+   "show": "THE SURPRISE: NEXT"
+  },
+  {
+   "id": "twist",
+   "text": "Staying friends wasn't the problem! The checking was."
+  },
+  {
+   "id": "point",
+   "text": "So the friend list can stay. Just put the phone down."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "WHEN DID YOU LAST CHECK? COMMENT.",
+ "sources": [
+  "Lukacs & Quan-Haase (2015), Romantic breakups on Facebook: new scales for studying post-breakup behaviors, digital distress, and surveillance, Information, Communication & Society – 88% of participants said they had 'creeped' an ex-partner after a breakup.",
+  "Marshall (2012), Facebook surveillance of former romantic partners: associations with postbreakup recovery and personal growth, Cyberpsychology, Behavior, and Social Networking 15(10) – 464 participants (84% female, mean age 21); more surveillance went with more current distress, negative feelings, sexual desire and longing for the ex and less personal growth; remaining Facebook friends went with fewer negative feelings, less desire and longing (but also lower personal growth); correlational."
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "claim",
+   "text": "You fantasize about someone else. So do most people in a relationship!",
+   "screen": [
+    "YOU FANTASIZE",
+    "ABOUT",
+    "SOMEONE ELSE."
+   ],
+   "speed": 1.13,
+   "stamp": "349 PEOPLE ASKED"
+  },
+  {
+   "id": "study",
+   "text": "Three hundred forty-nine people, all in relationships. They were asked about their fantasies over the past two months."
+  },
+  {
+   "id": "men",
+   "text": "Men: ninety-eight percent had fantasized about someone other than their partner. Now the women.",
+   "tease": "Now the women.",
+   "show": "WOMEN: NEXT"
+  },
+  {
+   "id": "women",
+   "text": "Eighty percent! Most of them, too."
+  },
+  {
+   "id": "during",
+   "text": "Even during sex, about thirty-eight percent think of someone else, a newer study found."
+  },
+  {
+   "id": "point",
+   "text": "And who they fantasized about wasn't tied to how happy they were in the relationship. So it's not a red flag. It's normal."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "NO NEED TO COMMENT. JUST SAVE IT.",
+ "sources": [
+  "Hicks & Leitenberg (2001), Sexual fantasies about one's sexual partner versus someone else: Gender differences in incidence and frequency, Journal of Sex Research 38(1), 43–50 – 349 university students and employees in heterosexual relationships; in the past two months 98% of men and 80% of women reported fantasizing about someone other than their partner at least occasionally.",
+  "Gormezano, Kutchko, Chadwick, Burns, Hunker, Konermann & van Anders (2026), Sexual Fantasies Across Solitary and Partnered Contexts, Archives of Sexual Behavior – 546 adults in committed relationships (6+ months): about 38% thought of someone other than their partner during partnered sex; fantasy target not directly tied to relationship satisfaction (cross-sectional; higher sexual satisfaction went with fewer fantasies about others)."
+ ]
+}
