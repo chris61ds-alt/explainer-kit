@@ -1,0 +1,33 @@
+{
+ "episode": "ep117_stay_leave",
+ "tts": "new",
+ "asr_voice": [
+  "study: 3/19 | Researchers followed over 1300 people in relationships for 10 weeks, then 500 who were thinking about leaving."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 21.93,
+  "size_MiB": 3.8,
+  "black_intervals": [],
+  "loudness_LUFS": -16.5,
+  "true_peak_dBTP": -2.5,
+  "sha256": "af0380aaf0003435793719eaff98d54ccb5683e4fceee8f2d2d879b685733490",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "3/61 = 4.9%",
+ "asr_final_issues": [
+  "study: 3/19 | Researchers followed over 1300 people in relationships for 10 weeks, then 500 who were thinking about leaving."
+ ],
+ "duration_s": 21.95,
+ "longest_calm_s": 2.38,
+ "cover": "ep117_stay_leave_cover.png",
+ "caption": "ok"
+}

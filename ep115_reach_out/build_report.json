@@ -1,0 +1,33 @@
+{
+ "episode": "ep115_reach_out",
+ "tts": "new",
+ "asr_voice": [
+  "result: 1/8 | They loved it more than the sender's expected."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 21.87,
+  "size_MiB": 3.0,
+  "black_intervals": [],
+  "loudness_LUFS": -16.4,
+  "true_peak_dBTP": -2.4,
+  "sha256": "ce0e70054af307d7ad10ed3ae7dc535b2921f15f19ce35176f41624abe09fc4a",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "1/75 = 1.3%",
+ "asr_final_issues": [
+  "result: 1/8 | They loved it more than the sender's expected."
+ ],
+ "duration_s": 21.87,
+ "longest_calm_s": 2.42,
+ "cover": "ep115_reach_out_cover.png",
+ "caption": "ok"
+}
