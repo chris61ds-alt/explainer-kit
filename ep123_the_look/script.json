@@ -1,0 +1,19 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.1, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "claim", "text": "You catch yourself looking at her body. Your eyes got there in a fifth of a second!", "screen": ["YOU CATCH", "YOURSELF", "LOOKING."], "speed": 1.13, "stamp": "0.2 SECONDS"},
+  {"id": "fast", "text": "In an eye-tracking study, men's first look at a woman's photo landed on her chest or waist. Faster than two hundred milliseconds. Before her face."},
+  {"id": "tease", "text": "But it's not just men. Here's the twist.", "tease": "Here's the twist.", "show": "THE TWIST: NEXT"},
+  {"id": "women", "text": "Women did it too! Asked to rate a woman's looks, both men and women looked longer at her chest and waist than at her face."},
+  {"id": "cost", "text": "And being looked at has a cost. In an experiment, women whose bodies were stared at solved fewer math problems afterward. Men didn't."},
+  {"id": "point", "text": "So the first glance is fast. The stare is a choice. Look at her face."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "claim_prompt": "Here's the data.",
+ "ask": "SEND THIS TO SOMEONE WHO STARES.",
+ "sources": [
+  "Dixson, Grimshaw, Linklater & Dixson (2011), Eye-tracking of men's preferences for waist-to-hip ratio and breast size of women, Archives of Sexual Behavior 40(1), 43–50 – first fixations within 200 ms went to the breasts or waist; breasts looked at most often and longest; 0.7 waist-to-hip ratio rated most attractive.",
+  "Gervais, Holland & Dodd (2013), My eyes are up here: The nature of the objectifying gaze toward women, Sex Roles 69 – 29 women and 36 men; when evaluating appearance, participants (both sexes) focused more on women's chests and waists and less on faces; stronger for hourglass figures.",
+  "Gervais, Vescio & Allen (2011), When what you see is what you get: The consequences of the objectifying gaze for women and men, Psychology of Women Quarterly 35(1) – 67 women, 83 men; after an interviewer's body-focused gaze, women solved fewer of 12 math problems (about 6 vs just under 5); men's scores were unaffected."
+ ]
+}
