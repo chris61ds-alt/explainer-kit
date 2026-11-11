@@ -2,6 +2,7 @@
  "episode": "ep77_casual",
  "tts": "new",
  "asr_voice": [
+  "hook: 2/11 | who's really undating apps just for hookups, let's find out.",
   "study: 4/13 | On OK Cupid, users could tick what they are looking for. One option, casual sex.",
   "men: 1/6 | Straight men, 6.1%.",
   "women: 1/7 | and straight women 0.8%.",
@@ -11,12 +12,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 22.37,
-  "size_MiB": 3.4,
+  "duration_s": 22.43,
+  "size_MiB": 3.5,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.1,
-  "sha256": "e5dcb32c6aef15d8bc374d5cde8c659550f1522807976bc7f3729d948f8c19d6",
+  "true_peak_dBTP": -2.2,
+  "sha256": "b315a1d38d6a66e36bb1d0b4dc6cba6e5304076010839cac4252181df531c05b",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -25,14 +26,15 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "8/65 = 12.3%",
+ "asr_final_wer": "10/65 = 15.4%",
  "asr_final_issues": [
+  "hook: 2/11 | who's really undating apps just for hookups, let's find out.",
   "study: 4/13 | On OK Cupid, users could tick what they are looking for. One option, casual sex.",
   "men: 2/6 | 3 men 6.1%",
   "women: 1/7 | and straight women 0.8 percent.",
   "point: 1/21 | One in 16 men, one in 125 women, at least, that's what they were willing to tick."
  ],
- "duration_s": 22.35,
+ "duration_s": 22.43,
  "longest_calm_s": 2.7,
  "cover": "ep77_casual_cover.png",
  "caption": "ok"

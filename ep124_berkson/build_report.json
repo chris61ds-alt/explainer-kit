@@ -1,0 +1,33 @@
+{
+ "episode": "ep124_berkson",
+ "tts": "new",
+ "asr_voice": [
+  "point: 1/16 | It's called Birxon's paradox. It's not that hot people are mean, it's who you filtered out. [b"
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 29.3,
+  "size_MiB": 4.0,
+  "black_intervals": [],
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.5,
+  "sha256": "1b41f6402c3fe9751ce3967d42804e4f3a0f3de058ba144cc3aa7ed392eec916",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "1/95 = 1.1%",
+ "asr_final_issues": [
+  "point: 1/16 | It's called Birxin's paradox. It's not that hot people are mean, it's who you filtered out."
+ ],
+ "duration_s": 29.29,
+ "longest_calm_s": 2.42,
+ "cover": "ep124_berkson_cover.png",
+ "caption": "ok"
+}
