@@ -1,0 +1,7 @@
+{
+ "sources": [
+  "Ferguson (1989), Who solved the secretary problem?, Statistical Science 4(3), 282\u2013289 \u2013 optimal stopping: reject the first n/e (~37%) candidates, then take the first who beats all of them; the probability of picking the best approaches 1/e \u2248 37% (for n = 10: skip 3, \u2248 39.9%).",
+  "Christian & Griffiths (2016), Algorithms to Live By \u2013 application of the 37% rule to dating.",
+  "Simulation in this video: 1,000 runs, 10 candidates with random quality; the skip-3 rule found the best 401 times; first date 90 times; random choice 107 times."
+ ]
+}

@@ -28,9 +28,9 @@ def gale_shapley(prop, rec):
 MATCH, EVENTS = gale_shapley(A, B)
 ASK = st.mean(A[i].index(MATCH[i]) + 1 for i in range(N)); WAIT = st.mean(B[w].index(i) + 1 for i, w in MATCH.items())   # 2.2 / 4.8
 
-LX, RX, Y0, DY = X0 + 90, X1 - 90, 560, 52
+LX, RX, Y0, DY = X0 + 90, X1 - 90, 590, 52
 def people(d, lab_l="ASK", lab_r="WAIT", col_l=INK, col_r=MID):
-    d.text((LX, Y0 - 60), lab_l, font=F(BLK, 40), fill=col_l, anchor="mm"); d.text((RX, Y0 - 60), lab_r, font=F(BLK, 40), fill=col_r, anchor="mm")
+    d.text((LX, Y0 - 44), lab_l, font=F(BLK, 40), fill=col_l, anchor="mm"); d.text((RX, Y0 - 44), lab_r, font=F(BLK, 40), fill=col_r, anchor="mm")
     for i in range(N):
         y = Y0 + i * DY
         d.ellipse([LX - 18, y - 18, LX + 18, y + 18], fill=col_l); d.ellipse([RX - 18, y - 18, RX + 18, y + 18], fill=col_r)
