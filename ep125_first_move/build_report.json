@@ -1,6 +1,6 @@
 {
  "episode": "ep125_first_move",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "claim: 1/6 | Make the first move, its math."
  ],
@@ -13,7 +13,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "c67c4cb774f138c4fa96deb073b0ffda90f87aed1d1322c5d7a56f599c105b21",
+  "sha256": "f32b3919ac4ff587bdaff7129e3cb987dd1ce8f1fd26afe74cc65dd0323448f3",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
