@@ -1,0 +1,20 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.1, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "claim", "text": "Make the first move. It's math!", "screen": ["MAKE THE", "FIRST", "MOVE."], "speed": 1.13, "stamp": "NOBEL PRIZE 2012"},
+  {"id": "setup", "text": "Let's simulate it. Ten people on each side. Everyone secretly ranks everyone. One side asks. The other side holds on to the best offer so far."},
+  {"id": "run", "text": "Round after round, until everyone is matched."},
+  {"id": "score", "text": "Now we check: how happy is each side with their match? Here's the result.", "tease": "Here's the result.", "show": "THE RESULT: NEXT"},
+  {"id": "result", "text": "The askers got their number two on average. The ones who waited: number five!"},
+  {"id": "swap", "text": "Swap the sides, and it flips. The math is proven: in this model, asking never makes you worse off."},
+  {"id": "point", "text": "Real dating is messier, of course. But the lesson holds: send the first message."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "claim_prompt": "Let's simulate it.",
+ "ask": "SEND THE FIRST MESSAGE. THEN SAVE THIS.",
+ "sources": [
+  "Gale & Shapley (1962), College admissions and the stability of marriage, American Mathematical Monthly 69(1), 9–15 – deferred acceptance: the proposing side receives its best partner among all stable matchings; the receiving side its worst.",
+  "Nobel Memorial Prize in Economic Sciences 2012: Alvin E. Roth and Lloyd S. Shapley, 'for the theory of stable allocations and the practice of market design'.",
+  "Simulation in this video: 10 + 10 people, random rankings (fixed seed); askers' average partner rank 2.2 vs 4.8 for those waiting; with sides swapped 2.1 vs 4.4."
+ ]
+}
