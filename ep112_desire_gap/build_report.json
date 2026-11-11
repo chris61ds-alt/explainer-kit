@@ -1,6 +1,6 @@
 {
  "episode": "ep112_desire_gap",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
   "common: 1/15 | In one study, 80% remembered a recent time their desire didn't match their partners.",
   "diary: 1/17 | So researchers followed couples for three weeks. Every day, both partners raided their desire. Here's what helped."
@@ -9,12 +9,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 33.23,
-  "size_MiB": 4.6,
+  "duration_s": 33.07,
+  "size_MiB": 4.5,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.3,
-  "sha256": "84bb3102daf9544c3db3ed703034e4929571fb240e211312af52a374f179caa2",
+  "true_peak_dBTP": -2.2,
+  "sha256": "38f8665a76a6746cd57183cbfc1b125966fbd5f90830cb4978b710703acf1bba",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -25,10 +25,10 @@
  },
  "asr_final_wer": "2/103 = 1.9%",
  "asr_final_issues": [
-  "common: 1/15 | In one study, 80 percent remembered a recent time their desire didn't match their partners.",
+  "common: 1/15 | In one study, 80% remembered a recent time their desire didn't match their partners.",
   "diary: 1/17 | So researchers followed couples for three weeks. Every day, both partners raided their desire. Here's what helped."
  ],
- "duration_s": 33.25,
+ "duration_s": 33.05,
  "longest_calm_s": 2.73,
  "cover": "ep112_desire_gap_cover.png",
  "caption": "ok"
