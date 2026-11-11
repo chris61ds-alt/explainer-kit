@@ -12,7 +12,7 @@ EP = ThreadEpisode(TL, 120, "MORE SEX", order=ORDER, dark=True, label="SURVEYS Â
                    chapters={k: "" for k in ORDER[:-1]},
                    sources=("Ipsos (2018), Perils of Perception Â·", "Muise, Schimmack & Impett (2016), SPPS 7(4)"),
                    music=dict(bpm=100, root=0, prog="major", kick="four", audio="v5", gaps=[(E("guess") + .05, S("real") + .05)]),
-                   cover=dict(words=["YOU THINK", "EVERYONE HAS", "MORE SEX."], kicker="They don't. Here's the real number."))
+                   cover=dict(words=["YOU THINK", "EVERYONE DOES IT", "MORE THAN YOU."], kicker="They don't. Here's the real number."))
 
 I = Iso(500, 990, .62)
 def calendar(img, d, t, t0, marked, col, grid=True):

@@ -11,7 +11,7 @@ EP = ThreadEpisode(TL, 77, "JUST SEX?", order=ORDER, dark=True, series="NOT JUST
                    chapters={k: "" for k in ORDER[:-1]},
                    sources=("Rudder (2014), Dataclysm,", "OkCupid data"),
                    music=dict(bpm=96, root=-2, prog="tense", kick="four", gaps=[(E("study") + .05, S("men") + .05)]),
-                   cover=dict(words=["JUST FOR", "SEX?"], kicker="Who actually ticks the box."))
+                   cover=dict(words=["JUST FOR", "HOOKUPS?"], kicker="Who actually ticks the box."))
 
 def tick_box(d, x, y, on, size=56, col=SIG):
     d.rectangle([x, y, x + size, y + size], outline=INK, width=5, fill=col if on else None)

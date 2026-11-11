@@ -12,7 +12,7 @@ EP = ThreadEpisode(TL, 112, "DESIRE GAP", order=ORDER, dark=True, label="3 STUDI
                    chapters={k: "" for k in ORDER[:-1]},
                    sources=("Day, Muise, Joel & Impett (2015), To do it or not to do it?", "Personality and Social Psychology Bulletin 41(6)"),
                    music=dict(bpm=96, root=-1, prog="dream", kick="four", audio="v5", gaps=[(E("common") + .05, S("diary") + .05)]),
-                   cover=dict(words=["YOU WANT SEX", "MORE THAN", "YOUR PARTNER."], kicker="Or less. Here's what helps."))
+                   cover=dict(words=["YOU WANT IT", "MORE THAN", "YOUR PARTNER."], kicker="Or less. Here's what helps."))
 
 def sc_common(img, d, t):
     t0 = S("common")

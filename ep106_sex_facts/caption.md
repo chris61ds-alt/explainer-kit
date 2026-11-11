@@ -1,4 +1,4 @@
-3 sex facts worth saving. All backed by research. 🛏️
+3 bedroom facts worth saving. All backed by research. 🛏️
 
 1. Once a week is enough. In data from over 30,000 people, well-being rose with sex up to once a week. More didn't help.
 

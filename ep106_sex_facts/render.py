@@ -10,7 +10,7 @@ ORDER = ["tip1", "tip2", "tip3", "point", "end"]
 EP = ThreadEpisode(TL, 106, "SEX FACTS", order=ORDER, dark=True, label=None,
                    chapters={k: "" for k in ORDER[:-1]}, sources=("Muise et al. (2016) SPPS · Muise, Giang & Impett (2014)", "Arch. Sex. Behav. · Meltzer et al. (2017) Psych. Sci."),
                    music=dict(bpm=96, root=-2, prog="dream", kick="four", audio="v5"),
-                   cover=dict(words=["3 SEX FACTS", "WORTH", "SAVING."], kicker="Backed by research."))
+                   cover=dict(words=["3 BEDROOM FACTS", "WORTH", "SAVING."], kicker="Backed by research."))
 I = Iso(470, 990, .66)
 
 def sc_tip1(img, d, t):

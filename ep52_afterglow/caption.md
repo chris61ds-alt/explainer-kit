@@ -1,4 +1,4 @@
-Good sex keeps working for two whole days. ✨
+One good night together keeps working for two whole days. ✨
 
 214 newlywed couples kept a diary for two weeks, every single night. After intimacy, satisfaction stayed higher for about 48 hours. That held for men and women, younger and older.
 

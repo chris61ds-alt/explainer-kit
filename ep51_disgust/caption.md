@@ -1,4 +1,4 @@
-Why isn't sex gross? Think about it. 🪲
+Why isn't it gross? Think about it. 🪲
 
 90 women watched one of three films: erotica, extreme sports, or a train ride. Then came the gross part: drink from a cup with a bug in it, handle a condom that looked used (all fake, all clean).
 

@@ -1,4 +1,4 @@
-You think everyone has more sex than you. They don't. 📅
+You think everyone is doing it more than you. They're not. 📅
 
 Across 19 countries, people guessed how often young adults have sex: about 20 times a month. The real number: 5 to 6 times. That's what young adults themselves report.
 

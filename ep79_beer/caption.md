@@ -1,4 +1,4 @@
-One harmless question predicts if your date wants sex on the first night. 🍺
+One harmless question predicts how your first date ends. 🍺
 
 "Do you like the taste of beer?"
 

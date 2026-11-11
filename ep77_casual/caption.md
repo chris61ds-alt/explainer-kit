@@ -1,4 +1,4 @@
-Who's really on dating apps just for sex? 🔥
+Who's really on dating apps just for hookups? 🔥
 
 On OkCupid, users could tick what they're looking for. One option: casual sex.
 

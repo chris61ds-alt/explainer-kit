@@ -1,4 +1,4 @@
-You want sex more than your partner. Or less. Most couples know this. 💞
+You want it more than your partner. Or less. Most couples know this. 💞
 
 In one study, 80% remembered a recent time their desire didn't match their partner's.
 
