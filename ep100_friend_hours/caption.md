@@ -1,12 +1,12 @@
-Quick guess: how many hours does it take to make a close friend? ⏳
+You just moved, and making friends feels slow. Here's the real math. ⏳
 
-More than you think. A researcher surveyed 355 adults who had just moved and followed 112 new college students for weeks.
+A researcher surveyed 355 adults who had just moved and followed 112 new college students for weeks.
 
 From stranger to casual friend: about 50 hours.
 To real friend: about 90.
 To close friend: over 200 hours.
 
-So if it's not clicking yet: keep showing up.
+That's months of showing up. If it's not clicking yet: it's not you, it's the hours.
 
 Who's your 200-hour friend? 👇
 

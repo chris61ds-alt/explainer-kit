@@ -2,18 +2,18 @@
  "episode": "ep100_friend_hours",
  "tts": "new",
  "asr_voice": [
-  "hook: 1/8 | It's more than you think, here's the"
+  "hook: 1/12 | You just moved and making friends feel slow. Here's the real math."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 22.8,
-  "size_MiB": 3.7,
+  "duration_s": 19.23,
+  "size_MiB": 5.3,
   "black_intervals": [],
-  "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.2,
-  "sha256": "48cc89de7647ab1b0f02600e9cc4b00ebbe49cd80283a296dbb589095c8c9ef3",
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -2.5,
+  "sha256": "9307a242e6e53aebb7ddd10f6bb9bd7e4ed0a39acebb25f8452a72ff9bd2e1e7",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,12 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/68 = 1.5%",
+ "asr_final_wer": "1/57 = 1.8%",
  "asr_final_issues": [
-  "point: 1/9 | But if it's not clicking yet, keep showing up."
+  "hook: 1/12 | You just moved and making friends feel slow. Here's the real math."
  ],
- "duration_s": 22.79,
- "longest_calm_s": 2.3,
+ "duration_s": 19.23,
+ "longest_calm_s": 2.4,
  "cover": "ep100_friend_hours_cover.png",
  "caption": "ok"
 }

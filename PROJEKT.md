@@ -98,6 +98,7 @@ Source: <Autor (Jahr), Quelle>
   6. **Loop-Ende:** letzter Satz läuft in den ersten Satz hinein („… And it's why“ → „You think …“), das Objekt springt in den Anfangszustand zurück. Kein `ask`-Banner (Kommentar-Frage nur in der Caption), kein gesprochenes „Not just you“.
   7. **Länge 18–22 s,** Beats `hook / setup / … / reveal / why`, Lücken 0,1–0,4 s, `lead=.05`.
   8. **Formate mischen:** Simulation · Mythos vs. Daten · „3 Dinge“ · „Du hast gefragt“. Label bleibt ehrlich (SIMULATION · MATH MODEL, SURVEY …), Vorbehalte in Fig-Zeile + Caption.
+  9. **Bausteine aus `shared/fx2.py`** (nach den „Funfacts“-Reels): `camera()`/`cam_path()` = Kamerafahrt auf das Objekt (Start nah, rauszoomen, beim Reveal reinfahren, Loop zurück), `glow()` = weicher Lichtschein für „aktiv/ja“, `Stream`/`dots()` = tausende Partikel, die sichtbar fließen. Pro Folge mindestens einen davon nutzen, wenn es passt. Erste Folge: No. 100.
   Helfer: `spring()` liegt in `shared/swiss.py`. Erste Remakes (12.11.): 124, 79, 116, 125, 126.
 - Automatisierung nur mit **Google Apps Script** (kein Make.com). Code immer als komplette Datei, keine großen Änderungen ohne Absprache.
 
