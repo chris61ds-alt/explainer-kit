@@ -1,0 +1,37 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "One fight with your partner needs about five good moments to balance it.",
+   "speed": 1.13
+  },
+  {
+   "id": "setup",
+   "text": "A researcher filmed couples while they argued. Then checked who was still together years later."
+  },
+  {
+   "id": "reveal",
+   "text": "Couples who lasted: about five good moments for every bad one. Even during the fight!"
+  },
+  {
+   "id": "split",
+   "text": "Couples close to a split: one to one, or less."
+  },
+  {
+   "id": "why",
+   "text": "A joke. A touch. A nod. They add up. That's why"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Gottman & Levenson (1992), Marital processes predictive of later dissolution, Journal of Personality and Social Psychology 63(2), 221–233; Gottman (1994), What Predicts Divorce? / Why Marriages Succeed or Fail – in stable couples about 5 positive interactions for every negative one during conflict; a ratio of about 1:1 or lower went with later separation (observational; the exact ratio is debated).",
+  "The Gottman Institute, 'The Magic Relationship Ratio, According to Science' – 5:1 during conflict; 1:1 or less 'teetering on the edge of divorce'."
+ ]
+}

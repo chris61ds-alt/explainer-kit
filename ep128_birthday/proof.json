@@ -1,0 +1,6 @@
+{
+ "sources": [
+  "Birthday problem (probability theory; e.g. von Mises 1939): with 23 people the chance that at least two share a birthday is 50.7 %; with 70 people 99.9 % (365 equally likely days, no leap years). 23 people form 253 pairs.",
+  "Simulation: 1,000 random rooms of 23 people."
+ ]
+}

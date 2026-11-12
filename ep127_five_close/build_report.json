@@ -1,0 +1,33 @@
+{
+ "episode": "ep127_five_close",
+ "tts": "new",
+ "asr_voice": [
+  "layers: 3/17 | who you call most form circles, about four, then 11, then 30, then about 130. [buzzer]"
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 22.37,
+  "size_MiB": 4.4,
+  "black_intervals": [],
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.5,
+  "sha256": "903bf7d586421001f59bf9c2fab36d80e83f8779f4a09b37b8f85e31f953e071",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "3/67 = 4.5%",
+ "asr_final_issues": [
+  "layers: 3/17 | Who you call most formed circles, about 4, then 11, then 30, then about 130."
+ ],
+ "duration_s": 22.36,
+ "longest_calm_s": 2.47,
+ "cover": "ep127_five_close_cover.png",
+ "caption": "ok"
+}

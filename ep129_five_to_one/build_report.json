@@ -1,0 +1,33 @@
+{
+ "episode": "ep129_five_to_one",
+ "tts": "cached",
+ "asr_voice": [
+  "why: 1/11 | A joke, a touch, a nod, the add up. That's why"
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 19.87,
+  "size_MiB": 2.9,
+  "black_intervals": [],
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.5,
+  "sha256": "3118e0525e3c31f20f2f4028ae3a13d04e44ddf20dd8ae2876ce312edef35b7f",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "1/64 = 1.6%",
+ "asr_final_issues": [
+  "why: 1/11 | A joke, a touch, a nod, the add up. That's why."
+ ],
+ "duration_s": 19.87,
+ "longest_calm_s": 2.54,
+ "cover": "ep129_five_to_one_cover.png",
+ "caption": "ok"
+}

@@ -1,0 +1,37 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.1,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You're in a room with twenty-three people. Two of them probably share a birthday.",
+   "speed": 1.13
+  },
+  {
+   "id": "setup",
+   "text": "Three hundred sixty-five days. Twenty-three birthdays. Sounds unlikely."
+  },
+  {
+   "id": "sim",
+   "text": "Now a thousand rooms."
+  },
+  {
+   "id": "reveal",
+   "text": "Half of them have a match! With seventy people, almost every room."
+  },
+  {
+   "id": "why",
+   "text": "Twenty-three people make two hundred fifty-three pairs. That's why"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Birthday problem (probability theory; e.g. von Mises 1939): with 23 people the chance that at least two share a birthday is 50.7 %; with 70 people 99.9 % (365 equally likely days, no leap years). 23 people form 253 pairs.",
+  "Simulation: 1,000 random rooms of 23 people."
+ ]
+}
