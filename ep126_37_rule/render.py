@@ -1,98 +1,100 @@
-"""NOT JUST YOU – No. 126 (simulation): the 37 % rule – secretary problem with 10 dates; skipping the first 3 then taking the
-first better one finds the best ~40 % of the time vs. ~10 % for 'first date' or random (Ferguson 1989; Christian & Griffiths 2016).
-Look C+D · statement opener with "you" · isometric row of date cards + live 1,000-run counter · orange reveal: 40 %."""
+"""NOT JUST YOU – No. 126 (level 2 remake, 12.11.2026): the 37 % rule – secretary problem with 10 dates; skipping the first 3,
+then taking the first better one finds the best ~40 % of the time vs. ~10 % for a random pick (Ferguson 1989; Christian & Griffiths 2016).
+Level 2: the isometric row of 10 dates is there from frame 0 (ripple), ONE continuous object, dates you pass drop away,
+the rule plays out on the row, then 1,000 lives flicker through it with a live counter, orange reveal, loop back into the hook.
+Old version: render_v1.py / script_v1.json."""
 import os, sys, math, random
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.15, gaps={"setup": .6, "rule": .6, "sim": .5, "result": .6, "caveat": .5, "point": .7, "end": 2.2})
+TL = Timeline(HERE, lead=.05, gaps={"hook": .34, "setup": .34, "rule": .34, "sim": .2, "reveal": .4, "why": .1})
 S, E, cue = TL.S, TL.E, TL.cue
-ORDER = ["setup", "rule", "sim", "result", "caveat", "point", "end"]
+ORDER = ["hook", "setup", "rule", "sim", "reveal", "why", "end"]
 EP = ThreadEpisode(TL, 126, "37 RULE", order=ORDER, dark=True, label="SIMULATION · MATH MODEL",
                    chapters={k: "" for k in ORDER[:-1]},
                    sources=("Ferguson (1989), Who solved the secretary problem?, Stat. Science ·", "Christian & Griffiths (2016), Algorithms to Live By"),
-                   music=dict(bpm=100, root=0, prog="dream", kick="four", audio="v5", gaps=[(E("setup") + .05, S("rule") + .05)]),
+                   music=dict(bpm=100, root=0, prog="dream", kick="four", audio="v5"),
                    cover=dict(words=["YOU SETTLED", "TOO EARLY.", "OR TOO LATE."], kicker="The 37 % rule. Simulated."))
 
-# one example life: ten dates with hidden quality (fixed seed so the rule visibly works)
-QUAL = [.42, .71, .55, .38, .66, .97, .5, .9, .6, .45]       # the rule picks date 6, which is also the best
-SKIP = 3
-# the 1,000-life simulation (counted live)
-R = random.Random(1); RUNS = []
+QUAL = [.42, .71, .55, .38, .66, .97, .5, .9, .6, .45]       # one example life: the rule picks date 6, which is also the best
+SKIP, PICK = 3, 5
+R = random.Random(1); LIVES = []
 for _ in range(1000):
     v = [R.random() for _ in range(10)]; best = max(v); th = max(v[:SKIP])
-    pick = next((x for x in v[SKIP:] if x > th), v[-1]); RUNS.append((pick == best, v[0] == best, R.choice(v) == best))
-WIN = [sum(r[i] for r in RUNS) for i in range(3)]
+    pick = next((x for x in v[SKIP:] if x > th), v[-1]); LIVES.append((v, pick == best, R.choice(v) == best))
+WIN_RULE = sum(l[1] for l in LIVES); WIN_RAND = sum(l[2] for l in LIVES)     # 401 / 107
 
 I = Iso(500, 1010, .62)
-def cards(img, d, t, t0, show_skip=False, pick_t=None, reveal=False):
+def hq(q): return 60 + 520 * q
+T_GONE0, T_GONE1 = cue("setup", "Pass on") - .1, E("setup")
+T_LOOK, T_TAKE = cue("rule", "just look") - .1, cue("rule", "Then take") - .1
+T_SIM0, T_SIM1 = S("sim") - .1, S("reveal") - .2
+T_BACK = cue("why", "Otherwise") - .3
+
+def nlives(t): return 0 if t < T_SIM0 else 1000 if t >= T_SIM1 else int(1000 * ease_io(clamp((t - T_SIM0) / (T_SIM1 - T_SIM0))))
+
+def card_state(t, i):
+    """(height, top colour, sink offset) of date i at time t"""
+    flat, top, sink = 40.0, TOP, 0.0
+    wave = (t - .05) / .9
+    if 0 <= wave <= 1.4: flat += 70 * max(0, 1 - abs(i / 9 - wave) * 4)          # cold open: a ripple runs down the row
+    if t < S("rule"):
+        if t >= T_GONE0:                                                          # you pass on them: they sink away
+            dt = t - T_GONE0 - i * (T_GONE1 - T_GONE0) / 10
+            if dt > 0: sink = -min(1, dt / .35) ** 2 * 60; top = RIGHT
+        return flat, top, sink
+    if T_SIM0 <= t < T_SIM1:                                                      # 1,000 lives flicker through the row
+        v = LIVES[max(0, nlives(t) - 1)][0]; th = max(v[:SKIP]); p = next((j for j in range(SKIP, 10) if v[j] > th), 9)
+        return hq(v[i]), RIGHT if i < SKIP else (INK if i == p else TOP), 0
+    back = clamp((t - T_BACK) / .45) if t >= T_BACK else 0
+    h = flat
+    if i < SKIP and t >= T_LOOK: h = flat + (hq(QUAL[i]) - flat) * spring((t - T_LOOK - i * .15) / .5); top = RIGHT
+    if SKIP <= i <= PICK and t >= T_TAKE:
+        h = flat + (hq(QUAL[i]) - flat) * spring((t - T_TAKE - (i - SKIP) * .3) / .5)
+        if i == PICK and t >= T_TAKE + .7: top = SIG if t >= S("reveal") else INK
+    if t >= S("reveal") and i > PICK: h = flat + (hq(QUAL[i]) - flat) * spring((t - S("reveal") - .5 - (i - PICK) * .08) / .5); top = TOP
+    if back: h = h + (40 - h) * ease(back); top = TOP if back > .5 else top
+    return h, top, 0
+
+def row(img, d, t):
     I.grid(img)
-    for i, q in enumerate(QUAL):
-        tk = t0 + i * .12
-        if t < tk: continue
-        x, y = -470 + i * 100, 260 - i * 60; k = ease(clamp((t - tk) / .25)); h = (60 + 300 * q) * k if (reveal or (show_skip and i < SKIP) or (pick_t and t >= pick_t + (i - SKIP) * .25)) else 40 * k
-        top = TOP
-        if show_skip and i < SKIP: top = RIGHT
-        if pick_t and i == 5 and t >= pick_t + 1.0: top = SIG
-        I.box(d, x, y, 0, 70, 70, h, top=top)
-        fx, fy = I.P(x + 70, y + 70, 0); d.text((fx, fy + 10), str(i + 1), font=F(BLK, 30), fill=MID if (show_skip and i < SKIP) else INK, anchor="ma")
-    if show_skip:
-        a, b = I.P(-470, 260, 60 + 300 * .55), I.P(-470 + 9 * 100 + 70, 260 - 9 * 60, 60 + 300 * .55)
-        d.line([a, b], fill=MID, width=4)
+    for i in range(10):
+        h, top, sink = card_state(t, i); x, y = -470 + i * 100, 260 - i * 60
+        I.box(d, x, y, sink, 70, 70, max(4, h), top=top)
+        fx, fy = I.P(x + 70, y + 70, sink); d.text((fx, fy + 10), str(i + 1), font=F(BLK, 30), fill=MID if top == RIGHT else INK, anchor="ma")
+    if T_LOOK + .6 <= t < T_SIM0 or S("reveal") <= t < T_BACK:                   # the bar set by the first three
+        th = hq(max(QUAL[:SKIP])); k = spring((t - (T_LOOK + .6 if t < T_SIM0 else S("reveal"))) / .5, f=1, damp=6)
+        a, b = I.P(-470, 260, th), I.P(-470 + 9 * 100 + 70, 260 - 9 * 60, th); d.line([a, (a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k)], fill=MID, width=4)
+    if T_TAKE + .7 <= t < T_SIM0 or S("reveal") + .2 <= t < T_BACK:
+        p = I.P(-470 + PICK * 100 + 35, 260 - PICK * 60 + 35, hq(QUAL[PICK])); tk = T_TAKE + .7 if t < T_SIM0 else S("reveal") + .2
+        callout(d, p, "r", p[1] - 70, 1, "PICK", SIG if t >= S("reveal") else INK, k=(t - tk) / .4)
 
-def sc_setup(img, d, t):
-    t0, tg = S("setup"), cue("setup", "they're gone") - .1
-    d.text((X0, 320), "10 DATES", font=F(BLK, 130), fill=INK); d.text((X0 + 4, 470), "one after another · no going back", font=F(COND, 46), fill=MID)
-    cards(img, d, t, t0 + .2)
-    if t >= tg: box_label(d, X1, 560, "PASS = GONE", 44, WHITE, INK, font=BLK, anchor="ra")
-    fig(d, "fig. 1 — schematic")
+def head(d, t, line, sub=None):
+    d.text((X0, 300), line, font=F(BLK, 84), fill=INK)
+    n = nlives(t) if t < T_BACK else 0
+    if n == 0:
+        d.text((X0, 400), "DATES", font=F(MONO, 30), fill=MID); d.text((X0 + 130, 388), "10", font=F(BLK, 64), fill=INK)
+    else:
+        wr = sum(l[1] for l in LIVES[:n]) / n; wd = sum(l[2] for l in LIVES[:n]) / n
+        d.text((X0, 400), "BEST FOUND", font=F(MONO, 30), fill=MID); d.text((X0 + 240, 388), f"{wr * 100:.0f} %", font=F(BLK, 64), fill=SIG)
+        d.text((X0 + 470, 400), "RANDOM", font=F(MONO, 30), fill=MID); d.text((X0 + 620, 388), f"{wd * 100:.0f} %", font=F(BLK, 64), fill=INK)
+    if sub: d.text((X1, 470), sub, font=F(MONO, 26), fill=MID, anchor="ra")
 
-def sc_rule(img, d, t):
-    t0, tl, tp = S("rule"), cue("rule", "Just look") - .1, cue("rule", "Then pick") - .1
-    d.text((X0, 320), "SKIP 37 %.", font=F(BLK, 130), fill=INK); d.text((X0 + 4, 470), "then take the first who beats them all", font=F(COND, 46), fill=MID)
-    cards(img, d, t, t0 - 3, show_skip=t >= tl, pick_t=tp if t >= tp else None)
-    if t >= tl: box_label(d, X0 + 4, 560, "JUST LOOK: 1–3", 40, WHITE, MID, font=BLK)
-    if t >= tp + 1.0: box_label(d, X1, 640, "PICK: NO. 6", 40, WHITE, INK, font=BLK, anchor="ra")
-    fig(d, "for 10 dates: skip 3")
+def sc_hook(img, d, t): head(d, t, "WHEN DO YOU COMMIT?"); row(img, d, t); fig(d, "simulation")
+def sc_setup(img, d, t): head(d, t, "PASS = GONE.", sub="one after another"); row(img, d, t); fig(d, "schematic")
+def sc_rule(img, d, t): head(d, t, "SKIP 37 %. THEN PICK.", sub="for 10 dates: skip 3"); row(img, d, t); fig(d, "then take the first who beats them all")
+def sc_sim(img, d, t): head(d, t, f"{nlives(t):,} LOVE LIVES", sub="10 dates each"); row(img, d, t); fig(d, "simulation")
+def sc_reveal(img, d, t): head(d, t, "THE RULE: 40 %.", sub="found the very best one"); row(img, d, t); fig(d, "simulation · 1,000 lives")
+def sc_why(img, d, t):
+    head(d, t, "EXPLORE. THEN COMMIT." if t < T_BACK else "WHEN DO YOU COMMIT?"); row(img, d, t)
+    fig(d, "a model · real people can say no")
 
-def counters(d, t, t0, dur, y0=560, hl=False):
-    n = int(clamp((t - t0) / dur) * 1000)
-    wins = [sum(r[i] for r in RUNS[:n]) for i in range(3)]
-    d.text((X0, y0), f"{n:,} LOVE LIVES", font=F(MONO, 34), fill=MID)
-    for j, (lab, col) in enumerate((("37 % RULE", SIG if hl else INK), ("FIRST DATE", MID), ("RANDOM", MID))):
-        y = y0 + 80 + j * 170; v = wins[j] / max(1, n)
-        d.text((X0, y), lab, font=F(BLK, 46), fill=col); w = 600 * v / .45
-        d.rectangle([X0, y + 60, X0 + max(6, w), y + 130], fill=col)
-        d.text((X0 + max(6, w) + 14, y + 95), f"{v * 100:.0f} %", font=F(BLK, 56), fill=col, anchor="lm")
-
-def sc_sim(img, d, t):
-    t0 = S("sim"); d.text((X0, 320), "1,000 LIVES", font=F(BLK, 120), fill=INK); d.text((X0 + 4, 450), "found the very best one", font=F(COND, 46), fill=MID)
-    counters(d, t, t0 + .3, max(1.5, E("sim") - t0 - .6))
-    fig(d, "simulation · 10 dates each")
-
-def sc_result(img, d, t):
-    t0 = S("result"); d.text((X0, 320), "THE RULE: 40 %.", font=F(BLK, 110), fill=SIG); d.text((X0 + 4, 450), "found the very best one", font=F(COND, 46), fill=INK)
-    counters(d, t, t0 - 10, 1, hl=True)
-    fig(d, "simulation · 10 dates each")
-
-def sc_caveat(img, d, t):
-    t0, tn = S("caveat"), cue("caveat", "People can say no") - .1
-    words_in(d, t, [("REAL LIFE:", t0 + .05, 320, 140, INK), ("MESSIER.", t0 + .2, 470, 140, INK)])
-    if t >= tn: box_label(d, X0 + 4, 660, "PEOPLE SAY NO", 50, WHITE, MID, font=BLK)
-    if t >= cue("caveat", "you never know") - .1: box_label(d, X0 + 4, 760, "HOW MANY? UNKNOWN", 50, WHITE, MID, font=BLK)
-    fig(d, "a model, not a guarantee")
-
-def sc_point(img, d, t):
-    t0, tc = S("point"), cue("point", "Then commit") - .15
-    words_in(d, t, [("EXPLORE", t0 + .05, 320, 170, MID), ("FIRST.", t0 + .2, 500, 170, MID)] + ([("THEN COMMIT.", tc, 690, 130, SIG)] if t >= tc else []))
-    fig(d, "fig. 2 — optimal stopping")
-
-EP.cuts = {"rule": "stay", "result": "stay"}
-EP.bg = {"setup": "light", "rule": "light"}
-EP.scenes = {"setup": sc_setup, "rule": sc_rule, "sim": sc_sim, "result": sc_result, "caveat": sc_caveat, "point": sc_point}
-FX = [*EP.cut_fx(), *[(S("setup") + .2 + i * .12, tick(.035), (i - 4.5) / 5) for i in range(10)], (cue("setup", "they're gone") - .1, thud(.4), 0),
-      (cue("rule", "Just look") - .1, pop(.13), -.3), *[(cue("rule", "Then pick") - .1 + i * .25, tick(.04), (i - 3) / 4) for i in range(7)], (cue("rule", "Then pick") + .9, thud(.5), .2),
-      *[(S("sim") + .3 + i * max(1.5, E("sim") - S("sim") - .6) / 24, tick(.025), (i % 5 - 2) / 3) for i in range(24)],
-      (S("result") + .05, thud(.55), 0), (S("caveat") + .1, pop(.12), 0), (cue("caveat", "People can say no") - .1, pop(.12), -.2),
-      (S("point") + .1, pop(.12), 0), (cue("point", "Then commit") - .15, thud(.5), 0), (S("end"), thud(.5), 0)]
+EP.cuts = {k: "stay" for k in ORDER[1:]}
+EP.bg = {"hook": "light", "setup": "light", "rule": "light", "sim": "light", "reveal": "orange", "why": "light"}
+EP.scenes = {"hook": sc_hook, "setup": sc_setup, "rule": sc_rule, "sim": sc_sim, "reveal": sc_reveal, "why": sc_why}
+FX = [(.05, whoosh(.8, .05), 0), *[(T_GONE0 + i * (T_GONE1 - T_GONE0) / 10, tick(.03), (i - 5) / 6) for i in range(10)],
+      *[(T_LOOK + i * .15, pop(.08), -.3) for i in range(SKIP)], (T_LOOK + .6, whoosh(.4, .04), 0),
+      *[(T_TAKE + j * .3, pop(.08), .1 * j) for j in range(3)], (T_TAKE + .7, pop(.14), .3),
+      *[(T_SIM0 + j * .09, tick(.025), (j % 5 - 2) / 3) for j in range(int((T_SIM1 - T_SIM0) / .09))],
+      (S("reveal") + .1, thud(.55), 0), (T_BACK, whoosh(.45, .05), 0)]
 if __name__ == "__main__": EP.run(FX)

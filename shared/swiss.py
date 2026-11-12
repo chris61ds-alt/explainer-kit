@@ -21,6 +21,10 @@ import cute
 from cute import (F, BLK, BOLD, MONO, clamp, ease, ease_io, back, lerp, mix, Timeline, W, H, SR, FPS, SAFE_R, SAFE_B,
                   tt_, bp, lp, softkick, whoosh, pop, tick, heartbeat, poof)
 
+def spring(k, f=2.2, damp=5.0):
+    """level 2 (12.11.2026): 0 → 1 with a little overshoot – physical, springy motion"""
+    k = clamp(k); return 1 - math.exp(-damp * k) * math.cos(f * math.pi * k) if k < 1 else 1.0
+
 V4 = os.environ.get("NJY_FX", "v4") == "v4"    # default since 31.10.2026: impulse beat (number pulses); NJY_FX=off disables
 V3 = os.environ.get("NJY_STYLE", "v3") == "v3"   # default since 31.10.2026 (NJY_STYLE=v2 = old look): orange only for the answer, whip transitions, new sound
 LOOK = os.environ.get("NJY_LOOK", "v5")        # v6 (look test 03.11.2026): camera push + parallax, hand-drawn marks, grain / vignette / glow

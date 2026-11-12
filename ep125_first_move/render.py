@@ -1,18 +1,20 @@
-"""NOT JUST YOU – No. 125 (simulation): make the first move – Gale-Shapley deferred acceptance with 10 + 10 people and random
-rankings: askers' average partner rank 2.2 vs 4.8; swapped 2.1 vs 4.4 (Gale & Shapley 1962; Nobel 2012 Roth & Shapley).
-Look C+D · statement opener with "you" · live matching simulation (proposals as lines, rounds counter) · orange reveal."""
+"""NOT JUST YOU – No. 125 (level 2 remake, 12.11.2026): make the first move – Gale-Shapley deferred acceptance with 10 + 10
+people and random rankings: askers' average partner rank 2.2 vs 4.8 (Gale & Shapley 1962; Nobel 2012 Roth & Shapley).
+Level 2: the two columns are there from frame 0 (ripple), ONE continuous object (no whip cuts), proposals fly in with a spring,
+turned-down ones snap back, live counter, orange reveal with each person's rank popping up, loop back into the hook.
+Old version: render_v1.py / script_v1.json."""
 import os, sys, math, random, statistics as st
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.15, gaps={"setup": .6, "run": .5, "score": .5, "result": .6, "swap": .6, "point": .7, "end": 2.2})
+TL = Timeline(HERE, lead=.05, gaps={"hook": .34, "setup": .34, "run": .3, "reveal": .4, "why": .1})
 S, E, cue = TL.S, TL.E, TL.cue
-ORDER = ["setup", "run", "score", "result", "swap", "point", "end"]
+ORDER = ["hook", "setup", "run", "reveal", "why", "end"]
 EP = ThreadEpisode(TL, 125, "FIRST MOVE", order=ORDER, dark=True, label="SIMULATION · MATH MODEL",
                    chapters={k: "" for k in ORDER[:-1]},
                    sources=("Gale & Shapley (1962), American Mathematical Monthly 69(1) ·", "Nobel Prize in Economics 2012 (Roth & Shapley)"),
-                   music=dict(bpm=104, root=2, prog="major", kick="four", audio="v5", gaps=[(E("setup") + .05, S("run") + .05)]),
-                   cover=dict(words=["MAKE THE", "FIRST", "MOVE."], kicker="It's math. Nobel-prize math."))
+                   music=dict(bpm=104, root=2, prog="major", kick="four", audio="v5"),
+                   cover=dict(words=["YOU WAIT", "FOR THEM", "TO TEXT FIRST."], kicker="Here's what it costs you. Simulated."))
 
 N = 10; R = random.Random(2)
 A = [R.sample(range(N), N) for _ in range(N)]; B = [R.sample(range(N), N) for _ in range(N)]
@@ -26,85 +28,101 @@ def gale_shapley(prop, rec):
         else: free.append(m); events.append((m, w, "no", None))
     return {m: w for w, m in eng.items()}, events
 MATCH, EVENTS = gale_shapley(A, B)
-ASK = st.mean(A[i].index(MATCH[i]) + 1 for i in range(N)); WAIT = st.mean(B[w].index(i) + 1 for i, w in MATCH.items())   # 2.2 / 4.8
+RANK_A = [A[i].index(MATCH[i]) + 1 for i in range(N)]
+RANK_B = {w: B[w].index(i) + 1 for i, w in MATCH.items()}
+ASK, WAIT = st.mean(RANK_A), st.mean(RANK_B.values())     # 2.2 / 4.8
 
-LX, RX, Y0, DY = X0 + 90, X1 - 90, 590, 52
-def people(d, lab_l="ASK", lab_r="WAIT", col_l=INK, col_r=MID):
-    d.text((LX, Y0 - 44), lab_l, font=F(BLK, 40), fill=col_l, anchor="mm"); d.text((RX, Y0 - 44), lab_r, font=F(BLK, 40), fill=col_r, anchor="mm")
-    for i in range(N):
-        y = Y0 + i * DY
-        d.ellipse([LX - 18, y - 18, LX + 18, y + 18], fill=col_l); d.ellipse([RX - 18, y - 18, RX + 18, y + 18], fill=col_r)
+LX, RX, Y0, DY = X0 + 150, X1 - 150, 590, 58
+T_ASK, T_WAIT = cue("setup", "One side asks") - .1, cue("setup", "The other side") - .1
+T_RUN0 = S("run") - .1; T_RUN1 = E("run") + .15                # all proposals happen in here
+SLOT = (T_RUN1 - T_RUN0) / len(EVENTS)
+T_N2 = cue("reveal", "The ones who waited") - .15
+T_BACK = cue("why", "Because right now") - .35                  # loop: links let go, back to the start
 
-def state_at(k):
-    """current engagements after the first k proposal events"""
-    eng = {}
-    for (m, w, res, old) in EVENTS[:k]:
-        if res in ("yes", "swap"): eng[w] = m
-    return eng
+def ev_t(i): return T_RUN0 + i * SLOT
+def pos(side, i): return (LX, Y0 + i * DY) if side == 0 else (RX, Y0 + i * DY)
 
-def draw_links(d, eng, col=INK, w=6):
-    for wv, m in eng.items(): d.line([LX + 20, Y0 + m * DY, RX - 20, Y0 + wv * DY], fill=col, width=w)
+def links(t):
+    """(m, w, k) for every link standing at time t, k = drawn fraction (spring in, falls away when replaced / at the loop)"""
+    out = {}; dead = []
+    for i, (m, w, res, old) in enumerate(EVENTS):
+        te = ev_t(i)
+        if t < te: break
+        if res in ("yes", "swap"):
+            if w in out: dead.append((out[w][0], w, te))
+            out[w] = (m, te)
+    cur = [(m, w, spring((t - te) / .35, f=1.4, damp=6)) for w, (m, te) in out.items()]
+    return cur, dead
 
-def sc_setup(img, d, t):
-    t0, ta = S("setup"), cue("setup", "One side asks") - .1
-    d.text((X0, 320), "10 + 10 PEOPLE", font=F(BLK, 100), fill=INK); d.text((X0 + 4, 430), "everyone ranks everyone, secretly", font=F(COND, 46), fill=MID)
-    people(d)
-    if t >= ta:                                              # one demo proposal
-        k = ease(clamp((t - ta) / .5)); m, w = EVENTS[0][0], EVENTS[0][1]
-        a, b = (LX + 20, Y0 + m * DY), (RX - 20, Y0 + w * DY); d.line([a, (a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k)], fill=INK, width=6)
-    fig(d, "random rankings · simulation")
+def people(d, t):
+    wave = (t - .05) / .9
+    for side in (0, 1):
+        for i in range(N):
+            x, y = pos(side, i); r = 20.0
+            if 0 <= wave <= 1.4: r += 9 * max(0, 1 - abs(i / (N - 1) - wave) * 5)       # cold open: ripple down the columns
+            if t < T_RUN0 and side == 1 and t >= T_WAIT: r += 2.5 * math.sin(t * 6 + i)    # the waiters, waiting
+            col = INK if side == 0 or T_WAIT <= t < T_BACK + .2 else MID
+            d.ellipse([x - r, y - r, x + r, y + r], fill=col)
+    for side, lab, tk in ((0, "ASK", T_ASK), (1, "WAIT", T_WAIT)):
+        if tk <= t < T_BACK + .3:
+            k = spring((t - tk) / .4) * (1 - clamp((t - T_BACK) / .3)); x = pos(side, 0)[0]
+            d.text((x, Y0 - 60 - 30 * (1 - k)), lab, font=F(BLK, int(46 * max(.2, k))), fill=INK, anchor="mm")
 
+def line(d, a, b, k, col, w):
+    d.line([a, (a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k)], fill=col, width=w)
+
+def plot(d, t):
+    people(d, t)
+    back = clamp((t - T_BACK) / .4) if t >= T_BACK else 0
+    cur, dead = links(t)
+    for m, w, te in dead:                                       # a replaced partner: the old link drops away
+        dt = t - te
+        if dt < .5:
+            a, b = pos(0, m), pos(1, w); dy = 600 * dt * dt
+            d.line([(a[0] + 22, a[1] + dy), (b[0] - 22, b[1] + dy)], fill=mix(BG, MID, clamp(1 - dt / .5)), width=5)
+    for m, w, k in cur:
+        if back >= 1: continue
+        a, b = (pos(0, m)[0] + 22, pos(0, m)[1]), (pos(1, w)[0] - 22, pos(1, w)[1])
+        line(d, a, b, k * (1 - ease(back)), INK, 7)
+    for i, (m, w, res, old) in enumerate(EVENTS):              # turned down: the line shoots out and snaps back
+        if res != "no": continue
+        dt = t - ev_t(i)
+        if 0 <= dt < .4:
+            k = math.sin(math.pi * dt / .4) * .9; a, b = (pos(0, m)[0] + 22, pos(0, m)[1]), (pos(1, w)[0] - 22, pos(1, w)[1])
+            line(d, a, b, k, MID, 4)
+    if S("reveal") <= t < T_BACK + .4:                         # each person's rank of the partner they got
+        fade = 1 - clamp((t - T_BACK) / .3) if t >= T_BACK else 1
+        for i in range(N):
+            for side, rk, tk in ((0, RANK_A[i], S("reveal") + .15 + i * .04), (1, RANK_B.get(i, 0), T_N2 + i * .04)):
+                if t < tk: continue
+                k = spring((t - tk) / .35) * fade; x, y = pos(side, i); x += -70 if side == 0 else 70
+                if k > .05: d.text((x, y), f"#{rk}", font=F(BLK, max(8, int(44 * k))), fill=INK if side == 0 else MID, anchor="mm")
+
+def head(d, t, line_, sub=None):
+    d.text((X0, 300), line_, font=F(BLK, 84), fill=INK)
+    if t < S("reveal") or t >= T_BACK:
+        n = sum(1 for i in range(len(EVENTS)) if t >= ev_t(i)) if t < T_BACK else 0
+        d.text((X0, 400), "PROPOSALS", font=F(MONO, 30), fill=MID); d.text((X0 + 230, 388), f"{n}", font=F(BLK, 64), fill=INK)
+    else:                                                       # the result, counted up
+        ka = ease(clamp((t - S("reveal") - .15) / .7)); kb = ease(clamp((t - T_N2) / .7))
+        d.text((X0, 400), "ASKED", font=F(MONO, 30), fill=MID); d.text((X0 + 140, 388), f"#{1 + (ASK - 1) * ka:.1f}", font=F(BLK, 64), fill=SIG)
+        if t >= T_N2: d.text((X0 + 420, 400), "WAITED", font=F(MONO, 30), fill=MID); d.text((X0 + 580, 388), f"#{1 + (WAIT - 1) * kb:.1f}", font=F(BLK, 64), fill=INK)
+    if sub: d.text((X1, 408), sub, font=F(MONO, 26), fill=MID, anchor="ra")
+
+def sc_hook(img, d, t): head(d, t, "WHO TEXTS FIRST?"); plot(d, t); fig(d, "simulation")
+def sc_setup(img, d, t): head(d, t, "10 + 10 PEOPLE", sub="random rankings"); plot(d, t); fig(d, "everyone ranks everyone, secretly")
 def sc_run(img, d, t):
-    t0 = S("run"); dur = max(1.2, E("run") - t0 - .2)
-    d.text((X0, 320), "ROUND", font=F(BLK, 100), fill=INK)
-    k = int(clamp((t - t0) / dur) * len(EVENTS)); people(d); draw_links(d, state_at(k))
-    if 0 < k <= len(EVENTS):
-        m, w, res, old = EVENTS[k - 1]
-        col = MID if res == "no" else INK; d.line([LX + 20, Y0 + m * DY, RX - 20, Y0 + w * DY], fill=col, width=3)
-    d.text((X0 + 430, 320), f"{min(len(EVENTS), k)}", font=F(BLK, 100), fill=INK)
-    d.text((X0 + 4, 430), f"proposals · {sum(1 for e in EVENTS[:k] if e[2] == 'no')} turned down", font=F(COND, 46), fill=MID)
-    fig(d, "deferred acceptance · simulation")
+    nd = sum(1 for i, e in enumerate(EVENTS) if e[2] == "no" and t >= ev_t(i))
+    head(d, t, "ROUND AFTER ROUND", sub=f"{nd} turned down"); plot(d, t); fig(d, "deferred acceptance · simulation")
+def sc_reveal(img, d, t): head(d, t, "ASKING WINS."); plot(d, t); fig(d, "#1 = their first choice · simulation")
+def sc_why(img, d, t):
+    head(d, t, "NEVER WORSE OFF." if t < T_BACK else "WHO TEXTS FIRST?"); plot(d, t)
+    fig(d, "proven for this model · real dating is messier")
 
-def sc_score(img, d, t):
-    t0 = S("score")
-    d.text((X0, 320), "HOW HAPPY?", font=F(BLK, 110), fill=INK); d.text((X0 + 4, 440), "rank of the partner each one got", font=F(COND, 46), fill=MID)
-    people(d); draw_links(d, MATCH)
-    fig(d, "1 = their first choice")
-
-def bars(d, t, t0, rows, y0=560):
-    for j, (lab, v, col) in enumerate(rows):
-        k = ease(clamp((t - t0 - j * .35) / .5)); y = y0 + j * 210
-        d.text((X0, y), lab, font=F(BLK, 50), fill=col); w = 640 * v / 5 * k
-        d.rectangle([X0, y + 66, X0 + max(8, w), y + 156], fill=col)
-        d.text((X0 + max(8, w) + 16, y + 111), f"#{v * k:.1f}" if k > .05 else "", font=F(BLK, 64), fill=col, anchor="lm")
-
-def sc_result(img, d, t):
-    t0 = S("result")
-    d.text((X0, 320), "THE ASKERS:", font=F(BLK, 110), fill=SIG); d.text((X0 + 4, 440), "average rank of their match (lower = better)", font=F(COND, 42), fill=INK)
-    bars(d, t, t0 + .1, [("ASKED", ASK, SIG), ("WAITED", WAIT, INK)])
-    fig(d, "simulation · 10 + 10 people")
-
-def sc_swap(img, d, t):
-    t0, tp = S("swap"), cue("swap", "The math is proven") - .1
-    d.text((X0, 320), "SWAPPED:", font=F(BLK, 110), fill=INK)
-    M2, _ = gale_shapley(B, A); ask2 = st.mean(B[i].index(M2[i]) + 1 for i in range(N)); wait2 = st.mean(A[w].index(i) + 1 for i, w in M2.items())
-    bars(d, t, t0 + .2, [("ASKED", ask2, INK), ("WAITED", wait2, MID)], y0=500)
-    if t >= tp: box_label(d, X0 + 4 - (1 - ease((t - tp) / .2)) * 40, 960, "ASKING: NEVER WORSE", 54, WHITE, INK, font=BLK)
-    fig(d, "proven theorem, Gale & Shapley 1962")
-
-def sc_point(img, d, t):
-    t0, ts = S("point"), cue("point", "send the first") - .2
-    words_in(d, t, [("REAL DATING:", t0 + .05, 320, 120, MID), ("MESSIER.", t0 + .2, 440, 120, MID)])
-    if t >= ts: words_in(d, t, [("SEND THE", ts, 620, 140, SIG), ("FIRST MESSAGE.", ts + .15, 760, 110, SIG)])
-    fig(d, "fig. 2 — a model, not your love life")
-
-EP.cuts = {"run": "stay", "score": "stay"}
-EP.bg = {"setup": "light", "run": "light", "score": "light"}
-EP.scenes = {"setup": sc_setup, "run": sc_run, "score": sc_score, "result": sc_result, "swap": sc_swap, "point": sc_point}
-_rd = max(1.2, E("run") - S("run") - .2)
-FX = [*EP.cut_fx(), (cue("setup", "One side asks") - .1, whoosh(.4, .05), .2),
-      *[(S("run") + (i + 1) / len(EVENTS) * _rd, tick(.035) if EVENTS[i][2] != "no" else pop(.06), .3 if EVENTS[i][2] != "no" else -.3) for i in range(len(EVENTS))],
-      (S("score") + .1, riser(.8, .04), 0), (S("result") + .05, thud(.55), 0), (S("result") + .45, pop(.13), .3),
-      (S("swap") + .2, whoosh(.5, .05), 0), (cue("swap", "The math is proven") - .1, thud(.45), 0),
-      (S("point") + .1, pop(.12), 0), (cue("point", "send the first") - .2, thud(.5), 0), (S("end"), thud(.5), 0)]
+EP.cuts = {k: "stay" for k in ORDER[1:]}
+EP.bg = {"hook": "dark", "setup": "dark", "run": "dark", "reveal": "orange", "why": "dark"}
+EP.scenes = {"hook": sc_hook, "setup": sc_setup, "run": sc_run, "reveal": sc_reveal, "why": sc_why}
+FX = [(.05, whoosh(.8, .05), 0), (T_ASK, pop(.1), -.4), (T_WAIT, pop(.1), .4),
+      *[(ev_t(i), tick(.03) if e[2] == "no" else pop(.06), -.3 if e[2] == "no" else .2) for i, e in enumerate(EVENTS)],
+      (S("reveal") + .1, thud(.55), 0), (T_N2, pop(.14), .3), (T_BACK, whoosh(.45, .05), 0)]
 if __name__ == "__main__": EP.run(FX)

@@ -2,18 +2,19 @@
  "episode": "ep124_berkson",
  "tts": "new",
  "asr_voice": [
-  "point: 1/16 | It's called Birxon's paradox. It's not that hot people are mean, it's who you filtered out. [b"
+  "setup: 1/12 | 400 people, looks in kindness totally random, no link at all.",
+  "why: 1/13 | Nobody changed, only your filter did. It's called Birxin's Paradox, and it's why."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 29.3,
-  "size_MiB": 4.0,
+  "duration_s": 18.53,
+  "size_MiB": 3.2,
   "black_intervals": [],
-  "loudness_LUFS": -16.1,
+  "loudness_LUFS": -16.0,
   "true_peak_dBTP": -2.5,
-  "sha256": "1b41f6402c3fe9751ce3967d42804e4f3a0f3de058ba144cc3aa7ed392eec916",
+  "sha256": "ae37076b3e24ca6ded8687cc2af9cadc712bf73f53e12b803f824dd49f7926b4",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,12 +23,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/95 = 1.1%",
+ "asr_final_wer": "2/53 = 3.8%",
  "asr_final_issues": [
-  "point: 1/16 | It's called Birxin's paradox. It's not that hot people are mean, it's who you filtered out."
+  "setup: 1/12 | 400 people looks in kindness totally random, no link at all.",
+  "why: 1/13 | Nobody changed, only your filter did. It's called Birxin's Paradox, and it's why."
  ],
- "duration_s": 29.29,
- "longest_calm_s": 2.42,
+ "duration_s": 18.54,
+ "longest_calm_s": 2.79,
  "cover": "ep124_berkson_cover.png",
  "caption": "ok"
 }

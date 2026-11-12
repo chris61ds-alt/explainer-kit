@@ -1,7 +1,7 @@
 {
  "sources": [
-  "Gale & Shapley (1962), College admissions and the stability of marriage, American Mathematical Monthly 69(1), 9\u201315 \u2013 deferred acceptance: the proposing side receives its best partner among all stable matchings; the receiving side its worst.",
-  "Nobel Memorial Prize in Economic Sciences 2012: Alvin E. Roth and Lloyd S. Shapley, 'for the theory of stable allocations and the practice of market design'.",
-  "Simulation in this video: 10 + 10 people, random rankings (fixed seed); askers' average partner rank 2.2 vs 4.8 for those waiting; with sides swapped 2.1 vs 4.4."
+  "Gale & Shapley (1962), College Admissions and the Stability of Marriage, American Mathematical Monthly 69(1), 9\u201315 \u2013 deferred acceptance: the proposing side gets its best stable partner, the receiving side its worst stable partner.",
+  "Nobel Prize in Economic Sciences 2012 (Roth & Shapley) \u2013 stable matching theory and market design.",
+  "Simulation: 10 + 10 people with random rankings; askers' average partner rank 2.2, waiters' 4.8."
  ]
 }

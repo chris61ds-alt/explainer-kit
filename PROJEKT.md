@@ -89,6 +89,16 @@ Source: <Autor (Jahr), Quelle>
   3. oben im script.json `"ask"` → Kommentarfrage als Banner auf der letzten Szene, Caption: erste Zeile = Rate-Frage, letzte = Frage + 👇;
   4. Pausen automatisch kurz (`NJY_PACE=tight`, max. 0,3 s), Slam-Zoom auf Frame 0. Alte Skripte liegen als `script_v1.json` daneben.
   Auswertung nach ~6 TikToks: Views, Ø-Wiedergabe, Kommentare vs. bisherige C+D-Folgen.
+- **LEVEL 2 – Storytelling-Standard (Chris, 12.11.2026, Pilot `ep124p_berkson_pilot`): gilt für jede neue Folge und jedes Remake, geht den älteren Regeln oben vor (Magic Move, Rehook-Banner, Claim-Screen, Ende):**
+  1. **Cold Open im Bild:** ab Frame 0 ist das Objekt/die Daten sichtbar und bewegt sich (Welle, Aufbau). Kein Claim-Screen mit Textzeilen, kein „Here's the data.“. Erster Beat heißt `hook`, spricht den Zuschauer direkt an (Du-Regel, kein „sex“).
+  2. **Ein durchgehendes Objekt:** eine Grafik/Szene trägt die ganze Folge (Punktwolke, Netzwerk, Kalender, Gitter …). Alle Schnitte `"stay"` (`EP.cuts = {k: "stay" for k in ORDER[1:]}`), keine Wisch-Übergänge, keine Rehook-Banner („…: NEXT“).
+  3. **Keine reinen Text-Szenen:** oben eine kleine Headline (BLK 84) + ein **Live-Zähler** (die eine Zahl, die sich ändert). Große Typo nur für die eine Zahl.
+  4. **Physische Bewegung:** `spring()` (Überschwingen), Schwerkraft beim Wegfallen, Ruhezustände schimmern leicht – nichts steht still.
+  5. **Reveal = orange Hintergrund** (`EP.bg = {"reveal": "orange"}`), sonst dunkel.
+  6. **Loop-Ende:** letzter Satz läuft in den ersten Satz hinein („… And it's why“ → „You think …“), das Objekt springt in den Anfangszustand zurück. Kein `ask`-Banner (Kommentar-Frage nur in der Caption), kein gesprochenes „Not just you“.
+  7. **Länge 18–22 s,** Beats `hook / setup / … / reveal / why`, Lücken 0,1–0,4 s, `lead=.05`.
+  8. **Formate mischen:** Simulation · Mythos vs. Daten · „3 Dinge“ · „Du hast gefragt“. Label bleibt ehrlich (SIMULATION · MATH MODEL, SURVEY …), Vorbehalte in Fig-Zeile + Caption.
+  Helfer: `spring()` liegt in `shared/swiss.py`. Erste Remakes (12.11.): 124, 79, 116, 125, 126.
 - Automatisierung nur mit **Google Apps Script** (kein Make.com). Code immer als komplette Datei, keine großen Änderungen ohne Absprache.
 
 ## 2 · Wo was liegt

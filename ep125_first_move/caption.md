@@ -1,4 +1,4 @@
-Make the first move. It's math. 💌
+You wait for them to text first. Here's what that costs you. 💌
 
 Let's simulate it: ten people on each side. Everyone secretly ranks everyone. One side asks. The other side holds on to the best offer so far. Round after round, until everyone is matched.
 
@@ -6,7 +6,7 @@ The askers got their number two on average. The ones who waited: number five.
 
 Swap the sides, and it flips. The math is proven: in this model, asking never makes you worse off.
 
-Real dating is messier, of course. But the lesson holds: send the first message.
+In this model, asking never makes you worse off. It's a proven theorem. Real dating is messier, of course. But the lesson holds: send the first message.
 
 Send the first message. Then save this. 🔖
 

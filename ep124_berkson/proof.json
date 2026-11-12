@@ -1,7 +1,7 @@
 {
  "sources": [
-  "Berkson (1946), Limitations of the application of fourfold table analysis to hospital data, Biometrics Bulletin 2(3), 47\u201353 \u2013 selection on a combination of two traits creates a spurious negative correlation between them (Berkson's paradox / collider bias).",
-  "Ellenberg (2014), How Not to Be Wrong: The Power of Mathematical Thinking \u2013 the 'why are handsome men jerks?' illustration of Berkson's paradox.",
-  "Simulation in this video: 400 people, looks and kindness drawn independently and uniformly (correlation \u22120.01); keeping only people with looks + kindness above a threshold leaves 209 people with a correlation of \u22120.54."
+  "Berkson (1946), Limitations of the application of fourfold table analysis to hospital data, Biometrics Bulletin 2(3), 47\u201353.",
+  "Ellenberg (2014), How Not to Be Wrong.",
+  "Simulation: 400 people, looks and kindness independent (r = \u22120.01); keeping looks + kindness > 1 leaves 209 people with r = \u22120.54."
  ]
 }

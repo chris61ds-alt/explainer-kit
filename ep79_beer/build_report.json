@@ -1,17 +1,17 @@
 {
  "episode": "ep79_beer",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 26.03,
-  "size_MiB": 3.5,
+  "duration_s": 21.73,
+  "size_MiB": 2.3,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -2.4,
-  "sha256": "146fb02ae7756d4bac60e8d5f8f1618aab07c001e9fe73941e5d5b256e43aaad",
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.5,
+  "sha256": "4f11850cbfd8d65efecafe47101c0e99aa6eaee033959171279d64ee9ecfaed5",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,12 +20,10 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/83 = 1.2%",
- "asr_final_issues": [
-  "result: 1/19 | Year fans were 60 percent more likely to be okay sleeping with someone they just met. Men and women."
- ],
- "duration_s": 26.04,
- "longest_calm_s": 2.55,
+ "asr_final_wer": "0/70 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 21.73,
+ "longest_calm_s": 3.15,
  "cover": "ep79_beer_cover.png",
  "caption": "ok"
 }

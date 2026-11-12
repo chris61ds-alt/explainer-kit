@@ -1,4 +1,4 @@
-One harmless question predicts how your first date ends. 🍺
+One question on your first date tells you how the night ends. 🍺
 
 "Do you like the taste of beer?"
 
@@ -9,7 +9,7 @@ Want something long-term instead? Ask three things:
 2. Have you ever traveled alone to another country?
 3. Would it be fun to quit everything and live on a sailboat?
 
-32% of long-term couples agreed on all three. Nearly 4x chance.
+32% of long-term couples agreed on all three. Almost 4x more often than chance.
 
 Your answers? 👇
 

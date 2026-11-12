@@ -1,6 +1,8 @@
 Your friends have more friends than you. That's math, not you. 🧮
 
-Picture one very popular person. Lots of people count them as a friend. So whenever people look at their friends, that person shows up again and again, and the average goes up.
+We simulated a friend group of 26 people with one very popular person: 23 of 26 had fewer friends than their friends.
+
+Why? Picture one very popular person. Lots of people count them as a friend. So whenever people look at their friends, that person shows up again and again, and the average goes up.
 
 A sociologist checked this in a high school: most students had fewer friends than their friends did. 55% of the girls.
 

@@ -1,0 +1,19 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.1, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "claim", "text": "You think attractive people are mean. It's a statistics trick!", "screen": ["YOU THINK", "HOT PEOPLE", "ARE MEAN."], "speed": 1.13, "stamp": "IT'S MATH."},
+  {"id": "setup", "text": "Let's simulate it. Four hundred people. Looks and kindness are totally random. No link at all."},
+  {"id": "filter", "text": "Now you only date people who are attractive enough, kind enough, or both. Watch what happens.", "tease": "Watch what happens.", "show": "WATCH: NEXT"},
+  {"id": "reveal", "text": "Among the ones left, the better looking they are, the meaner they get!"},
+  {"id": "why", "text": "Because the mean and plain ones never made your list. So the hot ones you meet don't need to be nice to get there."},
+  {"id": "point", "text": "It's called Berkson's paradox. It's not that hot people are mean. It's who you filtered out."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "claim_prompt": "Let's simulate it.",
+ "ask": "SEND THIS TO SOMEONE WHO DATES JERKS.",
+ "sources": [
+  "Berkson (1946), Limitations of the application of fourfold table analysis to hospital data, Biometrics Bulletin 2(3), 47–53 – selection on a combination of two traits creates a spurious negative correlation between them (Berkson's paradox / collider bias).",
+  "Ellenberg (2014), How Not to Be Wrong: The Power of Mathematical Thinking – the 'why are handsome men jerks?' illustration of Berkson's paradox.",
+  "Simulation in this video: 400 people, looks and kindness drawn independently and uniformly (correlation −0.01); keeping only people with looks + kindness above a threshold leaves 209 people with a correlation of −0.54."
+ ]
+}
