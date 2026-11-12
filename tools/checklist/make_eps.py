@@ -12,6 +12,7 @@ for d in sorted(glob.glob('ep[0-9]*_*'), key=lambda x: int(re.match(r'ep(\d+)', 
     src = open(f'{d}/render.py').read()
     m = re.search(r'Episode\(TL, *\d+, *"([^"]+)"', src) or re.search(r'title *= *"([^"]+)"', src)
     title = m.group(1).upper() if m else d[5:].replace('_', ' ').upper()
+    if os.path.exists(f'{d}/render_v1.py'): title += ' 2.0'          # level-2 remake (12.11.2026), old version kept as render_v1.py
     cap = plan[no]['caption'] if no in plan else open(f'{d}/caption.md').read().strip()
     eps.append(dict(no=no, title=title, caption=cap, date=plan.get(no, {}).get('date', ''), time=plan.get(no, {}).get('time', '')))
     t = f'{H}/thumbs/nj{no:02d}.jpg'
