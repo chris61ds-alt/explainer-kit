@@ -75,3 +75,28 @@ class Stream:
         off = self.lane + 6 * np.sin(t * 3 + self.wob)
         taper = np.sin(np.pi * s) ** .5                      # thin at both ends: comes out of the door, goes into the door
         return (p + nrm * (off * taper)[:, None])[on]
+
+def _hull(pts):
+    pts = sorted(set(pts))
+    if len(pts) < 3: return pts
+    def cr(o, a, b): return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+    lo, up = [], []
+    for p in pts:
+        while len(lo) >= 2 and cr(lo[-2], lo[-1], p) <= 0: lo.pop()
+        lo.append(p)
+    for p in reversed(pts):
+        while len(up) >= 2 and cr(up[-2], up[-1], p) <= 0: up.pop()
+        up.append(p)
+    return lo[:-1] + up[:-1]
+
+def soft_shadow(img, iso, boxes, light=(.55, .3), r=16, k=.32, col=INK):
+    """soft drop shadows on the floor (light look, 13.11.2026): boxes = [(x, y, a, b, h), ...] in iso coordinates.
+    The shadow is the footprint smeared away from the light by the object's height, blurred, and blended toward col."""
+    m = Image.new("L", img.size, 0); dm = ImageDraw.Draw(m)
+    for x, y, a, b, h in boxes:
+        c = [(x, y), (x + a, y), (x + a, y + b), (x, y + b)]
+        pts = [iso.P(px, py, 0) for px, py in c] + [iso.P(px + light[0] * h, py + light[1] * h, 0) for px, py in c]
+        dm.polygon(_hull([(round(p[0], 1), round(p[1], 1)) for p in pts]), fill=255)
+    a_ = np.asarray(m.filter(ImageFilter.GaussianBlur(r)), np.float32)[..., None] / 255 * k
+    out = np.asarray(img, np.float32) * (1 - a_) + a_ * np.array(col, np.float32)
+    img.paste(Image.fromarray(np.clip(out, 0, 255).astype(np.uint8)))
