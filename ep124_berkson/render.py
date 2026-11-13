@@ -85,4 +85,6 @@ FX = [(.05, whoosh(.8, .05), 0), (S("setup") + .1, pop(.1), 0),
       (T_F, whoosh(.5, .05), -.2), *[(T_DROP + i * .06, tick(.03), (i % 5 - 2) / 3) for i in range(14)],
       (S("reveal") + .1, thud(.55), 0), (S("reveal") + .5, pop(.14), .2),
       (cue("why", "Berkson") - .1, pop(.13), 0), (T_BACK, whoosh(.45, .05), 0)]
+from fx2 import hook_intro
+hook_intro(EP)                                                  # big hook in the first 1.7 s (13.11.2026)
 if __name__ == "__main__": EP.run(FX)

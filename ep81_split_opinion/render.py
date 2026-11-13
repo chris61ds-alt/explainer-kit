@@ -75,4 +75,6 @@ FX = [(0.0, thud(.5), 0), (cue("hook", "ugly") - .3, rewind_sfx(.12, .3), 0), *E
       *[(S("result") + i * .1, tick(.03), 0) for i in range(8)], *[(cue("result", "disagreed") - .3 + i * .1, tick(.04), (i % 2 - .5)) for i in range(8)],
       (cue("result", "more messages") - .3, thud(.45), 0), (cue("example", "three times") - .3, thud(.5), 0), (cue("why", "curse") - .4, pop(.15), 0),
       (cue("point", "lean") - .2, thud(.5), 0), (S("end"), thud(.5), 0)]
+from fx2 import push_intro
+push_intro(EP)                                                  # never a still first second (13.11.2026)
 if __name__ == "__main__": EP.run(FX)

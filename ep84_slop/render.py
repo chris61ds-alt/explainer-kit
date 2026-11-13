@@ -88,4 +88,6 @@ FX = [(0.0, thud(.5), 0), (cue("hook", "most people") - .3, pop(.15), 0), *EP.cu
       *[(S("study") + .4 + i * .2, tick(.03), (i % 5 - 2) / 3) for i in range(8)], (S("result") + .05, thud(.55), 0), (cue("result", "guessing") - .3, pop(.15), 0),
       (cue("fav", "made by ai") - .3, rewind_sfx(.12, .3), 0), *[(S("haters") + .4 + i * .08, tick(.035), 0) for i in range(10)], (cue("haters", "half") - .3, thud(.45), 0),
       (cue("point", "knowing") - .3, thud(.5), 0), (S("end"), thud(.5), 0)]
+from fx2 import push_intro
+push_intro(EP)                                                  # never a still first second (13.11.2026)
 if __name__ == "__main__": EP.run(FX)

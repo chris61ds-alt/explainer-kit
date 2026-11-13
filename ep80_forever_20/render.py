@@ -73,4 +73,6 @@ EP.scenes = {"hook": sc_hook, "data": sc_data, "women": sc_women, "but": sc_but,
 FX = [(0.0, thud(.5), 0), (cue("hook", "fifty") - .3, pop(.15), .3), (cue("hook", "fifty") + .1, thud(.4), 0), *EP.cut_fx(),
       (S("data") + .3, whoosh(1.6, .05), 0), (S("women") + .3, whoosh(1.6, .05), 0), (cue("but", "messaged") - .3, thud(.5), 0),
       (cue("point", "their messages") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
+from fx2 import push_intro
+push_intro(EP)                                                  # never a still first second (13.11.2026)
 if __name__ == "__main__": EP.run(FX)

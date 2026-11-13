@@ -64,4 +64,6 @@ EP.scenes = {"hook": sc_hook, "study": sc_study, "result": sc_result, "twist": s
 FX = [(0.0, thud(.5), 0), (cue("hook", "nobody") - .2, rewind_sfx(.12, .3), 0), *EP.cut_fx(), (S("study") + .2, pop(.15), -.3), (cue("study", "some saw only") - .2, pop(.15), .3),
       (S("result") + .05, thud(.5), 0), (cue("result", "less than") - .3, thud(.45), 0), (S("twist") + .4, riser(.8, .04), 0), (cue("twist", "ninety-two") - .3, thud(.5), 0),
       (cue("point", "your photo") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
+from fx2 import push_intro
+push_intro(EP)                                                  # never a still first second (13.11.2026)
 if __name__ == "__main__": EP.run(FX)

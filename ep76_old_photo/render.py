@@ -68,4 +68,6 @@ EP.scenes = {"hook": sc_hook, "study": sc_study, "height": sc_height, "photos": 
 FX = [(0.0, thud(.5), 0), (cue("hook", "probably old") - .2, pop(.15), 0), *EP.cut_fx(), *[(S("study") + .3 + i * .12, tick(.03), (i % 5 - 2) / 3) for i in range(6)],
       (S("height") + .1, thud(.5), 0), (cue("height", "poorer") - .3, thud(.4), .3), (S("photos") + .05, thud(.5), 0), (cue("photos", "hottest") - .3, pop(.15), -.3),
       (cue("old", "twelve") - .3, pop(.15), 0), (cue("point", "the older") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
+from fx2 import push_intro
+push_intro(EP)                                                  # never a still first second (13.11.2026)
 if __name__ == "__main__": EP.run(FX)

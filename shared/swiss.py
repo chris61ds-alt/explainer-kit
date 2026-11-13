@@ -329,6 +329,7 @@ def words_in(d, t, items, x=X0 - 8, slide=80):
         k = ease((t - tk) / .35)
         if k > 0: d.text((x - (1 - k) * slide, y), text, font=F(BLK, size), fill=mix(BG, col, k))
 
+CLAIM_MOTION = os.environ.get("NJY_CLAIM_MOTION", "1") == "1"   # 13.11.2026: moving claim screen (env 0 = old still one)
 _REC = None                                       # dry pass: collects on-screen counters for the audio (v5)
 def counter(d, x, y, t, t0, dur, to, fmt="{:,.0f}", size=200, col=SIG, anchor="la"):
     if _REC is not None: _REC.append((round(t0, 3), dur, to))
@@ -693,7 +694,16 @@ class Episode:
         TL = self.TL; t0, t1 = TL.S("claim"), TL.S(self.order[1]); sb = {b["id"]: b for b in TL.script.get("beats", [])}
         lines = TL.screen.get("claim") or [TL.T["claim"]["text"].upper()]
         size = int(min(170, 600 / (len(lines) * 1.05), *(840 / max(1, d.textlength(l, font=F(BLK, 100))) * 100 for l in lines)))
-        words_in(d, t, [(l, -1, 330 + i * int(size * 1.05), size, SIG if i == len(lines) - 1 else INK) for i, l in enumerate(lines)])
+        if CLAIM_MOTION:                                 # 13.11.2026: never a still first second – drifting dots behind, each line kicks
+            R = np.random.RandomState(9); n = 160; xs = R.rand(n) * W; ys = (R.rand(n) * 900 + 260 - (t * 90 * (.5 + R.rand(n)))) % 900 + 260
+            for xx, yy, rr in zip(xs, ys, R.rand(n) * 4 + 3): d.ellipse([xx - rr, yy - rr, xx + rr, yy + rr], fill=RULE)
+            nl = len(lines); span = max(.6, (t1 - t0) * .6)
+            for i, l in enumerate(lines):
+                tk = t0 + i * span / nl; kick = math.sin(math.pi * clamp((t - tk) / .25)) * .07 if t >= tk else 0
+                sz = int(size * (1 + kick)); dx = 6 * math.sin(t * 1.7 + i)
+                d.text((X0 - 8 + dx, 330 + i * int(size * 1.05) - (sz - size) * .5), l, font=F(BLK, sz), fill=SIG if i == len(lines) - 1 else INK)
+        else:
+            words_in(d, t, [(l, -1, 330 + i * int(size * 1.05), size, SIG if i == len(lines) - 1 else INK) for i, l in enumerate(lines)])
         stamp = sb.get("claim", {}).get("stamp")
         ts = t0 + (t1 - t0) * .55; yb = 330 + len(lines) * int(size * 1.05) + 50
         if stamp and t >= ts:                            # the stamp lands under the claim (counter-fact or source)

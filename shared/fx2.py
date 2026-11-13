@@ -6,7 +6,7 @@ All are deterministic in t, so any frame can be rendered on its own (stills, par
 import math
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
-from swiss import BG, INK, W, H, clamp, ease
+from swiss import BG, INK, W, H, clamp, ease, ease_io
 
 BAND = (0, 470, W, 1180)                 # where the object lives; headline above, subtitles below
 
@@ -109,3 +109,34 @@ def light_look(EP, order, reveal=("reveal",)):
     for k in reveal: EP.bg[k] = "dark"
 
 def is_light(EP, t): return EP.bg_of(EP.current(t)) == "light"
+
+def hook_intro(EP, dur=1.7, y=300, max_size=120):
+    """BIG HOOK in the first ~1.7 s (Chris, 13.11.2026, TikTok retention: most viewers left at 0:01): the cover words in big
+    type over the already-moving object, from frame 0 (= TikTok cover), then they fly up and out and the small headline stays.
+    Wraps the first scene of a level-2 episode; drawn inside the scene, so light/dark mapping applies to it as usual."""
+    from swiss import F, BLK, X0, X1, BG, INK, mix
+    key = EP.order[0]; f = EP.scenes[key]; words = (EP.cover_spec or {}).get("words") or [EP.title]
+    def g(img, d, t):
+        f(img, d, t)
+        if t >= dur: return
+        size = max_size
+        for l in words: size = min(size, int(840 / max(1, d.textlength(l, font=F(BLK, 100))) * 100))
+        lh = int(size * 1.05); h = len(words) * lh + 40
+        out = ease(clamp((t - (dur - .4)) / .4))
+        d.rectangle([0, y - 20, W, y - 20 + h * (1 - out)], fill=BG)                    # paper behind the big hook, shrinks away
+        for i, l in enumerate(words):
+            yy = y + i * lh - out * (300 + i * 60)
+            if yy + lh > y - 20 and yy < y - 20 + h * (1 - out) + lh * .2:
+                d.text((X0 - 4, yy), l, font=F(BLK, size), fill=INK)
+    EP.scenes[key] = g
+
+def push_intro(EP, z1=1.08, dur=2.6, band=(0, 250, W, 1185)):
+    """for older episodes whose first scene is a still picture: a slow camera push (with a short slam at frame 0) through the
+    whole content band during the first beat, so the first second is never still (13.11.2026)."""
+    key = EP.order[0]; f = EP.scenes[key]
+    def g(img, d, t):
+        if t >= dur: return f(img, d, t)
+        z = 1 + (z1 - 1) * ease_io(clamp(t / dur))                          # frame 0 = 1.0: the TikTok cover stays uncropped
+        z = 1 + (z - 1) * (1 - ease(clamp((t - dur + .5) / .5)))           # ease back to 1.0 so the next scene matches
+        camera(img, lambda L, dL: f(L, dL, t), z, ((band[0] + band[2]) / 2, (band[1] + band[3]) / 2 - 80), band=band)
+    EP.scenes[key] = g

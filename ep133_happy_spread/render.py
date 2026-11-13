@@ -115,4 +115,6 @@ EP.scenes = {"hook": sc_hook, "setup": sc_setup, "explain": sc_explain, "reveal"
 FX = [(.05, whoosh(.8, .04), 0), (T_FR, pop(.14), -.2), (T_YOU0, pop(.1), .2), (S("setup") - .1, whoosh(.8, .05), 0),
       (T_LAB, pop(.12), .3), (T_LAB2, pop(.12), -.3), (S("reveal") + .1, thud(.55), 0), (T25, riser(.7, .04), 0), (T25 + .5, pop(.16), .2),
       *[(x, pop(.12), -.4 + j * .4) for j, x in enumerate(T_SP)], (T_BACK, whoosh(.6, .05), 0)]
+from fx2 import hook_intro
+hook_intro(EP)                                                  # big hook in the first 1.7 s (13.11.2026)
 if __name__ == "__main__": EP.run(FX)

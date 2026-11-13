@@ -118,4 +118,6 @@ EP.scenes = {"hook": sc_hook, "setup": sc_setup, "casual": sc_casual, "friend": 
 FX = [(.05, whoosh(.9, .04), 0), (T_PULL, whoosh(.8, .05), 0), (S("setup") + .2, pop(.1), -.4),
       (S("casual"), pop(.1), .4), (T50 + .5, pop(.14), .3), (T90 + .6, pop(.14), .3),
       (S("reveal") + .1, thud(.55), 0), (T200 + .8, pop(.16), .3), (T_BACK, whoosh(.6, .05), 0)]
+from fx2 import hook_intro
+hook_intro(EP)                                                  # big hook in the first 1.7 s (13.11.2026)
 if __name__ == "__main__": EP.run(FX)

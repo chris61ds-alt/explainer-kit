@@ -76,4 +76,6 @@ EP.scenes = {"hook": sc_hook, "study": sc_study, "result": sc_result, "regions":
 FX = [(0.0, thud(.5), 0), *EP.cut_fx(), *[(S("study") + .2 + i * .12, tick(.04), (i % 5 - 2) / 3) for i in range(16)],
       (S("result") + .05, thud(.55), 0), (cue("regions", "middle east"), pop(.15), -.2), (cue("regions", "south america"), pop(.15), .2),
       (cue("forager", "little sign"), thud(.35), 0), (cue("point", "culture"), thud(.45), 0), (cue("point", "special"), riser(.4, .06), 0), (S("end"), thud(.5), 0)]
+from fx2 import push_intro
+push_intro(EP)                                                  # never a still first second (13.11.2026)
 if __name__ == "__main__": EP.run(FX)
