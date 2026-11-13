@@ -106,6 +106,7 @@ Source: <Autor (Jahr), Quelle>
      - **Test vor dem Bauen:** Versteht es jemand nach einmal Ansehen ohne Ton-Pause? Sonst Satz streichen oder vereinfachen.
   8. **Formate mischen:** Simulation · Mythos vs. Daten · „3 Dinge“ · „Du hast gefragt“. Label bleibt ehrlich (SIMULATION · MATH MODEL, SURVEY …), Vorbehalte in Fig-Zeile + Caption.
   9. **Bausteine aus `shared/fx2.py`** (nach den „Funfacts“-Reels): `camera()`/`cam_path()` = Kamerafahrt auf das Objekt (Start nah, rauszoomen, beim Reveal reinfahren, Loop zurück), `glow()` = weicher Lichtschein für „aktiv/ja“, `Stream`/`dots()` = tausende Partikel, die sichtbar fließen. Pro Folge mindestens einen davon nutzen, wenn es passt. Erste Folge: No. 100.
+  11. **HELLER LOOK = STANDARD (Chris, 13.11.2026):** neue Folgen auf hellem Papier mit **weichen Schatten** (`fx2.soft_shadow`), der Reveal auf **Schwarz** statt Orange (Orange bleibt nur als Akzent für die Antwort). Umsetzung: `ThreadEpisode(dark=True)` lassen und `fx2.light_look(EP, ORDER)` aufrufen; Schatten nur wenn `is_light(EP, t)`, Glow nur in dunklen Szenen. Komplett dunkel nur, wenn die Geschichte es braucht (Nacht, Lichtkegel). Fertige Folgen bleiben, wie sie sind.
   Helfer: `spring()` liegt in `shared/swiss.py`. Erste Remakes (12.11.): 124, 79, 116, 125, 126.
 - Automatisierung nur mit **Google Apps Script** (kein Make.com). Code immer als komplette Datei, keine großen Änderungen ohne Absprache.
 

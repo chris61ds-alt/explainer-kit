@@ -100,3 +100,12 @@ def soft_shadow(img, iso, boxes, light=(.55, .3), r=16, k=.32, col=INK):
     a_ = np.asarray(m.filter(ImageFilter.GaussianBlur(r)), np.float32)[..., None] / 255 * k
     out = np.asarray(img, np.float32) * (1 - a_) + a_ * np.array(col, np.float32)
     img.paste(Image.fromarray(np.clip(out, 0, 255).astype(np.uint8)))
+
+def light_look(EP, order, reveal=("reveal",)):
+    """NEW STANDARD (Chris, 13.11.2026): light paper everywhere + soft shadows, the reveal on BLACK (was orange).
+    Keep ThreadEpisode(dark=True): the pipeline inverts, so "light" = paper and "dark" = black. Use soft_shadow() only where
+    is_light(EP, t) and glow() only where it is not."""
+    EP.bg = {k: "light" for k in order if k != "end"}
+    for k in reveal: EP.bg[k] = "dark"
+
+def is_light(EP, t): return EP.bg_of(EP.current(t)) == "light"
