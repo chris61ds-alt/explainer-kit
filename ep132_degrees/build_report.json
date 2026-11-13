@@ -1,0 +1,36 @@
+{
+ "episode": "ep132_degrees",
+ "tts": "new",
+ "asr_voice": [
+  "setup: 3/12 | Facebook measured this in 2016, across 1.6 billion users.",
+  "explain: 1/10 | Each dot is a person. A line means their friends."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 21.57,
+  "size_MiB": 3.4,
+  "black_intervals": [],
+  "loudness_LUFS": -16.0,
+  "true_peak_dBTP": -2.3,
+  "sha256": "cc4b043c0b2bdaabde074add126b87a0cb858c8f396a0334e192dc473325d432",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "7/64 = 10.9%",
+ "asr_final_issues": [
+  "setup: 3/12 | Facebook measured this in 2016, across 1.6 billion users.",
+  "explain: 1/10 | Each dot is a person. A line means their friends.",
+  "reveal: 3/11 | The real average, only 3.5 people in between."
+ ],
+ "duration_s": 21.57,
+ "longest_calm_s": 2.73,
+ "cover": "ep132_degrees_cover.png",
+ "caption": "ok"
+}

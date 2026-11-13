@@ -1,0 +1,41 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You're only about three and a half people away from almost anyone.",
+   "speed": 1.05
+  },
+  {
+   "id": "setup",
+   "text": "Facebook measured this in twenty sixteen, across one point six billion users."
+  },
+  {
+   "id": "explain",
+   "text": "Each dot is a person. A line means they're friends."
+  },
+  {
+   "id": "old",
+   "text": "The old idea was six steps between any two people."
+  },
+  {
+   "id": "reveal",
+   "text": "The real average: only three and a half people in between!"
+  },
+  {
+   "id": "why",
+   "text": "Your friend knows someone, who knows someone. That's why"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Bhagat, Burke, Diuk, Filiz & Edunov (2016), Three and a half degrees of separation, Facebook Research – about 1.59 billion active users; each person is connected to every other person by an average of 3.57 people in between (USA: 3.46; 2011: 3.74).",
+  "Travers & Milgram (1969), An experimental study of the small world problem, Sociometry 32(4) – the origin of the 'six degrees' idea (about 5 intermediaries in completed letter chains)."
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You think everyone noticed your embarrassing shirt. They didn't.",
+   "speed": 1.05
+  },
+  {
+   "id": "setup",
+   "text": "In a study, students had to wear a very embarrassing T-shirt into a room full of people."
+  },
+  {
+   "id": "explain",
+   "text": "Each dot is one person in that room. The bright one is you."
+  },
+  {
+   "id": "guess",
+   "text": "The wearers guessed: about half of the room noticed."
+  },
+  {
+   "id": "reveal",
+   "text": "The real number: only about one in four!"
+  },
+  {
+   "id": "why",
+   "text": "Everyone else is busy thinking about themselves. Just like you. So next time"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Gilovich, Medvec & Savitsky (2000), The spotlight effect in social judgment, Journal of Personality and Social Psychology 78(2), 211–222 – students wearing an embarrassing (Barry Manilow) T-shirt estimated that about 46 % of the others in the room noticed it; about 23 % actually did."
+ ]
+}

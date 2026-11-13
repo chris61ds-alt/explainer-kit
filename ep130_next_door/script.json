@@ -1,0 +1,40 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Your closest friends probably live closer than you think.",
+   "speed": 1.05
+  },
+  {
+   "id": "setup",
+   "text": "In nineteen fifty, researchers mapped friendships in a student housing block."
+  },
+  {
+   "id": "explain",
+   "text": "Each box is one apartment. You live here."
+  },
+  {
+   "id": "reveal",
+   "text": "Next-door neighbors: forty-one percent became friends."
+  },
+  {
+   "id": "far",
+   "text": "Two doors away: twenty-two. End of the hall: only ten."
+  },
+  {
+   "id": "why",
+   "text": "We don't pick friends from everyone. We pick from who we run into. That's why"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Festinger, Schachter & Back (1950), Social Pressures in Informal Groups: A Study of Human Factors in Housing – Westgate West (MIT married-student housing): 41 % of next-door neighbors were named as friends, 22 % of those two doors apart, 10 % of those at opposite ends of the hall."
+ ]
+}
