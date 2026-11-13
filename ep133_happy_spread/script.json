@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "When your friend gets happier, you probably do too.", "speed": 1.05},
+  {"id": "setup", "text": "Researchers followed almost five thousand people for twenty years."},
+  {"id": "explain", "text": "Each house is one person. This is you. This is a friend nearby."},
+  {"id": "reveal", "text": "When that friend got happier, your chance of being happy went up by twenty-five percent."},
+  {"id": "spread", "text": "And it spread up to three steps. To friends of friends of friends."},
+  {"id": "why", "text": "Your mood travels further than you think. That's why"},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Fowler & Christakis (2008), Dynamic spread of happiness in a large social network: longitudinal analysis over 20 years in the Framingham Heart Study, BMJ 337:a2338 – 4,739 people followed 1983–2003; a friend living within a mile who becomes happy increases the probability that a person is happy by about 25 % (95 % CI 1–57 %); next-door neighbours 34 %, siblings within a mile 14 %, spouse 8 %; clusters of happiness extend up to three degrees of separation (observational; the contagion interpretation is debated)."
+ ]
+}
