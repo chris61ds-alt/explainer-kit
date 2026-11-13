@@ -96,7 +96,14 @@ Source: <Autor (Jahr), Quelle>
   4. **Physische Bewegung:** `spring()` (Überschwingen), Schwerkraft beim Wegfallen, Ruhezustände schimmern leicht – nichts steht still.
   5. **Reveal = orange Hintergrund** (`EP.bg = {"reveal": "orange"}`), sonst dunkel.
   6. **Loop-Ende:** letzter Satz läuft in den ersten Satz hinein („… And it's why“ → „You think …“), das Objekt springt in den Anfangszustand zurück. Kein `ask`-Banner (Kommentar-Frage nur in der Caption), kein gesprochenes „Not just you“.
-  7. **Länge 18–22 s,** Beats `hook / setup / … / reveal / why`, Lücken 0,1–0,4 s, `lead=.05`.
+  7. **Länge 24–32 s** (vorher 18–22 s, Chris 13.11.2026: „zu schnell und zu unklar“), Beats `hook / setup / … / reveal / why`, `lead=.05`.
+  10. **VERSTÄNDLICHKEIT GEHT VOR TEMPO (Chris, 13.11.2026):**
+     - Sprechtempo `speed` **1.0** (Hook 1.05) statt 1.1/1.13; Lücken zwischen Beats 0,4–0,6 s, **nach der Schlüsselzahl 0,8 s Pause**.
+     - **Ein Gedanke pro Satz,** max. ~12 Wörter. Keine Fachwörter ohne Alltagsbild („layers“ → „circles of people you call“).
+     - **Erst das Setup verstehen lassen, dann die Zahl:** Was wird gezeigt? Was bedeutet ein Punkt / ein Balken? Das sagt die Stimme einmal klar („Each dot is one person.“).
+     - **Das „Warum“ mit einem Alltagsvergleich** erklären, nicht nur mit Mathe-Begriffen („253 pairs“ → „every person can match with 22 others“).
+     - **Bild = Ton:** die Headline zeigt genau das, was gerade gesagt wird; nie zwei neue Dinge gleichzeitig im Bild.
+     - **Test vor dem Bauen:** Versteht es jemand nach einmal Ansehen ohne Ton-Pause? Sonst Satz streichen oder vereinfachen.
   8. **Formate mischen:** Simulation · Mythos vs. Daten · „3 Dinge“ · „Du hast gefragt“. Label bleibt ehrlich (SIMULATION · MATH MODEL, SURVEY …), Vorbehalte in Fig-Zeile + Caption.
   9. **Bausteine aus `shared/fx2.py`** (nach den „Funfacts“-Reels): `camera()`/`cam_path()` = Kamerafahrt auf das Objekt (Start nah, rauszoomen, beim Reveal reinfahren, Loop zurück), `glow()` = weicher Lichtschein für „aktiv/ja“, `Stream`/`dots()` = tausende Partikel, die sichtbar fließen. Pro Folge mindestens einen davon nutzen, wenn es passt. Erste Folge: No. 100.
   Helfer: `spring()` liegt in `shared/swiss.py`. Erste Remakes (12.11.): 124, 79, 116, 125, 126.
