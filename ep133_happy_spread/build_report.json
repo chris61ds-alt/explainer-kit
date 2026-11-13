@@ -1,6 +1,6 @@
 {
  "episode": "ep133_happy_spread",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "spread: 2/13 | and it spread up to three steps, to friends of friends of friends of friends."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 22.63,
-  "size_MiB": 4.7,
+  "size_MiB": 4.6,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "4ca76d782dc78379ae37aba8d19abdb4658b465320eb68c7584c521718d8370a",
+  "sha256": "e7b42944ab1af765432ba79a3ef803746fcc09c0ea6854c663b7d652b399c5f4",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

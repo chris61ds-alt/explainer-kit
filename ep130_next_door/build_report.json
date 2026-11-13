@@ -1,6 +1,6 @@
 {
  "episode": "ep130_next_door",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "setup: 5/11 | In 1950, researchers mapped friendships in a student housing block."
  ],
@@ -13,7 +13,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "e80005fdec5f2109f663c167c3447cbafb074f7312d89f9aa1303b77c9613758",
+  "sha256": "e1c583f5eabc898fe37e94b2d35efd27ed171aeada64274a695441e00a936d71",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

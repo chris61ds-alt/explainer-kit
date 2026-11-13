@@ -1,6 +1,6 @@
 {
  "episode": "ep115_reach_out",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "result: 1/8 | They loved it more than the sender's expected."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 21.87,
-  "size_MiB": 3.0,
+  "size_MiB": 3.2,
   "black_intervals": [],
   "loudness_LUFS": -16.4,
   "true_peak_dBTP": -2.4,
-  "sha256": "ce0e70054af307d7ad10ed3ae7dc535b2921f15f19ce35176f41624abe09fc4a",
+  "sha256": "49c9579555cbd388f2b57f713e5e47d893a5a8da335ce410190c7f7c2cb30ecd",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

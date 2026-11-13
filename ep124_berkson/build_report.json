@@ -1,6 +1,6 @@
 {
  "episode": "ep124_berkson",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "setup: 1/12 | 400 people, looks in kindness totally random, no link at all.",
   "why: 1/13 | Nobody changed, only your filter did. It's called Birxin's Paradox, and it's why."
@@ -14,7 +14,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.0,
   "true_peak_dBTP": -2.5,
-  "sha256": "ae37076b3e24ca6ded8687cc2af9cadc712bf73f53e12b803f824dd49f7926b4",
+  "sha256": "ede8d8e79d16e5d99a5ac2a5c98c45fd6a86d81118785464e8e4f6a97fef29a4",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

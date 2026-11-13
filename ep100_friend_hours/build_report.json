@@ -1,6 +1,6 @@
 {
  "episode": "ep100_friend_hours",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "hook: 1/12 | You just moved and making friends feel slow. Here's the real math."
  ],
@@ -13,7 +13,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.5,
-  "sha256": "9307a242e6e53aebb7ddd10f6bb9bd7e4ed0a39acebb25f8452a72ff9bd2e1e7",
+  "sha256": "c96025eea5ab04bb49df6c2050db19b9ba4bd502f5b193925ba1f3b355f2f3d7",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

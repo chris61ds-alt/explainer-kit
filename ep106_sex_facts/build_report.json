@@ -1,6 +1,6 @@
 {
  "episode": "ep106_sex_facts",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "tip2: 1/20 | Two, don't skip the cuddle. Couples who spent more time on affection after sex felt more satisfied. In fact, three, [BUZZER]"
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 23.93,
-  "size_MiB": 3.2,
+  "size_MiB": 3.5,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.4,
-  "sha256": "9d1ad9d39c1da11712766f1d072e1c172f629b7f36fd74d62a7d1f3623efce5b",
+  "sha256": "9f6431f2e7c24d767bd02c22d4ce6345925c8f0209fb422da69dd97437e3be9b",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

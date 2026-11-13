@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 29.63,
-  "size_MiB": 4.4,
+  "size_MiB": 3.7,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.3,
-  "sha256": "4a0a2b4397959e148b85ef8de64657dde8148f15724b425c299b48cfc146f609",
+  "sha256": "42f65d75c9d4d117976a3a82bc4cb903917471d9aacfbef193e7b99cd46b9954",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -27,7 +27,7 @@
   "friends: 9/21 | In 1995, friends with a top matchmaker, 33% by 2017 just 20, so who took over?"
  ],
  "duration_s": 29.64,
- "longest_calm_s": 2.29,
+ "longest_calm_s": 2.87,
  "cover": "ep90_met_online_cover.png",
  "caption": "ok"
 }

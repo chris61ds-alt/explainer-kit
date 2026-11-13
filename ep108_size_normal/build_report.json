@@ -1,6 +1,6 @@
 {
  "episode": "ep108_size_normal",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "avg: 3/13 | The average erect length 13.1 cm, about 5.2 inches.",
   "helps: 1/23 | In one clinic, 92 men came and worried about their size. Getting measured and learning the real numbers relieved most of them."
@@ -14,7 +14,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.5,
-  "sha256": "204b61f5c0a994e1b6b932fb72c89879c4de991b37ff782211ec723b5ff9855c",
+  "sha256": "7659c8fae4ade8301fa09ea3de7bb781cff9a5fb85ce1ea325d19db69be59a51",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

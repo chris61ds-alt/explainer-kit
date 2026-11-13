@@ -1,6 +1,6 @@
 {
  "episode": "ep80_forever_20",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "data: 3/13 | On OK Cupid, men of every age rated women in their early 20s highest."
  ],
@@ -13,7 +13,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.5,
-  "sha256": "68c719bead2c9ff74e4b11841c0c75be05a9ec6989c62f6765f08cf955afb676",
+  "sha256": "a546c8a89b5a6486a0bcd44766716c72e62a5c0106be9a566ef163a48e83999c",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -27,7 +27,7 @@
   "data: 3/13 | On OK Cupid, men of every age rated women in their early 20s highest."
  ],
  "duration_s": 22.64,
- "longest_calm_s": 2.42,
+ "longest_calm_s": 4.25,
  "cover": "ep80_forever_20_cover.png",
  "caption": "ok"
 }

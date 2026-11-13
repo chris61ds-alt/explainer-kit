@@ -1,6 +1,6 @@
 {
  "episode": "ep43_kissing",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "study: 1/12 | Anthropologists looked at 168 cultures around the world."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 23.93,
-  "size_MiB": 3.6,
+  "size_MiB": 3.1,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.3,
-  "sha256": "e738b23a58f7e43e1fd62d02e785b0e21b89b89d35c206a200ba8a84be1f52fb",
+  "true_peak_dBTP": -2.4,
+  "sha256": "3c602374f0f787d4990d6677e35f64d09d546b993e4d533030d48657e638c6bc",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -27,7 +27,7 @@
   "study: 1/12 | Anthropologists looked at 168 cultures around the world."
  ],
  "duration_s": 23.94,
- "longest_calm_s": 2.1,
+ "longest_calm_s": 3.21,
  "cover": "ep43_kissing_cover.png",
  "caption": "ok"
 }
