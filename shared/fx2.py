@@ -114,6 +114,8 @@ def hook_intro(EP, dur=1.7, y=300, max_size=120):
     """BIG HOOK in the first ~1.7 s (Chris, 13.11.2026, TikTok retention: most viewers left at 0:01): the cover words in big
     type over the already-moving object, from frame 0 (= TikTok cover), then they fly up and out and the small headline stays.
     Wraps the first scene of a level-2 episode; drawn inside the scene, so light/dark mapping applies to it as usual."""
+    import os
+    if os.environ.get("NJY_HOOK_INTRO", "0") != "1": return       # OFF since 14.11.2026 (Chris: the big title fights "something visual happens at once")
     from swiss import F, BLK, X0, X1, BG, INK, mix
     key = EP.order[0]; f = EP.scenes[key]; words = (EP.cover_spec or {}).get("words") or [EP.title]
     def g(img, d, t):
