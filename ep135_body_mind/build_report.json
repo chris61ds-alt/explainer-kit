@@ -1,6 +1,6 @@
 {
  "episode": "ep135_body_mind",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "setup: 1/13 | Researchers combined 132 lab studies with over 4,000 people.",
   "men: 1/8 | For men, body and mind mostly move together."
@@ -14,7 +14,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.5,
-  "sha256": "bff3c51695b34d3e82b2dc32db49a0857a407b0b441f1a0a0184d1d7d8e53496",
+  "sha256": "fb07573c661002a6a7657576c955b4ba7250dd6bf939859e58d9d0469a1a842c",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
