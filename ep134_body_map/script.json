@@ -1,0 +1,40 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "You think men and women get turned on in different places. Their body maps say no.",
+   "speed": 1.05
+  },
+  {
+   "id": "setup",
+   "text": "Seven hundred people colored a body outline: where does a partner's touch turn you on?"
+  },
+  {
+   "id": "explain",
+   "text": "Every dot is one answer. The darker the spot, the more people chose it."
+  },
+  {
+   "id": "reveal",
+   "text": "Men and women drew almost the same map!"
+  },
+  {
+   "id": "detail",
+   "text": "Women's maps were a little bigger: twenty-six percent of the body, versus twenty-two."
+  },
+  {
+   "id": "why",
+   "text": "Turns out, we're more alike than we think. And still,"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Nummenmaa, Suvilehto, Glerean, Santtila & Hietanen (2016), Topography of Human Erogenous Zones, Archives of Sexual Behavior 45(5), 1207–1216 – 704 Finnish volunteers (528 women, 176 men) colored body outlines; genitals strongest, then breasts/nipples, inner thighs, buttocks, mouth; men and women rated each other's maps similarly (mean r ≈ 0.78–0.79; partner-sex maps r ≈ 0.91–0.95); women's erogenous area during partner sex about 26 % of the body vs 22 % for men."
+ ]
+}

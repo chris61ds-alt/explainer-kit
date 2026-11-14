@@ -1,0 +1,40 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "Your body can react before your mind is into it. Especially for women.",
+   "speed": 1.05
+  },
+  {
+   "id": "setup",
+   "text": "Researchers combined one hundred thirty-two lab studies, with over four thousand people."
+  },
+  {
+   "id": "explain",
+   "text": "They measured two things: what the body did, and what people said they felt."
+  },
+  {
+   "id": "men",
+   "text": "For men, body and mind mostly moved together."
+  },
+  {
+   "id": "reveal",
+   "text": "For women, much less. The body often reacted on its own!"
+  },
+  {
+   "id": "why",
+   "text": "So a body's reaction is not a yes. Only a clear yes is. Because"
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Chivers, Seto, Lalumière, Laan & Grimbos (2010), Agreement of self-reported and genital measures of sexual arousal in men and women: a meta-analysis, Archives of Sexual Behavior 39(1), 5–56 – 132 laboratory studies (1969–2007), 2,505 women and 1,918 men; agreement between self-reported and genital arousal r = .66 for men and r = .26 for women; part of the difference is explained by method (stimulus variety, timing of the self-report)."
+ ]
+}

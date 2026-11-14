@@ -60,19 +60,26 @@ def rise(a, sr, st=QRISE_ST, dur=QRISE_DUR):
     if pk2 > pk: out[s0:] *= pk / pk2                                       # (else the final mix fails true peak ≤ −1 dBTP)
     return out
 
+# Pronunciation fixes (14.11.2026, Chris: "live" sounded like "life"): espeak reads the verb "live" as /laɪv/ after some words
+# ("probably live closer"). Only the synthesized text is respelled; subtitles keep the original. "lives" (noun) stays /laɪvz/.
+SAY = [(re.compile(r"\b([Ll])ive\b"), r"\1iv")]
+def say(p):
+    for rx, rep in SAY: p = rx.sub(rep, p)
+    return p
+
 for b in s["beats"]:
     sp = b.get("speed") or (s["speed"] * (1.06 if b["id"] == "guess" else .94 if b["id"] in reveal else 1.0) if V3 else s["speed"])
     parts = [p for p in re.split(r"(?<=[.?!])\s+", b["text"]) if p]
     if V3 and (b["id"] in reveal or any(rising(p) for p in parts)):
         out = []; gap = .16 if b["id"] in reveal else .14
         for j, p in enumerate(parts):
-            a, sr = k.create(p, voice=VOICE, speed=sp, lang=s["lang"]); a = trim(a, sr, tail=.04)
+            a, sr = k.create(say(p), voice=VOICE, speed=sp, lang=s["lang"]); a = trim(a, sr, tail=.04)
             if rising(p): a = rise(a, sr)
             out.append(squeeze(a, sr))
             if j < len(parts) - 1: out.append(np.zeros(int(gap * sr)))
         a = np.concatenate(out)
     else:
-        a, sr = k.create(b["text"], voice=VOICE, speed=sp, lang=s["lang"]); a = squeeze(trim(a, sr), sr)
+        a, sr = k.create(say(b["text"]), voice=VOICE, speed=sp, lang=s["lang"]); a = squeeze(trim(a, sr), sr)
     f = int(.008 * sr); a[:f] *= np.linspace(0, 1, f); a[-f:] *= np.linspace(1, 0, f)
     sf.write(f"vo/{b['id']}.wav", a, sr); meta.append(dict(id=b["id"], text=b["text"], dur=len(a) / sr, sr=sr)); print(b["id"], round(len(a) / sr, 2))
 json.dump(meta, open("vo/meta.json", "w"), indent=1); json.dump(dict(sources=s.get("sources", [])), open("proof.json", "w"), indent=1)
