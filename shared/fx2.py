@@ -143,3 +143,46 @@ def push_intro(EP, z1=1.08, dur=2.6, band=(0, 250, W, 1185)):
         z = 1 + (z - 1) * (1 - ease(clamp((t - dur + .5) / .5)))           # ease back to 1.0 so the next scene matches
         camera(img, lambda L, dL: f(L, dL, t), z, ((band[0] + band[2]) / 2, (band[1] + band[3]) / 2 - 80), band=band)
     EP.scenes[key] = g
+
+# ---------------------------------------------------------------- hook building blocks (15.11.2026: "the first 3 seconds")
+def phone_inbox(d, box, t, t_msgs, title="MESSAGES", screen=None, frame=INK, row=None, avatar=None, k_open=1.0):
+    """an immersive phone POV: rounded phone in `box`, an inbox whose rows slide in from the top at the times in t_msgs
+    (each new one pushes the others down), plus a red-dot counter that races. Returns the profile-picture centre and radius."""
+    from swiss import F, BLK, MONO, WHITE, RULE, MID, SIG, mix
+    screen = screen or WHITE; row = row or RULE; avatar = avatar or MID
+    x0, y0, x1, y1 = box; w, h = x1 - x0, y1 - y0; r = int(min(w, h) * .09)
+    d.rounded_rectangle(box, radius=r, fill=frame)
+    sx0, sy0, sx1, sy1 = x0 + w * .045, y0 + h * .04, x1 - w * .045, y1 - h * .04
+    d.rounded_rectangle([sx0, sy0, sx1, sy1], radius=int(r * .8), fill=screen)
+    pr = (sx1 - sx0) * .11; pc = (sx0 + pr * 1.6, sy0 + pr * 1.7)                         # own profile picture, top left
+    d.ellipse([pc[0] - pr, pc[1] - pr, pc[0] + pr, pc[1] + pr], fill=avatar)
+    fs = max(10, int((sx1 - sx0) * .075)); d.text((pc[0] + pr * 1.5, pc[1]), title, font=F(BLK, fs), fill=frame, anchor="lm")
+    n = sum(1 for x in t_msgs if t >= x)
+    if n:                                                                                  # unread badge
+        bx, by = sx1 - pr * 1.2, pc[1]; br = pr * .75 * (1 + .25 * max(0, 1 - (t - max(x for x in t_msgs if t >= x)) / .15))
+        d.ellipse([bx - br, by - br, bx + br, by + br], fill=SIG); d.text((bx, by), str(n), font=F(BLK, int(br * 1.1)), fill=WHITE, anchor="mm")
+    if sx1 - sx0 < 220: return pc, pr                                                      # too small for rows (end of the pull-out)
+    rh = (sy1 - sy0) * .105; top = pc[1] + pr * 1.6
+    for j, tm in enumerate(sorted([x for x in t_msgs if t >= x], reverse=True)):           # newest on top
+        k = ease(clamp((t - tm) / .18))
+        y = top + j * rh * 1.08 - (rh * 1.08) * (1 - ease(clamp((t - sorted([x for x in t_msgs if t >= x], reverse=True)[0]) / .18))) * (j > 0)
+        if y + rh > sy1: break
+        a = rh * .32; d.ellipse([sx0 + 30, y + rh / 2 - a, sx0 + 30 + 2 * a, y + rh / 2 + a], fill=avatar)
+        d.rounded_rectangle([sx0 + 50 + 2 * a, y + rh * .28, sx0 + (sx1 - sx0) * .62, y + rh * .44], radius=6, fill=mix(row, frame, .35))
+        d.rounded_rectangle([sx0 + 50 + 2 * a, y + rh * .56, sx0 + (sx1 - sx0) * .85, y + rh * .70], radius=6, fill=row)
+        if j == 0 and k < 1: d.rectangle([sx0, y, sx1, y + rh], outline=SIG, width=3)
+    return pc, pr
+
+def stamp(d, c, text, t, t0, size=90, col=None, ang=-12):
+    """a rubber stamp that slams onto the picture: overshoot scale, slight rotation, box + text (part of the scene, not a title)"""
+    from swiss import F, BLK, SIG
+    from PIL import Image as _I, ImageDraw as _D
+    if t < t0: return 0.0
+    k = clamp((t - t0) / .22); s = 2.2 - 1.2 * ease(k) + (.12 * math.sin(math.pi * clamp((t - t0 - .22) / .18)) if t > t0 + .22 else 0)
+    col = col or SIG; f = F(BLK, int(size * s)); tw = d.textlength(text, font=f); pad = size * s * .22
+    im = _I.new("RGBA", (int(tw + 4 * pad), int(size * s * 1.6)), (0, 0, 0, 0)); g = _D.Draw(im)
+    g.rounded_rectangle([pad * .5, pad * .5, im.width - pad * .5, im.height - pad * .5], radius=int(pad * .6), outline=col + (255,), width=max(3, int(8 * s)))
+    g.text((im.width / 2, im.height / 2), text, font=f, fill=col + (255,), anchor="mm")
+    im = im.rotate(ang, expand=True, resample=_I.BICUBIC)
+    base = d._image; base.paste(im, (int(c[0] - im.width / 2), int(c[1] - im.height / 2)), im)
+    return k

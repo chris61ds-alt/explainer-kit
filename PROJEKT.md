@@ -108,6 +108,13 @@ Source: <Autor (Jahr), Quelle>
   9. **Bausteine aus `shared/fx2.py`** (nach den „Funfacts“-Reels): `camera()`/`cam_path()` = Kamerafahrt auf das Objekt (Start nah, rauszoomen, beim Reveal reinfahren, Loop zurück), `glow()` = weicher Lichtschein für „aktiv/ja“, `Stream`/`dots()` = tausende Partikel, die sichtbar fließen. Pro Folge mindestens einen davon nutzen, wenn es passt. Erste Folge: No. 100.
   11. **HELLER LOOK = STANDARD (Chris, 13.11.2026):** neue Folgen auf hellem Papier mit **weichen Schatten** (`fx2.soft_shadow`), der Reveal auf **Schwarz** statt Orange (Orange bleibt nur als Akzent für die Antwort). Umsetzung: `ThreadEpisode(dark=True)` lassen und `fx2.light_look(EP, ORDER)` aufrufen; Schatten nur wenn `is_light(EP, t)`, Glow nur in dunklen Szenen. Komplett dunkel nur, wenn die Geschichte es braucht (Nacht, Lichtkegel). Fertige Folgen bleiben, wie sie sind.
   12. **Kein großer Titel über dem Bild (Chris, 14.11.2026):** der „große Hook“ (`fx2.hook_intro`) ist wieder AUS – er widerspricht „sofort passiert etwas Visuelles“. Die erste Sekunde gehört dem bewegten Objekt; der Hook ist gesprochen + kleine Headline. Likes heben die Views nicht – entscheidend ist die Zuschauerbindung in den ersten Sekunden.
+  13. **DIE ERSTEN 3 SEKUNDEN (Chris, 15.11.2026) – bei JEDER Folge zuerst fragen: Wie wird das Start-Statement bestmöglich visualisiert?**
+     - Der Einstieg zeigt die **These als Mini-Film** (1,5–2,5 s), nicht das leere Erklär-Objekt.
+     - **Nah / Ich-Perspektive** starten (Handy, Tür, Bett, Körper) statt Übersicht.
+     - **Ein sichtbares Ereignis pro Satzteil**, im Takt der Stimme, mit Sound.
+     - **Ein plakatives Element IM Bild** (Stempel, Zahl auf dem Display, Wärmebild) – kein Titel darüber.
+     - Dann **Kamera raus / Match-Cut** ins Erklär-Objekt, damit alles ein Film bleibt.
+     Bausteine: `fx2.phone_inbox`, `fx2.stamp` (weitere folgen: Wärmebild-Scan, Tür, Bett-POV).
   Helfer: `spring()` liegt in `shared/swiss.py`. Erste Remakes (12.11.): 124, 79, 116, 125, 126.
 - Automatisierung nur mit **Google Apps Script** (kein Make.com). Code immer als komplette Datei, keine großen Änderungen ohne Absprache.
 

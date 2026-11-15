@@ -9,7 +9,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
-from fx2 import dots, light_look, is_light
+from fx2 import dots, light_look, is_light, phone_inbox, stamp
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.05, gaps={"hook": .5, "setup": .5, "explain": .5, "same": .5, "diff": .5, "reveal": .8, "why": .1})
 S, E, cue = TL.S, TL.E, TL.cue
@@ -88,6 +88,20 @@ def scene(img, d, t):
         if t >= cue("explain", "two women") - .1 and back < 1:
             d.text((CX[k], 525), "LEFT" if k == "A" else "RIGHT", font=F(MONO, 24), fill=MID, anchor="mm")
 
+# ---- the first 3 seconds (15.11.2026): POV phone, messages slam in, a "1/5" stamp lands on her picture, camera pulls out
+T_M = list(np.linspace(-.3, cue("hook", "Then not") - .15, 16))          # 2–3 already there at frame 0 (= TikTok cover)
+T_STAMP = cue("hook", "not everyone") - .05
+T_OUT = S("setup") - .25
+BIG = (270, 485, 810, 1150); SMALL = (CX["B"] - 40, 560, CX["B"] + 40, 650)
+def opener(img, d, t):
+    k = ease_io(clamp((t - T_OUT) / .7))
+    if k >= 1: return
+    box = tuple(a + (b - a) * k for a, b in zip(BIG, SMALL))
+    shake = 10 * math.sin(t * 90) * max(0, 1 - (t - T_STAMP) / .25) if t >= T_STAMP else 0
+    box = (box[0] + shake, box[1], box[2] + shake, box[3])
+    pc, pr = phone_inbox(d, box, t, T_M, title="INBOX")
+    if k < .3: stamp(d, (pc[0] + pr * 1.4, pc[1] + pr * .5), "1/5", t, T_STAMP, size=int(100 * (1 - k)))
+
 def head(d, t, line, sub=None):
     d.text((X0, 300), line, font=F(BLK, 84), fill=INK)
     cur = EP.current(t)
@@ -96,13 +110,17 @@ def head(d, t, line, sub=None):
         d.text((X0, 400), "MESSAGES · RIGHT VS LEFT", font=F(MONO, 30), fill=MID); d.text((X0 + 470, 388), f"{v:.0f}×", font=F(BLK, 64), fill=SIG)
     elif T_AVG <= t < T_BACK:
         d.text((X0, 400), "AVERAGE", font=F(MONO, 30), fill=MID); d.text((X0 + 170, 388), "3.0 = 3.0", font=F(BLK, 64), fill=INK)
+    elif t < T_OUT + .5:
+        n = sum(1 for x in T_M if t >= x)
+        d.text((X0, 400), "MESSAGES", font=F(MONO, 30), fill=MID); d.text((X0 + 190, 388), f"{n}", font=F(BLK, 64), fill=INK)
     else:
         n = sum(1 for i in range(len(VOTES["A"])) if t >= vote_t("A", i)) * 2 if T_V0 <= t < T_BACK else 0
         d.text((X0, 400), "RATINGS", font=F(MONO, 30), fill=MID); d.text((X0 + 170, 388), f"{n}", font=F(BLK, 64), fill=INK)
     if sub: d.text((X1, 470), sub, font=F(MONO, 26), fill=MID, anchor="ra")
 
 def draw(img, d, t, line, sub=None, note="dots: schematic example"):
-    scene(img, d, t); head(d, t, line, sub); fig(d, note)
+    if t >= T_OUT: scene(img, d, t)
+    opener(img, d, t); head(d, t, line, sub); fig(d, note)
 
 def sc_hook(img, d, t): draw(img, d, t, "MORE MESSAGES?")
 def sc_setup(img, d, t): draw(img, d, t, "LOOKS: 1 TO 5", note="men rating women · OkCupid")
@@ -114,7 +132,7 @@ def sc_why(img, d, t): draw(img, d, t, "LESS COMPETITION." if t < T_BACK else "M
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}
 EP.scenes = {"hook": sc_hook, "setup": sc_setup, "explain": sc_explain, "same": sc_same, "diff": sc_diff, "reveal": sc_reveal, "why": sc_why}
-FX = [(.05, whoosh(.7, .04), 0), *[(vote_t("A", i) + .35, tick(.02), -.5) for i in range(0, 30, 2)],
+FX = [*[(x, pop(.05), .2) for x in T_M if x > 0], (T_STAMP, thud(.5), .3), (T_OUT, whoosh(.7, .05), 0), *[(vote_t("A", i) + .35, tick(.02), -.5) for i in range(0, 30, 2)],
       *[(vote_t("B", i) + .35, tick(.02), .5) for i in range(1, 30, 2)],
       (T_AVG, pop(.12), -.4), (T_AVG + .15, pop(.12), .4), (T_DIFF_A, whoosh(.4, .04), -.5), (T_DIFF_B, whoosh(.4, .04), .5),
       (S("reveal") + .1, thud(.55), 0), *[(T_MSG + j * (1.6 / 18) + .5, tick(.03), .6) for j in range(18)], (T3 + .3, pop(.16), .3),
