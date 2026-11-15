@@ -86,4 +86,37 @@ EP.scenes = {"hook": sc_hook, "study": sc_study, "result": sc_result, "often": s
 FX = [(0.0, thud(.5), 0), *[(i * .09, tick(.025), (i % 5 - 2) / 3) for i in range(13)], *EP.cut_fx(), (cue("study", "then they kissed") - .2, pop(.15), 0),
       (S("result") + .05, thud(.55), 0), (cue("result", "about eighty") - .3, riser(.4, .05), 0), *[(S("often") + .3 + i * .15, pop(.08), (i - 4) / 5) for i in range(9)],
       (cue("twist", "the women") - .2, rewind_sfx(.08, .3), 0), (cue("twist", "the women") + .6, pop(.15), 0), (cue("point", "at least") - .2, pop(.15), 0), (S("end"), thud(.5), 0)]
+
+# ---- the first 3 seconds (15.11.2026, rule 13): the start statement as a mini-film ----
+from fx2 import opener as _opener, stamp as _stamp, coin as _coin, smiley as _smiley, phone_profile as _phone_profile, dots as _dots
+import numpy as _np
+
+def _bust(d, cx, cy, s, f, col):
+    X = lambda dx: cx + f * dx * s
+    d.ellipse([min(X(-105), X(95)), cy - 150 * s, max(X(-105), X(95)), cy + 85 * s], fill=col)
+    d.polygon([(X(85), cy), (X(98), cy + 55 * s), (X(62), cy + 112 * s), (X(-10), cy + 122 * s), (X(-50), cy + 60 * s)], fill=col)
+    d.polygon([(X(88), cy - 42 * s), (X(122), cy + 4 * s), (X(88), cy + 14 * s)], fill=col)
+    d.rectangle([min(X(-48), X(30)), cy + 80 * s, max(X(-48), X(30)), cy + 200 * s], fill=col)
+    d.rounded_rectangle([min(X(-250), X(200)), cy + 175 * s, max(X(-250), X(200)), cy + 440 * s], radius=int(140 * s), fill=col)
+def _heart(d, cx, cy, r, col):
+    d.ellipse([cx - r, cy - r * .9, cx, cy + r * .1], fill=col); d.ellipse([cx, cy - r * .9, cx + r, cy + r * .1], fill=col)
+    d.polygon([(cx - r * .97, cy - r * .25), (cx + r * .97, cy - r * .25), (cx, cy + r * .95)], fill=col)
+
+_T_NUM = TL.cue("hook", "Eighty million") - .1
+_R = _np.random.RandomState(4); _A = _R.rand(2600) * 6.283; _RR = _R.rand(2600) ** .5; _SP = .6 + _R.rand(2600)
+def _open(img, d, t):
+    _bust(d, 540 - 118, 760, .95, 1, MID); _bust(d, 540 + 118, 760, .95, -1, MID)
+    kc = clamp(t / 1.3); r = 150                                             # a 10-second ring fills (fast-forward)
+    d.arc([540 - r, 735 - r, 540 + r, 735 + r], -90, -90 + 360 * kc, fill=INK, width=12)
+    d.text((540, 735 - r - 40), f"{10 * kc:.0f} s", font=F(BLK, 44), fill=INK, anchor="mm")
+    n = int(2600 * clamp((t - .2) / 2.0) ** 1.5)                              # bacteria swarm out of the kiss and multiply
+    if n:
+        rad = 40 + 360 * _RR[:n] * clamp((t - .2) / 2.0) ** .6; a = _A[:n] + t * _SP[:n]
+        _dots(img, _np.stack([540 + _np.cos(a) * rad, 735 + _np.sin(a) * rad * .8], 1), SIG, size=4)
+    if t >= _T_NUM:
+        v = 80_000_000 * ease(clamp((t - _T_NUM) / .6)); k = spring((t - _T_NUM) / .4)
+        d.text((540, 1080), f"{v:,.0f}", font=F(BLK, int(110 * min(1.15, k))), fill=INK, anchor="mm")
+_opener(EP, _open, "ONE KISS.")
+FX += [(.2, riser(1.6, .04), 0), (_T_NUM, thud(.5), 0)]
+
 if __name__ == "__main__": EP.run(FX)

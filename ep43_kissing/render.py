@@ -78,4 +78,31 @@ FX = [(0.0, thud(.5), 0), *EP.cut_fx(), *[(S("study") + .2 + i * .12, tick(.04),
       (cue("forager", "little sign"), thud(.35), 0), (cue("point", "culture"), thud(.45), 0), (cue("point", "special"), riser(.4, .06), 0), (S("end"), thud(.5), 0)]
 from fx2 import push_intro
 push_intro(EP)                                                  # never a still first second (13.11.2026)
+
+# ---- the first 3 seconds (15.11.2026, rule 13): the start statement as a mini-film ----
+from fx2 import opener as _opener, stamp as _stamp, coin as _coin, smiley as _smiley, phone_profile as _phone_profile, dots as _dots
+import numpy as _np
+
+def _bust(d, cx, cy, s, f, col):
+    X = lambda dx: cx + f * dx * s
+    d.ellipse([min(X(-105), X(95)), cy - 150 * s, max(X(-105), X(95)), cy + 85 * s], fill=col)
+    d.polygon([(X(85), cy), (X(98), cy + 55 * s), (X(62), cy + 112 * s), (X(-10), cy + 122 * s), (X(-50), cy + 60 * s)], fill=col)
+    d.polygon([(X(88), cy - 42 * s), (X(122), cy + 4 * s), (X(88), cy + 14 * s)], fill=col)
+    d.rectangle([min(X(-48), X(30)), cy + 80 * s, max(X(-48), X(30)), cy + 200 * s], fill=col)
+    d.rounded_rectangle([min(X(-250), X(200)), cy + 175 * s, max(X(-250), X(200)), cy + 440 * s], radius=int(140 * s), fill=col)
+def _heart(d, cx, cy, r, col):
+    d.ellipse([cx - r, cy - r * .9, cx, cy + r * .1], fill=col); d.ellipse([cx, cy - r * .9, cx + r, cy + r * .1], fill=col)
+    d.polygon([(cx - r * .97, cy - r * .25), (cx + r * .97, cy - r * .25), (cx, cy + r * .95)], fill=col)
+
+_T_TOUCH = TL.cue("hook", "human nature") - .05; _T_NO = TL.cue("hook", "Not so fast") - .05
+def _open(img, d, t):
+    k = ease_io(clamp(t / max(.3, _T_TOUCH))); apart = spring((t - _T_NO) / .45) if t >= _T_NO else 0
+    gap = 230 * (1 - k) + 260 * apart
+    _bust(d, 540 - 125 - gap, 760, .95, 1, MID); _bust(d, 540 + 125 + gap, 760, .95, -1, MID)
+    if t >= _T_TOUCH and apart < .5:
+        kh = spring((t - _T_TOUCH) / .35) * (1 - apart * 2); _heart(d, 540, 600 - 60 * kh, 46 * kh, INK)
+    _stamp(d, (540, 720), "< HALF", t, _T_NO, size=96)
+_opener(EP, _open, "KISSING?")
+FX += [(_T_TOUCH, pop(.14), 0), (_T_NO, thud(.55), 0)]
+
 if __name__ == "__main__": EP.run(FX)

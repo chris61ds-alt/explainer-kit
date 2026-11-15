@@ -113,4 +113,22 @@ FX = [(0.0, thud(.5), 0), *[(.15 + i * .5, clk(.05), .3) for i in range(5)], (cu
       (S("result") + .05, thud(.55), 0), *[(S("result") + .1 + i * .25, clk(.05), 0) for i in range(8)], (cue("result", "five point") + .3, thud(.4), 0),
       (cue("range", "three and a half"), pop(.15), -.3), (cue("range", "over ten"), pop(.15), .3), (cue("experts", "three to seven"), thud(.4), 0),
       (cue("point", "the clock") + .6, rewind_sfx(.1, .3), 0), (S("end"), thud(.5), 0)]
+
+# ---- the first 3 seconds (15.11.2026, rule 13): the start statement as a mini-film ----
+from fx2 import opener as _opener, stamp as _stamp, coin as _coin, smiley as _smiley, phone_profile as _phone_profile, dots as _dots
+import numpy as _np
+
+_T_Q = TL.cue("guess", "Guess a number") - .05
+def _open(img, d, t):
+    run = min(t, _T_Q); spin = run * 9.0                                    # minutes race by, then freeze
+    cx, cy, r = 540, 760, 270
+    d.rounded_rectangle([cx - 40, cy - r - 70, cx + 40, cy - r - 10], radius=10, fill=INK)  # crown
+    clock(d, cx, cy, r, minutes=spin, col=INK)
+    mm, ss = int(spin), int((spin % 1) * 60)
+    txt = f"{mm:02d}:{ss:02d}" if t < _T_Q else "??:??"
+    d.text((cx, cy + r + 80), txt, font=F(BLK, 96), fill=INK if t < _T_Q else MID, anchor="mm")
+    _stamp(d, (cx + 170, cy - 150), "?", t, _T_Q, size=130)
+_opener(EP, _open, "HOW LONG?")
+FX += [*[(j * .25, tick(.03), .2) for j in range(int(_T_Q / .25))], (_T_Q, thud(.5), 0)]
+
 if __name__ == "__main__": EP.run(FX)

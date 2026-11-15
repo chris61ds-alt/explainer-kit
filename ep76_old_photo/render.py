@@ -70,4 +70,24 @@ FX = [(0.0, thud(.5), 0), (cue("hook", "probably old") - .2, pop(.15), 0), *EP.c
       (cue("old", "twelve") - .3, pop(.15), 0), (cue("point", "the older") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
 from fx2 import push_intro
 push_intro(EP)                                                  # never a still first second (13.11.2026)
+
+# ---- the first 3 seconds (15.11.2026, rule 13): the start statement as a mini-film ----
+from fx2 import opener as _opener, stamp as _stamp, coin as _coin, smiley as _smiley, phone_profile as _phone_profile, dots as _dots
+import numpy as _np
+
+from thread import front_bust as _front
+_T_OLD = TL.cue("hook", "probably old") - .05
+def _open(img, d, t):
+    sw = 1 - ease(clamp(t / .35)); box = (250 + 400 * sw, 480, 830 + 400 * sw, 1160)   # the profile swipes in
+    def photo(dd, pb):
+        cx = (pb[0] + pb[2]) / 2; s = (pb[2] - pb[0]) / 640
+        _front(dd, cx, pb[1] + (pb[3] - pb[1]) * .42, s, col=MID if t < _T_OLD else mix(MID, RULE, .6))
+        if t >= _T_OLD:                                                     # it ages: grain + a folded corner
+            R = _np.random.RandomState(int(t * 20)); g = _np.stack([pb[0] + R.rand(260) * (pb[2] - pb[0]), pb[1] + R.rand(260) * (pb[3] - pb[1])], 1)
+            _dots(img, g, MID, size=3); dd.polygon([(pb[2] - 70, pb[1]), (pb[2], pb[1]), (pb[2], pb[1] + 70)], fill=INK)
+    pb = _phone_profile(d, box, t, photo, name="Alex, 29")
+    _stamp(d, ((pb[0] + pb[2]) / 2, pb[1] + 120), "OLD", t, _T_OLD, size=110)
+_opener(EP, _open, "THAT PHOTO.")
+FX += [(.02, whoosh(.4, .04), .5), (_T_OLD, thud(.55), 0)]
+
 if __name__ == "__main__": EP.run(FX)

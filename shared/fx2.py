@@ -186,3 +186,39 @@ def stamp(d, c, text, t, t0, size=90, col=None, ang=-12):
     im = im.rotate(ang, expand=True, resample=_I.BICUBIC)
     base = d._image; base.paste(im, (int(c[0] - im.width / 2), int(c[1] - im.height / 2)), im)
     return k
+
+def opener(EP, fn, headline=None):
+    """replace the first scene with a mini-film of the start statement (15.11.2026 rule 13). fn(img, d, t) draws the band;
+    the small headline (2–3 words) sits on top like in level 2. Overrides push_intro/hook_intro on that scene."""
+    from swiss import F, BLK, X0, INK
+    key = EP.order[0]
+    def g(img, d, t):
+        fn(img, d, t)
+        if headline: d.text((X0, 300), headline, font=F(BLK, 84), fill=INK)
+    EP.scenes[key] = g
+
+def coin(d, cx, cy, r, phase, col=INK, edge=None):
+    """a coin seen edge-on while it flips: width follows |cos(phase)|"""
+    from swiss import MID
+    w = max(3, r * abs(math.cos(phase))); d.ellipse([cx - w, cy - r, cx + w, cy + r], fill=col, outline=edge or MID, width=4)
+
+def smiley(d, c, r, mood, col=INK, width=10):
+    """face outline; mood -1 (sad) .. 0 (flat) .. 1 (big smile)"""
+    x, y = c; d.ellipse([x - r, y - r, x + r, y + r], outline=col, width=width)
+    for ex in (-.35, .35): d.ellipse([x + ex * r - r * .09, y - r * .3 - r * .09, x + ex * r + r * .09, y - r * .3 + r * .09], fill=col)
+    pts = [(x + u * r * .5, y + r * .32 + mood * r * .28 * (1 - (u ** 2))) for u in [i / 10 - 1 for i in range(21)]]
+    d.line(pts, fill=col, width=width, joint="curve")
+
+def phone_profile(d, box, t, photo, name="", frame=INK):
+    """phone POV showing a dating profile card: big photo area drawn by photo(d, (x0, y0, x1, y1)), name bar, two buttons"""
+    from swiss import F, BLK, WHITE, RULE, MID
+    x0, y0, x1, y1 = box; w, h = x1 - x0, y1 - y0; r = int(min(w, h) * .09)
+    d.rounded_rectangle(box, radius=r, fill=frame)
+    sx0, sy0, sx1, sy1 = x0 + w * .045, y0 + h * .04, x1 - w * .045, y1 - h * .04
+    d.rounded_rectangle([sx0, sy0, sx1, sy1], radius=int(r * .8), fill=WHITE)
+    pb = (sx0 + 18, sy0 + 18, sx1 - 18, sy0 + (sy1 - sy0) * .74); d.rounded_rectangle(pb, radius=18, fill=RULE); photo(d, pb)
+    if w > 220:
+        d.text((sx0 + 30, pb[3] + 22), name, font=F(BLK, max(12, int(w * .07))), fill=frame)
+        for j, cx in enumerate(((sx0 + sx1) / 2 - w * .17, (sx0 + sx1) / 2 + w * .17)):
+            rr = w * .07; cy = sy1 - h * .07; d.ellipse([cx - rr, cy - rr, cx + rr, cy + rr], outline=frame, width=5)
+    return pb

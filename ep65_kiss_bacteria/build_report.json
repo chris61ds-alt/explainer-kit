@@ -1,6 +1,6 @@
 {
  "episode": "ep65_kiss_bacteria",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "result: 1/17 | Afterwards, those bacteria had tripled in the other partner saliva. About 80 million swapped in one kiss."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 30.9,
-  "size_MiB": 5.3,
+  "size_MiB": 5.4,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
+  "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.5,
-  "sha256": "30a7034b7c4b8c5db22c65f957ade88ed75e4ff48461b758c8fbb441dd799566",
+  "sha256": "31249696ab14887b84160181204c542820ef312ccb6fd0ba337ec13245a5c671",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -25,10 +25,10 @@
  "asr_final_wer": "2/91 = 2.2%",
  "asr_final_issues": [
   "result: 1/17 | Afterwards, those bacteria had tripled in the other partner saliva. About 80 million swapped in one kiss.",
-  "twist: 1/18 | Oh, in the best part? The men said they kissed ten times a day. The women said five."
+  "twist: 1/18 | Oh, in the best part? The men said they kissed 10 times a day. The women said 5."
  ],
  "duration_s": 30.9,
- "longest_calm_s": 2.51,
+ "longest_calm_s": 3.6,
  "cover": "ep65_kiss_bacteria_cover.png",
  "caption": "ok"
 }

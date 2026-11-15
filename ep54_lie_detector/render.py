@@ -81,4 +81,26 @@ FX = [(0.0, thud(.5), 0), (cue("hook", "you can't"), thud(.45), 0), *EP.cut_fx()
       (S("result") + .05, thud(.55), 0), *[(cue("result", "a coin") + i * .08, tick(.05), .4) for i in range(8)],
       (cue("lies", "forty-seven") - .3, pop(.15), 0), *[(S("why") + .3 + i * .2, pop(.1), (i % 3 - 1) / 2) for i in range(7)],
       (cue("point", "coin flip") - .2, thud(.45), 0), (cue("point", "with confidence"), riser(.3, .05), 0), (S("end"), thud(.5), 0)]
+
+# ---- the first 3 seconds (15.11.2026, rule 13): the start statement as a mini-film ----
+from fx2 import opener as _opener, stamp as _stamp, coin as _coin, smiley as _smiley, phone_profile as _phone_profile, dots as _dots
+import numpy as _np
+
+from thread import front_bust as _front
+_T_NO = TL.cue("hook", "You can't") - .05
+def _open(img, d, t):
+    _front(d, 540, 640, .85, col=MID)
+    pts = []                                                                # polygraph trace scrolling under the face
+    for i in range(0, 900, 6):
+        x = 90 + i; u = (i + t * 420) / 70
+        spike = 70 * math.exp(-((u % 9) - 4.5) ** 2 * 3) * (1 if int(u / 9) % 2 else -1)
+        pts.append((x, 1050 + 22 * math.sin(u * 1.7) + spike))
+    d.line(pts, fill=INK, width=6, joint="curve")
+    if t >= _T_NO:                                                           # a coin flips in and lands
+        k = clamp((t - _T_NO) / .5); y = 420 + 380 * (1 - (1 - k) ** 2); ph = (t - _T_NO) * 24 if k < 1 else 0
+        _coin(d, 540, y, 95, ph, col=INK)
+        _stamp(d, (540, y + 150), "COIN FLIP", t, _T_NO + .5, size=78)
+_opener(EP, _open, "LIAR?")
+FX += [(_T_NO, whoosh(.4, .04), 0), (_T_NO + .5, thud(.5), 0)]
+
 if __name__ == "__main__": EP.run(FX)

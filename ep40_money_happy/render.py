@@ -100,4 +100,24 @@ FX = [(0.0, thud(.5), 0), *[(.2 + i * .25, coin_sfx(.04), .4) for i in range(8)]
       (cue("hook", "it can"), thud(.55), 0), *EP.cut_fx(), (cue("old", "seventy-five"), pop(.18), 0),
       (cue("study", "rival") + .3, whoosh(.5, .1), 0), (cue("study", "app"), pop(.18), .2), (S("result") + .05, thud(.55), 0),
       (S("result") + .1, riser(2.4, .06), 0), (cue("except", "hundred"), thud(.4), 0), (cue("point", "but if"), thud(.35), 0), (S("end"), thud(.5), 0)]
+
+# ---- the first 3 seconds (15.11.2026, rule 13): the start statement as a mini-film ----
+from fx2 import opener as _opener, stamp as _stamp, coin as _coin, smiley as _smiley, phone_profile as _phone_profile, dots as _dots
+import numpy as _np
+
+_T_YES = TL.cue("hook", "Sorry") - .05
+_R = _np.random.RandomState(3); _CX = 320 + _R.randn(60) * 55; _CT = _R.rand(60) * 2.2
+def _open(img, d, t):
+    d.rounded_rectangle([200, 640, 440, 1120], radius=40, outline=INK, width=10)       # the jar
+    fill = clamp(t / 2.4); d.rounded_rectangle([212, 1108 - 440 * fill, 428, 1108], radius=30, fill=MID)
+    for x, tc in zip(_CX, _CT):                                             # coins rain into it
+        if tc <= t < tc + .5:
+            k = (t - tc) / .5; _coin(d, x, 470 + (1060 - 440 * fill - 470) * k * k, 26, t * 14 + x, col=INK)
+    mood = 0 if t < _T_YES else spring((t - _T_YES) / .5)
+    s = 1 + .25 * math.sin(math.pi * clamp((t - _T_YES) / .3)) if t >= _T_YES else 1
+    _smiley(d, (760, 850), 150 * s, mood * 1.0 - (1 - mood) * .0, col=INK)
+    if t >= _T_YES: _stamp(d, (760, 1060), "IT CAN", t, _T_YES + .15, size=80)
+_opener(EP, _open, "MONEY = HAPPY?")
+FX += [*[(tc + .45, tick(.03), -.4) for tc in sorted(_CT)[::4]], (_T_YES, pop(.16), .3), (_T_YES + .15, thud(.5), .3)]
+
 if __name__ == "__main__": EP.run(FX)
