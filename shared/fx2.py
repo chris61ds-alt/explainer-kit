@@ -105,6 +105,7 @@ def light_look(EP, order, reveal=("reveal",)):
     """NEW STANDARD (Chris, 13.11.2026): light paper everywhere + soft shadows, the reveal on BLACK (was orange).
     Keep ThreadEpisode(dark=True): the pipeline inverts, so "light" = paper and "dark" = black. Use soft_shadow() only where
     is_light(EP, t) and glow() only where it is not."""
+    EP.bgs = True                                                   # also for remakes of episodes < 93 (scene backgrounds off there)
     EP.bg = {k: "light" for k in order if k != "end"}
     for k in reveal: EP.bg[k] = "dark"
 

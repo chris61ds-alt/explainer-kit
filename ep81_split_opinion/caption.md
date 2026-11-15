@@ -1,13 +1,19 @@
-Want more messages? Some people should think you're ugly. 🤷
+Want more messages? Then not everyone should like your looks. 💌
 
-OkCupid compared women with similar average looks scores. The ones men disagreed about got more messages. A lot more. One woman got the lowest rating far more often than another and still got 3x the messages.
+On a dating site, men rated how attractive women looked, from 1 to 5.
 
-One guess: if others aren't into you, I see less competition. Being "just cute" is a curse.
+Two women, same average: 3.
+Left: almost everyone says 3.
+Right: people say 1, or 5.
 
-So don't hide what makes you different. Lean into it. ✨
+Women like her got far more messages. In one example, 3x as many.
 
-Not just you · Platform data (OkCupid, 2011, not peer-reviewed)
+Why? If some men aren't into her, others expect less competition.
+
+So don't try to please everyone. Lean into what makes you different. ✨
+
+Not just you (OkCupid platform data from 2011, not peer-reviewed. Men rating women only. The dots in the video are a schematic example.)
 
 Source: OkTrends, "The Mathematics Of Beauty" (2011)
 
-#notjustyou #dating #onlinedating #psychology #datingapps #science #psychologyfacts
+#notjustyou #dating #datingapps #onlinedating #psychology #data #datingtips #attraction

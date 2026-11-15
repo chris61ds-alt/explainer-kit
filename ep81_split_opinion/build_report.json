@@ -1,19 +1,17 @@
 {
  "episode": "ep81_split_opinion",
  "tts": "cached",
- "asr_voice": [
-  "study: 3/8 | OK Cupid compared women with similar average look scores."
- ],
+ "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 24.37,
-  "size_MiB": 3.1,
+  "duration_s": 29.3,
+  "size_MiB": 3.2,
   "black_intervals": [],
-  "loudness_LUFS": -16.1,
+  "loudness_LUFS": -16.0,
   "true_peak_dBTP": -2.4,
-  "sha256": "ce0bf27ef3bcf76ede38669ec603538e3c0342f1ab6c57a674bf38eee284197f",
+  "sha256": "f8804e3b6c74062af878fa7e6772b8de8de9fe1dfbe578143beed933a7970023",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,12 +20,10 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/73 = 4.1%",
- "asr_final_issues": [
-  "study: 3/8 | OK Cupid compared women with similar average look scores."
- ],
- "duration_s": 24.38,
- "longest_calm_s": 3.96,
+ "asr_final_wer": "0/86 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 29.31,
+ "longest_calm_s": 4.89,
  "cover": "ep81_split_opinion_cover.png",
  "caption": "ok"
 }
