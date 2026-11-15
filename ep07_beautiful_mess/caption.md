@@ -16,5 +16,3 @@ Not just you.
 Sources: Bruk, Scholl & Bless (2018), Journal of Personality and Social Psychology · Bruk, Scholl & Bless (2022), Personality and Social Psychology Bulletin
 
 Send this to someone who just did something brave.
-
-#notjustyou #beautifulmess #vulnerability #selfcompassion #psychology #psychologyfacts #science

@@ -13,5 +13,3 @@ Who's your 200-hour friend? 👇
 Not just you (Estimates from surveys of people making new friends.)
 
 Source: Hall (2019), "How many hours does it take to make a friend?", Journal of Social and Personal Relationships
-
-#notjustyou #friendship #friends #loneliness #adulting #psychology #science #psychologyfacts

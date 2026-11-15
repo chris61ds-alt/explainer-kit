@@ -11,5 +11,3 @@ Not just you · After Dark
 Source: General Social Survey, analysis by Wang (2018), Institute for Family Studies
 
 What did you guess? 👇
-
-#notjustyou #afterdark #relationships #marriage #psychology #science #psychologyfacts

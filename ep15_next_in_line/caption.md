@@ -15,5 +15,3 @@ Not just you.
 Sources: Brenner (1973), Journal of Verbal Learning and Verbal Behavior · Bond (1985)
 
 Tag the colleague who always goes right after you.
-
-#notjustyou #nextinlineeffect #memory #socialanxiety #psychology #psychologyfacts #science

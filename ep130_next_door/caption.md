@@ -13,5 +13,3 @@ Who's your "next door" friend? 👇
 Not just you (One classic housing study from 1950. Later studies found the same pattern, for example with classroom seating.)
 
 Source: Festinger, Schachter & Back (1950), "Social Pressures in Informal Groups"
-
-#notjustyou #friendship #friends #psychology #science #psychologyfacts #neighbors #adulting

@@ -11,5 +11,3 @@ Not just you.
 Source: Shergill, Bays, Frith & Wolpert (2003), Science
 
 Send this to the person you argue with most 👀
-
-#notjustyou #psychology #relationships #arguments #brain #science #psychologyfacts

@@ -13,5 +13,3 @@ Not just you.
 Sources: Ersner-Hershfield, Wimmer & Knutson (2009), Social Cognitive and Affective Neuroscience · Hershfield et al. (2011), Journal of Marketing Research
 
 Save this for your next "I'll deal with it later" moment.
-
-#notjustyou #futureself #psychology #money #saving #psychologyfacts #science

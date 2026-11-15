@@ -17,5 +17,3 @@ Not just you.
 Source: Quoidbach, Gilbert & Wilson (2013), Science · via The New York Times
 
 Tell me: what changed most about you in the last ten years?
-
-#notjustyou #endofhistoryillusion #personalgrowth #psychology #psychologyfacts #science #selfdevelopment

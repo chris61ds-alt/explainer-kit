@@ -13,5 +13,3 @@ Not just you.
 Source: Kahneman, Fredrickson, Schreiber & Redelmeier (1993), Psychological Science
 
 What's the best ending you remember? Tell me.
-
-#notjustyou #peakendrule #kahneman #memory #psychology #psychologyfacts #science

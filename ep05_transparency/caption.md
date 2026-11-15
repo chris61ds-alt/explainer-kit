@@ -13,5 +13,3 @@ Not just you. 💜
 Sources: Gilovich, Savitsky & Medvec (1998), JPSP 75(2) · Savitsky & Gilovich (2003), JESP 39
 
 Send this to someone with a presentation coming up.
-
-#notjustyou #publicspeaking #nervous #psychology #anxiety #confidence #science

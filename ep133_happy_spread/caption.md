@@ -12,5 +12,3 @@ Who's the friend who always lifts your mood? 👇
 Not just you (Observational data, so it shows a link, not proof that happiness is "contagious". The 25% has a wide margin of error.)
 
 Source: Fowler & Christakis (2008), BMJ, Framingham Heart Study
-
-#notjustyou #happiness #friendship #friends #psychology #science #psychologyfacts #goodvibes

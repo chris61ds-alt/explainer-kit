@@ -11,5 +11,3 @@ Not just you · After Dark
 Source: Jankowiak, Volsche & Garcia (2015), American Anthropologist
 
 Did you know this? Tell me in the comments.
-
-#notjustyou #afterdark #kissing #culture #anthropology #love #science

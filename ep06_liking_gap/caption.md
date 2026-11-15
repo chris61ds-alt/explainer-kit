@@ -15,5 +15,3 @@ Not just you. 💜
 Source: Boothby, Cooney, Sandstrom & Clark (2018), Psychological Science 29(11)
 
 Send this to the friend who overthinks every conversation.
-
-#notjustyou #likinggap #overthinking #socialanxiety #psychology #psychologyfacts #science

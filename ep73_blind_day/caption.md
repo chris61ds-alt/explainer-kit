@@ -11,5 +11,3 @@ Would you date blind? 👇
 Not just you · Platform data (OkCupid, not a peer-reviewed study)
 
 Source: Christian Rudder, "We Experiment On Human Beings!", OkCupid blog (2014) · book: Dataclysm (2014)
-
-#notjustyou #dating #onlinedating #psychology #datingapps #science #psychologyfacts

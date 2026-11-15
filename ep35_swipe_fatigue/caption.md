@@ -11,5 +11,3 @@ Not just you.
 Source: Pronk & Denissen (2020), Social Psychological and Personality Science
 
 Send this to the friend who's been swiping since lunch.
-
-#notjustyou #dating #onlinedating #datingapps #relationships #psychology #science

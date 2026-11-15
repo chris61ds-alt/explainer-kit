@@ -11,5 +11,3 @@ Not just you.
 Sources: Back, Schmukle & Egloff (2010), JPSP · Paulhus (1998), JPSP
 
 Send this to someone who just met "the perfect guy" 👀
-
-#notjustyou #narcissism #psychology #dating #relationships #science #psychologyfacts

@@ -17,5 +17,3 @@ Send this to a friend who worries. 👇
 Not just you (Bodies: all normal, part 2. The survey was online and self-selected. The clinic study was small and had no comparison group.)
 
 Sources: Veale et al. (2015), "Am I normal?", BJU International · Lever, Frederick & Peplau (2006), "Does Size Matter?", Psychology of Men & Masculinity · Shamloul (2005), "Treatment of men complaining of short penis", Urology
-
-#notjustyou #bodypositivity #menshealth #sexeducation #bodyimage #health #science #psychologyfacts

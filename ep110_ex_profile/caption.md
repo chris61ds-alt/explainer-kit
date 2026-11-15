@@ -13,5 +13,3 @@ When did you last check? 👇
 Not just you (Correlation, not proof: people who are still hung up may simply check more. Mostly young, female, US participants. Staying friends also went with a little less personal growth.)
 
 Sources: Lukacs & Quan-Haase (2015), "Romantic breakups on Facebook", Information, Communication & Society · Marshall (2012), "Facebook Surveillance of Former Romantic Partners", Cyberpsychology, Behavior, and Social Networking
-
-#notjustyou #breakup #ex #relationships #socialmedia #heartbreak #psychology #psychologyfacts

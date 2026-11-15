@@ -11,5 +11,3 @@ Not just you.
 Source: Wagner, Gais, Haider, Verleger & Born (2004), Nature
 
 What's the best idea you ever woke up with?
-
-#notjustyou #sleep #creativity #insight #brain #psychology #science

@@ -13,5 +13,3 @@ Who's the night owl? 👇
 Not just you (Both studies show a link, not proof: unhappy couples may also drift apart at night. The first study is from 1991. Going to bed together is an idea, not something these studies tested.)
 
 Sources: Larson, Crane & Smith (1991), "Morning and Night Couples", Journal of Marital and Family Therapy · Gunn et al. (2015), "Sleep Concordance in Couples Is Associated with Relationship Characteristics", Sleep
-
-#notjustyou #relationships #sleep #couples #nightowl #psychology #science #psychologyfacts

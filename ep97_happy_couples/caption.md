@@ -13,5 +13,3 @@ Which one do you do most? 👇 Send this to your partner.
 Not just you (Tips 2 and 3 are links, not proof.)
 
 Sources: Aron et al. (2000), JPSP · Gable, Reis, Impett & Asher (2004), "What Do You Do When Things Go Right?", JPSP · Algoe, Gable & Maisel (2010), "It's the Little Things", Personal Relationships
-
-#notjustyou #relationships #couples #relationshiptips #love #psychology #science #psychologyfacts

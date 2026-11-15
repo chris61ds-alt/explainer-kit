@@ -11,5 +11,3 @@ Not just you.
 Source: Bond & DePaulo (2006), Personality and Social Psychology Review
 
 Still think you'd catch them? 👇
-
-#notjustyou #psychology #lying #truth #brain #science #psychologyfacts

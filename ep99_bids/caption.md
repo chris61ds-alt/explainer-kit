@@ -11,5 +11,3 @@ Do you two answer each other's bids? 👇 Send this to your partner.
 Not just you (Observational research: a link, not proof.)
 
 Source: Gottman's newlywed study (The Gottman Institute, "Turn Toward Instead of Away"; Gottman & DeClaire, The Relationship Cure, 2001)
-
-#notjustyou #relationships #couples #love #gottman #psychology #science #psychologyfacts

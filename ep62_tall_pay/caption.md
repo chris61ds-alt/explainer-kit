@@ -11,5 +11,3 @@ Not just you.
 Source: Judge & Cable (2004), Journal of Applied Psychology
 
 Tall people: did you know? Short people: are you mad? 👇
-
-#notjustyou #psychology #money #career #bias #science #psychologyfacts

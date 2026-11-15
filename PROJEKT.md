@@ -115,6 +115,7 @@ Source: <Autor (Jahr), Quelle>
      - **Ein plakatives Element IM Bild** (Stempel, Zahl auf dem Display, Wärmebild) – kein Titel darüber.
      - Dann **Kamera raus / Match-Cut** ins Erklär-Objekt, damit alles ein Film bleibt.
      Bausteine: `fx2.phone_inbox`, `fx2.stamp` (weitere folgen: Wärmebild-Scan, Tür, Bett-POV).
+  14. **Keine Hashtags mehr (Chris, 15.11.2026):** Captions enden ohne #-Zeile. Alle bestehenden Captions und der Plan sind bereinigt.
   Helfer: `spring()` liegt in `shared/swiss.py`. Erste Remakes (12.11.): 124, 79, 116, 125, 126.
 - Automatisierung nur mit **Google Apps Script** (kein Make.com). Code immer als komplette Datei, keine großen Änderungen ohne Absprache.
 

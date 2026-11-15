@@ -11,5 +11,3 @@ Not just you. (Small study: 15 people.)
 Source: Fisher, Brown, Aron, Strong & Mashek (2010), Journal of Neurophysiology
 
 Send this to someone going through it 💌
-
-#notjustyou #breakup #heartbreak #psychology #relationships #neuroscience #psychologyfacts

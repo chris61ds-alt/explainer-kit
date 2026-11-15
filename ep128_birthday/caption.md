@@ -11,5 +11,3 @@ Ever met someone with your birthday? 👇
 Not just you (Simulation and math assume every day is equally likely and ignore leap years.)
 
 Source: the birthday problem, classic probability theory
-
-#notjustyou #math #probability #birthday #mindblown #science #funfacts #statistics

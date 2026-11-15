@@ -13,5 +13,3 @@ No label needed. Just save it. 🔖
 Not just you (One online survey in Quebec, Canada. The percentages are for the whole sample, which was mostly but not only straight.)
 
 Source: Joyal, Cossette & Lapierre (2015), "What Exactly Is an Unusual Sexual Fantasy?", Journal of Sexual Medicine
-
-#notjustyou #sexuality #fantasies #sexeducation #relationships #psychology #science #psychologyfacts

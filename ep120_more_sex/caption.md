@@ -11,5 +11,3 @@ Send this to someone who compares. 👇
 Not just you (The "real" numbers are self-reports from national surveys. The once-a-week finding is a link, not proof, and didn't show up for singles.)
 
 Sources: Ipsos (2018), "Perils of Perception" · Muise, Schimmack & Impett (2016), "Sexual Frequency Predicts Greater Well-Being, But More Is Not Always Better", Social Psychological and Personality Science
-
-#notjustyou #relationships #sex #sexeducation #comparison #psychology #science #psychologyfacts

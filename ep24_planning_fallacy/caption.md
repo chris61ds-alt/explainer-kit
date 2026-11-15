@@ -11,5 +11,3 @@ Not just you.
 Source: Buehler, Griffin & Ross (1994), Journal of Personality and Social Psychology
 
 What's the "two-day task" that took you two weeks?
-
-#notjustyou #planningfallacy #productivity #deadlines #psychology #psychologyfacts #science

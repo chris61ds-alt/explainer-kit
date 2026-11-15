@@ -15,5 +15,3 @@ Does your feed feel like this? 👇
 Not just you (Platform data: Twitter, second half of 2009.)
 
 Source: Hodas, Kooti & Lerman (2013), "Friendship Paradox Redux: Your Friends Are More Interesting Than You", ICWSM
-
-#notjustyou #socialmedia #instagram #followers #psychology #science #psychologyfacts

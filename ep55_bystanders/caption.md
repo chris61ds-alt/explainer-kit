@@ -9,5 +9,3 @@ Not just you.
 Source: Philpot, Liebst, Levine, Bernasco & Lindegaard (2020), American Psychologist
 
 Faith in humanity: restored? 👇
-
-#notjustyou #psychology #bystandereffect #humanity #socialpsychology #science #psychologyfacts

@@ -11,5 +11,3 @@ Not just you.
 Source: Taruffi & Koelsch (2014), PLOS ONE
 
 Drop your favorite sad song in the comments.
-
-#notjustyou #sadmusic #music #musicpsychology #nostalgia #psychology #science

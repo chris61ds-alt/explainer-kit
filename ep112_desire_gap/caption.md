@@ -15,5 +15,3 @@ Send this to your partner. 👇
 Not just you (Three studies from one lab. A link, not proof. Consent first, always.)
 
 Source: Day, Muise, Joel & Impett (2015), "To Do It or Not to Do It? How Communally Motivated People Navigate Sexual Interdependence Dilemmas", Personality and Social Psychology Bulletin
-
-#notjustyou #relationships #sexdrive #couples #intimacy #psychology #science #psychologyfacts

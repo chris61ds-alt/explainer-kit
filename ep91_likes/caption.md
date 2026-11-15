@@ -11,5 +11,3 @@ Do you check the likes first? 👇
 Not just you (Small study: 32 teens aged 13 to 18.)
 
 Source: Sherman et al. (2016), "The Power of the Like in Adolescence", Psychological Science
-
-#notjustyou #socialmedia #instagram #likes #brain #psychology #science #psychologyfacts

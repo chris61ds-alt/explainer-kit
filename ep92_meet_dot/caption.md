@@ -13,5 +13,3 @@ So stick around. Whatever you're worried about, there's data on it. And you're p
 What should I look into next? Drop it below 👇
 
 Not just you (Dot is an AI narrator. The research in every other video is real, with sources.)
-
-#notjustyou #meetdot #psychology #science #psychologyfacts #ai #cat

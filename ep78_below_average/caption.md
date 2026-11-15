@@ -11,5 +11,3 @@ Which one is worse? 👇
 Not just you · Platform data (OkCupid, 2009, not peer-reviewed)
 
 Source: OkTrends, "Your Looks and Your Inbox" (2009)
-
-#notjustyou #dating #onlinedating #psychology #datingapps #science #psychologyfacts

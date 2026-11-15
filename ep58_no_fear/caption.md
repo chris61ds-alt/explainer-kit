@@ -11,5 +11,3 @@ Not just you. (Case study: one person, so handle with care.)
 Sources: Feinstein, Adolphs, Damasio & Tranel (2011), Current Biology · Feinstein et al. (2013), Nature Neuroscience
 
 Would you want to feel no fear? 👇
-
-#notjustyou #psychology #neuroscience #brain #fear #science #psychologyfacts

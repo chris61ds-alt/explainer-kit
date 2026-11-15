@@ -11,5 +11,3 @@ How did you meet? 👇
 Not just you (Surveys of straight US couples, 2009 and 2017.)
 
 Source: Rosenfeld, Thomas & Hausen (2019), "Disintermediating your friends", PNAS
-
-#notjustyou #dating #onlinedating #relationships #couples #psychology #science #psychologyfacts

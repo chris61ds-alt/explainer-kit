@@ -11,5 +11,3 @@ Not just you · After Dark
 Source: Muehlenhard & Shippee (2010), Journal of Sex Research
 
 Would you rather know? Tell us below 👇
-
-#notjustyou #afterdark #psychology #relationships #intimacy #science #psychologyfacts

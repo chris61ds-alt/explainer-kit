@@ -15,5 +15,3 @@ Send this to someone who needs it. 👇
 Not just you (Bodies: all normal, part 1. Measurements in one Swiss hospital. The photo experiment was small: 43 women.)
 
 Sources: Kreklau et al. (2018), "Measurements of a 'normal vulva' in women aged 15–84", BJOG · Lloyd et al. (2005), "Female genital appearance: 'normality' unfolds", BJOG · Laan et al. (2017), "Young women's genital self-image and effects of exposure to pictures of natural vulvas", J. of Psychosomatic Obstetrics & Gynecology
-
-#notjustyou #bodypositivity #womenshealth #sexeducation #bodyimage #health #science #psychologyfacts

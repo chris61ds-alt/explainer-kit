@@ -13,5 +13,3 @@ Not just you.
 Sources: McWeeny, Young, Hay & Ellis (1987), British Journal of Psychology · Cohen (1990), British Journal of Psychology
 
 What's the trick you use to remember names?
-
-#notjustyou #memory #names #bakerbakerparadox #psychology #psychologyfacts #science

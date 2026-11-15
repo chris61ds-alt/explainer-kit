@@ -11,5 +11,3 @@ Not just you.
 Source: Stetson, Fiesta & Eagleman (2007), PLoS ONE
 
 Have you ever had a "slow-motion" moment?
-
-#notjustyou #time #fear #memory #brain #psychology #science

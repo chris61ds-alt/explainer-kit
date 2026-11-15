@@ -13,5 +13,3 @@ Not just you.
 Sources: Jakobovits (1962), McGill University dissertation · Severance & Washburn (1907), American Journal of Psychology
 
 Try it with your own name. Report back.
-
-#notjustyou #semanticsatiation #language #words #brain #psychology #science

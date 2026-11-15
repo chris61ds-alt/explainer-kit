@@ -11,5 +11,3 @@ Not just you · After Dark
 Source: Muise, Schimmack & Impett (2016), Social Psychological and Personality Science
 
 Send this to someone who keeps comparing.
-
-#notjustyou #afterdark #relationships #couples #intimacy #psychology #science

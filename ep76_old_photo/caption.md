@@ -9,5 +9,3 @@ So the better the photo, the older it probably is. 👀
 Not just you · Platform data (OkCupid, 2010, not peer-reviewed)
 
 Source: OkTrends, "The Big Lies People Tell In Online Dating" (2010)
-
-#notjustyou #dating #onlinedating #psychology #datingapps #science #psychologyfacts

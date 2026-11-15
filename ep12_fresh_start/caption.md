@@ -13,5 +13,3 @@ Not just you.
 Sources: Dai, Milkman & Riis (2014), Management Science · Dai, Milkman & Riis (2015), Psychological Science
 
 What's your next "first day"? Comment it.
-
-#notjustyou #freshstart #motivation #habits #goals #psychology #science

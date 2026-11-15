@@ -11,5 +11,3 @@ Not just you · After Dark
 Sources: Herbenick et al. (2009) & Reece et al. (2009), Journal of Sexual Medicine (funded by a condom manufacturer)
 
 Who did you guess? 👇
-
-#notjustyou #afterdark #intimacy #relationships #psychology #science #psychologyfacts

@@ -11,5 +11,3 @@ Not just you · After Dark
 Source: Spielmann, Joel & Impett (2019), Archives of Sexual Behavior
 
 Send this to the friend who needs to hear it 👀
-
-#notjustyou #afterdark #psychology #relationships #breakup #science #psychologyfacts

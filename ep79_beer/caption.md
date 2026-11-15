@@ -16,5 +16,3 @@ Your answers? 👇
 Not just you · After Dark (Platform data, OkCupid 2011, a correlation, not a rule)
 
 Source: OkTrends, "The Best Questions For A First Date" (2011)
-
-#notjustyou #afterdark #dating #onlinedating #relationships #psychology #science

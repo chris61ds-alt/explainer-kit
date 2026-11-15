@@ -11,5 +11,3 @@ Not just you · After Dark
 Source: Muise, Giang & Impett (2014), Archives of Sexual Behavior
 
 Tag someone who needs to stay a little longer 😉
-
-#notjustyou #afterdark #psychology #relationships #intimacy #science #psychologyfacts

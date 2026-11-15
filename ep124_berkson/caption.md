@@ -13,5 +13,3 @@ Send this to someone who dates jerks. 👇
 Not just you (This is a simulation, a math model, not a survey. It shows how a filter alone can create a fake link.)
 
 Sources: Berkson (1946), Biometrics Bulletin · Ellenberg (2014), "How Not to Be Wrong"
-
-#notjustyou #dating #statistics #math #paradox #psychology #science #psychologyfacts

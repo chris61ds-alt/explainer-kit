@@ -9,5 +9,3 @@ So men's ratings say one thing. Their messages say another.
 Not just you · Platform data (OkCupid, not peer-reviewed)
 
 Source: Christian Rudder, Dataclysm (2014)
-
-#notjustyou #dating #onlinedating #psychology #datingapps #science #psychologyfacts

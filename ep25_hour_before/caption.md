@@ -11,5 +11,3 @@ Not just you.
 Source: Tonietto, Malkoc & Nowlis (2019), Journal of Consumer Research
 
 Save this for your next calendar cleanup.
-
-#notjustyou #productivity #time #meetings #worklife #psychology #science

@@ -9,5 +9,3 @@ Be honest. Did you? 👀
 Not just you. (Small study: 80 people.)
 
 Source: Toma, Hancock & Ellison (2008), Personality and Social Psychology Bulletin
-
-#notjustyou #dating #onlinedating #psychology #relationships #science #psychologyfacts

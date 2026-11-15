@@ -14,5 +14,3 @@ Not just you. 💜
 Source: Mastroianni, Gilbert, Cooney & Wilson (2021), PNAS
 
 Tag someone you can never leave on time.
-
-#notjustyou #psychology #conversation #socialanxiety #science #relatable #psychologyfacts

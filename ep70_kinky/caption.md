@@ -9,5 +9,3 @@ So the kinky one in your relationship might not be who you think. 😏
 Not just you · After Dark (Survey of 1,040 people, not fully random.)
 
 Source: Joyal & Carpentier (2017), Journal of Sex Research
-
-#notjustyou #afterdark #relationships #intimacy #psychology #science #psychologyfacts

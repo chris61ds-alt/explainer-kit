@@ -11,5 +11,3 @@ Not just you.
 Source: Kumar, Killingsworth & Gilovich (2014), Psychological Science
 
 What are you looking forward to right now?
-
-#notjustyou #happiness #travel #experiences #money #psychology #science

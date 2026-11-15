@@ -11,5 +11,3 @@ What's your screen time? 👇
 Not just you (One experiment with college students.)
 
 Source: Hunt, Marx, Lipson & Young (2018), "No More FOMO: Limiting Social Media Decreases Loneliness and Depression", Journal of Social and Clinical Psychology
-
-#notjustyou #socialmedia #screentime #loneliness #mentalhealth #psychology #science #psychologyfacts

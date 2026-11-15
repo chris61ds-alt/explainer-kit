@@ -12,5 +12,3 @@ Who's the most surprising person you're connected to? 👇
 Not just you (Facebook users only. The network in the video is a made-up example to show how far-away friends create shortcuts.)
 
 Source: Bhagat et al. (2016), "Three and a half degrees of separation", Facebook Research
-
-#notjustyou #sixdegrees #smallworld #friends #science #funfacts #network #mindblown

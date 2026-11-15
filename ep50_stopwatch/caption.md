@@ -11,5 +11,3 @@ Not just you · After Dark
 Sources: Waldinger et al. (2005), Journal of Sexual Medicine · Corty & Guardiani (2008), Journal of Sexual Medicine
 
 Was your guess higher? 👇
-
-#notjustyou #afterdark #psychology #relationships #intimacy #science #psychologyfacts

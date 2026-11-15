@@ -12,5 +12,3 @@ Did you know this? 👇
 Not just you (Lab studies. Part of the gap comes from how arousal was measured. A body reaction says nothing about wanting or consent.)
 
 Source: Chivers et al. (2010), Archives of Sexual Behavior, meta-analysis
-
-#notjustyou #consent #body #psychology #science #relationships #intimacy #bodyfacts

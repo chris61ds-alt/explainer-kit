@@ -13,5 +13,3 @@ Send this to someone who stares. 👇
 Not just you (Three small studies, mostly with students and photos. Why the eyes go there – evolution, culture or both – is still debated.)
 
 Sources: Dixson et al. (2011), Archives of Sexual Behavior · Gervais, Holland & Dodd (2013), "My Eyes Are Up Here", Sex Roles · Gervais, Vescio & Allen (2011), Psychology of Women Quarterly
-
-#notjustyou #psychology #attraction #bodyimage #respect #eyetracking #science #psychologyfacts

@@ -12,5 +12,3 @@ What's the thing you were sure everyone noticed? 👇
 Not just you (One experiment with students. Later studies found the same overestimation, the exact size varies.)
 
 Source: Gilovich, Medvec & Savitsky (2000), Journal of Personality and Social Psychology
-
-#notjustyou #spotlighteffect #psychology #socialanxiety #science #psychologyfacts #overthinking #mindset

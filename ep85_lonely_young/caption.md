@@ -11,5 +11,3 @@ Tag someone you should call this week 👇
 Not just you. (Survey, 142 countries, 2022–23.)
 
 Source: Gallup & Meta, Global State of Social Connections (2023)
-
-#notjustyou #loneliness #mentalhealth #genz #psychology #science #psychologyfacts

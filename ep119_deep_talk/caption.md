@@ -13,5 +13,3 @@ What's your best deep question? 👇
 Not just you (Mostly strangers in the lab, one research team. The bars show the direction, not exact values.)
 
 Source: Kardas, Kumar & Epley (2021), "Overly Shallow? Miscalibrated Expectations Create a Barrier to Deeper Conversation", Journal of Personality and Social Psychology
-
-#notjustyou #friendship #conversation #connection #smalltalk #psychology #science #psychologyfacts

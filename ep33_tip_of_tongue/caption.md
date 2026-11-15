@@ -13,5 +13,3 @@ Not just you.
 Sources: Brown & McNeill (1966), Journal of Verbal Learning and Verbal Behavior · Schwartz (1999), Psychonomic Bulletin & Review
 
 What's the word you always forget?
-
-#notjustyou #tipofthetongue #language #memory #words #psychology #science

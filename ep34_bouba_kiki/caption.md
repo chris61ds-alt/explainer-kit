@@ -13,5 +13,3 @@ Not just you.
 Sources: Ćwiek et al. (2021), Philosophical Transactions of the Royal Society B · Ramachandran & Hubbard (2001) · Köhler (1929)
 
 Did you pick the same? Tell me in the comments.
-
-#notjustyou #boubakiki #language #linguistics #brain #psychology #science

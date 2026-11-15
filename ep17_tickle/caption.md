@@ -11,5 +11,3 @@ Not just you. 🧡
 Source: Blakemore, Frith & Wolpert (1999), Journal of Cognitive Neuroscience
 
 Did you just try it? Be honest.
-
-#notjustyou #tickle #brain #neuroscience #psychology #sciencefacts #science

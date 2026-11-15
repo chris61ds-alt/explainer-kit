@@ -13,5 +13,3 @@ Not just you.
 Source: Henkel (2014), Psychological Science
 
 Save this for your next concert.
-
-#notjustyou #memory #photography #mindfulness #psychology #psychologyfacts #science

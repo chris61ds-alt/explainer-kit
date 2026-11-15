@@ -11,5 +11,3 @@ Not just you · After Dark
 Source: Twenge, Sherman & Wells (2017), Archives of Sexual Behavior
 
 Why do you think that is? 👇
-
-#notjustyou #afterdark #relationships #intimacy #psychology #science #psychologyfacts

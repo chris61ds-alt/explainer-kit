@@ -11,5 +11,3 @@ Not just you. (Online survey of blog readers, not peer-reviewed.)
 Source: Scott Alexander, "How Did You Do On The AI Art Turing Test?", Astral Codex Ten (2024)
 
 PS: This video was made with code. Did that change how you feel about it? 👇
-
-#notjustyou #ai #aiart #slop #psychology #art #science #psychologyfacts

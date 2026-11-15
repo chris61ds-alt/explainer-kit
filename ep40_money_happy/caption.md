@@ -11,5 +11,3 @@ Not just you.
 Source: Killingsworth, Kahneman & Mellers (2023), PNAS
 
 Agree or disagree? Fight me in the comments.
-
-#notjustyou #money #happiness #wellbeing #psychology #psychologyfacts #science

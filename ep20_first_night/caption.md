@@ -11,5 +11,3 @@ Not just you.
 Source: Tamaki, Bang, Watanabe & Sasaki (2016), Current Biology
 
 Send this to your travel buddy who never sleeps on night one.
-
-#notjustyou #sleep #firstnighteffect #travel #brain #psychology #science

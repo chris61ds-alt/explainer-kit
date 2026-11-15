@@ -11,5 +11,3 @@ Not just you · After Dark
 Sources: Schweitzer et al. (2015), Sexual Medicine · Maczkowiack & Schweitzer (2019), Journal of Sex & Marital Therapy
 
 Ever had this? You're in good company 👇
-
-#notjustyou #afterdark #psychology #relationships #intimacy #mentalhealth #psychologyfacts

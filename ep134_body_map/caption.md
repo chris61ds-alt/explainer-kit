@@ -12,5 +12,3 @@ Which spot surprised you? 👇
 Not just you (One online study with Finnish volunteers, more women than men. Self-reported maps, not measurements.)
 
 Source: Nummenmaa et al. (2016), "Topography of Human Erogenous Zones", Archives of Sexual Behavior
-
-#notjustyou #body #intimacy #relationships #psychology #science #bodyfacts #couples

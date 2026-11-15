@@ -13,5 +13,3 @@ Not just you.
 Source: DePaulo, Kashy, Kirkendol, Wyer & Epstein (1996), Journal of Personality and Social Psychology
 
 What's the lie you tell most often? (No judgment.) 👇
-
-#notjustyou #lying #honesty #psychology #psychologyfacts #science #relatable

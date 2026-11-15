@@ -11,5 +11,3 @@ Not just you. 💜
 Sources: Radvansky et al. (2011), QJEP · McFadyen et al. (2021), BMC Psychology
 
 Send this to the friend who does this daily.
-
-#notjustyou #doorwayeffect #psychology #memory #brainfacts #science #relatable

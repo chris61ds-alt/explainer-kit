@@ -11,5 +11,3 @@ Not just you.
 Source: Prelec & Simester (2001), Marketing Letters
 
 Cash or card: what's your weakness?
-
-#notjustyou #money #spending #painofpaying #behavioraleconomics #psychology #science

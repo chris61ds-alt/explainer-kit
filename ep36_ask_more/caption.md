@@ -11,5 +11,3 @@ Not just you.
 Source: Huang, Yeomans, Brooks, Minson & Gino (2017), Journal of Personality and Social Psychology
 
 What's your go-to first-date question?
-
-#notjustyou #dating #firstdate #relationships #conversation #psychology #science

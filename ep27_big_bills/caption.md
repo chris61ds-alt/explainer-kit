@@ -11,5 +11,3 @@ Not just you.
 Source: Raghubir & Srivastava (2009), Journal of Consumer Research
 
 Are you a "break it immediately" person?
-
-#notjustyou #money #saving #denominationeffect #behavioraleconomics #psychology #science

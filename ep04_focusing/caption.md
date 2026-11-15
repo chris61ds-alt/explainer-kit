@@ -15,5 +15,3 @@ Not just you. 💜
 Source: Schkade & Kahneman (1998), Psychological Science 9(5)
 
 Save this for the next time you overthink.
-
-#notjustyou #focusingillusion #kahneman #psychology #happiness #overthinking #science

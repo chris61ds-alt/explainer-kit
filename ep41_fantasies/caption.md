@@ -9,5 +9,3 @@ So that thought you'd never say out loud? You're in good company. And a fantasy 
 Not just you · After Dark
 
 Source: Joyal, Cossette & Lapierre (2015), Journal of Sexual Medicine
-
-#notjustyou #afterdark #psychology #relationships #intimacy #science #psychologyfacts

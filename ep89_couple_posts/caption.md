@@ -11,5 +11,3 @@ Do you post your partner? 👇
 Not just you (3 studies, partly self-reported. A link, not a rule.)
 
 Source: Emery, Muise, Dix & Le (2014), Personality and Social Psychology Bulletin
-
-#notjustyou #relationships #couples #attachment #socialmedia #psychology #science #psychologyfacts

@@ -7,5 +7,3 @@ So here's the deal: comment the thing you secretly think isn't normal. The top c
 Go. Comments. Now. 👇
 
 Not just you.
-
-#notjustyou #psychology #psychologyfacts #science #relatable #askme #notnormal

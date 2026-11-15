@@ -11,5 +11,3 @@ Not just you · After Dark (Small study: 21 couples.)
 Source: Kort et al. (2014), Microbiome
 
 Tag the person you share bacteria with 😏
-
-#notjustyou #afterdark #kissing #relationships #science #microbiome #psychologyfacts

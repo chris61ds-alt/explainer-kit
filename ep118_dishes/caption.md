@@ -11,5 +11,3 @@ Who does the dishes? 👇
 Not just you (US surveys, a link, not proof. Earlier work by the same researcher found sharing the dishes was the chore most tied to women's satisfaction.)
 
 Sources: Pew Research Center (2007), "Modern Marriage" · Carlson (2022), Sex Roles · Carlson et al. (2018), Council on Contemporary Families
-
-#notjustyou #relationships #chores #couples #marriage #psychology #science #psychologyfacts

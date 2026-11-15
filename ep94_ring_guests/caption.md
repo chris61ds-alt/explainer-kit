@@ -15,5 +15,3 @@ Part 3 tomorrow: the age gap.
 Not just you (It's a link, not proof: a survey shows a correlation, not the cause.)
 
 Source: Francis-Tan & Mialon (2015), "'A Diamond is Forever' and Other Fairy Tales: The Relationship between Wedding Expenses and Marriage Duration", Economic Inquiry
-
-#notjustyou #weddingmath #wedding #engagementring #marriage #divorce #relationships #psychologyfacts

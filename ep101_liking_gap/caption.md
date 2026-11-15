@@ -11,5 +11,3 @@ Send this to someone you just met. 👇
 Not just you (Five studies.)
 
 Source: Boothby, Cooney, Sandstrom & Clark (2018), "The Liking Gap in Conversations: Do People Like Us More Than We Think?", Psychological Science
-
-#notjustyou #socialanxiety #friendship #conversation #confidence #psychology #science #psychologyfacts

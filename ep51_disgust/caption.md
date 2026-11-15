@@ -11,5 +11,3 @@ Not just you · After Dark
 Source: Borg & de Jong (2012), PLoS ONE
 
 Never thought about it like that? 👇
-
-#notjustyou #afterdark #psychology #science #intimacy #brain #psychologyfacts

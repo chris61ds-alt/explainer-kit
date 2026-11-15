@@ -12,5 +12,3 @@ What's your go-to good moment mid-argument? 👇
 Not just you (Observational studies. The exact ratio is debated, and it's a pattern, not a rule for every couple.)
 
 Source: Gottman & Levenson (1992), Journal of Personality and Social Psychology · Gottman (1994), "What Predicts Divorce?"
-
-#notjustyou #relationships #couples #love #gottman #psychology #science #relationshipadvice

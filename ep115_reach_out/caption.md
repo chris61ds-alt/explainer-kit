@@ -13,5 +13,3 @@ Who are you texting? 👇
 Not just you (Experiments by one research team. The bars in the video show the direction, not exact values.)
 
 Source: Liu, Rim, Min & Min (2022), "The Surprise of Reaching Out: Appreciated More Than We Think", Journal of Personality and Social Psychology
-
-#notjustyou #friendship #friends #loneliness #reachout #psychology #science #psychologyfacts

@@ -13,5 +13,3 @@ Not just you.
 Source: Zhao & Epley (2021), Journal of Personality and Social Psychology
 
 Who's getting your compliment today? Tag them.
-
-#notjustyou #compliments #kindness #relationships #psychology #psychologyfacts #science

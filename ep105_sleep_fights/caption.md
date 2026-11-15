@@ -11,5 +11,3 @@ Send this to your tired partner. 👇
 Not just you (Diary study: a link, not proof.)
 
 Source: Gordon & Chen (2014), "The Role of Sleep in Interpersonal Conflict: Do Sleepless Nights Mean Worse Fights?", Social Psychological and Personality Science
-
-#notjustyou #sleep #relationships #couples #conflict #psychology #science #psychologyfacts

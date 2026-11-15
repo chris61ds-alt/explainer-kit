@@ -13,5 +13,3 @@ Not just you.
 Source: Kaczorowski & Kaczorowski (2002), BMJ
 
 Team fast or team slow?
-
-#notjustyou #brainfreeze #icecream #body #science #sciencefacts #psychology

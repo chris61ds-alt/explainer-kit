@@ -11,5 +11,3 @@ Not just you.
 Source: Eastwick & Finkel (2008), Journal of Personality and Social Psychology
 
 Has someone ever completely broken your "type"?
-
-#notjustyou #dating #relationships #love #attraction #psychology #science

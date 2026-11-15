@@ -11,5 +11,3 @@ So maybe chemistry is partly what you're told to expect. 🧪
 Not just you · Platform experiment (OkCupid, not peer-reviewed)
 
 Source: Christian Rudder, "We Experiment On Human Beings!", OkCupid blog (2014)
-
-#notjustyou #dating #onlinedating #psychology #datingapps #science #psychologyfacts

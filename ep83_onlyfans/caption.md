@@ -11,5 +11,3 @@ Surprised? 👇
 Not just you · After Dark (Platform data; the average is our own calculation, the top-10% share is an analyst estimate)
 
 Source: OnlyFans figures via Tubefilter (Aug 2026) · Matthew Ball, "Breaking Down OnlyFans' Stunning Economics"
-
-#notjustyou #afterdark #onlyfans #money #creatoreconomy #psychology #science

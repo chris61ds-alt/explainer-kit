@@ -11,5 +11,3 @@ Team one bed or two? 👇
 Not just you (One online survey commissioned by the American Academy of Sleep Medicine. "Keep some time in bed together" is our idea, not a survey result.)
 
 Source: American Academy of Sleep Medicine (2023), "Sleep Prioritization Survey"
-
-#notjustyou #sleep #relationships #couples #sleepdivorce #psychology #science #psychologyfacts

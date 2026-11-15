@@ -15,5 +15,3 @@ Which one is hardest for you? 👇
 Not just you (Tip 1 is a link, not proof.)
 
 Sources: Carrère & Gottman (1999), "Predicting Divorce Among Newlyweds from the First Three Minutes of a Marital Conflict Discussion", Family Process · Gottman & Levenson, conflict studies (The Gottman Institute)
-
-#notjustyou #relationships #couples #conflict #relationshiptips #psychology #science #psychologyfacts

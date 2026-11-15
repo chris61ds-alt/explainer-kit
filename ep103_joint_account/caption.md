@@ -11,5 +11,3 @@ Joint or separate? 👇
 Not just you (Not for every couple: the researchers say it may not suit insecure relationships or finances.)
 
 Source: Olson, Rick, Small & Finkel (2023), "Common Cents: Bank Account Structure and Couples' Relationship Dynamics", Journal of Consumer Research
-
-#notjustyou #money #couples #marriage #relationships #personalfinance #psychology #psychologyfacts

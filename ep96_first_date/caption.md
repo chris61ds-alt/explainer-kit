@@ -15,5 +15,3 @@ Which one do you already do? 👇
 Not just you (Tips 1 and 3 are links, not proof: speed-dating data shows a correlation, not the cause.)
 
 Sources: Huang et al. (2017), "It Doesn't Hurt to Ask", JPSP · Kardas, Kumar & Epley (2022), "Overly Shallow?", JPSP · Eastwick et al. (2007), "Selective Versus Unselective Romantic Desire", Psychological Science
-
-#notjustyou #dating #firstdate #datingtips #relationships #psychology #science #psychologyfacts

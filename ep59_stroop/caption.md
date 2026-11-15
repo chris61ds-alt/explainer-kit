@@ -11,5 +11,3 @@ Not just you.
 Source: Stroop (1935), Journal of Experimental Psychology
 
 How many did you get wrong in round two? 👇
-
-#notjustyou #psychology #brain #braintest #stroopeffect #science #psychologyfacts

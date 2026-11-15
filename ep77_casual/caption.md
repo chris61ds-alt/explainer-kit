@@ -11,5 +11,3 @@ One in 16 men. One in 125 women. At least, that's what they were willing to tick
 Not just you · After Dark (Platform data, self-reported)
 
 Source: Christian Rudder, Dataclysm (2014)
-
-#notjustyou #afterdark #dating #onlinedating #relationships #psychology #science

@@ -13,5 +13,3 @@ Send this to a friend. They have more. 👇
 Not just you (The "friendship paradox" is a property of networks. The school data come from a classic study of the late 1950s, analyzed in 1991.)
 
 Source: Feld (1991), "Why Your Friends Have More Friends Than You Do", American Journal of Sociology
-
-#notjustyou #friendship #friends #math #socialanxiety #psychology #science #psychologyfacts

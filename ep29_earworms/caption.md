@@ -11,5 +11,3 @@ Not just you.
 Sources: Jakubowski, Finkel, Stewart & Müllensiefen (2017), Psychology of Aesthetics, Creativity, and the Arts · Beaman et al. (2015), Quarterly Journal of Experimental Psychology
 
 Which song is stuck in your head right now?
-
-#notjustyou #earworm #music #musicpsychology #brain #psychology #science

@@ -11,5 +11,3 @@ Not just you. 💜
 Sources: Hullar via Scientific American · Hughes & Harrison (2013), Perception 42(9)
 
 Follow for more things you thought were just you.
-
-#notjustyou #psychology #psychologyfacts #science #yourvoice #funfacts #learnontiktok

@@ -11,5 +11,3 @@ Not just you.
 Source: Carlsmith, Wilson & Gilbert (2008), Journal of Personality and Social Psychology
 
 Ever regretted getting even? 👇
-
-#notjustyou #psychology #revenge #emotions #mentalhealth #science #psychologyfacts

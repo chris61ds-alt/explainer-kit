@@ -13,5 +13,3 @@ Not just you.
 Source: Wilson et al. (2014), Science
 
 Would you press it? Be honest.
-
-#notjustyou #boredom #mind #psychology #psychologyfacts #science #overthinking

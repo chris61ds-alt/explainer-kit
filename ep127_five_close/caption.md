@@ -13,5 +13,3 @@ Who are your four? 👇
 Not just you (Averages from call records in one European country, 2007. Calls are only a proxy for closeness. The classic estimate is 5 / 15 / 50 / 150.)
 
 Source: MacCarron, Kaski & Dunbar (2016), "Calling Dunbar's numbers", Social Networks
-
-#notjustyou #friendship #friends #dunbarsnumber #psychology #science #psychologyfacts #adulting

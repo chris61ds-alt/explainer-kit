@@ -16,5 +16,3 @@ Source: Frederick, St. John, Garcia & Lloyd (2018), Archives of Sexual Behavior
 Send this to someone who should see it 👀
 
 What did you guess? 👇
-
-#notjustyou #afterdark #psychology #relationships #intimacy #science #psychologyfacts

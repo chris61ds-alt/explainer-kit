@@ -14,5 +14,3 @@ The other two? You know what to do. 👇
 Not just you. (Industry data; the curve in the video is schematic.)
 
 Sources: Fors Marsh for Facebook (2016) · Facebook/Nielsen · quso.ai Shorts benchmark · Adam Mosseri, Instagram (2025)
-
-#notjustyou #psychology #attention #socialmedia #reels #algorithm #science #psychologyfacts

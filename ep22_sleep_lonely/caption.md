@@ -11,5 +11,3 @@ Not just you.
 Source: Ben Simon & Walker (2018), Nature Communications
 
 Tag someone who needs to hear this tonight.
-
-#notjustyou #sleep #loneliness #mentalhealth #brain #psychology #science

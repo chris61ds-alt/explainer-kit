@@ -13,5 +13,3 @@ Not just you.
 Source: Gilovich, Medvec & Savitsky (2000), Journal of Personality and Social Psychology
 
 Send this to someone who's still thinking about that one moment.
-
-#notjustyou #spotlighteffect #socialanxiety #overthinking #psychology #psychologyfacts #science

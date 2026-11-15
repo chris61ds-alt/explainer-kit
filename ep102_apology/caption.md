@@ -13,5 +13,3 @@ Save this for your next sorry. 👇
 Not just you (Survey experiments with 755 people.)
 
 Source: Lewicki, Polin & Lount (2016), "An Exploration of the Structure of Effective Apologies", Negotiation and Conflict Management Research
-
-#notjustyou #apology #relationships #communication #conflict #psychology #science #psychologyfacts

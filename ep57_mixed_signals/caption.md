@@ -11,5 +11,3 @@ Not just you · After Dark
 Source: Perilloux, Easton & Buss (2012), Psychological Science
 
 Send this to the friend who "just knows" 👀
-
-#notjustyou #afterdark #psychology #dating #relationships #science #psychologyfacts

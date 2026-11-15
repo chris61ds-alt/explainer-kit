@@ -13,5 +13,3 @@ Source: Bruch & Newman (2018), Science Advances
 Ever got a reply from way out of your league? 👀
 
 Do you aim up? 👇
-
-#notjustyou #dating #onlinedating #psychology #relationships #science #psychologyfacts

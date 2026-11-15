@@ -13,5 +13,3 @@ No need to comment. Just save it. 🔖
 Not just you (The 2001 survey: heterosexual students and staff at one university. The 2026 study is a single snapshot, so no cause and effect. People who were more satisfied with their sex life fantasized about others less often.)
 
 Sources: Hicks & Leitenberg (2001), "Sexual Fantasies About One's Sexual Partner Versus Someone Else", Journal of Sex Research · Gormezano et al. (2026), "Sexual Fantasies Across Solitary and Partnered Contexts", Archives of Sexual Behavior
-
-#notjustyou #relationships #sexualhealth #fantasies #sexeducation #psychology #science #psychologyfacts

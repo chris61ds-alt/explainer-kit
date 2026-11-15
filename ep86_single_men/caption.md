@@ -11,5 +11,3 @@ Why do you think that is? 👇
 Not just you (Survey of 6,034 US adults, July 2022. Single = not married, not living with a partner, not in a committed relationship.)
 
 Source: Pew Research Center (2023), "For Valentine's Day, 5 facts about single Americans"
-
-#notjustyou #dating #single #relationships #genz #psychology #science #psychologyfacts

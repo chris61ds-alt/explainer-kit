@@ -11,5 +11,3 @@ Not just you · After Dark
 Source: Meltzer et al. (2017), Psychological Science
 
 Tag your person 🔥
-
-#notjustyou #afterdark #psychology #relationships #intimacy #science #psychologyfacts

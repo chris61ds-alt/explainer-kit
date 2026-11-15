@@ -13,5 +13,3 @@ Not just you.
 Sources: Drouin, Kaiser & Miller (2012), Computers in Human Behavior · Rothberg et al. (2010), BMJ
 
 How many times did you check your phone while watching this?
-
-#notjustyou #phantomvibration #smartphone #brain #psychology #psychologyfacts #science

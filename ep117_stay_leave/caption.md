@@ -11,5 +11,3 @@ Save this for a hard day. 🔖
 Not just you (Two studies from one team, a link, not proof. If a relationship hurts you or you don't feel safe, please reach out to someone you trust or a local helpline.)
 
 Source: Joel, Impett, Spielmann & MacDonald (2018), "How Interdependent Are Stay/Leave Decisions?", Journal of Personality and Social Psychology
-
-#notjustyou #relationships #breakup #couples #love #psychology #science #psychologyfacts

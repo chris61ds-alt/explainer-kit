@@ -9,5 +9,3 @@ So if you yawned just now? Nobody knows exactly why. Comment "Y" if you did. ðŸ§
 Not just you. (Unsolved: these are theories, not answers.)
 
 Source: Provine (1986), Ethology Â· plus ongoing research on brain cooling and empathy
-
-#notjustyou #psychology #yawning #brain #unsolved #science #psychologyfacts

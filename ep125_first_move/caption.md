@@ -13,5 +13,3 @@ Send the first message. Then save this. 🔖
 Not just you (A simulation of the Gale-Shapley matching model with random rankings, not a study of real couples. The model won a Nobel Prize in 2012 for its use in matching markets.)
 
 Sources: Gale & Shapley (1962), "College Admissions and the Stability of Marriage", American Mathematical Monthly · Nobel Prize in Economic Sciences 2012 (Roth & Shapley)
-
-#notjustyou #dating #math #gametheory #firstmove #psychology #science #relationships

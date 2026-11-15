@@ -15,5 +15,3 @@ So don't try to please everyone. Lean into what makes you different. ✨
 Not just you (OkCupid platform data from 2011, not peer-reviewed. Men rating women only. The dots in the video are a schematic example.)
 
 Source: OkTrends, "The Mathematics Of Beauty" (2011)
-
-#notjustyou #dating #datingapps #onlinedating #psychology #data #datingtips #attraction

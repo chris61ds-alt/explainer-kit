@@ -11,5 +11,3 @@ How many close friends do you have? 👇
 Not just you (Survey of 2,019 US adults, May 2021, compared with 1990.)
 
 Source: Survey Center on American Life (2021), "The State of American Friendship"; 1990 vs 2021 figures for men via its director Daniel Cox
-
-#notjustyou #friendship #loneliness #men #mentalhealth #psychology #science #psychologyfacts

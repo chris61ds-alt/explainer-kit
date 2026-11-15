@@ -11,5 +11,3 @@ Not just you.
 Source: Salimpoor, Benovoy, Larcher, Dagher & Zatorre (2011), Nature Neuroscience
 
 Which song gives you chills every single time?
-
-#notjustyou #music #chills #dopamine #musicproduction #brain #science

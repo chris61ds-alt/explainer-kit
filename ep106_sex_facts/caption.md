@@ -13,5 +13,3 @@ Save this. 👇
 Not just you (Facts 1 and 2 are links, not proof.)
 
 Sources: Muise, Schimmack & Impett (2016), Social Psychological and Personality Science · Muise, Giang & Impett (2014), Archives of Sexual Behavior · Meltzer et al. (2017), "Quantifying the Sexual Afterglow", Psychological Science
-
-#notjustyou #relationships #sex #intimacy #couples #psychology #science #psychologyfacts

@@ -11,5 +11,3 @@ Not just you.
 Source: Stephens, Atkins & Kingston (2009), NeuroReport
 
 What's your go-to word? (Keep it clean-ish) 👇
-
-#notjustyou #psychology #swearing #pain #brain #science #psychologyfacts

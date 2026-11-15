@@ -9,5 +9,3 @@ Not just you · After Dark
 Source: Herbenick et al. (2017), PLoS ONE
 
 Surprised by the numbers? 👇
-
-#notjustyou #afterdark #psychology #relationships #intimacy #science #psychologyfacts

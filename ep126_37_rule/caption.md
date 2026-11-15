@@ -13,5 +13,3 @@ Too early or too late? 👇
 Not just you (A simulation of the "secretary problem", a math model, not a study of real couples.)
 
 Sources: Ferguson (1989), "Who Solved the Secretary Problem?", Statistical Science · Christian & Griffiths (2016), "Algorithms to Live By"
-
-#notjustyou #dating #math #37percentrule #relationships #psychology #science #decisions
