@@ -120,4 +120,6 @@ def _open(img, d, t):
 _opener(EP, _open, "MONEY = HAPPY?")
 FX += [*[(tc + .45, tick(.03), -.4) for tc in sorted(_CT)[::4]], (_T_YES, pop(.16), .3), (_T_YES + .15, thud(.5), .3)]
 
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("result",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

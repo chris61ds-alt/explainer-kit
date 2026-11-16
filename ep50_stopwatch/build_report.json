@@ -1,6 +1,6 @@
 {
  "episode": "ep50_stopwatch",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "guess: 1/9 | How many minutes to sex last? Guess a number.",
   "study: 1/11 | 500 couples in five countries time themselves for four weeks.",
@@ -15,7 +15,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.5,
-  "sha256": "548e143ab7ca7f67740a96549e4a2d86e11566b5d157232962169de417b8c9ff",
+  "sha256": "43265ad8a19c5262627dc03cc54cd9b41b369ee5f9f0bd2cbfc39387cfa2d14b",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

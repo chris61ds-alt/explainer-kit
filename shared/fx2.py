@@ -192,8 +192,20 @@ def opener(EP, fn, headline=None):
     the small headline (2–3 words) sits on top like in level 2. Overrides push_intro/hook_intro on that scene."""
     from swiss import F, BLK, X0, INK
     key = EP.order[0]
+    def light():
+        if getattr(EP, "bgs", False): return EP.bg_of(key) == "light"
+        return not getattr(EP, "dark", True)
     def g(img, d, t):
-        fn(img, d, t)
+        if light():                                    # light look (16.11.2026): every opener object gets a soft drop shadow
+            L = Image.new("RGB", img.size, BG); fn(L, ImageDraw.Draw(L), t)
+            a = np.asarray(L, np.int16); m = (np.abs(a - np.array(BG)).max(axis=2) > 10).astype(np.uint8) * 255
+            m[:470] = 0; m[1186:] = 0
+            M = Image.fromarray(m); sh = Image.new("L", img.size, 0); sh.paste(M, (16, 18))
+            k = np.asarray(sh.filter(ImageFilter.GaussianBlur(14)), np.float32)[..., None] / 255 * .3
+            out = np.asarray(img, np.float32) * (1 - k) + k * np.array(INK, np.float32)
+            img.paste(Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))); img.paste(L, (0, 0), M)
+        else:
+            fn(img, d, t)
         if headline: d.text((X0, 300), headline, font=F(BLK, 84), fill=INK)
     EP.scenes[key] = g
 

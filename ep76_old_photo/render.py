@@ -90,4 +90,6 @@ def _open(img, d, t):
 _opener(EP, _open, "THAT PHOTO.")
 FX += [(.02, whoosh(.4, .04), .5), (_T_OLD, thud(.55), 0)]
 
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("photos",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

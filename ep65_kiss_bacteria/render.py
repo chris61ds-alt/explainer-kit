@@ -119,4 +119,6 @@ def _open(img, d, t):
 _opener(EP, _open, "ONE KISS.")
 FX += [(.2, riser(1.6, .04), 0), (_T_NUM, thud(.5), 0)]
 
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("result",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)
