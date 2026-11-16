@@ -2,18 +2,18 @@
  "episode": "ep44_faking_it",
  "tts": "new",
  "asr_voice": [
-  "result: 1/12 | Among those who'd had intercourse, two of three women said yes."
+  "result: 2/12 | Among those who'd had intercourse, two of our three women said yes."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 30.5,
-  "size_MiB": 4.8,
+  "duration_s": 25.63,
+  "size_MiB": 4.3,
   "black_intervals": [],
-  "loudness_LUFS": -16.4,
-  "true_peak_dBTP": -2.5,
-  "sha256": "8a97897cf6ed31d2059a2eb0ba33e23a097db76029848717972f022bd036e638",
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.6,
+  "sha256": "28e13db0433fe9a0fcd97becb5525c2ac31480fa7291ebec9037cf2a817d0988",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,11 +22,12 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/83 = 1.2%",
+ "asr_final_wer": "1/80 = 1.2%",
  "asr_final_issues": [
   "result: 1/12 | Among those who'd had intercourse, two of three women said yes."
  ],
- "duration_s": 30.49,
+ "duration_s": 25.62,
+ "longest_calm_s": 2.96,
  "cover": "ep44_faking_it_cover.png",
  "caption": "ok"
 }

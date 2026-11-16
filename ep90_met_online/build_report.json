@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 29.63,
-  "size_MiB": 3.7,
+  "size_MiB": 4.2,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.3,
-  "sha256": "42f65d75c9d4d117976a3a82bc4cb903917471d9aacfbef193e7b99cd46b9954",
+  "sha256": "6af8f27f2289f7783ed61c2fd04415357668cf173bb4dac8d4afb57123a57d29",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

@@ -1,17 +1,17 @@
 {
  "episode": "ep98_fight_fair",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 31.3,
-  "size_MiB": 5.1,
+  "size_MiB": 4.2,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.4,
-  "sha256": "bd96d539bf0e5082ebc5084dd3e73cdfb9bb42cd661fdb4a0f207ff98b106052",
+  "sha256": "05196d4f926f53dac1e48057bf0e01b167ece0b47ea111c5438747ee6019aabe",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

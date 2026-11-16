@@ -1,6 +1,6 @@
 {
  "episode": "ep55_bystanders",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "result: 2/11 | In 9/10, at least one stranger stepped in."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 20.97,
-  "size_MiB": 3.8,
+  "size_MiB": 3.3,
   "black_intervals": [],
-  "loudness_LUFS": -16.4,
+  "loudness_LUFS": -16.3,
   "true_peak_dBTP": -2.4,
-  "sha256": "c7cd3d4eeb65e81f744bb2e3a69bfdb5e8923823bd3cb07c471e8fdb1f80def3",
+  "sha256": "475c3bc44c7ac118eae3c9cbd665fa138db5dfd6eb0840c5f6c4de0b0e1294f5",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,11 +24,11 @@
  },
  "asr_final_wer": "4/63 = 6.3%",
  "asr_final_issues": [
-  "hook: 2/11 | Get attacked in public and nobody helps. NOPE. Got the myth.",
+  "hook: 2/11 | Get attacked in public and nobody helps. Nope. Got the myth.",
   "result: 2/11 | In 9/10, at least one stranger stepped in."
  ],
  "duration_s": 20.98,
- "longest_calm_s": 2.6,
+ "longest_calm_s": 3.95,
  "cover": "ep55_bystanders_cover.png",
  "caption": "ok"
 }
