@@ -99,4 +99,6 @@ EP.scenes = {"hook": sc_hook, "study": sc_study, "result": sc_result, "young": s
 FX = [(0.0, thud(.5), 0), (.3, pop(.12), .2), (cue("hook", "and women") - .1, pop(.14), .2), (cue("study", "while married") + .2, tick(.08), 0), *EP.cut_fx(), (cue("study", "have you ever") - .2, pop(.15), 0), (S("result") + .05, thud(.55), 0),
       (S("result") + .1, pop(.15), -.3), (S("result") + .4, pop(.15), .3), (cue("young", "eleven") + .3, thud(.35), 0),
       (cue("old", "twenty-six") - .3, thud(.5), 0), (cue("point", "and most") - .2, riser(.5, .05), 0), (S("end"), thud(.5), 0)]
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("result",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

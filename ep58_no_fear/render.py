@@ -116,4 +116,6 @@ FX = [(0.0, thud(.5), 0), *[(.3 + i * .9, heartbeat(.2) if False else softkick(.
       (S("snakes") + .5, pop(.12), 0), (S("twist") + .1, whoosh(1.2, .05), 0), (cue("twist", "she panicked") - .2, thud(.6), 0),
       (cue("twist", "she panicked") - .2, rewind_sfx(.12, .35), 0), *[(cue("twist", "she panicked") + i * .22, softkick(.18), 0) for i in range(8)],
       (cue("why", "fear from inside") - .2, pop(.15), 0), (cue("point", "at least") - .2, riser(.5, .05), 0), (S("end"), thud(.5), 0)]
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("twist",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

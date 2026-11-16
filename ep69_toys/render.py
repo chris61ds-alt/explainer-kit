@@ -71,4 +71,6 @@ EP.scenes = {"hook": sc_hook, "study": sc_study, "women": sc_women, "men": sc_me
 FX = [(0.0, thud(.5), 0), (.4, pop(.15), 0), *EP.cut_fx(), (S("study") + .6, whoosh(.5, .06), 0), (S("women") + .05, thud(.55), 0),
       *[(S("women") + .2 + i * .1, tick(.03), (i % 5 - 2) / 3) for i in range(12)], (S("men") + .4, thud(.45), 0),
       (cue("men", "most of them") - .2, pop(.15), .3), (S("health") + .4, pop(.15), 0), (cue("point", "both halves") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("women",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

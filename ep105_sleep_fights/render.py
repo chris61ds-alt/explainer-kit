@@ -60,4 +60,6 @@ FX = [*EP.cut_fx(), (S("hook") + .05, thud(.45), 0), (S("study") + .1, riser(.8,
       (S("result") + .5, pop(.13), 0), (S("result") + .8, thud(.45), 0), (cue("result", "Even good") - .1, pop(.14), -.2),
       (S("lab") + .05, thud(.55), 0), (S("lab") + .6, pop(.12), -.3), (S("lab") + .8, pop(.12), .3),
       (cue("point", "sleep on it") - .15, pop(.12), -.3), (cue("point", "Literally") - .15, thud(.45), .3), (S("end"), thud(.5), 0)]
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("result",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

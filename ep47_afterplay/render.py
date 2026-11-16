@@ -93,4 +93,6 @@ FX = [(0.0, thud(.5), 0), (cue("hook", "what happens"), thud(.4), 0), (cue("hook
       (S("link") + .1, riser(2.0, .05), 0), (cue("later", "parents"), thud(.35), 0), (cue("point", "the cuddle"), riser(.4, .06), 0), (S("end"), thud(.5), 0)]
 from fx2 import push_intro
 push_intro(EP)                                                  # never a still first second (13.11.2026)
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("result",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

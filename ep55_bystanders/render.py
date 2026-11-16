@@ -73,4 +73,6 @@ FX = [(0.0, thud(.5), 0), (cue("hook", "that's a myth"), rewind_sfx(.12, .35), 0
       *[(cue("study", "three countries") - .3 + i * .15, pop(.12), (i - 1) / 2) for i in range(3)], (S("result") + .05, thud(.55), 0),
       *[(cue("result", "nine out") + i * .08, tick(.04), (i % 5 - 2) / 3) for i in range(9)], (S("more") + .2, riser(2.0, .05), 0),
       (cue("point", "be one") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("result",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

@@ -98,4 +98,6 @@ FX = [(0.0, thud(.5), 0), (cue("hook", "They are more") - .15, pop(.15), .3), *E
       *[(S("active") + .25 + i * .09, tick(.03), (i % 5 - 2) / 3) for i in range(11)],
       *[(S("why") + .4 + i / 11, tick(.035), (i % 5 - 2) / 3) for i in range(11)], (cue("why", "So they show up") - .1, pop(.14), 0), (cue("why", "it's math") - .1, thud(.4), 0), (cue("why", "tons of people") - .1, pop(.13), 0),
       (cue("why", "Including yours") - .2, pop(.15), .3), (cue("point", "Your feed") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("result",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

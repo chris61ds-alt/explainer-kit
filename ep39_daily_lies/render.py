@@ -7,7 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .8, "result": .5, "often": .5, "what": .5, "self": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "study", "result", "often", "what", "self", "point", "end"]
-EP = Episode(TL, 39, "YOU LIED TODAY", order=ORDER, dark=True,
+EP = Episode(TL, 39, "YOU LIED TODAY", order=ORDER, dark=False,
              chapters={"hook": "GUILTY", "study": "THE DIARY", "result": "PER DAY", "often": "PER CONVERSATION", "what": "THE CLASSICS", "self": "FOR WHOM", "point": "I'M FINE"},
              sources=("DePaulo, Kashy, Kirkendol, Wyer & Epstein (1996),", "J. Personality & Social Psychology 70(5)"),
              music=dict(bpm=96, root=-1, prog="minor", kick="four", gaps=[(E("study") + .05, S("result") + .05)]),

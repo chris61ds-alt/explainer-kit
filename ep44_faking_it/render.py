@@ -7,7 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .8, "result": .5, "men": .5, "why": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "study", "result", "men", "why", "point", "end"]
-EP = Episode(TL, 44, "FAKED IT", order=ORDER, dark=True, series="NOT JUST YOU · AFTER DARK",
+EP = Episode(TL, 44, "FAKED IT", order=ORDER, dark=False, series="NOT JUST YOU · AFTER DARK",
              chapters={"hook": "THE PERFORMANCE", "study": "THE SURVEY", "result": "WOMEN", "men": "MEN", "why": "WHY", "point": "TALK"},
              sources=("Muehlenhard & Shippee (2010),", "Journal of Sex Research 47(6)"),
              music=dict(bpm=90, root=-2, prog="minor", kick="half", gaps=[(E("study") + .05, S("result") + .05)]),

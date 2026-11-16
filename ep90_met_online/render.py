@@ -78,4 +78,6 @@ EP.scenes = {"hook": sc_hook, "study": sc_study, "friends": sc_friends, "online"
 FX = [(0.0, thud(.5), 0), (cue("hook", "not how") - .2, pop(.15), .3), *EP.cut_fx(), (S("study") + .1, riser(.8, .04), 0),
       (S("friends") + .1, pop(.12), 0), (cue("friends", "By twenty") - .1, thud(.45), 0), (S("online") + .4, thud(.5), 0),
       (cue("online", "Now the most") - .1, pop(.15), .3), (cue("point", "You're the normal") - .2, thud(.45), 0), (S("end"), thud(.5), 0)]
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("online",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

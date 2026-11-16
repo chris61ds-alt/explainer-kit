@@ -96,4 +96,6 @@ FX = [(0.0, thud(.5), 0), (.5, whoosh(.8, .06), .3), *EP.cut_fx(), *[(S("study")
       *[(cue("result", w) - .2, pop(.14), (i - 1) / 2) for i, w in enumerate(("sad", "tearful", "irritable"))],
       (S("men") + .3, thud(.4), 0), (cue("men", "one in five") - .2, riser(.4, .05), 0), (cue("good", "loving"), pop(.18), 0),
       (S("point") + .5, thud(.45), 0), (cue("point", "say it"), pop(.15), 0), (S("end"), thud(.5), 0)]
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("result",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

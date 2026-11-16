@@ -7,7 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.15, gaps={"hook": .5, "study": .8, "result": .5, "why": .5, "both": .6, "point": .7, "end": 2.2})
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "study", "result", "why", "both", "point", "end"]
-EP = Episode(TL, 53, "THEY STARTED IT", order=ORDER, dark=True,
+EP = Episode(TL, 53, "THEY STARTED IT", order=ORDER, dark=False,
              chapters={"hook": "WHO STARTED IT", "study": "THE EXPERIMENT", "result": "+38 %", "why": "THE BRAIN", "both": "BOTH SIDES", "point": "TONE IT DOWN"},
              sources=("Shergill, Bays, Frith & Wolpert (2003),", "Science 301(5630)"),
              music=dict(bpm=104, root=-1, prog="tense", kick="four", gaps=[(E("study") + .05, S("result") + .05)]),

@@ -101,4 +101,6 @@ FX = [(0.0, thud(.5), 0), (.5, whoosh(.8, .08), 0), (cue("hook", "might not"), p
       *[(S("study") + .2 + i * .085, tick(.04), (i % 5 - 2) / 3) for i in range(28)],
       (S("result") + .05, thud(.55), 0), (cue("result", "two months"), pop(.15), .2), (cue("who", "still attached"), thud(.35), 0),
       (cue("mood", "more distress"), pop(.15), 0), (cue("quote", "hand-wringing") - .2, pop(.15), 0), (cue("point", "just be"), thud(.45), 0), (S("end"), thud(.5), 0)]
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("result",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

@@ -69,4 +69,6 @@ FX = [(0.0, thud(.5), 0), *EP.cut_fx(), (S("tip1") + .1, pop(.12), -.3), (cue("t
       (cue("tip2", "feel closer") - .1, riser(.5, .04), 0),
       (S("tip3") + .1, thud(.4), 0), (cue("tip3", "In a diary") - .1, pop(.14), -.2), (cue("tip3", "feeling grateful") - .1, pop(.13), .3), (cue("tip3", "predicted") - .1, tick(.06), .2), (cue("tip3", "the next day") - .1, thud(.45), .3),
       (cue("point", "try new") - .15, pop(.12), -.3), (cue("point", "Cheer louder") - .15, pop(.12), -.3), (cue("point", "Say thanks") - .15, thud(.45), .3), (S("end"), thud(.5), 0)]
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=())          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

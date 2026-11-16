@@ -67,4 +67,6 @@ FX = [*EP.cut_fx(), (S("hook") + .05, thud(.45), 0), *iso_fx(TL, "hook"), (cue("
       (cue("tip2", "Even while") - .1, thud(.45), 0),
       (S("tip3") + .1, thud(.4), 0), (cue("tip3", "heart races") - .1, riser(.8, .05), 0), (cue("tip3", "stop listening") - .1, pop(.14), -.2), (cue("tip3", "twenty minutes") - .15, thud(.5), 0),
       (cue("point", "start soft") - .15, pop(.12), -.3), (cue("point", "Stay kind") - .15, pop(.12), -.3), (cue("point", "pause") - .15, thud(.45), .3), (S("end"), thud(.5), 0)]
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=())          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)

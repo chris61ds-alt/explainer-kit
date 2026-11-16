@@ -87,4 +87,6 @@ FX = [(0.0, thud(.5), 0), (.4, whoosh(1.0, .08), 0), *EP.cut_fx(), *[(S("study")
       (cue("twist", "eighty-six") - .2, riser(.4, .06), 0), (cue("twist", "eighty-six") + .4, thud(.5), 0),
       *[(cue("why", w) - .2, pop(.15), (i - 1) / 2) for i, w in enumerate(("oral", "longer", "asked for"))],
       (cue("point", "can be closed"), riser(1.2, .05), 0), (cue("point", "start by"), pop(.15), 0), (S("end"), thud(.5), 0)]
+from fx2 import light_look as _light_look
+_light_look(EP, EP.order, reveal=("result",))          # new light look (16.11.2026)
 if __name__ == "__main__": EP.run(FX)
