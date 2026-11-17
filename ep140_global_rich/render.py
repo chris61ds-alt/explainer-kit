@@ -113,7 +113,7 @@ def sc_setup(img, d, t): draw(img, d, t, "EVERYONE, LINED UP")
 def sc_explain(img, d, t): draw(img, d, t, "1 BAR = 1/10 OF US")
 def sc_median(img, d, t): draw(img, d, t, "THE MIDDLE.")
 def sc_reveal(img, d, t): draw(img, d, t, "THE TOP TENTH.")
-def sc_why(img, d, t): draw(img, d, t, "AVERAGE HERE. RICH THERE." if t < T_BACK else "RICH ON EARTH?")
+def sc_why(img, d, t): draw(img, d, t, "RICH ON EARTH." if t < T_BACK else "RICH ON EARTH?")
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}
 EP.scenes = {"hook": sc_hook, "setup": sc_setup, "explain": sc_explain, "median": sc_median, "reveal": sc_reveal, "why": sc_why}

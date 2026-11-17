@@ -32,8 +32,8 @@ T_EMO = S("reveal") + .1
 T_FL, T_EX, T_PO = cue("rest", "Flirting") - .1, cue("rest", "Following") - .1, cue("rest", "Secret") - .1
 T_YOU = cue("why", "you and your partner") - .1
 T_BACK = E("why") - 1.0
-CARDS = [("SECRET EMOTIONAL BOND", 76, -26, T_EMO), ("FLIRTING", 42, 0, T_FL), ("FOLLOWING AN EX ONLINE", 32, -30, T_EX),
-         ("SECRET PORN", 30, 32, T_PO)]
+CARDS = [("SECRET EMOTIONAL BOND", 76, -26, T_EMO), ("FLIRTING", 42, -30, T_FL), ("FOLLOWING AN EX ONLINE", 32, 8, T_EX),
+         ("SECRET PORN", 30, 86, T_PO)]
 
 def card(d, x, y, text, hot):
     f = F(BLK, 34); w = d.textlength(text, font=f) + 48
