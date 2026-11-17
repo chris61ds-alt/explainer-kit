@@ -162,8 +162,8 @@ def sc_why(img, d, t): draw(img, d, t, "5 DIFFERENT WINNERS." if t < T_BACK else
 EP.cuts = {k: "stay" for k in ORDER[1:]}
 EP.scenes = {"hook": sc_hook, "setup": sc_setup, "weather": sc_weather, "safety": sc_safety, "food": sc_food, "pay": sc_pay,
              "rent": sc_rent, "why": sc_why}
-FX = [*[(.3 + j * .55, whoosh(.3, .03), (-.4 if j % 2 else .4)) for j in range(int((T_REW - .3) / .55))], (T_STAMP, thud(.4), .3),
-      (T_REW - .4, whoosh(.5, .05), 0), (T_SET, pop(.12), 0), (S("safety") + .05, thud(.4), 0),
-      *[(T_C[c] + .05, whoosh(.4, .04), 0) for c in CRITS if c != "safety"],
-      *[(T_C[c] + .45 + i * .3, tick(.02), -.4 + i * .4) for c in CRITS for i in range(3)], (T_BACK, whoosh(.6, .05), 0)]
+FX = [*[(.3 + j * .55, tick(.012), (-.4 if j % 2 else .4)) for j in range(int((T_REW - .3) / .55))], (T_STAMP, thud(.3), .3),
+      (T_REW - .4, whoosh(.3, .03), 0), (T_SET, pop(.08), 0), (S("safety") + .05, thud(.4), 0),
+      *[(T_C[c] + .05, whoosh(.3, .025), 0) for c in CRITS if c != "safety"],
+      *[(T_C[c] + .45 + i * .3, tick(.012), -.4 + i * .4) for c in CRITS for i in range(3)], (T_BACK, whoosh(.6, .05), 0)]
 if __name__ == "__main__": EP.run(FX)

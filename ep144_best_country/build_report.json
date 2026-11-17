@@ -1,0 +1,23 @@
+{
+ "episode": "ep144_best_country",
+ "tts": "cached",
+ "asr_voice": [
+  "hook: 2/12 | The best country to live in changes with everything you count.",
+  "safety: 1/5 | safest, the Emirates-Cadar, Taiwan.",
+  "why: 1/15 | A different winter every time. The best place depends on what matters to you. It's..."
+ ],
+ "verify": "FAIL",
+ "verify_detail": "",
+ "asr_final_wer": "21/69 = 30.4%",
+ "asr_final_issues": [
+  "hook: 12/12 | ",
+  "setup: 5/13 | The taller the block, the better the score.",
+  "safety: 1/5 | safest, the Emirates-Cadar, Taiwan.",
+  "rent: 2/5 | Chiefist Rant Bangladesh, Pakistan, India",
+  "why: 1/15 | A different winter every time. The best place depends on what matters to you. It's..."
+ ],
+ "duration_s": 28.37,
+ "longest_calm_s": 2.78,
+ "cover": "ep144_best_country_cover.png",
+ "caption": "ok"
+}
