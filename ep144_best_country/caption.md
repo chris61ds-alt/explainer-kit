@@ -8,7 +8,7 @@ We compared 89 countries on five things:
 💰 Most buying power from a salary: Kuwait, Qatar, Switzerland
 🏠 Cheapest rent: Bangladesh, Pakistan, India
 
-A different winner every time. The best place depends on what matters to you.
+A different number one every time. The best place depends on what matters to you.
 
 Which of the five matters most to you? 👇
 
