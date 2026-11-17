@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "If we split the world's income equally, people in rich countries would live on a third.", "speed": 1.05},
+  {"id": "setup", "text": "The world produces about twenty-six thousand dollars per person a year."},
+  {"id": "explain", "text": "Each bar is one country's income per person. The line is the world average."},
+  {"id": "reveal", "text": "America and Germany sit about three times above it. India and Nigeria far below."},
+  {"id": "life", "text": "Split equally, everyone would live like an average person in Mexico or Thailand today."},
+  {"id": "why", "text": "Rich countries would take a pay cut. Most of the world would get a raise."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "IMF World Economic Outlook (2025), GDP per capita, PPP (current international $), 2025 estimates – world ≈ 25,600; USA ≈ 86,000; Germany ≈ 74,000; China ≈ 27,000; Mexico ≈ 26,000; Thailand ≈ 25,000; India ≈ 11,000; Nigeria ≈ 9,000 (rounded; editions differ by a few %). GDP per person is used as 'income per person' (standard proxy, e.g. Our World in Data); it is not take-home pay. 'Live like an average person in Mexico or Thailand' = same average output per person, ignoring distribution within countries."
+ ]
+}
