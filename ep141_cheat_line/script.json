@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "Is flirting cheating? Fewer than half of Americans say yes.", "speed": 1.05},
+  {"id": "setup", "text": "Two thousand adults rated what counts as cheating in a marriage."},
+  {"id": "explain", "text": "Bottom means nobody calls it cheating. Top means everybody does."},
+  {"id": "reveal", "text": "A secret emotional bond: seventy-six percent say cheating."},
+  {"id": "rest", "text": "Flirting: forty-two. Following an ex online: thirty-two. Secret porn: thirty."},
+  {"id": "why", "text": "So if you and your partner draw the line in different places, that's normal. It's"},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "iFidelity Survey (YouGov, late 2019, N = 2,000 US adults; Wheatley Institution at BYU, National Marriage Project, BYU School of Family Life), reported by the Institute for Family Studies ('What Counts as Cheating in Marriage? Emotional Infidelity in a National Sample') – share who say a married person doing this is infidelity: secret emotional relationship in real life 76 %, online 72 %, flirting 42 %, following an old girlfriend/boyfriend online 32 %, using pornography without the spouse's knowledge/consent 30 %."
+ ]
+}

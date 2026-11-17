@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "If you take home twenty thousand dollars a year, you're richer than nine in ten people on Earth.", "speed": 1.05},
+  {"id": "setup", "text": "Researchers lined up everyone's income, after tax and adjusted for prices."},
+  {"id": "explain", "text": "Each bar is one tenth of humanity, from poorest to richest."},
+  {"id": "median", "text": "The person right in the middle lives on about three thousand four hundred dollars a year."},
+  {"id": "reveal", "text": "Twenty thousand puts you in the top tenth. In Germany or the US, more than half of people are there."},
+  {"id": "why", "text": "Feeling average at home can mean rich on Earth. It's"},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "van Teutem & Hasell (2025), Global inequality is huge – but so is the opportunity for people in high-income countries to support poor people, Our World in Data (25 Aug 2025), based on World Bank Poverty and Inequality Platform – 'For a one-person household, an annual post-tax income of $20,000 already puts you in the richest tenth of the world'; 'That income bracket captures more than half the population in rich countries, like the Netherlands, the US, or Germany'; global median income ≈ 3,400 international dollars per year (2021 prices, 2025). Bars 1–8 schematic."
+ ]
+}

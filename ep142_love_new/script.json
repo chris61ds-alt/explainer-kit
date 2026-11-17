@@ -1,0 +1,16 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "In 1967, three in four young American women wouldn't rule out marrying without love.", "speed": 1.05},
+  {"id": "setup", "text": "Students were asked: would you marry someone perfect for you, if you weren't in love?"},
+  {"id": "explain", "text": "Each dot is one in a hundred women."},
+  {"id": "reveal", "text": "Only twenty-four said no. For most, love wasn't a must."},
+  {"id": "later", "text": "By the nineteen-nineties, only three point five percent of Americans said yes."},
+  {"id": "why", "text": "Love as the main reason to marry is newer than you think. It's"},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Kephart (1967), Some correlates of romantic love, Journal of Marriage and the Family 29(3), 470–474 – US college students: 'If a boy (girl) had all the other qualities you desired, would you marry this person if you were not in love with him/her?' – No: 65 % of men, 24 % of women (rest yes or undecided); cited e.g. in Peplau & Gordon (1985).",
+  "Levine, Sato, Hashimoto & Verma (1995), Love and marriage in eleven cultures, Journal of Cross-Cultural Psychology 26(5), 554–571 – same question: only 3.5 % of US respondents said yes; only respondents from India and Pakistan were broadly fine with marrying without love. Dots schematic (100 = women 1967)."
+ ]
+}

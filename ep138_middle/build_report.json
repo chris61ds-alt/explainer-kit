@@ -1,6 +1,6 @@
 {
  "episode": "ep138_middle",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "poor: 2/14 | In every country, at least two and three poorer people place themselves too high.",
   "rich: 1/7 | and richer people place themselves too low."
@@ -14,7 +14,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.1,
-  "sha256": "51a26d02ed54157f202feb646da8244a54b6f381e2cae7eac2d8e2332bf14f21",
+  "sha256": "274ebd0be97688af90904b5944e77de8ed54a63862a24fb41f70e8f5864ea81b",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
