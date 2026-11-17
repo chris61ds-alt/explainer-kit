@@ -1,0 +1,18 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "More than half of all countries earn most of their export money from raw materials.", "speed": 1.05},
+  {"id": "setup", "text": "Oil, metals, crops. Dug up or grown, then sold."},
+  {"id": "explain", "text": "Each country rises when we show its number one export."},
+  {"id": "oil", "text": "Oil and coal: from Norway to Nigeria to Saudi Arabia."},
+  {"id": "metals", "text": "Gold, copper and other metals: much of Africa and the Andes."},
+  {"id": "food", "text": "Crops: coffee in Ethiopia, cocoa in Ivory Coast, soy in Brazil."},
+  {"id": "made", "text": "Cars, phones and medicine: mostly Europe and East Asia."},
+  {"id": "why", "text": "Most of the world still drills, digs or grows. It's"},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "UNCTAD (2023), The State of Commodity Dependence 2023 – 101 of 191 UNCTAD member states (52.9 %) were commodity-dependent in 2019–2021 (commodities > 60 % of merchandise export value); 95 of 142 developing countries (66.9 %).",
+  "Map: each country's single top export product, 2018, CEPII (BACI) via Visual Capitalist, 'Mapped: The Top Export in Every Country'; India, Gabon, Equatorial Guinea, Timor-Leste added as petroleum (OEC 2018). Grouped by us into oil & coal / metals / crops & food / manufactured goods. Countries without data stay flat."
+ ]
+}
