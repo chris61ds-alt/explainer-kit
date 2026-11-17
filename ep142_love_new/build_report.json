@@ -1,0 +1,35 @@
+{
+ "episode": "ep142_love_new",
+ "tts": "new",
+ "asr_voice": [
+  "explain: 1/8 | Each dot is one in 100 women.",
+  "later: 7/13 | By the 1990s, only 3.5% of Americans said yes."
+ ],
+ "verify": "FAIL",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 25.17,
+  "size_MiB": 3.7,
+  "black_intervals": [],
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -0.1,
+  "sha256": "961c633f2158ce6f035f4adbdc4c1974fb0f30f567a56be74bc7f2fb069b1cbd",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": false
+  }
+ },
+ "asr_final_wer": "8/80 = 10.0%",
+ "asr_final_issues": [
+  "explain: 1/8 | Each dot is one in 100 women.",
+  "later: 7/13 | By the 1990s, only 3.5 percent of Americans said yes."
+ ],
+ "duration_s": 25.17,
+ "longest_calm_s": 2.72,
+ "cover": "ep142_love_new_cover.png",
+ "caption": "ok"
+}

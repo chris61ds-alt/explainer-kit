@@ -122,8 +122,8 @@ def sc_why(img, d, t): draw(img, d, t, "LOVE FIRST IS NEW." if t < T_BACK else "
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}
 EP.scenes = {"hook": sc_hook, "setup": sc_setup, "explain": sc_explain, "reveal": sc_reveal, "later": sc_later, "why": sc_why}
-FX = [(T_RING, whoosh(.4, .04), 0), (T_RING + .55, thud(.45), 0), (T_BREAK, whoosh(.7, .05), 0), (T_STAMP, thud(.5), .2),
-      (T_REW, whoosh(.6, .05), 0), (T_EXP, pop(.12), -.3), (S("reveal") + .05, thud(.55), 0),
-      *[(T_NO + j * .08, tick(.02), -.5 + j * .1) for j in range(10)], (T_95, whoosh(.5, .04), 0),
-      *[(T_95 + .2 + j * .12, tick(.02), -.5 + j * .1) for j in range(10)], (T_YES, pop(.16), .3), (T_BACK, whoosh(.6, .05), 0)]
+FX = [(T_RING, whoosh(.4, .04), 0), (T_RING + .55, thud(.32), 0), (T_BREAK, whoosh(.7, .05), 0), (T_STAMP, thud(.36), .2),
+      (T_REW, whoosh(.6, .05), 0), (T_EXP, pop(.12), -.3), (S("reveal") + .05, thud(.4), 0),
+      *[(T_NO + j * .08, tick(.012), -.5 + j * .1) for j in range(10)], (T_95, whoosh(.5, .04), 0),
+      *[(T_95 + .2 + j * .12, tick(.012), -.5 + j * .1) for j in range(10)], (T_YES, pop(.16), .3), (T_BACK, whoosh(.6, .05), 0)]
 if __name__ == "__main__": EP.run(FX)
