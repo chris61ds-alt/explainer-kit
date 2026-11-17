@@ -88,6 +88,13 @@ def shadowed(img, t):
     out = np.asarray(img, np.float32) * (1 - k) + k * np.array(INK, np.float32)
     img.paste(Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))); img.paste(L, (0, 0), M)
 
+def legend(d, items, y=1140):
+    f = F(MONO, 26); ws = [d.textlength(t, font=f) + 70 for _, _, t in items]; x = CX - sum(ws) / 2
+    for (kind, col, txt), w in zip(items, ws):
+        if kind == "fill": d.ellipse([x, y - 12, x + 24, y + 12], fill=col)
+        else: d.ellipse([x, y - 12, x + 24, y + 12], outline=col, width=4)
+        d.text((x + 34, y), txt, font=f, fill=INK, anchor="lm"); x += w
+
 def labels(d, t):
     cur = EP.current(t)
     if T_STAMP <= t < T_REW + .2: stamp(d, (CX, 1080), "LOVE? OPTIONAL.", t, T_STAMP, size=70)
@@ -95,9 +102,9 @@ def labels(d, t):
         x, y = HEART[0]; d.ellipse([x - DR - 12, y - DR - 12, x + DR + 12, y + DR + 12], outline=SIG, width=5)
         d.text((x + 60, y - 30), "1 IN 100", font=F(BLK, 36), fill=INK, anchor="lm")
     if cur == "reveal" and t >= T_NO + .5:
-        d.text((CX, 1140), "● SAID NO   ○ YES OR UNSURE", font=F(MONO, 26), fill=INK, anchor="mm")
+        legend(d, [("fill", INK, "SAID NO"), ("ring", MID, "YES OR UNSURE")])
     if cur in ("later", "why") and t >= T_YES and t < T_BACK:
-        d.text((CX, 1140), "● NOT YES   ● YES", font=F(MONO, 26), fill=INK, anchor="mm")
+        legend(d, [("fill", INK, "NOT YES"), ("fill", SIG, "YES")])
 
 def head(d, t, line):
     d.text((X0, 300), line, font=F(BLK, 84), fill=INK)
