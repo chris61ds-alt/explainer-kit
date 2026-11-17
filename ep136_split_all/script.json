@@ -6,7 +6,7 @@
   {"id": "explain", "text": "Ten people. Each coin is one percent of all wealth."},
   {"id": "reveal", "text": "Today, the richest one holds seventy-five coins. The poorest five share just two."},
   {"id": "split", "text": "Split equally, everyone gets ten. That's over a hundred thousand dollars each."},
-  {"id": "why", "text": "If your stack feels small, you're in the majority. It's"},
+  {"id": "why", "text": "If your stack feels small, you're in the majority."},
   {"id": "end", "text": "Not just you."}
  ],
  "sources": [

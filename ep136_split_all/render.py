@@ -35,7 +35,7 @@ T_RICH = cue("reveal", "richest") - .1; T_POOR = cue("reveal", "poorest") - .1
 T_SPLIT = S("split") + .05;         D_SPLIT = 1.5
 T_MONEY = cue("split", "hundred") - .25
 T_YOU = cue("why", "If") - .05
-T_BACK = E("why") - 1.15;           D_BACK = .95          # loop: back to frame 0
+T_BACK = 1e9;           D_BACK = .95          # loop: back to frame 0
 MOVES = [(T_L0, D_L0, UNEQ, EQ), (T_REW, D_REW, EQ, UNEQ), (T_SPLIT, D_SPLIT, UNEQ, EQ), (T_BACK, D_BACK, EQ, UNEQ)]
 
 def stacks(t):
@@ -137,4 +137,5 @@ FX = [(T_L0, whoosh(.6, .05), .4), *[(T_L0 + .25 + j * .14, tick(.03), -.6 + j *
       (S("reveal") + .1, thud(.55), 0), (T_RICH, pop(.16), .5), (T_POOR, pop(.16), -.5),
       (T_SPLIT, whoosh(.6, .05), .4), *[(T_SPLIT + .25 + j * .14, tick(.03), -.6 + j * .12) for j in range(9)], (T_MONEY, thud(.5), 0),
       (T_YOU, pop(.12), 0), (T_BACK, whoosh(.6, .05), 0)]
+FX = [fx for fx in FX if fx[0] < 1e8]                  # rule 15 (17.11.2026): no loop, the payoff stays to the last frame
 if __name__ == "__main__": EP.run(FX)

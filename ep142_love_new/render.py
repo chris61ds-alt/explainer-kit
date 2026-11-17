@@ -47,7 +47,7 @@ T_REW = S("setup") - .05
 T_EXP = cue("explain", "Each dot") - .1
 T_NO = cue("reveal", "twenty-four") - .15
 T_95 = S("later") + .05; T_YES = cue("later", "three point five") - .15
-T_BACK = E("why") - .9
+T_BACK = 1e9
 
 def pos(i, t):
     """heart at frame 0, breaks into a loose cloud in the hook, rewinds to the heart"""
@@ -133,4 +133,5 @@ FX = [(T_RING, whoosh(.4, .04), 0), (T_RING + .55, thud(.32), 0), (T_BREAK, whoo
       (T_REW, whoosh(.6, .05), 0), (T_EXP, pop(.12), -.3), (S("reveal") + .05, thud(.4), 0),
       *[(T_NO + j * .08, tick(.012), -.5 + j * .1) for j in range(10)], (T_95, whoosh(.5, .04), 0),
       *[(T_95 + .2 + j * .12, tick(.012), -.5 + j * .1) for j in range(10)], (T_YES, pop(.16), .3), (T_BACK, whoosh(.6, .05), 0)]
+FX = [fx for fx in FX if fx[0] < 1e8]                  # rule 15 (17.11.2026): no loop, the payoff stays to the last frame
 if __name__ == "__main__": EP.run(FX)

@@ -33,7 +33,7 @@ T_GROW = S("setup") + .2;  D_GROW = 1.4
 T_EXP = S("explain") - .05
 T_MED = cue("median", "middle") - .15
 T_TOP = S("reveal") + .05; T_HALF = cue("reveal", "Germany") - .15
-T_BACK = E("why") - 1.0
+T_BACK = 1e9
 
 def grow(t):
     """bar heights: full at the start (frame 0 = cover), shrink to 0 at the rewind, grow back in setup"""
@@ -121,4 +121,5 @@ FX = [(T_CARD, whoosh(.5, .04), .5), (T_CARD + D_CARD * .5, thud(.45), .5), (T_S
       (T_REW, whoosh(.5, .05), 0), *[(T_GROW + .3 + i * .07, tick(.02), -.6 + i * .13) for i in range(10)],
       *[(T_EXP + i * .07, tick(.02), -.6 + i * .13) for i in range(0, 10, 2)], (T_MED, pop(.14), -.1),
       (S("reveal") + .05, thud(.55), 0), (T_HALF, pop(.16), .3), (T_BACK, whoosh(.6, .05), 0)]
+FX = [fx for fx in FX if fx[0] < 1e8]                  # rule 15 (17.11.2026): no loop, the payoff stays to the last frame
 if __name__ == "__main__": EP.run(FX)

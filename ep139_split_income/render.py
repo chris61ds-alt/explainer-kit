@@ -38,7 +38,7 @@ T_RICH = cue("reveal", "America") - .1; T_POOR = cue("reveal", "India") - .1
 T_EQ = S("life") + .05;    D_EQ = 1.1
 T_LIKE = cue("life", "Mexico") - .15
 T_CUT = cue("why", "pay cut") - .2; T_RAISE = cue("why", "raise") - .25
-T_BACK = E("why") - 1.1;   D_BACK = .9
+T_BACK = 1e9;   D_BACK = .9
 MOVES = [(T_O, D_O, REAL, EQ), (T_REW, D_REW, EQ, REAL), (T_EQ, D_EQ, REAL, EQ), (T_BACK, D_BACK, EQ, REAL)]
 
 def heights(t):
@@ -133,4 +133,5 @@ FX = [(T_O, whoosh(.6, .05), 0), *[(T_O + .15 + i * .05, tick(.03), -.6 + i * .2
       (S("reveal") + .05, thud(.55), 0), (T_RICH, pop(.16), -.5), (T_POOR, pop(.16), .5),
       (T_EQ, whoosh(.6, .05), 0), *[(T_EQ + .15 + i * .05, tick(.03), -.6 + i * .2) for i in range(7)], (T_LIKE, pop(.14), 0),
       (T_CUT, pop(.12), -.5), (T_RAISE, pop(.12), .5), (T_BACK, whoosh(.6, .05), 0)]
+FX = [fx for fx in FX if fx[0] < 1e8]                  # rule 15 (17.11.2026): no loop, the payoff stays to the last frame
 if __name__ == "__main__": EP.run(FX)

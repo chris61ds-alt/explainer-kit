@@ -51,7 +51,7 @@ T_REW = S("setup") - .05;   D_REW = .9
 T_STEPS = S("explain") - .05; T_DOT = cue("explain", "Each dot") - .1
 T_JUMP = S("reveal") + .05
 T_POOR = S("poor") + .05; T_RICH = S("rich") + .05
-T_BACK = E("why") - 1.15;   D_BACK = .95
+T_BACK = 1e9;   D_BACK = .95
 MOVES = [(T_J0, D_J, 1), (T_REW, D_REW, 0), (T_JUMP, D_J, 1), (T_BACK, D_BACK, 0)]   # target: 1 = perceived, 0 = real
 
 def dot_pos(i, t):
@@ -129,4 +129,5 @@ FX = [(T_J0, whoosh(.6, .05), 0), *[(T_J0 + .2 + j * .06, tick(.02), -.6 + j * .
       (T_REW, whoosh(.6, .05), 0), *[(T_STEPS + i * .1, tick(.025), -.6 + i * .3) for i in range(5)], (T_DOT, pop(.12), 0),
       (T_JUMP - .05, thud(.5), 0), *[(T_JUMP + .2 + j * .06, tick(.02), -.6 + j * .1) for j in range(12)],
       (T_POOR, pop(.16), -.5), (T_RICH, pop(.16), .5), (T_BACK, whoosh(.6, .05), 0)]
+FX = [fx for fx in FX if fx[0] < 1e8]                  # rule 15 (17.11.2026): no loop, the payoff stays to the last frame
 if __name__ == "__main__": EP.run(FX)

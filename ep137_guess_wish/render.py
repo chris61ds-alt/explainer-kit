@@ -37,7 +37,7 @@ T_G = S("est") + .05;       D_G = 1.3
 T_W = S("wish") + .05;        D_W = 1.0
 T_R = S("reveal") + .05;      D_R = 1.2
 T_POOR = cue("reveal", "poorest") - .1
-T_BACK = E("why") - 1.1;      D_BACK = .9
+T_BACK = 1e9;      D_BACK = .9
 MOVES = [(T_O, D_O, GUESS, REAL), (T_REW, D_REW, REAL, EMPTY), (T_ONE, D_ONE, EMPTY, ONE), (T_G, D_G, ONE, GUESS),
          (T_W, D_W, GUESS, WISH), (T_R, D_R, WISH, REAL), (T_BACK, D_BACK, REAL, GUESS)]
 
@@ -132,4 +132,5 @@ FX = [(T_O, whoosh(.7, .05), -.4), *[(T_O + .1 + j * .07, tick(.02), -.5) for j 
       (T_G, whoosh(.5, .04), -.3), *[(T_G + .1 + j * .09, tick(.02), -.4) for j in range(8)],
       (T_W, whoosh(.5, .04), .3), (S("reveal") + .05, thud(.55), 0), *[(T_R + .1 + j * .08, tick(.025), -.5) for j in range(10)],
       (T_POOR, pop(.16), .5), (T_BACK, whoosh(.6, .05), 0)]
+FX = [fx for fx in FX if fx[0] < 1e8]                  # rule 15 (17.11.2026): no loop, the payoff stays to the last frame
 if __name__ == "__main__": EP.run(FX)

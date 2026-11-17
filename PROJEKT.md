@@ -95,7 +95,7 @@ Source: <Autor (Jahr), Quelle>
   3. **Keine reinen Text-Szenen:** oben eine kleine Headline (BLK 84) + ein **Live-Zähler** (die eine Zahl, die sich ändert). Große Typo nur für die eine Zahl.
   4. **Physische Bewegung:** `spring()` (Überschwingen), Schwerkraft beim Wegfallen, Ruhezustände schimmern leicht – nichts steht still.
   5. **Reveal = orange Hintergrund** (`EP.bg = {"reveal": "orange"}`), sonst dunkel.
-  6. **Loop-Ende:** letzter Satz läuft in den ersten Satz hinein („… And it's why“ → „You think …“), das Objekt springt in den Anfangszustand zurück. Kein `ask`-Banner (Kommentar-Frage nur in der Caption), kein gesprochenes „Not just you“.
+  6. ~~**Loop-Ende:**~~ **ersetzt durch Regel 15 (17.11.2026).** Früher: letzter Satz läuft in den ersten Satz hinein („… And it's why“ → „You think …“), das Objekt springt in den Anfangszustand zurück. Kein `ask`-Banner (Kommentar-Frage nur in der Caption), kein gesprochenes „Not just you“.
   7. **Länge 24–32 s** (vorher 18–22 s, Chris 13.11.2026: „zu schnell und zu unklar“), Beats `hook / setup / … / reveal / why`, `lead=.05`.
   10. **VERSTÄNDLICHKEIT GEHT VOR TEMPO (Chris, 13.11.2026):**
      - Sprechtempo `speed` **1.0** (Hook 1.05) statt 1.1/1.13; Lücken zwischen Beats 0,4–0,6 s, **nach der Schlüsselzahl 0,8 s Pause**.
@@ -105,6 +105,7 @@ Source: <Autor (Jahr), Quelle>
      - **Bild = Ton:** die Headline zeigt genau das, was gerade gesagt wird; nie zwei neue Dinge gleichzeitig im Bild.
      - **Test vor dem Bauen:** Versteht es jemand nach einmal Ansehen ohne Ton-Pause? Sonst Satz streichen oder vereinfachen.
   8. **Formate mischen:** Simulation · Mythos vs. Daten · „3 Dinge“ · „Du hast gefragt“. Label bleibt ehrlich (SIMULATION · MATH MODEL, SURVEY …), Vorbehalte in Fig-Zeile + Caption.
+  15. **Pointe statt Loop (Chris, 17.11.2026):** die Auflösung bleibt bis zum letzten Frame stehen (Ergebnisbild + Pointe-Headline), kein Rücksprung in den Anfangszustand, kein angehängter Halbsatz („It's …“) für einen Loop. Der letzte Satz ist ein vollständiger Schlusssatz. Die Kamera zoomt zur Pointe auf das Gesamtbild.
   9. **Bausteine aus `shared/fx2.py`** (nach den „Funfacts“-Reels): `camera()`/`cam_path()` = Kamerafahrt auf das Objekt (Start nah, rauszoomen, beim Reveal reinfahren, Loop zurück), `glow()` = weicher Lichtschein für „aktiv/ja“, `Stream`/`dots()` = tausende Partikel, die sichtbar fließen. Pro Folge mindestens einen davon nutzen, wenn es passt. Erste Folge: No. 100.
   11. **HELLER LOOK = STANDARD (Chris, 13.11.2026):** neue Folgen auf hellem Papier mit **weichen Schatten** (`fx2.soft_shadow`), der Reveal auf **Schwarz** statt Orange (Orange bleibt nur als Akzent für die Antwort). Umsetzung: `ThreadEpisode(dark=True)` lassen und `fx2.light_look(EP, ORDER)` aufrufen; Schatten nur wenn `is_light(EP, t)`, Glow nur in dunklen Szenen. Komplett dunkel nur, wenn die Geschichte es braucht (Nacht, Lichtkegel). Fertige Folgen bleiben, wie sie sind.
   12. **Kein großer Titel über dem Bild (Chris, 14.11.2026):** der „große Hook“ (`fx2.hook_intro`) ist wieder AUS – er widerspricht „sofort passiert etwas Visuelles“. Die erste Sekunde gehört dem bewegten Objekt; der Hook ist gesprochen + kleine Headline. Likes heben die Views nicht – entscheidend ist die Zuschauerbindung in den ersten Sekunden.

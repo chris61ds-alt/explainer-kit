@@ -44,7 +44,7 @@ T_STAMP = cue("hook", "half") - .05
 T_REW = S("setup") - .05
 T_DEMO = cue("explain", "rises") - .2
 T_CAT = {"OIL": S("oil") + .05, "METALS": S("metals") + .05, "FOOD": S("food") + .05, "MADE": S("made") + .05}
-T_BACK = E("why") - 1.1
+T_BACK = 1e9
 TAGS = {"OIL": [("NORWAY", 10, 62), ("NIGERIA", 8, 9), ("SAUDI ARABIA", 45, 24)],
         "METALS": [("GHANA · GOLD", -1, 7), ("CONGO · COPPER", 23, -3), ("CHILE · COPPER", -71, -28)],
         "FOOD": [("ETHIOPIA · COFFEE", 39, 9), ("IVORY COAST · COCOA", -5, 7), ("BRAZIL · SOY", -52, -10)],
@@ -68,7 +68,7 @@ def height(name, c, t):
     back = ease_io(clamp((t - T_BACK) / .8)) if t >= T_BACK else 0
     if c and t >= T_CAT[c]:
         k = spring((t - T_CAT[c] - (_h(name) % 9) * .025) / .55)
-        hot = current_cat(t) == c
+        hot = current_cat(t) == c or (EP.current(t) in ("why", "end") and c in RAW)   # payoff: drill, dig, grow
         h = (3 + 38 * k) if hot else 3 + 12 * (1 if k >= 1 else k)
         return h * (1 - back) + 3 * back, ("hot" if hot else "up") if back < .5 else "flat"
     return 3, "flat"
@@ -103,8 +103,8 @@ def cam(t):
     m = (540, 800)
     def at(lo, la): x, y = proj(lo, la); return (x, y - 30)
     keys = [(0, 1.0, m), (T_CAT["OIL"] - .2, 1.0, m), (T_CAT["OIL"] + .8, 1.25, at(30, 30)), (T_CAT["METALS"] - .2, 1.25, at(30, 30)),
-            (T_CAT["METALS"] + .7, 1.0, m), (T_CAT["MADE"] - .2, 1.0, m), (T_CAT["MADE"] + .8, 1.2, at(55, 42)), (T_BACK - .3, 1.2, at(55, 42)),
-            (T_BACK + .6, 1.0, m)]
+            (T_CAT["METALS"] + .7, 1.0, m), (T_CAT["MADE"] - .2, 1.0, m), (T_CAT["MADE"] + .8, 1.2, at(55, 42)), (S("why") - .1, 1.2, at(55, 42)),
+            (S("why") + .6, 1.0, m)]
     return cam_path(t, keys)
 
 def labels(d, t):
@@ -140,4 +140,5 @@ FX = [(T_RISE, whoosh(.5, .04), 0), *[(T_RISE + .1 + j * .05, tick(.015), -.6 + 
       (T_REW, whoosh(.5, .05), 0), (T_DEMO, pop(.12), -.2), (S("oil") + .05, thud(.4), 0),
       *[(T_CAT[c] + .1, whoosh(.4, .04), 0) for c in ("METALS", "FOOD", "MADE")],
       *[(T_CAT[c] + .5 + i * .35, tick(.02), -.4 + i * .4) for c in T_CAT for i in range(3)], (T_BACK, whoosh(.6, .05), 0)]
+FX = [fx for fx in FX if fx[0] < 1e8]                  # rule 15 (17.11.2026): no loop, the payoff stays to the last frame
 if __name__ == "__main__": EP.run(FX)

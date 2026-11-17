@@ -62,7 +62,7 @@ T_C = {c: S(c) + .05 for c in CRITS}
 T_STAMP = cue("hook", "changes") - .05
 T_REW = S("setup") - .05
 T_SET = cue("setup", "taller") - .2
-T_BACK = E("why") - 1.1
+T_BACK = 1e9
 HMAX = 72
 
 def crit_at(t):
@@ -107,6 +107,7 @@ def scene(L, d, t):
         elif c and name in [_alias_tag.get(x[0]) for x in TAGS[c]]: top, side = INK, MID
         else: v = h_of(name, c) if c else .4; top, side = mix(WHITE, INK, .12 + .5 * v), RULE
         block(d, ring, h, top, side)
+    if EP.current(t) in ("why", "end"): finale(d, t)
     if c:
         for i, (lab, lo, la, dx, L_) in enumerate(TAGS[c]):
             t0 = T_C[c] + .45 + i * .3
@@ -121,12 +122,28 @@ def scene(L, d, t):
                 d.rounded_rectangle([tx - w / 2 - 12, y - L_ - 40, tx + w / 2 + 12, y - L_], radius=10, fill=WHITE, outline=INK, width=3)
                 d.text((tx, y - L_ - 20), f"{i + 1}. {lab}", font=f, fill=INK, anchor="mm")
 
+NO1 = [("WEATHER", "URUGUAY", -56, -33, 0, 90), ("SAFETY", "UAE", 54, 24, 120, 70), ("FOOD", "PAKISTAN", 70, 30, -60, 190),
+       ("PAY", "KUWAIT", 47.7, 29.3, -170, 110), ("RENT", "BANGLADESH", 90, 24, 150, 160)]
+def finale(d, t):
+    """payoff (rule 15): the five different number ones, pinned at once"""
+    t0 = S("why") + .3
+    for i, (cat_, lab, lo, la, dx, L_) in enumerate(NO1):
+        if t < t0 + i * .18: continue
+        k = ease(clamp((t - t0 - i * .18) / .3)); x, y = proj(lo, la); y -= 10
+        d.ellipse([x - 8, y - 8, x + 8, y + 8], fill=SIG)
+        tx = x + dx * k; ty = y - L_ * k
+        d.line([(x, y), (tx, ty)], fill=INK, width=3)
+        if k > .5:
+            f = F(BLK, 24); txt = f"{cat_}: {lab}"; w = d.textlength(txt, font=f); tx = min(max(tx, w / 2 + 30), 1050 - w / 2)
+            d.rounded_rectangle([tx - w / 2 - 10, ty - 36, tx + w / 2 + 10, ty], radius=10, fill=WHITE, outline=INK, width=3)
+            d.text((tx, ty - 18), txt, font=f, fill=INK, anchor="mm")
+
 def cam(t):
     m = (540, 800)
     def at(lo, la): x, y = proj(lo, la); return (x, y - 40)
     keys = [(0, 1.0, m), (T_C["food"] - .2, 1.0, m), (T_C["food"] + .7, 1.3, at(65, 28)), (T_C["pay"] - .2, 1.3, at(65, 28)),
-            (T_C["pay"] + .7, 1.0, m), (T_C["rent"] - .2, 1.0, m), (T_C["rent"] + .7, 1.3, at(75, 27)), (T_BACK - .3, 1.3, at(75, 27)),
-            (T_BACK + .6, 1.0, m)]
+            (T_C["pay"] + .7, 1.0, m), (T_C["rent"] - .2, 1.0, m), (T_C["rent"] + .7, 1.3, at(75, 27)), (S("why") - .1, 1.3, at(75, 27)),
+            (S("why") + .6, 1.0, m)]
     return cam_path(t, keys)
 
 def labels(d, t):
@@ -166,4 +183,5 @@ FX = [*[(.3 + j * .55, tick(.012), (-.4 if j % 2 else .4)) for j in range(int((T
       (T_REW - .4, whoosh(.3, .03), 0), (T_SET, pop(.08), 0), (S("safety") + .05, thud(.4), 0),
       *[(T_C[c] + .05, whoosh(.3, .025), 0) for c in CRITS if c != "safety"],
       *[(T_C[c] + .45 + i * .3, tick(.012), -.4 + i * .4) for c in CRITS for i in range(3)], (T_BACK, whoosh(.6, .05), 0)]
+FX = [fx for fx in FX if fx[0] < 1e8]                  # rule 15 (17.11.2026): no loop, the payoff stays to the last frame
 if __name__ == "__main__": EP.run(FX)

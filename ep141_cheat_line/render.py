@@ -31,7 +31,7 @@ T_BOT = cue("explain", "Bottom") - .1; T_TOPL = cue("explain", "Top") - .1
 T_EMO = S("reveal") + .1
 T_FL, T_EX, T_PO = cue("rest", "Flirting") - .1, cue("rest", "Following") - .1, cue("rest", "Secret") - .1
 T_YOU = cue("why", "you and your partner") - .1
-T_BACK = E("why") - 1.0
+T_BACK = 1e9
 CARDS = [("SECRET EMOTIONAL BOND", 76, -26, T_EMO), ("FLIRTING", 42, -30, T_FL), ("FOLLOWING AN EX ONLINE", 32, 8, T_EX),
          ("SECRET PORN", 30, 86, T_PO)]
 
@@ -127,4 +127,5 @@ FX = [*[(T_SW + j * (math.pi / 7.0), whoosh(.25, .03), (-.4 if j % 2 else .4)) f
       (T_REW, whoosh(.5, .05), 0), (T_SCALE, pop(.12), -.5), (T_BOT, tick(.03), -.3), (T_TOPL, tick(.03), .3),
       (S("reveal") + .05, thud(.55), 0), (T_EMO, whoosh(.4, .04), .4), (T_FL, pop(.14), .3), (T_EX, pop(.14), .3), (T_PO, pop(.14), .3),
       (T_YOU, pop(.12), -.3), (T_YOU + .35, pop(.12), .3), (T_BACK, whoosh(.6, .05), 0)]
+FX = [fx for fx in FX if fx[0] < 1e8]                  # rule 15 (17.11.2026): no loop, the payoff stays to the last frame
 if __name__ == "__main__": EP.run(FX)
