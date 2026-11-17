@@ -1,6 +1,6 @@
 {
  "episode": "ep136_split_all",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
   "setup: 1/9 | Researchers added up what every adult owns, minus deaths.",
   "split: 1/12 | Split equally, everyone gets 10. That's over $100,000 each."
@@ -9,12 +9,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 24.8,
-  "size_MiB": 3.9,
+  "duration_s": 24.53,
+  "size_MiB": 3.7,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.3,
-  "sha256": "9f8c5fe259de2e0d6eda5ebeb9b61136f0c908ed166e3e7be696c773e7cf7c6b",
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.4,
+  "sha256": "34e73210b7398e08cf67973c3f12be5fbb8b5f73372916de794e7e2005e0280a",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,13 +23,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "2/71 = 2.8%",
+ "asr_final_wer": "2/70 = 2.9%",
  "asr_final_issues": [
   "setup: 1/9 | Researchers added up what every adult owns, minus deaths.",
   "split: 1/12 | Split equally, everyone gets 10. That's over $100,000 each."
  ],
- "duration_s": 24.8,
- "longest_calm_s": 2.27,
+ "duration_s": 24.52,
+ "longest_calm_s": 2.72,
  "cover": "ep136_split_all_cover.png",
  "caption": "ok"
 }
