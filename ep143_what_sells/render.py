@@ -58,20 +58,20 @@ def current_cat(t):
 def height(name, c, t):
     """block height (px) and role: 'hot' (named now), 'up' (named before), 'flat'"""
     if t < T_REW:                                               # cold open: every raw-material country shoots up
-        if c in RAW: k = spring(clamp((t - T_RISE - (_h(name) % 7) * .03) / .5)); return 4 + 50 * k, "hot" if k > .05 else "flat"
-        return 4, "flat"
+        if c in RAW: k = spring(clamp((t - T_RISE - (_h(name) % 7) * .03) / .5)); return 3 + 34 * k, "hot" if k > .05 else "flat"
+        return 3, "flat"
     if t < T_REW + .5 and t >= T_REW:
-        if c in RAW: return 4 + 50 * (1 - ease_io((t - T_REW) / .5)), "up"
-        return 4, "flat"
+        if c in RAW: return 3 + 34 * (1 - ease_io((t - T_REW) / .5)), "up"
+        return 3, "flat"
     if name == "Germany" and T_DEMO <= t < T_CAT["OIL"] - .2:   # the picture explained once
-        return 4 + 46 * spring((t - T_DEMO) / .5), "hot"
+        return 3 + 34 * spring((t - T_DEMO) / .5), "hot"
     back = ease_io(clamp((t - T_BACK) / .8)) if t >= T_BACK else 0
     if c and t >= T_CAT[c]:
         k = spring((t - T_CAT[c] - (_h(name) % 9) * .025) / .55)
         hot = current_cat(t) == c
-        h = (4 + 56 * k) if hot else 4 + 30 * (1 if k >= 1 else k)
-        return h * (1 - back) + 4 * back, ("hot" if hot else "up") if back < .5 else "flat"
-    return 4, "flat"
+        h = (3 + 38 * k) if hot else 3 + 12 * (1 if k >= 1 else k)
+        return h * (1 - back) + 3 * back, ("hot" if hot else "up") if back < .5 else "flat"
+    return 3, "flat"
 
 def block(d, ring, h, top, side):
     for i in range(0, int(h), 3): d.polygon([(x, y - i) for x, y in ring], fill=side)
@@ -89,13 +89,13 @@ def scene(L, d, t):
         for i, (lab, lo, la) in enumerate(TAGS[c]):
             t0 = T_CAT[c] + .5 + i * .35
             if t < t0: continue
-            x, y = proj(lo, la); y -= 62
+            x, y = proj(lo, la); y -= 44; L = 60 + 70 * (i % 2)
             k = ease(clamp((t - t0) / .3))
-            d.line([(x, y), (x, y - 70 * k)], fill=INK, width=3)
+            d.line([(x, y), (x, y - L * k)], fill=INK, width=3)
             if k > .5:
-                f = F(BLK, 26); w = d.textlength(lab, font=f)
-                d.rounded_rectangle([x - w / 2 - 12, y - 70 - 40, x + w / 2 + 12, y - 70], radius=10, fill=WHITE, outline=INK, width=3)
-                d.text((x, y - 90), lab, font=f, fill=INK, anchor="mm")
+                f = F(BLK, 26); w = d.textlength(lab, font=f); x = min(max(x, w / 2 + 30), 1050 - w / 2)
+                d.rounded_rectangle([x - w / 2 - 12, y - L - 40, x + w / 2 + 12, y - L], radius=10, fill=WHITE, outline=INK, width=3)
+                d.text((x, y - L - 20), lab, font=f, fill=INK, anchor="mm")
     if T_DEMO <= t < T_CAT["OIL"] - .2:
         x, y = proj(10, 51); d.text((x + 40, y - 120), "GERMANY: CARS", font=F(BLK, 32), fill=INK, anchor="lm")
 
@@ -124,14 +124,14 @@ def draw(img, d, t, line, note="map: each country's no. 1 export, 2018 · groupe
     z, f = cam(t); camera(img, lambda L, dL: scene(L, dL, t), z, f)
     d = ImageDraw.Draw(img); labels(d, t); head(d, t, line); fig(d, note)
 
-def sc_hook(img, d, t): draw(img, d, t, "WHAT DO COUNTRIES SELL?")
+def sc_hook(img, d, t): draw(img, d, t, "WHO SELLS WHAT?")
 def sc_setup(img, d, t): draw(img, d, t, "RAW MATERIALS", note="UNCTAD 2023 · over 60% of exports = commodities")
 def sc_explain(img, d, t): draw(img, d, t, "1 BLOCK = 1 COUNTRY")
 def sc_oil(img, d, t): draw(img, d, t, "OIL & COAL.")
 def sc_metals(img, d, t): draw(img, d, t, "METALS.")
 def sc_food(img, d, t): draw(img, d, t, "CROPS.")
 def sc_made(img, d, t): draw(img, d, t, "MADE GOODS.")
-def sc_why(img, d, t): draw(img, d, t, "DRILL. DIG. GROW." if t < T_BACK else "WHAT DO COUNTRIES SELL?")
+def sc_why(img, d, t): draw(img, d, t, "DRILL. DIG. GROW." if t < T_BACK else "WHO SELLS WHAT?")
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}
 EP.scenes = {"hook": sc_hook, "setup": sc_setup, "explain": sc_explain, "oil": sc_oil, "metals": sc_metals, "food": sc_food,
