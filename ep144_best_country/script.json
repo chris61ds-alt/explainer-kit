@@ -1,0 +1,17 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "The best country to live in changes with every thing you count.", "speed": 1.05},
+  {"id": "setup", "text": "Five things, eighty-nine countries. The taller the block, the better the score."},
+  {"id": "weather", "text": "Best weather: Uruguay, Malta, Portugal."},
+  {"id": "safety", "text": "Safest: the Emirates, Qatar, Taiwan."},
+  {"id": "food", "text": "Cheapest food: Pakistan, India, Iran."},
+  {"id": "pay", "text": "Most buying power from a salary: Kuwait, Qatar, Switzerland."},
+  {"id": "rent", "text": "Cheapest rent: Bangladesh, Pakistan, India."},
+  {"id": "why", "text": "A different winner every time. The best place depends on what matters to you. It's"},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Numbeo, Quality of Life Index by Country 2026 Mid-Year and Cost of Living Index by Country 2026 Mid-Year (screenshots 17.11.2026; crowd-sourced user data). 89 countries with all values. Weather = Climate Index (top: Uruguay 98.0, Malta 97.9, Portugal 97.8); safety = Safety Index (UAE 86.3, Qatar 84.8, Taiwan 82.9); food = Groceries Index, lowest (Pakistan 18.8, India 21.4, Iran 21.4); pay = (Local) Purchasing Power Index (Kuwait 179.7, Qatar 173.5, Switzerland 168.7); rent = Rent Index, lowest (Bangladesh 2.4, Pakistan 3.1, India 3.8). Block height = percentile rank among the 89 countries."
+ ]
+}

@@ -1,0 +1,806 @@
+{
+"data": {
+"Netherlands": {
+"climate": 87.0,
+"safety": 72.3,
+"groceries": 67.4,
+"rent": 35.9,
+"power": 127.3,
+"qol": 205.6,
+"pollution": 22.6
+},
+"Luxembourg": {
+"climate": 82.6,
+"safety": 66.4,
+"groceries": 78.1,
+"rent": 47.1,
+"power": 159.2,
+"qol": 204.8,
+"pollution": 24.4
+},
+"Oman": {
+"climate": 66.0,
+"safety": 81.7,
+"groceries": 46.8,
+"rent": 12.0,
+"power": 152.6,
+"qol": 203.9,
+"pollution": 36.5
+},
+"Denmark": {
+"climate": 81.2,
+"safety": 73.2,
+"groceries": 74.3,
+"rent": 26.6,
+"power": 143.0,
+"qol": 203.9,
+"pollution": 26.2
+},
+"Switzerland": {
+"climate": 80.7,
+"safety": 71.9,
+"groceries": 109.5,
+"rent": 47.9,
+"power": 168.7,
+"qol": 203.2,
+"pollution": 22.0
+},
+"Finland": {
+"climate": 55.6,
+"safety": 73.7,
+"groceries": 69.3,
+"rent": 20.1,
+"power": 121.0,
+"qol": 201.5,
+"pollution": 10.9
+},
+"Austria": {
+"climate": 76.6,
+"safety": 70.8,
+"groceries": 72.1,
+"rent": 23.8,
+"power": 115.7,
+"qol": 198.1,
+"pollution": 16.3
+},
+"Iceland": {
+"climate": 68.8,
+"safety": 74.5,
+"groceries": 106.3,
+"rent": 47.7,
+"power": 116.0,
+"qol": 195.1,
+"pollution": 17.1
+},
+"Germany": {
+"climate": 83.0,
+"safety": 61.0,
+"groceries": 64.6,
+"rent": 22.0,
+"power": 131.6,
+"qol": 195.0,
+"pollution": 23.2
+},
+"Norway": {
+"climate": 70.6,
+"safety": 66.4,
+"groceries": 89.4,
+"rent": 28.2,
+"power": 124.8,
+"qol": 193.5,
+"pollution": 18.7
+},
+"Estonia": {
+"climate": 71.2,
+"safety": 76.5,
+"groceries": 55.3,
+"rent": 15.2,
+"power": 89.4,
+"qol": 191.8,
+"pollution": 15.7
+},
+"Qatar": {
+"climate": 34.6,
+"safety": 84.8,
+"groceries": 41.8,
+"rent": 36.9,
+"power": 173.5,
+"qol": 188.6,
+"pollution": 60.4
+},
+"Sweden": {
+"climate": 65.0,
+"safety": 52.2,
+"groceries": 67.5,
+"rent": 20.1,
+"power": 130.0,
+"qol": 187.6,
+"pollution": 17.1
+},
+"Australia": {
+"climate": 91.9,
+"safety": 52.6,
+"groceries": 82.2,
+"rent": 33.1,
+"power": 137.3,
+"qol": 186.8,
+"pollution": 28.3
+},
+"New Zealand": {
+"climate": 97.0,
+"safety": 51.2,
+"groceries": 67.5,
+"rent": 24.6,
+"power": 121.4,
+"qol": 186.2,
+"pollution": 26.2
+},
+"United States": {
+"climate": 76.2,
+"safety": 50.8,
+"groceries": 76.4,
+"rent": 37.1,
+"power": 147.9,
+"qol": 184.7,
+"pollution": 37.0
+},
+"Spain": {
+"climate": 93.0,
+"safety": 61.9,
+"groceries": 51.9,
+"rent": 22.3,
+"power": 98.5,
+"qol": 183.4,
+"pollution": 32.4
+},
+"Slovenia": {
+"climate": 80.6,
+"safety": 75.5,
+"groceries": 52.7,
+"rent": 18.2,
+"power": 88.1,
+"qol": 182.5,
+"pollution": 22.0
+},
+"Lithuania": {
+"climate": 69.9,
+"safety": 67.2,
+"groceries": 47.1,
+"rent": 13.7,
+"power": 88.3,
+"qol": 181.4,
+"pollution": 22.9
+},
+"Japan": {
+"climate": 84.4,
+"safety": 77.8,
+"groceries": 58.2,
+"rent": 13.6,
+"power": 108.3,
+"qol": 180.9,
+"pollution": 37.4
+},
+"Czech Republic": {
+"climate": 77.7,
+"safety": 73.3,
+"groceries": 50.7,
+"rent": 19.1,
+"power": 90.6,
+"qol": 177.5,
+"pollution": 28.0
+},
+"Croatia": {
+"climate": 87.1,
+"safety": 74.8,
+"groceries": 49.7,
+"rent": 16.1,
+"power": 82.9,
+"qol": 174.5,
+"pollution": 32.1
+},
+"United Kingdom": {
+"climate": 88.0,
+"safety": 51.8,
+"groceries": 64.8,
+"rent": 30.1,
+"power": 120.6,
+"qol": 173.8,
+"pollution": 40.6
+},
+"France": {
+"climate": 89.0,
+"safety": 44.2,
+"groceries": 73.8,
+"rent": 20.6,
+"power": 114.6,
+"qol": 172.6,
+"pollution": 35.5
+},
+"Belgium": {
+"climate": 86.5,
+"safety": 50.5,
+"groceries": 68.1,
+"rent": 22.0,
+"power": 118.6,
+"qol": 169.6,
+"pollution": 49.1
+},
+"Ireland": {
+"climate": 88.8,
+"safety": 50.9,
+"groceries": 70.6,
+"rent": 41.4,
+"power": 116.0,
+"qol": 169.6,
+"pollution": 30.7
+},
+"Canada": {
+"climate": 53.4,
+"safety": 54.4,
+"groceries": 69.2,
+"rent": 29.1,
+"power": 117.2,
+"qol": 169.5,
+"pollution": 29.8
+},
+"Portugal": {
+"climate": 97.8,
+"safety": 66.7,
+"groceries": 47.5,
+"rent": 23.5,
+"power": 66.7,
+"qol": 169.5,
+"pollution": 29.8
+},
+"United Arab Emirates": {
+"climate": 43.4,
+"safety": 86.3,
+"groceries": 45.4,
+"rent": 36.3,
+"power": 117.3,
+"qol": 168.5,
+"pollution": 49.7
+},
+"Latvia": {
+"climate": 72.6,
+"safety": 64.0,
+"groceries": 48.4,
+"rent": 10.7,
+"power": 74.5,
+"qol": 166.2,
+"pollution": 27.8
+},
+"Israel": {
+"climate": 93.8,
+"safety": 68.2,
+"groceries": 86.4,
+"rent": 35.2,
+"power": 116.8,
+"qol": 164.8,
+"pollution": 57.2
+},
+"Taiwan": {
+"climate": 83.9,
+"safety": 82.9,
+"groceries": 67.1,
+"rent": 13.0,
+"power": 100.3,
+"qol": 159.9,
+"pollution": 64.1
+},
+"Slovakia": {
+"climate": 73.9,
+"safety": 69.1,
+"groceries": 50.0,
+"rent": 15.6,
+"power": 74.3,
+"qol": 159.8,
+"pollution": 33.3
+},
+"Kuwait": {
+"climate": 20.2,
+"safety": 67.6,
+"groceries": 37.2,
+"rent": 21.6,
+"power": 179.7,
+"qol": 158.6,
+"pollution": 74.2
+},
+"Cyprus": {
+"climate": 92.3,
+"safety": 66.4,
+"groceries": 54.5,
+"rent": 24.6,
+"power": 82.8,
+"qol": 156.8,
+"pollution": 53.9
+},
+"Italy": {
+"climate": 90.3,
+"safety": 52.6,
+"groceries": 63.8,
+"rent": 18.9,
+"power": 86.4,
+"qol": 156.2,
+"pollution": 46.2
+},
+"Poland": {
+"climate": 76.1,
+"safety": 71.3,
+"groceries": 41.0,
+"rent": 16.4,
+"power": 96.1,
+"qol": 155.9,
+"pollution": 54.8
+},
+"Saudi Arabia": {
+"climate": 38.6,
+"safety": 76.8,
+"groceries": 42.7,
+"rent": 12.4,
+"power": 116.8,
+"qol": 154.5,
+"pollution": 65.7
+},
+"Puerto Rico": {
+"climate": 71.2,
+"safety": 38.7,
+"groceries": 72.0,
+"rent": 23.0,
+"power": 111.4,
+"qol": 149.0,
+"pollution": 48.3
+},
+"South Africa": {
+"climate": 96.1,
+"safety": 25.5,
+"groceries": 35.0,
+"rent": 12.8,
+"power": 106.8,
+"qol": 148.7,
+"pollution": 57.4
+},
+"Bulgaria": {
+"climate": 81.2,
+"safety": 64.8,
+"groceries": 44.0,
+"rent": 10.6,
+"power": 79.0,
+"qol": 148.5,
+"pollution": 57.8
+},
+"Singapore": {
+"climate": 57.5,
+"safety": 77.7,
+"groceries": 84.9,
+"rent": 68.3,
+"power": 93.3,
+"qol": 147.9,
+"pollution": 32.5
+},
+"Hungary": {
+"climate": 79.8,
+"safety": 66.8,
+"groceries": 49.7,
+"rent": 14.2,
+"power": 78.1,
+"qol": 147.7,
+"pollution": 45.8
+},
+"South Korea": {
+"climate": 70.5,
+"safety": 70.3,
+"groceries": 72.2,
+"rent": 13.6,
+"power": 102.3,
+"qol": 146.9,
+"pollution": 54.1
+},
+"Romania": {
+"climate": 76.1,
+"safety": 66.9,
+"groceries": 38.6,
+"rent": 11.0,
+"power": 73.5,
+"qol": 142.3,
+"pollution": 55.6
+},
+"Turkey": {
+"climate": 88.1,
+"safety": 58.5,
+"groceries": 40.0,
+"rent": 12.3,
+"power": 72.6,
+"qol": 141.4,
+"pollution": 63.8
+},
+"Uruguay": {
+"climate": 98.0,
+"safety": 47.3,
+"groceries": 54.2,
+"rent": 14.4,
+"power": 57.3,
+"qol": 141.2,
+"pollution": 42.4
+},
+"Greece": {
+"climate": 93.1,
+"safety": 54.0,
+"groceries": 51.7,
+"rent": 12.9,
+"power": 62.8,
+"qol": 140.6,
+"pollution": 48.8
+},
+"China": {
+"climate": 75.9,
+"safety": 77.0,
+"groceries": 36.3,
+"rent": 9.5,
+"power": 95.3,
+"qol": 139.3,
+"pollution": 76.3
+},
+"Bosnia And Herzegovina": {
+"climate": 82.9,
+"safety": 59.3,
+"groceries": 39.3,
+"rent": 7.4,
+"power": 64.6,
+"qol": 137.0,
+"pollution": 58.6
+},
+"Belarus": {
+"climate": 68.5,
+"safety": 52.2,
+"groceries": 33.5,
+"rent": 9.7,
+"power": 64.4,
+"qol": 135.0,
+"pollution": 45.1
+},
+"Malaysia": {
+"climate": 58.4,
+"safety": 52.0,
+"groceries": 43.3,
+"rent": 8.5,
+"power": 76.8,
+"qol": 133.8,
+"pollution": 60.6
+},
+"Malta": {
+"climate": 97.9,
+"safety": 57.0,
+"groceries": 57.2,
+"rent": 27.2,
+"power": 78.2,
+"qol": 132.8,
+"pollution": 75.9
+},
+"Ecuador": {
+"climate": 94.5,
+"safety": 38.3,
+"groceries": 33.8,
+"rent": 7.8,
+"power": 47.8,
+"qol": 128.9,
+"pollution": 58.5
+},
+"Serbia": {
+"climate": 83.0,
+"safety": 63.1,
+"groceries": 39.8,
+"rent": 11.8,
+"power": 63.7,
+"qol": 128.7,
+"pollution": 65.2
+},
+"Armenia": {
+"climate": 63.4,
+"safety": 78.0,
+"groceries": 38.4,
+"rent": 15.0,
+"power": 48.1,
+"qol": 128.2,
+"pollution": 61.5
+},
+"Costa Rica": {
+"climate": 93.1,
+"safety": 45.8,
+"groceries": 65.4,
+"rent": 21.1,
+"power": 49.8,
+"qol": 127.0,
+"pollution": 41.6
+},
+"Jordan": {
+"climate": 91.2,
+"safety": 60.4,
+"groceries": 37.2,
+"rent": 6.6,
+"power": 55.3,
+"qol": 126.6,
+"pollution": 76.9
+},
+"North Macedonia": {
+"climate": 79.9,
+"safety": 58.9,
+"groceries": 34.6,
+"rent": 6.9,
+"power": 64.9,
+"qol": 126.6,
+"pollution": 76.5
+},
+"Georgia": {
+"climate": 88.5,
+"safety": 73.1,
+"groceries": 35.1,
+"rent": 11.5,
+"power": 43.7,
+"qol": 126.4,
+"pollution": 68.6
+},
+"Mexico": {
+"climate": 84.6,
+"safety": 47.3,
+"groceries": 49.6,
+"rent": 17.1,
+"power": 47.6,
+"qol": 124.0,
+"pollution": 58.2
+},
+"Argentina": {
+"climate": 95.3,
+"safety": 37.0,
+"groceries": 43.8,
+"rent": 12.8,
+"power": 45.0,
+"qol": 123.2,
+"pollution": 50.5
+},
+"Hong Kong (China)": {
+"climate": 83.6,
+"safety": 78.2,
+"groceries": 76.2,
+"rent": 59.1,
+"power": 87.9,
+"qol": 120.8,
+"pollution": 66.3
+},
+"Panama": {
+"climate": 68.2,
+"safety": 57.6,
+"groceries": 53.8,
+"rent": 21.7,
+"power": 42.9,
+"qol": 119.1,
+"pollution": 56.0
+},
+"India": {
+"climate": 64.7,
+"safety": 55.8,
+"groceries": 21.4,
+"rent": 3.8,
+"power": 69.9,
+"qol": 119.0,
+"pollution": 72.8
+},
+"Brazil": {
+"climate": 92.3,
+"safety": 36.4,
+"groceries": 33.0,
+"rent": 8.6,
+"power": 44.6,
+"qol": 117.2,
+"pollution": 52.7
+},
+"Ukraine": {
+"climate": 71.6,
+"safety": 53.1,
+"groceries": 30.2,
+"rent": 7.7,
+"power": 48.6,
+"qol": 117.1,
+"pollution": 62.2
+},
+"Tunisia": {
+"climate": 94.3,
+"safety": 55.5,
+"groceries": 35.3,
+"rent": 5.0,
+"power": 33.6,
+"qol": 117.1,
+"pollution": 69.3
+},
+"Russia": {
+"climate": 38.3,
+"safety": 61.9,
+"groceries": 39.4,
+"rent": 12.5,
+"power": 62.5,
+"qol": 115.5,
+"pollution": 58.7
+},
+"Morocco": {
+"climate": 90.3,
+"safety": 52.9,
+"groceries": 33.6,
+"rent": 7.6,
+"power": 44.0,
+"qol": 112.9,
+"pollution": 68.7
+},
+"Azerbaijan": {
+"climate": 91.2,
+"safety": 68.5,
+"groceries": 30.3,
+"rent": 9.7,
+"power": 40.3,
+"qol": 111.7,
+"pollution": 72.0
+},
+"Chile": {
+"climate": 95.6,
+"safety": 39.4,
+"groceries": 42.4,
+"rent": 10.6,
+"power": 50.9,
+"qol": 108.6,
+"pollution": 77.3
+},
+"Colombia": {
+"climate": 82.3,
+"safety": 38.7,
+"groceries": 37.6,
+"rent": 11.5,
+"power": 40.5,
+"qol": 107.6,
+"pollution": 62.0
+},
+"Thailand": {
+"climate": 66.7,
+"safety": 63.6,
+"groceries": 43.5,
+"rent": 12.8,
+"power": 41.6,
+"qol": 106.2,
+"pollution": 73.7
+},
+"Albania": {
+"climate": 86.3,
+"safety": 55.7,
+"groceries": 46.6,
+"rent": 11.9,
+"power": 47.3,
+"qol": 105.3,
+"pollution": 77.9
+},
+"Kazakhstan": {
+"climate": 34.8,
+"safety": 54.8,
+"groceries": 34.1,
+"rent": 10.8,
+"power": 52.8,
+"qol": 105.1,
+"pollution": 73.0
+},
+"Kenya": {
+"climate": 87.1,
+"safety": 44.8,
+"groceries": 30.5,
+"rent": 7.5,
+"power": 33.6,
+"qol": 98.1,
+"pollution": 69.2
+},
+"Lebanon": {
+"climate": 94.7,
+"safety": 53.2,
+"groceries": 43.8,
+"rent": 17.3,
+"power": 36.0,
+"qol": 97.5,
+"pollution": 89.2
+},
+"Pakistan": {
+"climate": 70.3,
+"safety": 57.8,
+"groceries": 18.8,
+"rent": 3.1,
+"power": 27.9,
+"qol": 97.4,
+"pollution": 73.0
+},
+"Peru": {
+"climate": 93.3,
+"safety": 33.1,
+"groceries": 36.5,
+"rent": 9.8,
+"power": 48.9,
+"qol": 92.0,
+"pollution": 82.7
+},
+"Indonesia": {
+"climate": 66.5,
+"safety": 53.8,
+"groceries": 32.6,
+"rent": 7.8,
+"power": 28.8,
+"qol": 90.4,
+"pollution": 66.1
+},
+"Vietnam": {
+"climate": 71.1,
+"safety": 60.2,
+"groceries": 32.6,
+"rent": 9.6,
+"power": 41.1,
+"qol": 89.4,
+"pollution": 83.7
+},
+"Iran": {
+"climate": 69.0,
+"safety": 49.3,
+"groceries": 21.4,
+"rent": 6.8,
+"power": 31.0,
+"qol": 89.1,
+"pollution": 75.2
+},
+"Egypt": {
+"climate": 86.8,
+"safety": 54.0,
+"groceries": 22.5,
+"rent": 3.8,
+"power": 24.3,
+"qol": 85.4,
+"pollution": 82.6
+},
+"Philippines": {
+"climate": 68.5,
+"safety": 56.6,
+"groceries": 35.3,
+"rent": 7.2,
+"power": 32.3,
+"qol": 84.4,
+"pollution": 72.4
+},
+"Venezuela": {
+"climate": 79.9,
+"safety": 19.5,
+"groceries": 46.4,
+"rent": 6.3,
+"power": 16.8,
+"qol": 75.6,
+"pollution": 73.4
+},
+"Bangladesh": {
+"climate": 72.9,
+"safety": 39.3,
+"groceries": 27.4,
+"rent": 2.4,
+"power": 32.7,
+"qol": 70.8,
+"pollution": 85.2
+},
+"Sri Lanka": {
+"climate": 64.1,
+"safety": 57.5,
+"groceries": 43.7,
+"rent": 7.0,
+"power": 19.8,
+"qol": 62.1,
+"pollution": 58.2
+},
+"Nigeria": {
+"climate": 70.7,
+"safety": 33.4,
+"groceries": 22.7,
+"rent": 12.2,
+"power": 9.0,
+"qol": 0.0,
+"pollution": 87.2
+}
+},
+"note": "Numbeo 2026 Mid-Year, screenshots 17.11.2026"
+}
