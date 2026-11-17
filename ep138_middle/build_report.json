@@ -1,0 +1,35 @@
+{
+ "episode": "ep138_middle",
+ "tts": "new",
+ "asr_voice": [
+  "poor: 2/14 | In every country, at least two and three poorer people place themselves too high.",
+  "rich: 1/7 | and richer people place themselves too low."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 26.57,
+  "size_MiB": 3.7,
+  "black_intervals": [],
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.1,
+  "sha256": "51a26d02ed54157f202feb646da8244a54b6f381e2cae7eac2d8e2332bf14f21",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "3/76 = 3.9%",
+ "asr_final_issues": [
+  "poor: 2/14 | In every country, at least two and three poorer people place themselves too high.",
+  "rich: 1/7 | and richer people place themselves too low."
+ ],
+ "duration_s": 26.55,
+ "longest_calm_s": 2.54,
+ "cover": "ep138_middle_cover.png",
+ "caption": "ok"
+}

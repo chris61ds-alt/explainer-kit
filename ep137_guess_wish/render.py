@@ -11,9 +11,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 from tips import *
 from fx2 import light_look, is_light, stamp
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.05, gaps={"hook": .5, "setup": .5, "explain": .5, "guess": .6, "wish": .6, "reveal": .8, "why": .1})
+TL = Timeline(HERE, lead=.05, gaps={"hook": .5, "setup": .5, "explain": .5, "est": .6, "wish": .6, "reveal": .8, "why": .1})
 S, E, cue = TL.S, TL.E, TL.cue
-ORDER = ["hook", "setup", "explain", "guess", "wish", "reveal", "why", "end"]
+ORDER = ["hook", "setup", "explain", "est", "wish", "reveal", "why", "end"]
 EP = ThreadEpisode(TL, 137, "GUESS, WISH, REAL", order=ORDER, dark=True, label="SURVEY · 5,522 AMERICANS",
                    chapters={k: "" for k in ORDER[:-1]},
                    sources=("Norton & Ariely (2011), Perspectives on", "Psychological Science 6(1), 9–12"),
@@ -33,7 +33,7 @@ T_O = .7;                     D_O = 1.0          # cold open: the real tower sho
 T_STAMP = cue("hook", "way off") - .05
 T_REW = S("setup") - .05;     D_REW = .8
 T_ONE = cue("explain", "Each coin") - .2; D_ONE = .5
-T_G = S("guess") + .05;       D_G = 1.3
+T_G = S("est") + .05;       D_G = 1.3
 T_W = S("wish") + .05;        D_W = 1.0
 T_R = S("reveal") + .05;      D_R = 1.2
 T_POOR = cue("reveal", "poorest") - .1
@@ -71,10 +71,10 @@ def stack(d, x, c):
 def objects(L, d, t):
     cnt = stacks(t); cur = EP.current(t)
     for i, x in enumerate(XS):
-        hot = (cur == "explain" and t >= S("explain") + i * .08) or (cur in ("guess", "wish") and i == 0) or (cur == "reveal" and (i == 0 or (i >= 3 and t >= T_POOR)))
+        hot = (cur == "explain" and t >= S("explain") + i * .08) or (cur in ("est", "wish") and i == 0) or (cur == "reveal" and (i == 0 or (i >= 3 and t >= T_POOR)))
         person(d, x, INK if hot else MID)
         stack(d, x, cnt[i])
-    if T_ONE + .3 <= t < S("guess"):                                    # the picture explained once: one coin = 1 %
+    if T_ONE + .3 <= t < S("est"):                                    # the picture explained once: one coin = 1 %
         k = spring((t - T_ONE - .3) / .45); cx, cy = XS[2], BASE
         bx, by = XS[2] + 40, 720; r = 78 * k
         d.line([(cx, cy), (bx, by + r)], fill=INK, width=4)
@@ -119,14 +119,14 @@ def draw(img, d, t, line, note="1 coin = 1% of all wealth · USA"):
 
 def sc_hook(img, d, t): draw(img, d, t, "THE RICHEST FIFTH")
 def sc_setup(img, d, t): draw(img, d, t, "GUESS. WISH.", note="survey · 5,522 Americans")
-def sc_explain(img, d, t): draw(img, d, t, "RICH → POOR")
+def sc_explain(img, d, t): draw(img, d, t, "RICH TO POOR")
 def sc_guess(img, d, t): draw(img, d, t, "THE GUESS.", note="other bars: schematic")
 def sc_wish(img, d, t): draw(img, d, t, "THE WISH.", note="other bars: schematic")
 def sc_reveal(img, d, t): draw(img, d, t, "THE TRUTH.", note="actual: 84 / 11 / 4 / 0.2 / 0.1 %")
 def sc_why(img, d, t): draw(img, d, t, "FAIRER IN OUR HEADS." if t < T_BACK else "THE RICHEST FIFTH")
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}
-EP.scenes = {"hook": sc_hook, "setup": sc_setup, "explain": sc_explain, "guess": sc_guess, "wish": sc_wish, "reveal": sc_reveal, "why": sc_why}
+EP.scenes = {"hook": sc_hook, "setup": sc_setup, "explain": sc_explain, "est": sc_guess, "wish": sc_wish, "reveal": sc_reveal, "why": sc_why}
 FX = [(T_O, whoosh(.7, .05), -.4), *[(T_O + .1 + j * .07, tick(.02), -.5) for j in range(8)], (T_STAMP, thud(.5), .3),
       (T_REW, whoosh(.6, .05), 0), (T_ONE, pop(.12), 0), (T_ONE + .3, pop(.14), .2),
       (T_G, whoosh(.5, .04), -.3), *[(T_G + .1 + j * .09, tick(.02), -.4) for j in range(8)],

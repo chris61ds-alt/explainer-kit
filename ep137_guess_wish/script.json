@@ -4,7 +4,7 @@
   {"id": "hook", "text": "Five thousand Americans guessed how much the richest fifth owns. They were way off.", "speed": 1.05},
   {"id": "setup", "text": "Then they built the split they would wish for."},
   {"id": "explain", "text": "Five people, from richest to poorest. Each coin is one percent of all wealth."},
-  {"id": "guess", "text": "Their guess: the richest fifth has fifty-nine coins."},
+  {"id": "est", "text": "Their guess: the richest fifth has fifty-nine coins."},
   {"id": "wish", "text": "Their wish: thirty-two."},
   {"id": "reveal", "text": "The truth: eighty-four. The poorest two fifths share less than one coin."},
   {"id": "why", "text": "We picture the world fairer than it is. It's"},

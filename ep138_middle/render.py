@@ -80,7 +80,7 @@ def objects(L, d, t):
         if cur in ("poor", "rich") and col is INK: col = MID
         d.ellipse([x - DR, y - DR, x + DR, y + DR], fill=col)
     if t >= T_STEPS - .3 and t < T_BACK:                            # step labels
-        d.text((SX0 + 8, 1120), "POOREST", font=F(MONO, 22), fill=MID)
+        d.text((SX0 + SW - 16, step_top(0) + 30), "POOREST", font=F(MONO, 22), fill=MID, anchor="ra")
         d.text((SX0 + 4 * SW + SW - 16, step_top(4) + 30), "RICHEST", font=F(MONO, 22), fill=MID, anchor="ra")
 
 def shadowed(img, t):

@@ -1,0 +1,29 @@
+{
+ "episode": "ep137_guess_wish",
+ "tts": "new",
+ "asr_voice": [],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 23.87,
+  "size_MiB": 3.1,
+  "black_intervals": [],
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.5,
+  "sha256": "c4b54c086339580067ed796016ce09af7d4b2e7da2b0d5d36c81c4943498783e",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "0/72 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 23.86,
+ "longest_calm_s": 2.62,
+ "cover": "ep137_guess_wish_cover.png",
+ "caption": "ok"
+}
