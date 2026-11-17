@@ -24,8 +24,8 @@ light_look(EP, ORDER)
 UNEQ = [.4, .4, .4, .4, .4, 6, 6, 6, 5, 75]          # schematic deciles (WIR 2026: bottom 50 % = 2, middle 40 % = 23, top 10 % = 75)
 EQ = [10] * 10
 XS = [108 + i * 96 for i in range(10)]
-BASE, STEP, CW, CH = 1030, 6.4, 36, 10                 # stack base, coin pitch, coin half-width / half-height
-HEAD_Y = 1086
+BASE, STEP, CW, CH = 1005, 6.4, 36, 10                 # stack base, coin pitch, coin half-width / half-height
+HEAD_Y = 1058
 
 T_L0 = .55;                         D_L0 = 1.7            # cold open: the tower rains onto everyone
 T_STAMP = cue("hook", "nine") - .05
@@ -110,7 +110,7 @@ def labels(d, t):
         if t >= T_POOR:
             d.line([(XS[0] - 30, BASE + 30), (XS[4] + 30, BASE + 30)], fill=SIG, width=6)
             d.text(((XS[0] + XS[4]) / 2, BASE - 60), "2", font=F(BLK, 72), fill=SIG, anchor="mm")
-    if T_MONEY <= t < T_BACK: stamp(d, (540, 760), ">$100K EACH", t, T_MONEY, size=70)
+    if T_MONEY <= t < T_YOU: stamp(d, (540, 760), ">$100K EACH", t, T_MONEY, size=70)
     if T_YOU <= t < T_BACK:
         k = spring((t - T_YOU) / .4); d.text((XS[4], BASE - 10 * STEP - 70 - 20 * (1 - k)), "YOU?", font=F(BLK, 46), fill=INK, anchor="mm")
 
