@@ -1,0 +1,16 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "If we split all the world's wealth equally, nine out of ten people would get richer.", "speed": 1.05},
+  {"id": "setup", "text": "Researchers added up what every adult owns, minus debts."},
+  {"id": "explain", "text": "Ten people. Each coin is one percent of all wealth."},
+  {"id": "reveal", "text": "Today, the richest one holds seventy-five coins. The poorest five share just two."},
+  {"id": "split", "text": "Split equally, everyone gets ten. That's over a hundred thousand dollars each."},
+  {"id": "why", "text": "If your stack feels small, you're in the majority. It's"},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "World Inequality Lab (2025), World Inequality Report 2026 (Chancel, Piketty et al.) – global wealth 2025 (PPP): top 10 % own 75 %, top 1 % own 37 %, bottom 50 % own 2 %; a person in the bottom 50 % owns about $6,500, someone in the top 10 % around $1 million (pp. 38–39). Equal split per adult derived: $1M × 10 % / 75 % ≈ $133,000 (≈ $160,000 via the bottom-50 % figure) → 'over a hundred thousand dollars'. Deciles schematic: 0.4/0.4/0.4/0.4/0.4 · 6/6/6/5 · 75 coins.",
+  "Cross-check: UBS Global Wealth Report 2026 – wealth bands 2025: 58 million millionaires hold $250.6 trillion (48.4 %), 1.62 billion adults under $10,000 hold $3.2 trillion; ≈ $518 trillion over ≈ 3.85 billion adults ≈ $134,000 per adult (56 markets, >92 % of world wealth)."
+ ]
+}
