@@ -32,11 +32,11 @@ for c, (key, inv) in CRIT.items():
     SCORE[c] = {n: float(1 - x if inv else x) for n, x in zip(NAMES, r)}
 TOP3 = {c: sorted(NAMES, key=lambda n: -SCORE[c][n])[:3] for c in CRIT}
 LABEL = {"weather": "WEATHER", "safety": "SAFETY", "food": "FOOD PRICES", "pay": "BUYING POWER", "rent": "RENT"}
-TAGS = {"weather": [("URUGUAY", -56, -33, 0), ("MALTA", 14.4, 35.9, -40), ("PORTUGAL", -8, 39.5, -90)],
-        "safety": [("UAE", 54, 24, 40), ("QATAR", 51.2, 25.3, -60), ("TAIWAN", 121, 23.7, 0)],
-        "food": [("PAKISTAN", 70, 30, -40), ("INDIA", 79, 22, 60), ("IRAN", 53, 32, -110)],
-        "pay": [("KUWAIT", 47.7, 29.3, -70), ("QATAR", 51.2, 25.3, 30), ("SWITZERLAND", 8.2, 46.8, -40)],
-        "rent": [("BANGLADESH", 90, 24, 70), ("PAKISTAN", 70, 30, -40), ("INDIA", 79, 22, -10)]}
+TAGS = {"weather": [("URUGUAY", -56, -33, 0, 70), ("MALTA", 14.4, 35.9, 40, 140), ("PORTUGAL", -8, 39.5, -120, 80)],
+        "safety": [("UAE", 54, 24, 50, 70), ("QATAR", 51.2, 25.3, -130, 140), ("TAIWAN", 121, 23.7, 0, 70)],
+        "food": [("PAKISTAN", 70, 30, -10, 160), ("INDIA", 79, 22, 160, 70), ("IRAN", 53, 32, -190, 70)],
+        "pay": [("KUWAIT", 47.7, 29.3, -40, 160), ("QATAR", 51.2, 25.3, 110, 80), ("SWITZERLAND", 8.2, 46.8, -80, 80)],
+        "rent": [("BANGLADESH", 90, 24, 180, 70), ("PAKISTAN", 70, 30, -180, 70), ("INDIA", 79, 22, 0, 170)]}
 # check the tags against the data (the top 3 must match)
 _alias_tag = {"URUGUAY": "Uruguay", "MALTA": "Malta", "PORTUGAL": "Portugal", "UAE": "United Arab Emirates", "QATAR": "Qatar",
               "TAIWAN": "Taiwan", "PAKISTAN": "Pakistan", "INDIA": "India", "IRAN": "Iran", "KUWAIT": "Kuwait",
@@ -63,7 +63,7 @@ T_STAMP = cue("hook", "changes") - .05
 T_REW = S("setup") - .05
 T_SET = cue("setup", "taller") - .2
 T_BACK = E("why") - 1.1
-HMAX = 46
+HMAX = 72
 
 def crit_at(t):
     """which criterion drives the heights at time t (+ blend progress from the previous one)"""
@@ -105,13 +105,13 @@ def scene(L, d, t):
         h = height(name, t)
         if name not in DATA: top, side = WHITE, RULE
         elif c and name in [_alias_tag.get(x[0]) for x in TAGS[c]]: top, side = INK, MID
-        else: top, side = mix(WHITE, MID, .55), RULE
+        else: v = h_of(name, c) if c else .4; top, side = mix(WHITE, INK, .12 + .5 * v), RULE
         block(d, ring, h, top, side)
     if c:
-        for i, (lab, lo, la, dx) in enumerate(TAGS[c]):
+        for i, (lab, lo, la, dx, L_) in enumerate(TAGS[c]):
             t0 = T_C[c] + .45 + i * .3
             if t < t0: continue
-            x, y = proj(lo, la); y -= HMAX + 6; L_ = 70 + 60 * (i % 2)
+            x, y = proj(lo, la); y -= HMAX + 6
             k = ease(clamp((t - t0) / .3))
             d.ellipse([x - 7, y - 7 + HMAX - 4, x + 7, y + 7 + HMAX - 4], fill=SIG)              # pin (small countries too)
             tx = x + dx * k
