@@ -1,6 +1,6 @@
 {
  "episode": "ep140_global_rich",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [],
  "verify": "PASS",
  "verify_detail": {
@@ -11,7 +11,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.1,
   "true_peak_dBTP": -2.4,
-  "sha256": "b439b8e7030cb1804476506385eee11b222926c2b63448c1ba1d2f0c17a295a3",
+  "sha256": "7a4208367f033e478f09020e4b7c3f2284b6e30a36d4ba1e338e64a6864a173b",
   "checks": {
    "spec": true,
    "size<=95MiB": true,

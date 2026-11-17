@@ -1,6 +1,6 @@
 {
  "episode": "ep141_cheat_line",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "rest: 1/12 | Flirting 42, following an X Online 32. Secret porn 30."
  ],
@@ -13,7 +13,7 @@
   "black_intervals": [],
   "loudness_LUFS": -16.0,
   "true_peak_dBTP": -2.5,
-  "sha256": "dd49fc13246ce70380503e7e9247ced1f54b1c578e81cf84666dd2f0a97d8855",
+  "sha256": "1f880d0ca68d3636bd8bac148ecf9646cc58069611801fc80635bd08a959cd98",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
