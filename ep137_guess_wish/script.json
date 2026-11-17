@@ -1,0 +1,16 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "Five thousand Americans guessed how much the richest fifth owns. They were way off.", "speed": 1.05},
+  {"id": "setup", "text": "Then they built the split they would wish for."},
+  {"id": "explain", "text": "Five people, from richest to poorest. Each coin is one percent of all wealth."},
+  {"id": "guess", "text": "Their guess: the richest fifth has fifty-nine coins."},
+  {"id": "wish", "text": "Their wish: thirty-two."},
+  {"id": "reveal", "text": "The truth: eighty-four. The poorest two fifths share less than one coin."},
+  {"id": "why", "text": "We picture the world fairer than it is. It's"},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Norton & Ariely (2011), Building a Better America – One Wealth Quintile at a Time, Perspectives on Psychological Science 6(1), 9–12 – N = 5,522 Americans (online panel); estimated share of the top quintile ≈ 59 %, ideal ≈ 32 %, actual 84 % (actual quintiles 84 / 11 / 4 / 0.2 / 0.1 %, Wolff data for 2004). Only the top-fifth values are exact in the video; the other estimated and ideal bars are schematic. Critique: some respondents may have thought of income rather than wealth."
+ ]
+}
