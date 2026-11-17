@@ -99,7 +99,7 @@ def labels(d, t):
         if T_LINE <= t < T_BACK and not leveled(t): d.text((1020, bar_top(WORLD) - 12), "WORLD $26K", font=F(BLK, 34), fill=INK, anchor="rb")
     if T_STAMP <= t < T_REW + .2: stamp(d, (XS[1] + 40, 690), "1/3", t, T_STAMP, size=110)
     if cur == "reveal":
-        if t >= T_RICH: d.text((XS[0] + 70, bar_top(86) + 40), "×3", font=F(BLK, 76), fill=SIG, anchor="lm")
+        if t >= T_RICH: d.text((XS[1] + 62, bar_top(74) + 10), "×3", font=F(BLK, 76), fill=SIG, anchor="lm")
     if leveled(t) and t >= T_EQ:
         for i in range(7): ghost(d, i, MID)
     if cur == "life" and t >= T_LIKE:
