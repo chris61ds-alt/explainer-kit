@@ -9,9 +9,9 @@
   "duration_s": 28.73,
   "size_MiB": 3.3,
   "black_intervals": [],
-  "loudness_LUFS": -16.1,
+  "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "379435d2a3e3d0b918986ffa5dfd9cf07afab1a9d996c765937e11cbd17329e9",
+  "sha256": "788abc0986e0f43a0cba5252077acdb74b85b031d54e427c74588c4b888d51ff",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
