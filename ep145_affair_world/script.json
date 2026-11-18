@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "Is having an affair always wrong? Depends on where you ask.", "speed": 1.05},
+  {"id": "setup", "text": "More than thirty thousand people in twenty-five countries were asked."},
+  {"id": "explain", "text": "The taller the block, the more people call an affair wrong."},
+  {"id": "top", "text": "Indonesia and Turkey: ninety-two percent. The US: ninety."},
+  {"id": "bottom", "text": "France: fifty-three. Germany: fifty-five. Barely half."},
+  {"id": "why", "text": "So what counts as a dealbreaker depends a lot on where you grew up."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Pew Research Center (5 March 2026), In 25-Country Survey, Americans Especially Likely To View Fellow Citizens as Morally Bad – Spring 2025 Global Attitudes Survey, Jan 8 – May 11, 2025; 28,333 adults in 24 countries + 3,605 US adults. Share saying 'married people having an affair' is morally unacceptable (US: morally wrong): Indonesia 92, Turkey 92, US 90, Israel 85, Australia 84, Nigeria 83, South Korea 83, UK 81, Poland 80, Brazil 77, Greece 77, India 77, Sweden 77, Canada 76, Mexico 76, Kenya 70, South Africa 69, Italy 67, Netherlands 67, Argentina 65, Japan 65, Spain 65, Hungary 64, Germany 55, France 53; median 77."
+ ]
+}
