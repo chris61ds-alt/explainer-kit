@@ -1,0 +1,31 @@
+{
+ "episode": "ep146_japan",
+ "tts": "new",
+ "asr_voice": [
+  "setup: 3/24 | In a 2025 survey, 65% of Japanese called in a fair wrong. The taller the block, the higher that share."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 24.5,
+  "size_MiB": 3.4,
+  "black_intervals": [],
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.8,
+  "sha256": "7269c94cb3de67f803eb286acd38d630a686eb266766844e53e5f86fc0483d42",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "0/72 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 24.51,
+ "longest_calm_s": 2.43,
+ "cover": "ep146_japan_cover.png",
+ "caption": "ok"
+}
