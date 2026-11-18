@@ -4,12 +4,26 @@
  "asr_voice": [
   "why: 2/14 | So what counts as a deal breaker depends a lot on where you grew up."
  ],
- "verify": "FAIL",
- "verify_detail": "",
- "asr_final_wer": "20/64 = 31.2%",
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 22.7,
+  "size_MiB": 3.3,
+  "black_intervals": [],
+  "loudness_LUFS": -16.0,
+  "true_peak_dBTP": -1.1,
+  "sha256": "d18d179b00dd735686ad1b9158fc550ba9149136872f60c3e2e9d35e876773b1",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "3/64 = 4.7%",
  "asr_final_issues": [
-  "hook: 11/11 | ",
-  "setup: 6/11 | 25 countries were asked.",
   "explain: 1/11 | The taller the black, the more people call an affair wrong.",
   "why: 2/14 | So what counts as a deal breaker depends a lot on where you grew up."
  ],
