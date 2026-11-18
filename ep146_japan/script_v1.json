@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "Japan judges an affair more mildly than its neighbors.", "speed": 1.05},
+  {"id": "setup", "text": "In a 2025 survey, sixty-five percent of Japanese called an affair wrong. The taller the block, the higher that share."},
+  {"id": "compare", "text": "In South Korea, it was eighty-three. In the US, ninety."},
+  {"id": "home", "text": "At home, nearly half of married people in Japan had no sex in the past month."},
+  {"id": "why", "text": "What marriage means, and what it allows, really depends on the country."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Pew Research Center (5 March 2026), 25-country survey on morality, fielded Jan–May 2025: 'married people having an affair' morally unacceptable – Japan 65 %, South Korea 83 %, US 90 % (morally wrong).",
+  "Japan Family Planning Association (JFPA), survey on the lifestyles and attitudes of men and women, conducted Sept–Oct 2023: 3,000 randomly selected people aged 16–49, response rate 26.6 %; 'nearly half' of married respondents sexless (no intercourse for a month or more), via Japan Times 18 March 2024. Earlier JFPA wave 2016: 47.2 % of married respondents (nippon.com). A commercial online survey (Jex Japan Sex Survey 2024) reports 64.2 %."
+ ]
+}
