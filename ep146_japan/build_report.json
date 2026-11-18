@@ -1,19 +1,20 @@
 {
  "episode": "ep146_japan",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
-  "setup: 3/24 | In a 2025 survey, 65% of Japanese called in a fair wrong. The taller the block, the higher that share."
+  "hook: 2/10 | Three cliches about love in Japan. Let's check them.",
+  "why: 2/13 | Cliches often hold a grain of truth, but rarely the whole story. [buzzer]"
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 24.5,
-  "size_MiB": 3.4,
+  "duration_s": 26.17,
+  "size_MiB": 3.3,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.8,
-  "sha256": "7269c94cb3de67f803eb286acd38d630a686eb266766844e53e5f86fc0483d42",
+  "true_peak_dBTP": -2.7,
+  "sha256": "cb8e481c38b6b655d0974cba867e72e3ea8ec1677393c8eae202e28741bd1706",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,10 +23,13 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/72 = 0.0%",
- "asr_final_issues": [],
- "duration_s": 24.51,
- "longest_calm_s": 2.43,
+ "asr_final_wer": "4/79 = 5.1%",
+ "asr_final_issues": [
+  "hook: 2/10 | 3 cliches about love in Japan, let's check them.",
+  "why: 2/13 | Cliches often hold a grain of truth, but rarely the whole story."
+ ],
+ "duration_s": 26.17,
+ "longest_calm_s": 2.73,
  "cover": "ep146_japan_cover.png",
  "caption": "ok"
 }
