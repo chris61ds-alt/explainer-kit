@@ -1,0 +1,20 @@
+{
+ "episode": "ep145_affair_world",
+ "tts": "cached",
+ "asr_voice": [
+  "why: 2/14 | So what counts as a deal breaker depends a lot on where you grew up."
+ ],
+ "verify": "FAIL",
+ "verify_detail": "",
+ "asr_final_wer": "20/64 = 31.2%",
+ "asr_final_issues": [
+  "hook: 11/11 | ",
+  "setup: 6/11 | 25 countries were asked.",
+  "explain: 1/11 | The taller the black, the more people call an affair wrong.",
+  "why: 2/14 | So what counts as a deal breaker depends a lot on where you grew up."
+ ],
+ "duration_s": 22.69,
+ "longest_calm_s": 2.52,
+ "cover": "ep145_affair_world_cover.png",
+ "caption": "ok"
+}
