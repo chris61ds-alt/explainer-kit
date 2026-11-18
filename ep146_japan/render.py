@@ -26,8 +26,8 @@ PCT = {"Indonesia": 92, "Turkey": 92, "United States of America": 90, "Israel": 
        "United Kingdom": 81, "Poland": 80, "Brazil": 77, "Greece": 77, "India": 77, "Sweden": 77, "Canada": 76, "Mexico": 76,
        "Kenya": 70, "South Africa": 69, "Italy": 67, "Netherlands": 67, "Argentina": 65, "Japan": 65, "Spain": 65, "Hungary": 64,
        "Germany": 55, "France": 53}
-LON0, LON1, LAT_TOP = -130, 155, 75
-SCL = 1040 / (LON1 - LON0); TILT = .62; MAP_Y0 = 640
+LON0, LON1, LAT_TOP = 116, 150, 47                          # 18.11.2026 (Chris): only the region, not the whole world
+SCL = 1040 / (LON1 - LON0); TILT = .62; MAP_Y0 = 600
 def proj(lon, lat): return 20 + (lon - LON0) * SCL, MAP_Y0 + (LAT_TOP - lat) * SCL * TILT
 POLYS = []
 for f in json.load(open(os.path.join(HERE, "countries.geojson")))["features"]:
@@ -36,9 +36,10 @@ for f in json.load(open(os.path.join(HERE, "countries.geojson")))["features"]:
     g = f["geometry"]; parts = g["coordinates"] if g["type"] == "MultiPolygon" else [g["coordinates"]]
     for p in parts:
         ring = [proj(lo, la) for lo, la in p[0]]
-        if len(ring) > 2: POLYS.append((name, ring, max(y for _, y in ring)))
+        if len(ring) > 2 and max(x for x, _ in ring) > -50 and min(x for x, _ in ring) < 1130 and max(y for _, y in ring) > 400 and min(y for _, y in ring) < 1300:
+            POLYS.append((name, ring, max(y for _, y in ring)))
 POLYS.sort(key=lambda r: r[2])
-HMAX = 70
+HMAX = 150
 def hfull(p): return 4 + HMAX * clamp((p - 40) / 55)
 
 CLICHES = {"c1": "\"CHEATING IS NO BIG DEAL THERE.\"", "c2": "\"COUPLES DON'T HAVE SEX.\"", "c3": "\"PAID SEX ISN'T CHEATING.\""}
@@ -75,18 +76,17 @@ def scene(L, d, t):
     for name, ring, _ in POLYS:
         h = height(name, t)
         if name == "Japan": top, side = INK, MID
-        elif name == "South Korea" and t >= T_KR: top, side = MID, RULE
+        elif name == "South Korea" and t >= T_KR: top, side = INK, MID
         else: top, side = WHITE, RULE
         block(d, ring, h, top, side)
     if EP.current(t) == "c1":                                       # tags only while cliché 1 is checked
-        if t >= T_JP: tag(d, t, T_JP + .3, "JAPAN 65%", 138, 36, -60, -110)
-        if t >= T_KR: tag(d, t, T_KR + .3, "S. KOREA 83%", 127.8, 36.5, -170, 50)
+        if t >= T_JP: tag(d, t, T_JP + .3, "JAPAN 65%", 139, 36, 120, -200, 30)
+        if t >= T_KR: tag(d, t, T_KR + .3, "S. KOREA 83%", 127.8, 36.5, -150, -230, 30)
 
 def cam(t):
     def at(lo, la): x, y = proj(lo, la); return (x, y - 40)
-    ea = at(126, 36)
-    return cam_path(t, [(0, 2.6, at(134, 37)), (S("c1") - .1, 2.6, at(134, 37)), (S("c1") + .7, 2.0, ea), (S("why") - .1, 2.0, ea),
-                        (S("why") + .6, 1.6, ea)])
+    m = (540, 820)
+    return cam_path(t, [(0, 1.25, at(137, 36)), (S("c1") - .1, 1.25, at(137, 36)), (S("c1") + .7, 1.0, m), (S("why"), 1.0, m)])
 
 def quote_card(d, t, c):
     """the cliché in quotes, sliding in from the top, with a small CLICHÉ? label"""
