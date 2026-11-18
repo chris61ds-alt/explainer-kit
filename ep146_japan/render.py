@@ -78,25 +78,25 @@ def scene(L, d, t):
         elif name in FOCUS: top, side = INK, MID
         else: top, side = mix(WHITE, INK, .15 + .3 * clamp((PCT[name] - 50) / 45)), RULE
         block(d, ring, h, top, side)
-    tag(d, t, T_JP + .5, "JAPAN 65%", 138, 36, 40, 60, 22)
-    tag(d, t, T_KR + .4, "S. KOREA 83%", 127.8, 36.5, -60, 85, 22)
+    tag(d, t, T_JP + .5, "JAPAN 65%", 138, 36, -30, 150, 22)
+    tag(d, t, T_KR + .4, "S. KOREA 83%", 127.8, 36.5, -150, 70, 22)
     if t >= T_US: tag(d, t, T_US + .3, "USA 90%", -98, 39, 0, 90)
 
 def couples(d, t):
     """10 couples; half of them drift apart (nearly half sexless)"""
     if EP.current(t) not in ("home", "why", "end"): return
     x0, y0 = 70, 860; k0 = clamp((t - T_HOME) / .4)
-    d.rounded_rectangle([x0, y0, x0 + 470, y0 + 260], radius=24, fill=WHITE, outline=INK, width=3)
+    d.rounded_rectangle([x0, y0, x0 + 520, y0 + 290], radius=24, fill=WHITE, outline=INK, width=3)
     d.text((x0 + 24, y0 + 30), "10 MARRIED PEOPLE IN JAPAN", font=F(MONO, 22), fill=MID, anchor="lm")
     for i in range(10):
-        cx = x0 + 60 + (i % 5) * 88; cy = y0 + 110 + (i // 5) * 90
+        cx = x0 + 68 + (i % 5) * 96; cy = y0 + 115 + (i // 5) * 100
         apart = i % 2 == 1 and i != 9 or i == 8                  # 5 of 10
         k = ease_io(clamp((t - T_HOME - .5 - i * .08) / .6)) if apart else 0
-        g = 12 + 14 * k
+        g = 15 + 16 * k
         col = SIG if apart and k > .5 else INK
-        for s in (-1, 1): d.ellipse([cx + s * g - 11, cy - 11, cx + s * g + 11, cy + 11], fill=col if s < 0 or not apart else col)
+        for s in (-1, 1): d.ellipse([cx + s * g - 14, cy - 14, cx + s * g + 14, cy + 14], fill=col if s < 0 or not apart else col)
         if not apart: d.line([(cx - 12, cy), (cx + 12, cy)], fill=INK, width=4)
-    if k0 >= 1 and t >= T_HOME + 1.4: d.text((x0 + 24, y0 + 236), "ABOUT HALF: NO SEX IN A MONTH", font=F(BLK, 22), fill=SIG, anchor="lm")
+    if k0 >= 1 and t >= T_HOME + 1.4: d.text((x0 + 24, y0 + 262), "ABOUT HALF: NO SEX IN A MONTH", font=F(BLK, 22), fill=SIG, anchor="lm")
 
 def cam(t):
     def at(lo, la): x, y = proj(lo, la); return (x, y - 40)
