@@ -1,0 +1,34 @@
+{
+ "episode": "ep147_friends_count",
+ "tts": "new",
+ "asr_voice": [
+  "explain: 1/16 | Each dot is one in 100 people. Each step is how many friends they have.",
+  "reveal: 1/11 | Almost half of 1 to 4, 1 in 8 has none."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 24.17,
+  "size_MiB": 3.4,
+  "black_intervals": [],
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -2.6,
+  "sha256": "8f841f34208deca94915b4d22afd335c0d263df894db3a8c76bd829b68c7f10f",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "1/80 = 1.2%",
+ "asr_final_issues": [
+  "reveal: 1/11 | Almost half of 1 to 4, 1 in 8 has none."
+ ],
+ "duration_s": 24.18,
+ "longest_calm_s": 2.32,
+ "cover": "ep147_friends_count_cover.png",
+ "caption": "ok"
+}
