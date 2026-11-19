@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "How much money does a normal American under thirty-five have in the bank?", "speed": 1.05},
+  {"id": "setup", "text": "The Federal Reserve checked their accounts: checking, savings, the lot."},
+  {"id": "explain", "text": "Each bar is one tenth of them, from the smallest balance to the biggest."},
+  {"id": "average", "text": "The average: about twenty thousand dollars."},
+  {"id": "reveal", "text": "But the person in the middle has just five thousand four hundred. A few big accounts pull the average up."},
+  {"id": "why", "text": "So if your account looks small next to the average, compare it to the middle instead."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Federal Reserve, Survey of Consumer Finances 2022 (via Experian, 'Average savings by age'): transaction accounts (checking, savings, money market, call accounts, prepaid cards) by age of family head – under 35: mean $20,540, median $5,400; 35–44: $41,540 / $7,500; 45–54: $71,130 / $8,700; 55–64: $72,520 / $8,000. Decile bars schematic, chosen so mean = 20.5k and median ≈ 5.4k."
+ ]
+}

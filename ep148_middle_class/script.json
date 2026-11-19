@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "Are you middle class? Here's where the line is.", "speed": 1.05},
+  {"id": "setup", "text": "Researchers call it middle income if a household earns two thirds to double the typical income."},
+  {"id": "explain", "text": "Each dot is one in a hundred American adults, lined up by household income."},
+  {"id": "band", "text": "For a family of three, that's about fifty-seven to one hundred seventy thousand dollars a year."},
+  {"id": "reveal", "text": "Half of all adults are inside. Twenty-eight percent below, nineteen above."},
+  {"id": "why", "text": "So the middle isn't one number. It's a wide band, and most people are in it."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Pew Research Center (Sept 2024), Are you in the American middle class? Find out with our income calculator – middle income = size-adjusted household income two-thirds to double the national median; three-person household 2022: about $56,600 to $169,800 (2022 dollars); 2022: lower 28 %, middle 52 %, upper 19 % of US adults (State of the American Middle Class, May 2024)."
+ ]
+}

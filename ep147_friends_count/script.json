@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "How many close friends is normal? Fewer than you think.", "speed": 1.05},
+  {"id": "setup", "text": "In 2021, Americans were asked to count their close friends."},
+  {"id": "explain", "text": "Each dot is one in a hundred people. Each step is how many friends they have."},
+  {"id": "reveal", "text": "Almost half have one to four. One in eight has none."},
+  {"id": "then", "text": "In 1990, a third had ten or more. Now, only thirteen percent."},
+  {"id": "why", "text": "If your circle feels small, you have the most common size there is."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Survey Center on American Life (2021), The State of American Friendship: Change, Challenges, and Loss (American Perspectives Survey, May 2021): no close friends 12 %, one to four 48 %, ten or more 13 %; 1990 (Gallup): none 3 %, one to four 32 %, ten or more 33 % (via Euronews 15.02.2023 and WEF 2022). Five to nine = remainder (27 % / 32 %)."
+ ]
+}
