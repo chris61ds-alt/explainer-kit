@@ -22,9 +22,9 @@ EP = ThreadEpisode(TL, 148, "MIDDLE CLASS?", order=ORDER, dark=True, label="PEW 
                    cover=dict(words=["ARE YOU", "MIDDLE CLASS?", "HERE'S THE LINE."], kicker="Where do you stand?"))
 light_look(EP, ORDER)
 
-LOW, MIDN, UP = 28, 53, 19                         # 28 / 52 / 19 in the report (rounding) -> 100 dots
-COLS, ROWS = 20, 5
-GX0, GW, GY0, GH = 70, 47, 820, 62
+LOW, MIDN, UP = 28, 52, 19                         # exactly as in the report -> 99 dots (rounding)
+COLS, ROWS = 25, 4
+GX0, GW, GY0, GH = 70, 37.6, 830, 70
 def dot_xy(i): c, r = divmod(i, ROWS); return GX0 + c * GW + GW / 2, GY0 + r * GH
 def col_x(c): return GX0 + c * GW
 BX0, BX1 = col_x(LOW / ROWS), col_x((LOW + MIDN) / ROWS)    # the band in pixels
@@ -35,7 +35,8 @@ T_LINEUP = cue("explain", "lined up") - .2
 T_BAND = S("band") + .05; T_LO_LAB = cue("band", "fifty-seven") - .1; T_HI_LAB = cue("band", "one hundred seventy") - .1
 T_IN = S("reveal") + .05; T_BELOW = cue("reveal", "Twenty-eight") - .1; T_ABOVE = cue("reveal", "nineteen") - .1
 T_YOU = S("why") + .3
-R = np.random.RandomState(4); SCATTER = [(R.uniform(80, 1000), R.uniform(760, 1120)) for _ in range(100)]
+NDOT = LOW + MIDN + UP
+R = np.random.RandomState(4); SCATTER = [(R.uniform(80, 1000), R.uniform(760, 1120)) for _ in range(NDOT)]
 
 def band_x(t):
     """the bracket: sweeps across in the cold open, rests on the middle afterwards"""
@@ -52,14 +53,14 @@ def dot_pos(i, t):
     if t < S("setup"): return tx, ty                                      # frame 0: already lined up (cover)
     if t < T_LINEUP:                                                      # setup: loose crowd
         k = ease_io(clamp((t - S("setup")) / .6)); return tx + (sx - tx) * k, ty + (sy - ty) * k
-    k = ease_io(clamp((t - T_LINEUP - (i % 20) * .02) / .8)); return sx + (tx - sx) * k, sy + (ty - sy) * k
+    k = ease_io(clamp((t - T_LINEUP - (i % 25) * .02) / .8)); return sx + (tx - sx) * k, sy + (ty - sy) * k
 
 def objects(L, d, t):
     cur = EP.current(t); b = band_x(t)
     if b:
         d.rounded_rectangle([b[0] - 6, GY0 - 50, b[1] + 6, GY0 + (ROWS - 1) * GH + 50], radius=22,
                             fill=mix(WHITE, SIG, .12) if is_light(EP, t) else mix(BG, SIG, .25), outline=SIG, width=5)
-    for i in range(100):
+    for i in range(NDOT):
         x, y = dot_pos(i, t)
         zone = 0 if i < LOW else 1 if i < LOW + MIDN else 2
         col = INK
@@ -67,7 +68,7 @@ def objects(L, d, t):
             col = INK if zone == 1 else MID
             if zone == 0 and t >= T_BELOW: col = SIG
             if zone == 2 and t >= T_ABOVE: col = SIG
-        d.ellipse([x - 15, y - 15, x + 15, y + 15], fill=col)
+        d.ellipse([x - 13, y - 13, x + 13, y + 13], fill=col)
     if t >= T_LINEUP + .6 or t < S("setup"):                               # the income axis
         y = GY0 + (ROWS - 1) * GH + 80
         d.line([(GX0, y), (GX0 + COLS * GW, y)], fill=INK, width=4)
@@ -92,7 +93,7 @@ def head(d, t, line):
     d.text((X0, 400), "MIDDLE BAND · 3 PEOPLE", font=F(MONO, 30), fill=MID)
     d.text((X0 + 460, 388), "$57K–$170K" if t >= T_HI_LAB else "?", font=F(BLK, 56), fill=SIG if EP.current(t) == "band" else INK)
 
-def draw(img, d, t, line, note="1 dot = 1% of US adults · 2022 dollars"):
+def draw(img, d, t, line, note="1 dot = 1% of US adults · 2022 dollars · 99 = rounding"):
     shadowed(EP, img, t, objects); d = ImageDraw.Draw(img); labels(d, t); head(d, t, line); fig(d, note)
 
 def sc_hook(img, d, t): draw(img, d, t, "MIDDLE CLASS?")

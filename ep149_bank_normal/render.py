@@ -25,7 +25,7 @@ light_look(EP, ORDER)
 DEC = [.3, 1, 2, 3.5, 5.4, 7, 11, 18, 35, 122]                # $k, schematic deciles (mean 20.5, median ~5.4)
 MEAN, MEDIAN = 20.5, 5.4
 XS = [100 + i * 98 for i in range(10)]; BW = 70
-BASE, PX = 1130, 15.0                                       # 15 px per $1k -> the 35k bar = 525 px, the last one leaves the frame
+BASE, PX = 1095, 14.5                                       # 15 px per $1k -> the 35k bar = 525 px, the last one leaves the frame
 def top(v): return BASE - v * PX
 
 T_UP = .3
@@ -63,7 +63,7 @@ def objects(L, d, t):
         f = F(BLK, 36); w = d.textlength("MIDDLE $5.4K", font=f)
         d.rounded_rectangle([x - w / 2 - 14, y - 58, x + w / 2 + 14, y], radius=12, fill=SIG)
         d.text((x, y - 29), "MIDDLE $5.4K", font=f, fill=WHITE, anchor="mm")
-    if cur in ("why", "end"): you_marker(d, XS[3], top(DEC[3]) - 8, t, T_YOU)
+    if cur in ("why", "end"): you_marker(d, XS[2], top(DEC[2]) - 8, t, T_YOU)
 
 def labels(d, t):
     if T_STAMP <= t < T_REW + .2: stamp(d, (700, 760), "AVERAGE?", t, T_STAMP, size=90)
@@ -85,7 +85,7 @@ def sc_setup(img, d, t): draw(img, d, t, "THE FED CHECKED.", note="checking, sav
 def sc_explain(img, d, t): draw(img, d, t, "1 BAR = 1/10")
 def sc_average(img, d, t): draw(img, d, t, "THE AVERAGE.")
 def sc_reveal(img, d, t): draw(img, d, t, "THE MIDDLE.")
-def sc_why(img, d, t): draw(img, d, t, "COMPARE TO THE MIDDLE.")
+def sc_why(img, d, t): draw(img, d, t, "CHECK THE MIDDLE.")
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}
 EP.scenes = {"hook": sc_hook, "setup": sc_setup, "explain": sc_explain, "average": sc_average, "reveal": sc_reveal, "why": sc_why}
