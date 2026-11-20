@@ -1,0 +1,18 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "Life satisfaction falls until your late forties. Then it climbs back.", "speed": 1.05},
+  {"id": "setup", "text": "Four thousand Scottish adults rated their life from zero to ten. The line is the average by age."},
+  {"id": "dip", "text": "Eight point one in your early twenties. Seven point five around fifty."},
+  {"id": "rise", "text": "Then back up to seven point nine in your late sixties."},
+  {"id": "world", "text": "In a hundred and thirty-two countries, the low point is around forty-eight."},
+  {"id": "zoom", "text": "On the full scale, though, the dip is small."},
+  {"id": "why", "text": "So if midlife feels heavy, you're right on schedule. And it tends to lift."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Scottish Health Survey 2016, Volume 1, Table 8.7 (life satisfaction mean scores by age, all adults, 0–10): 16–24 8.1, 25–34 7.9, 35–44 7.7, 45–54 7.5, 55–64 7.6, 65–74 7.9, 75+ 7.8; n = 4,309 (unweighted).",
+  "Blanchflower (2021), Is happiness U-shaped everywhere? Age and subjective well-being in 145 countries, Journal of Population Economics 34, 575–624 (NBER WP 26641: 132 countries) – U-shape minimum at age 47.2 (advanced countries) and 48.2 (developing countries).",
+  "Caveat: cross-sectional data; some longitudinal studies find a weaker or no U (e.g. Galambos et al. 2020). EU-SILC 2013 (Eurostat) shows decline into old age without a clear rebound at 75+."
+ ]
+}
