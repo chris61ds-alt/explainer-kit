@@ -2,10 +2,19 @@
 Style v3 (default since 31.10.2026, NJY_STYLE=v2 = old): intonation per beat — guess opener a bit faster; a reveal (beat after a "tease", or "reveal": true)
 a bit slower, sentence by sentence with a short pause, so the number lands. A beat's own "speed" always wins."""
 import json, os, re, numpy as np, soundfile as sf
-from kokoro_onnx import Kokoro
-K = os.path.expanduser("~/kokoro/"); k = Kokoro(K + "kokoro-v1.0.onnx", K + "voices-v1.0.bin")
+import subprocess
 V3 = os.environ.get("NJY_STYLE", "v3") == "v3"
 s = json.load(open("script.json")); os.makedirs("vo", exist_ok=True); meta = []
+# 22.11.2026: external voice (ElevenLabs A/B test). "voice": "ext:<folder>" -> <folder>/<beat id>.mp3 (made by publish/ElevenLabs.gs),
+# only trimmed/squeezed here like Kokoro audio. Kokoro is not loaded then.
+EXT = s["voice"][4:] if s["voice"].startswith("ext:") else None
+if not EXT:
+    from kokoro_onnx import Kokoro
+    K = os.path.expanduser("~/kokoro/"); k = Kokoro(K + "kokoro-v1.0.onnx", K + "voices-v1.0.bin")
+def load_ext(bid, sr=44100):
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", os.path.join(EXT, bid + ".mp3"), "-ac", "1", "-ar", str(sr), "-f", "f32le", "-"],
+                         capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.float32).astype(np.float64), sr
 
 def voice_of(spec):
     """'af_heart' or a blend 'af_heart:0.5+af_bella:0.5' (since 02.11.2026 Dot = 50/50 heart + bella, a bit more cheerful)"""
@@ -14,7 +23,7 @@ def voice_of(spec):
     for part in spec.split("+"):
         name, w = (part.split(":") + ["1"])[:2]; style = style + float(w) * k.get_voice_style(name.strip())
     return style
-VOICE = voice_of(s["voice"])
+VOICE = None if EXT else voice_of(s["voice"])
 reveal = {s["beats"][i + 1]["id"] for i, b in enumerate(s["beats"][:-1]) if b.get("tease")} | {b["id"] for b in s["beats"] if b.get("reveal")}
 
 MAX_PAUSE = .15        # since 02.11.2026: pauses inside a beat (after "?", "!", ":") are capped – the sentence keeps flowing;
@@ -72,7 +81,9 @@ def say(p):
 for b in s["beats"]:
     sp = b.get("speed") or (s["speed"] * (1.06 if b["id"] == "guess" else .94 if b["id"] in reveal else 1.0) if V3 else s["speed"])
     parts = [p for p in re.split(r"(?<=[.?!])\s+", b["text"]) if p]
-    if V3 and (b["id"] in reveal or any(rising(p) for p in parts)):
+    if EXT:
+        a, sr = load_ext(b["id"]); a = squeeze(trim(a, sr), sr)
+    elif V3 and (b["id"] in reveal or any(rising(p) for p in parts)):
         out = []; gap = .16 if b["id"] in reveal else .14
         for j, p in enumerate(parts):
             a, sr = k.create(say(p), voice=VOICE, speed=sp, lang=s["lang"]); a = trim(a, sr, tail=.04)
