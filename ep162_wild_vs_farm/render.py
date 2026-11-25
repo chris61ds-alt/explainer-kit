@@ -8,6 +8,7 @@ import numpy as np
 from PIL import ImageDraw
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
+from fx2 import light_look
 from stand import stamp_box, dashed, payoff_cam
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .85, "pour": .5, "why": .1}, pace="loose")
@@ -18,6 +19,7 @@ EP = ThreadEpisode(TL, 162, "WILD VS. FARM", order=ORDER, dark=True, label="RIDD
                    sources=("Greenspoon et al. (2023), The global biomass", "of wild mammals, PNAS · wet mass"),
                    music=dict(bpm=96, root=9, prog="major", kick="four", audio="v5"),
                    cover=dict(words=["WILD ANIMALS", "VS. FARM ANIMALS.", "WHICH WEIGHS MORE?"], kicker="Lock in your answer."))
+light_look(EP, ORDER)                                          # rule 16 (25.11.2026): light paper + shadows, reveal on black
 
 GREEN, FARM = (96, 190, 100), (232, 120, 70)
 GY = 1120; W_MT, F_MT = 20, 630
@@ -77,7 +79,7 @@ def lists(d, t):
         if t >= t0: d.text((FCX, 700 + i * 44), w, font=F(BLK, 34), fill=mix(BG, FARM, ease(clamp((t - t0) / .25))), anchor="mm")
 
 def sc(img, d, t):
-    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(540, 900), z1=1.12)
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(540, 900), z1=1.12, ep=EP)
 
 T_OUT = S("rules") - .2                                           # 25.11.2026 (rule 11): elephant vs cow on a seesaw
 def seesaw(d, t):

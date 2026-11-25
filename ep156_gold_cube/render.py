@@ -9,6 +9,7 @@ import numpy as np
 from PIL import ImageDraw
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
+from fx2 import light_look
 from stand import dashed, stamp_box, payoff_cam
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .85, "pour": .5, "value": .5, "why": .1}, pace="loose")
@@ -19,8 +20,9 @@ EP = ThreadEpisode(TL, 156, "ALL THE GOLD", order=ORDER, dark=True, label="RIDDL
                    sources=("World Gold Council (2026), How much gold", "has been mined? · 224,200 t above ground"),
                    music=dict(bpm=96, root=7, prog="major", kick="four", audio="v5"),
                    cover=dict(words=["ALL THE GOLD", "IN THE WORLD.", "HOW BIG?"], kicker="Lock in your answer."))
+light_look(EP, ORDER)                                          # rule 16 (25.11.2026): light paper + shadows, reveal on black
 
-GOLD, GSIDE, GTOP = (236, 186, 70), (252, 218, 128), (186, 140, 44)   # dark pipeline inverts lightness: GTOP renders brightest
+GOLD, GSIDE, GTOP = (226, 176, 60), (186, 140, 44), (246, 210, 120)   # light look (rule 16): top brightest, side darkest
 A = 22.6; SC = 17; OX, OY = 170, 1120
 def P(x, y, z): return OX + x * SC + z * SC * .5, OY - y * SC - z * SC * .35
 
@@ -135,7 +137,7 @@ def head(d, line, label=None, val=None, hot=False):
         d.text((X0 + d.textlength(label, font=F(MONO, 30)) + 24, 388), val, font=F(BLK, 56), fill=GOLD if hot else INK)
 
 def sc(img, d, t):
-    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(420, 880), z1=1.12)
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(420, 880), z1=1.12, ep=EP)
 
 def sc_full(img, d, t):
     cur = EP.current(t)

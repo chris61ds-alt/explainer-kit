@@ -8,6 +8,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
+from fx2 import light_look
 from stand import stamp_box, payoff_cam
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .85, "pour": .6, "scale": .5, "why": .1}, pace="loose")
@@ -18,6 +19,7 @@ EP = ThreadEpisode(TL, 153, "HUMANITY ON AN ISLAND", order=ORDER, dark=True, lab
                    sources=("US Census Bureau, International Database 2026 ·", "Crete 8,336 km² · Natural Earth outlines"),
                    music=dict(bpm=96, root=2, prog="major", kick="four", audio="v5"),
                    cover=dict(words=["1 M² FOR EVERY", "HUMAN. HOW MUCH", "LAND IS THAT?"], kicker="Lock in your answer."))
+light_look(EP, ORDER)                                          # rule 16 (25.11.2026): light paper + shadows, reveal on black
 
 SAND = (226, 186, 120)
 FEAT = [f for f in json.load(open(os.path.join(HERE, "countries.geojson")))["features"] if f["properties"]["NAME"] != "Antarctica"]
@@ -134,7 +136,7 @@ def head(d, line, label=None, val=None, hot=False):
         d.text((X0 + d.textlength(label, font=F(MONO, 30)) + 24, 388), val, font=F(BLK, 56), fill=SIG if hot else INK)
 
 def sc(img, d, t):
-    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(540, 980), z1=1.15)
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(540, 980), z1=1.15, ep=EP)
 
 def sc_full(img, d, t):
     cur = EP.current(t)

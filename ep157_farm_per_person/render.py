@@ -9,6 +9,7 @@ import numpy as np
 from PIL import ImageDraw
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
+from fx2 import light_look
 from stand import dashed, payoff_cam, stamp_box
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .85, "split": .5, "cal": .6, "why": .1}, pace="loose")
@@ -19,6 +20,7 @@ EP = ThreadEpisode(TL, 157, "YOUR FIELD", order=ORDER, dark=True, label="RIDDLE 
                    sources=("Our World in Data (2024), based on UN FAO", "and Poore & Nemecek (2018) · global averages"),
                    music=dict(bpm=96, root=0, prog="major", kick="four", audio="v5"),
                    cover=dict(words=["HOW MUCH LAND", "FEEDS ONE", "PERSON?"], kicker="Lock in your answer."))
+light_look(EP, ORDER)                                          # rule 16 (25.11.2026): light paper + shadows, reveal on black
 
 SOIL, GRASS, GREEN, OTHER = (196, 150, 96), (54, 96, 60), (96, 190, 100), (150, 150, 150)
 S_ = 5.4; PX0, PY1 = 110, 1127; PW, PH = 68 * S_, 105 * S_; PY0 = PY1 - PH; PX1 = PX0 + PW
@@ -112,7 +114,7 @@ def head(d, line, label=None, val=None, hot=False):
         d.text((X0 + d.textlength(label, font=F(MONO, 30)) + 24, 388), val, font=F(BLK, 56), fill=SIG if hot else INK)
 
 def sc(img, d, t):
-    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(450, 860), z1=1.12)
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(450, 860), z1=1.12, ep=EP)
 
 def sc_full(img, d, t):
     cur = EP.current(t)
@@ -127,7 +129,7 @@ def sc_full(img, d, t):
         if g > 4:
             for a, b in (((px - g, py - g), (px + g, py - g)), ((px + g, py - g), (px + g, py + g)), ((px + g, py + g), (px - g, py + g)), ((px - g, py + g), (px - g, py - g))):
                 dashed(d, a, b, mix(BG, SOIL, o), w=4)
-        d.ellipse([px - 110 * k, py - 110 * k, px + 110 * k, py + 110 * k], fill=mix(BG, INK, .9 * o)); d.ellipse([px - 80 * k, py - 80 * k, px + 80 * k, py + 80 * k], outline=mix(BG, MID, .6 * o), width=3)
+        d.ellipse([px - 110 * k, py - 110 * k, px + 110 * k, py + 110 * k], fill=mix(BG, WHITE, o), outline=mix(BG, INK, o), width=4); d.ellipse([px - 80 * k, py - 80 * k, px + 80 * k, py + 80 * k], outline=mix(BG, MID, .6 * o), width=3)
         for i, (dx, dy, c) in enumerate(((-30, -20, GREEN), (25, -25, SIG), (0, 30, SOIL))):
             d.ellipse([px + dx * k - 24 * k, py + dy * k - 18 * k, px + dx * k + 24 * k, py + dy * k + 18 * k], fill=mix(BG, c, o))
         if 1.3 <= t < T_OUT: stamp_box(d, (760, 1140), "YOUR FIELD?", t, 1.3, size=60)

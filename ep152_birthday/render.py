@@ -9,6 +9,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
+from fx2 import light_look
 from stand import dashed, stamp_box, payoff_cam
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .85, "pairs": .5, "curve": .5, "why": .1}, pace="loose")
@@ -19,6 +20,7 @@ EP = ThreadEpisode(TL, 152, "THE BIRTHDAY RIDDLE", order=ORDER, dark=True, label
                    sources=("The birthday problem · standard probability", "365 equal days, no leap day, no twins"),
                    music=dict(bpm=96, root=4, prog="major", kick="four", audio="v5"),
                    cover=dict(words=["HOW MANY PEOPLE", "FOR A SHARED", "BIRTHDAY?"], kicker="Lock in your answer."))
+light_look(EP, ORDER)                                          # rule 16 (25.11.2026): light paper + shadows, reveal on black
 
 def P(n): return 1 - float(np.prod([(365 - i) / 365 for i in range(int(n))]))
 
@@ -136,7 +138,7 @@ def intro(d, t):
     if t >= 1.4 and out < .5: stamp_box(d, (540, 1080), "SAME DAY?", t, 1.4, size=70)
 
 def sc(img, d, t):
-    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=Pxy(23, .5), z1=1.12)
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=Pxy(23, .5), z1=1.12, ep=EP)
 
 def sc_full(img, d, t):
     cur = EP.current(t)
