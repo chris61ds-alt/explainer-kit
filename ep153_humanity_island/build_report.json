@@ -1,6 +1,6 @@
 {
  "episode": "ep153_humanity_island",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "rules: 1/12 | 8.2 billion people, 1 square meter each, side by side."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 28.03,
-  "size_MiB": 4.9,
+  "size_MiB": 5.4,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.1,
-  "sha256": "1094f990fe76517cbf4b2a2a4179a17b2b474aa7c06b9358f225f1d899972a53",
+  "true_peak_dBTP": -2.4,
+  "sha256": "16a1d3afed0d6810c082c61441f28a50ebd1ae9052bfb646c86b8d1ce59d8784",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -27,7 +27,7 @@
   "rules: 1/12 | 8.2 billion people, 1 square meter each, side by side."
  ],
  "duration_s": 28.05,
- "longest_calm_s": 2.79,
+ "longest_calm_s": 2.69,
  "cover": "ep153_humanity_island_cover.png",
  "caption": "ok"
 }

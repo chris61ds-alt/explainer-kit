@@ -1,0 +1,6 @@
+{
+ "sources": [
+  "Life expectancy at birth, United Kingdom (early centuries: England), 1541\u20132016: Gapminder (until 1990, based on e.g. Wrigley & Schofield for England and the Human Mortality Database), UN (from 1950) and IHME (from 1990), compiled by Our World in Data, dataset 'Life expectancy (Gapminder, UN, IHME)' (github.com/owid/owid-datasets). Values: 1541 38.3, mean 1541\u20131850 37.2, 1558 13.8 (influenza epidemic 1557\u201359), 1665 22.8 (Great Plague), 1870 41.0, 1918 40.4 (influenza pandemic and war), 1950 68.7, 2016 80.9.",
+  "Interpretation: life expectancy at birth was pulled down mainly by deaths of infants and children; adults who survived childhood often lived into their 50s\u201360s and beyond (e.g. Our World in Data, 'Life expectancy' / Riley 2001). 1870 41.0 -> 2016 80.9 = about x2."
+ ]
+}
