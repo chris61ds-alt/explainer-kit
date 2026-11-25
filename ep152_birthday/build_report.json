@@ -1,6 +1,6 @@
 {
  "episode": "ep152_birthday",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "rules: 1/15 | 365 days, no twins, no leap years, each square is one day.",
   "pairs: 1/15 | Because everyone gets compared with everyone. 23 people make 253 pairs."
@@ -10,11 +10,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 32.43,
-  "size_MiB": 7.1,
+  "size_MiB": 7.7,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "d270d96a142afb5fe692b3eff607c2e0482a01a563dd457cb70fff4d6285ac24",
+  "sha256": "86a560e38e3ed8d04d55597018ca21ee946c487ed45cb156dc955bf654f635f3",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -38,10 +38,10 @@
   "ok   7 key beat marked · one beat with \"key\": true",
   "ok   9 end beat · last beat 'end' = Not just you.",
   "ok   10 length · 32.4 s (allowed 24–34 s for riddle)",
-  "ok   11 motion from frame 0 · max change in the first 0.5 s: 8.75",
-  "ok   13 nothing stands still · longest still stretch 0.8 s at 3.1 s (≤ 1.5 s)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 8.28",
+  "ok   13 nothing stands still · longest still stretch 1.3 s at 8.3 s (≤ 1.5 s)",
   "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam in render.py",
-  "ok   16 look · light look (dark only for riddle/pour/race)",
+  "ok   16 look · light look + shadows (dark only for race, provisional)",
   "ok   18 caption · no hashtags · question + 👇 · Source:"
  ],
  "rules": "PASS",
