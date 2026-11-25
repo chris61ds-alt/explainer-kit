@@ -2,21 +2,21 @@
  "episode": "ep161_literacy",
  "tts": "new",
  "asr_voice": [
-  "hook: 5/14 | How many people in the world could read? Here's every decade since 1820.",
-  "then: 8/8 | In 1820, 12/100",
-  "mid: 5/6 | By 1950, just over half.",
+  "hook: 5/14 | Could your great-great-grandparents have read this? The whole world since 1820.",
+  "then: 8/13 | In 1820, 12/100, each dot is one adult.",
+  "mid: 5/8 | By 1950, just over half could read.",
   "now: 2/7 | Today, 86 of 100."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 20.67,
-  "size_MiB": 3.6,
+  "duration_s": 24.4,
+  "size_MiB": 4.9,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -4.7,
-  "sha256": "c628a929c64262cc3e8fffea41352e9f5fda61b5de13099cb1713916bda01304",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -3.8,
+  "sha256": "895e1995baaab296d334981cffdc792b8f031e194f5233c7c3b15082d5e354a6",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -25,15 +25,30 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "20/48 = 41.7%",
+ "asr_final_wer": "20/55 = 36.4%",
  "asr_final_issues": [
-  "hook: 5/14 | How many people in the world could read? Here's every decade since 1820.",
-  "then: 8/8 | In 1820, 12/100",
-  "mid: 5/6 | by 1950, just over half.",
+  "hook: 5/14 | Could your great-great-grandparents have read this, the whole world since 1820?",
+  "then: 8/13 | In 1820, 12/100, each dot is one adult.",
+  "mid: 5/8 | By 1950, just over half could read.",
   "now: 2/7 | Today, 86 of 100."
  ],
- "duration_s": 20.65,
- "longest_calm_s": 2.8,
+ "duration_s": 24.39,
+ "longest_calm_s": 3.55,
+ "rules_detail": [
+  "ok   E kind · kind = 'race' (standard/stand/cliche/riddle/pour/race/map)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: Could your great-great-grandparents have read this? The whol",
+  "ok   7 pause after key · now: 1.20 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 24.4 s (allowed 24–40 s for race)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 3.89",
+  "ok   13 nothing stands still · longest still stretch 0.9 s at 22.4 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam in render.py",
+  "ok   16 look · light look (dark only for riddle/pour/race)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:"
+ ],
+ "rules": "PASS",
  "cover": "ep161_literacy_cover.png",
  "caption": "ok"
 }

@@ -6,20 +6,21 @@
  "beats": [
   {
    "id": "hook",
-   "text": "How many people in the world could read? Here's every decade since eighteen twenty.",
+   "text": "Could your great-great-grandparents have read this? The whole world, since eighteen twenty.",
    "speed": 1.05
   },
   {
    "id": "then",
-   "text": "In eighteen twenty: twelve out of a hundred."
+   "text": "In eighteen twenty: twelve out of a hundred. Each dot is one adult."
   },
   {
    "id": "mid",
-   "text": "By nineteen fifty, just over half."
+   "text": "By nineteen fifty, just over half could read."
   },
   {
    "id": "now",
-   "text": "Today: eighty-six out of a hundred."
+   "text": "Today: eighty-six out of a hundred.",
+   "key": true
   },
   {
    "id": "why",
@@ -34,5 +35,6 @@
   "Global adult (15+) literacy rate, 1820–2016: Our World in Data based on OECD (2014) 'How Was Life? Global Well-being since 1820' (1820–1940), UNESCO (1950–1970) and World Bank/UNESCO (later), owid-datasets 'Global literacy since 1800 (OWID based on OECD & UNESCO (2019))'. 1820: 12.0 %, 1900: 21.4 %, 1950: 56 %, 2016: 86.2 %.",
   "Historical values are estimates; 'literate' definitions differ between sources and years.",
   "Still unable to read: about 754 million adults (UNESCO Institute for Statistics, International Literacy Day 2024)."
- ]
+ ],
+ "kind": "race"
 }
