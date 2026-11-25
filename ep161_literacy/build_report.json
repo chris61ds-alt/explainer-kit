@@ -1,0 +1,39 @@
+{
+ "episode": "ep161_literacy",
+ "tts": "new",
+ "asr_voice": [
+  "hook: 5/14 | How many people in the world could read? Here's every decade since 1820.",
+  "then: 8/8 | In 1820, 12/100",
+  "mid: 5/6 | By 1950, just over half.",
+  "now: 2/7 | Today, 86 of 100."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 20.67,
+  "size_MiB": 3.6,
+  "black_intervals": [],
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -4.7,
+  "sha256": "c628a929c64262cc3e8fffea41352e9f5fda61b5de13099cb1713916bda01304",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "20/48 = 41.7%",
+ "asr_final_issues": [
+  "hook: 5/14 | How many people in the world could read? Here's every decade since 1820.",
+  "then: 8/8 | In 1820, 12/100",
+  "mid: 5/6 | by 1950, just over half.",
+  "now: 2/7 | Today, 86 of 100."
+ ],
+ "duration_s": 20.65,
+ "longest_calm_s": 2.8,
+ "cover": "ep161_literacy_cover.png",
+ "caption": "ok"
+}
