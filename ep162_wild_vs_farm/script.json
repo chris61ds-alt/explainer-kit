@@ -1,17 +1,49 @@
 {
- "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
  "beats": [
-  {"id": "hook", "text": "All the wild land mammals on Earth, against all the farm animals. Which pile weighs more?", "speed": 1.05},
-  {"id": "rules", "text": "Elephants, deer, wolves and mice on one side. Cows, pigs and sheep on the other."},
-  {"id": "lock", "text": "Lock in your answer. Three. Two. One.", "speed": 0.88, "reveal": true},
-  {"id": "gut", "text": "It sounds like the wild should win."},
-  {"id": "reveal", "text": "Farm animals weigh thirty times more."},
-  {"id": "pour", "text": "All wild land mammals together: about two and a half kilos per person."},
-  {"id": "why", "text": "By weight, most mammals on Earth now live on farms."},
-  {"id": "end", "text": "Not just you."}
+  {
+   "id": "hook",
+   "text": "You think wild animals outweigh farm animals? Guess which pile is heavier.",
+   "speed": 1.05
+  },
+  {
+   "id": "rules",
+   "text": "Elephants, deer, wolves and mice on one side. Cows, pigs and sheep on the other."
+  },
+  {
+   "id": "lock",
+   "text": "Lock in your answer. Three. Two. One.",
+   "speed": 0.88,
+   "reveal": true
+  },
+  {
+   "id": "gut",
+   "text": "It sounds like the wild should win."
+  },
+  {
+   "id": "reveal",
+   "text": "Farm animals weigh thirty times more.",
+   "key": true
+  },
+  {
+   "id": "pour",
+   "text": "All wild land mammals together: about two and a half kilos per person."
+  },
+  {
+   "id": "why",
+   "text": "By weight, most mammals on Earth now live on farms."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
  ],
  "sources": [
   "Greenspoon, Krieger, Sender, Rosenberg, Bar-On, Moran, Milo et al. (2023), 'The global biomass of wild mammals', PNAS 120(10); Weizmann Institute press release (Feb 2023): wild land mammals about 20 million tonnes, wild marine mammals about 40 million tonnes, domesticated mammals about 630 million tonnes (livestock about 30x wild land mammals); wild land mammals less than 10% of humanity's combined weight.",
   "Per person: 20,000,000 t / 8.2 billion people (2026) = about 2.4 kg. 'Most mammals live on farms' by weight: 630 Mt livestock > humans (< 10x wild land, i.e. > 200 Mt) + wild land + marine (Bar-On et al. 2018, PNAS, also put livestock at about 60% of mammal biomass)."
- ]
+ ],
+ "kind": "pour"
 }
