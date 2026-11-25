@@ -1,6 +1,6 @@
 {
  "episode": "ep153_humanity_island",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
   "rules: 1/12 | 8.2 billion people, 1 square meter each, side by side."
  ],
@@ -9,11 +9,11 @@
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
   "duration_s": 28.93,
-  "size_MiB": 8.1,
+  "size_MiB": 8.3,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
   "true_peak_dBTP": -2.5,
-  "sha256": "2d81ee55c25337623f8f6d81efe4880b334b99686a99f022cec219aaecc6d045",
+  "sha256": "628963372037e6a37f0e01f704db78357274fbfd12bfb29740ebd4656eb09902",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -36,10 +36,10 @@
   "ok   7 key beat marked · one beat with \"key\": true",
   "ok   9 end beat · last beat 'end' = Not just you.",
   "ok   10 length · 28.9 s (allowed 24–34 s for pour)",
-  "ok   11 motion from frame 0 · max change in the first 0.5 s: 5.72",
-  "ok   13 nothing stands still · longest still stretch 0.7 s at 3.2 s (≤ 1.5 s)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 4.45",
+  "ok   13 nothing stands still · longest still stretch 1.1 s at 2.8 s (≤ 1.5 s)",
   "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam in render.py",
-  "ok   16 look · light look (dark only for riddle/pour/race)",
+  "ok   16 look · light look + shadows (dark only for race, provisional)",
   "ok   18 caption · no hashtags · question + 👇 · Source:"
  ],
  "rules": "PASS",
