@@ -1,0 +1,35 @@
+{
+ "episode": "ep157_farm_per_person",
+ "tts": "new",
+ "asr_voice": [
+  "rules: 1/13 | All the farmland on Earth split evenly between 8.2 billion people.",
+  "reveal: 2/12 | It's about 5,900 square meters, almost a whole football pitch."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 29.93,
+  "size_MiB": 3.8,
+  "black_intervals": [],
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.6,
+  "sha256": "536d8d5ded432019e7f175e427ee31edff30d60d844eb2c7ec2f66f280e2fe0a",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "3/84 = 3.6%",
+ "asr_final_issues": [
+  "rules: 1/13 | All the farmland on Earth split evenly between 8.2 billion people.",
+  "reveal: 2/12 | It's about 5,900 square meters, almost a whole football pitch."
+ ],
+ "duration_s": 29.93,
+ "longest_calm_s": 2.46,
+ "cover": "ep157_farm_per_person_cover.png",
+ "caption": "ok"
+}

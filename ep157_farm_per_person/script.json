@@ -1,0 +1,19 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "How much farmland does it take to feed one person? Guess the size.", "speed": 1.05},
+  {"id": "rules", "text": "All the farmland on Earth, split evenly between eight point two billion people."},
+  {"id": "lock", "text": "Lock in your answer. Three. Two. One.", "speed": 0.88, "reveal": true},
+  {"id": "gut", "text": "It sounds like a garden."},
+  {"id": "reveal", "text": "It's about fifty-nine hundred square meters. Almost a whole football pitch."},
+  {"id": "split", "text": "Eighty percent of it feeds animals: pasture and feed crops."},
+  {"id": "cal", "text": "But that part gives us only seventeen percent of our calories."},
+  {"id": "why", "text": "Most of the field feeds animals. The small corner feeds most of us."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Our World in Data, 'Half of the world's habitable land is used for agriculture' (Ritchie & Roser, updated 16 Feb 2024; data UN FAO and Poore & Nemecek 2018): agricultural land about 48 million km2; about 80% used for livestock (grazing plus cropland for feed), 16% crops for direct human food, 4% non-food crops; animal products supply about 17% of global calories and 38% of protein.",
+  "Per person: 48,000,000 km2 / 8.2 billion = about 5,850 m2 (world population mid-2026 about 8.2 billion, U.S. Census Bureau). Football pitch 105 m x 68 m = 7,140 m2 -> about 82%.",
+  "Global averages; actual land use per person varies a lot by country and diet."
+ ]
+}
