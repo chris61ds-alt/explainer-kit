@@ -7,8 +7,9 @@ from PIL import ImageDraw
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
 from race import Race, year_at
+from stand import payoff_cam, stamp_box
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.05, gaps={"hook": .8, "then": 1.6, "flat": 1.0, "drop": 2.4, "now": .8, "why": .1}, pace="loose")
+TL = Timeline(HERE, lead=.05, gaps={"hook": .8, "then": 1.6, "flat": 1.0, "drop": 2.4, "now": .85, "why": .1}, pace="loose")
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "then", "flat", "drop", "now", "why", "end"]
 EP = ThreadEpisode(TL, 159, "CHILD MORTALITY", order=ORDER, dark=True, label="GAPMINDER · WORLD BANK · OWID",
@@ -23,8 +24,9 @@ R = Race(YS, [D[y] for y in YS], box=(150, 770, 740, 1120), scrub_y=482, fmt="{:
          marker=1940, events=[(1928, "PENICILLIN"), (1974, "VACCINE PROGRAMME")], ticks=[1800, 1850, 1900, 1950, 2017])
 KEYS = [(.2, 1800), (E("then") + .2, 1850), (E("flat") + .4, 1910), (E("drop") + 1.6, 1990), (E("now") + .4, 2017)]
 
-def kids(d, yr):
+def kids(d, yr, t=99):
     v = float(__import__("numpy").interp(yr, YS, [D[y] for y in YS])); dead = int(round(v))
+    if t < 1.9: dead = int(43 * ease_io(clamp((t - .5) / 1.3)))                          # rule 11: 43 lights go out
     for i in range(100):
         r, c = divmod(i, 25); x = 140 + c * 33; y = 590 + r * 28
         if i < dead: d.ellipse([x - 9, y - 9, x + 9, y + 9], outline=mix(BG, MID, .6), width=2)
@@ -33,10 +35,14 @@ def kids(d, yr):
     d.text((140 + 24 * 33 + 14, 566), f"{dead} DIE BEFORE 5", font=F(MONO, 22), fill=MID, anchor="rm")
 
 def sc(img, d, t):
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(700, 1000), z1=1.1, band=(0, 548, 1080, 1180))
+
+def sc_full(img, d, t):
     yr = year_at(t, KEYS)
     d.text((540, 325), "Children Dying Before Age 5", font=F(BLK, 54), fill=INK, anchor="mm")
     d.text((540, 380), "world · share of all children · 1800–2017", font=F(MONO, 24), fill=MID, anchor="mm")
-    kids(d, yr); R.draw(img, yr)
+    kids(d, yr, t); R.draw(img, yr)
+    if 1.9 <= t < 3.6: stamp_box(ImageDraw.Draw(img), (560, 960), "43 OF 100", t, 1.9, size=70)   # rule 11
     fig(ImageDraw.Draw(img), "before 1950: estimates · today ≈ 4 of 100")
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}

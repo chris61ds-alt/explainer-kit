@@ -2,8 +2,8 @@
  "episode": "ep159_child_mortality",
  "tts": "new",
  "asr_voice": [
-  "hook: 3/14 | How many children died before their fifth birthday, the whole world since 1800.",
-  "then: 5/9 | in 1800, 43 of 100.",
+  "hook: 3/14 | Would you have survived to five in 1800, the whole world since then?",
+  "then: 4/14 | In 1800, 43 out of 100, each dot is one child.",
   "flat: 3/9 | even in 1900, more than one in three.",
   "now: 1/7 | Today, about 4 out of 100."
  ],
@@ -11,12 +11,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 24.0,
-  "size_MiB": 3.6,
+  "duration_s": 24.8,
+  "size_MiB": 4.6,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -4.7,
-  "sha256": "9b0e80c036d139beb5c24e847f485e3023dcd651b1dc01fac04b27f87983edc8",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -4.8,
+  "sha256": "915f7784ff034f3d03d9c5410efbeca84ad3a56df86a03eeecee3a73688938a4",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -25,15 +25,30 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "12/53 = 22.6%",
+ "asr_final_wer": "11/58 = 19.0%",
  "asr_final_issues": [
-  "hook: 3/14 | How many children died before their fifth birthday, the whole world, since 1800.",
-  "then: 5/9 | in 1800, 43 of 100.",
+  "hook: 3/14 | Would you have survived to five in 1800, the whole world since then?",
+  "then: 4/14 | In 1800, 43 out of 100, each dot is one child.",
   "flat: 3/9 | Even in 1900, more than one in three.",
   "now: 1/7 | Today, about 4 out of 100."
  ],
- "duration_s": 24.0,
+ "duration_s": 24.8,
  "longest_calm_s": 2.79,
+ "rules_detail": [
+  "ok   E kind · kind = 'race' (standard/stand/cliche/riddle/pour/race/map)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: Would you have survived to five in eighteen hundred? The who",
+  "ok   7 pause after key · now: 0.85 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 24.8 s (allowed 24–40 s for race)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 9.01",
+  "ok   13 nothing stands still · longest still stretch 0.4 s at 0.8 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam in render.py",
+  "ok   16 look · light look (dark only for riddle/pour/race)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:"
+ ],
+ "rules": "PASS",
  "cover": "ep159_child_mortality_cover.png",
  "caption": "ok"
 }
