@@ -49,3 +49,11 @@ def stamp_box(d, c, text, t, t0, size=90, col=None, ang=-12):
     g.text((im.width / 2, im.height / 2), text, font=f, fill=col + (255,), anchor="mm")
     im = im.rotate(ang, expand=True, resample=Image.BICUBIC)
     d._image.paste(im, (int(c[0] - im.width / 2), int(c[1] - im.height / 2)), im)
+
+
+def payoff_cam(img, draw, t, t0, focus=None, z1=1.1, dur=2.8):
+    """rule 14 (25.11.2026): from t0 (start of the payoff) the camera slowly pushes in on the answer (z1 > 1) or pulls back
+    to the whole picture (start with z1 < 1 is not possible -> use fx2.cam_path for pull-backs). draw(L, dL) paints the scene."""
+    from fx2 import camera
+    z = 1 + (z1 - 1) * ease(clamp((t - t0) / dur)) if t >= t0 else 1.0
+    camera(img, draw, z, focus)

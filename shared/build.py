@@ -76,12 +76,19 @@ if hasattr(mod, "EP") and hasattr(mod.EP, "calm"):
     rep["longest_calm_s"] = mod.EP.calm(getattr(mod, "FX", ()) + mod.EP.v2_fx())
     if rep["longest_calm_s"] > 3: print(f"  ⚠ longest calm stretch {rep['longest_calm_s']} s (> 3 s)")
 
+# 5b rules (REGELN.md, shared/rulecheck.py) -------------------------------------------------------
+import rulecheck
+rep["rules_detail"] = [f"{'ok  ' if ok else 'FAIL'} {n} · {msg}" for n, ok, msg in rulecheck.check(ep, mp4, TL)]
+rep["rules"] = "PASS" if all(x.startswith("ok") for x in rep["rules_detail"]) else "FAIL"
+
 # 6 cover ----------------------------------------------------------------------------------------
 if hasattr(mod, "EP"): rep["cover"] = mod.EP.make_cover(f"{name}_cover.png")
 # 7 caption --------------------------------------------------------------------------------------
 rep["caption"] = "ok" if os.path.exists("caption.md") else "MISSING"
 
 json.dump(rep, open("build_report.json", "w"), indent=1, ensure_ascii=False)
-print(f"\n== {name} ==  {rep['duration_s']} s · verify {rep['verify']} · final ASR {rep['asr_final_wer']} · caption {rep['caption']}")
+print(f"\n== {name} ==  {rep['duration_s']} s · verify {rep['verify']} · final ASR {rep['asr_final_wer']} · caption {rep['caption']} · rules {rep['rules']}")
+for x in rep["rules_detail"]:
+    if not x.startswith("ok"): print("  rule:", x)
 for x in rep["asr_voice"]: print("  voice:", x)
 for x in rep["asr_final_issues"]: print("  final:", x)
