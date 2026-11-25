@@ -4,7 +4,7 @@ import os, re, sys, json, subprocess
 import numpy as np
 
 LEN = {"standard": (24, 32), "stand": (24, 32), "cliche": (24, 32), "map": (24, 32), "riddle": (24, 34), "pour": (24, 34), "race": (24, 40)}
-DARK_OK = {"riddle", "pour", "race"}
+DARK_OK = {"race"}                     # race: provisional, Chris has not decided yet (25.11.2026)
 BAND = (470, 1180)
 
 
@@ -44,7 +44,7 @@ def check(ep, mp4, TL):
         if still > best: best, at = still, (i - still + 1) / 10
     r("13 nothing stands still", best / 10 <= 1.5, f"longest still stretch {best / 10:.1f} s at {at:.1f} s (≤ 1.5 s)")
     r("14 camera at the payoff", "camera(" in src or "payoff_cam(" in src, "fx2.camera / stand.payoff_cam in render.py")
-    r("16 look", kind in DARK_OK or "light_look(" in src, "light look (dark only for riddle/pour/race)")
+    r("16 look", kind in DARK_OK or ("light_look(" in src and ("shadowed(" in src or "ep=EP" in src)), "light look + shadows (dark only for race, provisional)")
     r("18 caption", cap and "#" not in cap and "👇" in cap and "Source:" in cap, "no hashtags · question + 👇 · Source:")
     return out
 

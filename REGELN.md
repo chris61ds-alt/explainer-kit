@@ -36,7 +36,7 @@ Alte, ersetzte Regeln stehen in `REGELN_ARCHIV.md` (nur zum Nachlesen, nicht anw
 13. **Nichts steht still:** im Bildbereich nie länger als **1,5 s** ohne sichtbare Bewegung (Zähler, Wachsen, Schimmern, Kamera). ⚙
 14. **Kamera zur Pointe:** in `why`/`end` fährt die Kamera (`fx2.camera` + `cam_path` bzw. `stand.payoff_cam`) – Rückzug aufs Gesamtbild oder langsames Heranfahren an die Antwort. ⚙
 15. **Bild = Ton:** kleine Headline (BLK 84) zeigt genau, was gesagt wird, + ein Live-Zähler. Große Typo nur für die eine Zahl. Nie zwei neue Dinge gleichzeitig.
-16. **Look:** hell (Papier, weiche Schatten, `light_look`) ist Standard, Reveal auf Schwarz, Orange nur als Akzent. **Dunkel erlaubt** für Rätsel, Pour Test, Zeitreise-Linie und Nachtszenen. ⚙
+16. **Look (Chris, 13.11.2026):** hell (Papier, weiche Schatten, `light_look` + `shadowed` bzw. `payoff_cam(..., ep=EP)`) für **alle** Formate, Reveal auf Schwarz, Orange nur als Akzent. Komplett dunkel nur, wenn die Geschichte es braucht (Nacht, Lichtkegel). *Offen (Entscheidung Chris):* Zeitreise-Linie dunkel wie die Referenz – bis dahin vorläufig erlaubt. ⚙
 17. **Karten:** geht es um ein Land/eine Region, nur diesen Ausschnitt zeigen; Weltkarte nur bei echten Ländervergleichen.
 
 ## D · Caption
@@ -50,9 +50,9 @@ Alte, ersetzte Regeln stehen in `REGELN_ARCHIV.md` (nur zum Nachlesen, nicht anw
 | `standard` | Erklär-Folge | 24–32 s | hell | Regeln 1–18 |
 | `stand` | Where do you stand? | 24–32 s | hell | Frage-Cover, „YOU?“-Marker (`stand.you_marker`) |
 | `cliche` | Klischee-Check | 24–32 s | hell | Zitat → Daten → Stempel TRUE/HALF TRUE/FALSE |
-| `riddle` | Rätsel | 24–34 s | dunkel ok | Frage → Regeln → 3-2-1 „Lock in your answer“ → Bauchgefühl → Lösung **im selben Video** |
-| `pour` | Pour Test | 24–34 s | dunkel ok | wie `riddle`, Lösung als Sand, der in etwas Bekanntes rieselt |
-| `race` | Zeitreise-Linie | 24–40 s | dunkel ok | `shared/race.py`: Scrubber + Ereignis-Marker, Fläche, Farbwechsel, Tempo bremst zum Höhepunkt; Stimme nur an 3–5 Stellen, dazwischen Musik |
+| `riddle` | Rätsel | 24–34 s | hell | Frage → Regeln → kurzer 3-2-1 „Lock in your answer“ → Bauchgefühl → Lösung **im selben Video** |
+| `pour` | Pour Test | 24–34 s | hell | wie `riddle`, Lösung als Sand, der in etwas Bekanntes rieselt |
+| `race` | Zeitreise-Linie | 24–40 s | dunkel vorläufig (offen) | `shared/race.py`: Scrubber + Ereignis-Marker, Fläche, Farbwechsel, Tempo bremst zum Höhepunkt; Stimme nur an 3–5 Stellen, dazwischen Musik |
 | `map` | 3D-Karte | 24–32 s | hell | Regel 17, Blöcke = Werte |
 
 Bausteine: `fx2.camera/cam_path/stamp/light_look`, `stand.shadowed/you_marker/dashed/stamp_box/payoff_cam`, `race.Race`.
