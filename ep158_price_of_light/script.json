@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "How expensive was light? Here are seven hundred years of prices in England.", "speed": 1.05},
+  {"id": "then", "text": "In thirteen hundred, light cost over ten thousand times more than today."},
+  {"id": "flat", "text": "For five hundred years, the price barely moved."},
+  {"id": "drop", "text": "Then came gas lamps, kerosene and the light bulb."},
+  {"id": "why", "text": "For most of history, darkness was the cheap option."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Price of lighting in the United Kingdom, constant 2000 British pounds per million lumen-hours, 1301–2006: Fouquet & Pearson (2006), 'Seven Centuries of Energy Services: The Price and Use of Light in the United Kingdom (1300-2000)', The Energy Journal 27(1); Fouquet & Pearson (2012); via Our World in Data (owid-datasets 'Price for Light – Fouquet'). 1301: 33,043; 1500: 14,472; 1800: 9,540; 1850: 2,525; 1900: 236; 1950: 14.7; 2006: 2.89 -> 33,043 / 2.89 = about 11,400x.",
+  "Weighted average over lighting sources (candles, oil, gas, kerosene, electricity), inflation-adjusted with Bank of England long-run price indices."
+ ]
+}

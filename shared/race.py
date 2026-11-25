@@ -22,7 +22,7 @@ def year_at(t, keys):
 
 
 def nice_step(span, n=5):
-    for s in (.1, .2, .25, .5, 1, 2, 2.5, 5, 10, 20, 25, 50, 100, 200, 500):
+    for s in (.1, .2, .25, .5, 1, 2, 2.5, 5, 10, 20, 25, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000):
         if span / s <= n: return s
     return 1000
 
@@ -40,6 +40,8 @@ class Race:
         a, b = self.hot
         if a is None: return COLD
         return mix(COLD, SIG, clamp((v - a) / (b - a)))
+
+    def _f(self, v): return self.fmt(v) if callable(self.fmt) else self.fmt.format(v)
 
     def f(self, v): return np.log10(np.maximum(v, 1e-6)) if self.log else v
 
@@ -78,7 +80,10 @@ class Race:
         def P(a, v): return PX0 + (a - x0) / (x1 - x0) * (PX1 - PX0), PY1 - (float(self.f(v)) - v0) / (v1 - v0) * (PY1 - PY0)
         d = ImageDraw.Draw(img); self.scrubber(d, yr); self._labs = []
         if self.log:                                                                 # log grid: 0.5 1 2 5 10 20 50 ...
-            grid = [m * 10 ** e for e in range(-2, 6) for m in (1, 2, 5) if v0 <= math.log10(m * 10 ** e) <= v1]
+            ms = (1,) if v1 - v0 > 2.2 else (1, 2, 5)
+            grid = [m * 10 ** e for e in range(-2, 7) for m in ms if v0 <= math.log10(m * 10 ** e) <= v1]
+            if len(grid) < 2:                                                       # narrow range: plain steps
+                a, b = 10 ** v0, 10 ** v1; st = nice_step(b - a, 4); grid = list(np.arange(math.ceil(a / st) * st, b, st))
         else:
             st = nice_step(v1 - v0); grid = list(np.arange(math.ceil(v0 / st) * st, v1 + 1e-9, st))
         for v in grid:
@@ -89,10 +94,12 @@ class Race:
             i = np.searchsorted(self.Y, yr); ys = np.append(ys, yr); vs = np.append(vs, self.V[i - 1] + (self.V[i] - self.V[i - 1]) * (yr - self.Y[i - 1]) / (self.Y[i] - self.Y[i - 1]))
         if len(ys) < 2: return
         pts = [P(a, b) for a, b in zip(ys, vs)]
+        lastx, row = -999, 0
         for ey, lab in self.events:                                                  # events stay once passed
             if yr >= ey:
-                ex = P(ey, v0)[0]; d.line([(ex, PY0 + 40), (ex, PY1)], fill=mix(BG, MID, .45), width=2)
-                d.text((ex, PY0 + 22), lab, font=F(MONO, 20), fill=MID, anchor="mm")
+                ex = P(ey, v0)[0]; row = row + 1 if ex - lastx < 110 else 0; lastx = ex
+                d.line([(ex, PY0 + 40 + row * 26), (ex, PY1)], fill=mix(BG, MID, .45), width=2)
+                d.text((ex, PY0 + 22 + row * 26), lab, font=F(MONO, 20), fill=MID, anchor="mm")
         tip = vs[-1]; c = self.col(tip)
         # area gradient under the line
         L = Image.new("L", img.size, 0); ImageDraw.Draw(L).polygon(pts + [(pts[-1][0], PY1), (pts[0][0], PY1)], fill=255)
@@ -111,14 +118,14 @@ class Race:
             op = [P(a, b) for a, b in zip(xs_, vs_)]
             if len(op) > 1: d.line(op, fill=mix(BG, INK, .45), width=3, joint="curve")
             ox, oyy = op[-1]; d.ellipse([ox - 6, oyy - 6, ox + 6, oyy + 6], fill=mix(BG, INK, .6))
-            self._labs.append([oyy, ox + 14, f"{lab} {self.fmt.format(vs_[-1])}", F(MONO, 22), mix(BG, INK, .7)])
+            self._labs.append([oyy, ox + 14, f"{lab} {self._f(vs_[-1])}", F(MONO, 22), mix(BG, INK, .7)])
         # line: cold part + hot tail coloured by value
         for (p, q), a in zip(zip(pts, pts[1:]), vs[1:]):
             d.line([p, q], fill=self.col(a), width=5)
         d.line([(PX0, PY1), (PX1, PY1)], fill=MID, width=2)
         tx, ty = pts[-1]
         d.ellipse([tx - 12, ty - 12, tx + 12, ty + 12], fill=c)
-        lab = (self.name + " " if self.name else "") + self.fmt.format(tip) + self.unit
+        lab = (self.name + " " if self.name else "") + self._f(tip) + self.unit
         self._labs.append([ty, tx + 22, lab, F(BLK, 36), c])
         L = sorted(self._labs, key=lambda r: r[0])                                    # labels never overlap: push apart
         for a, b in zip(L, L[1:]):
