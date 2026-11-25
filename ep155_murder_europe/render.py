@@ -7,6 +7,7 @@ from PIL import ImageDraw
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
 from race import Race, year_at
+from stand import payoff_cam, stamp_box
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.05, gaps={"hook": 1.2, "then": 3.0, "fall": 3.0, "now": 1.2, "why": .1}, pace="loose")
 S, E, cue = TL.S, TL.E, TL.cue
@@ -26,10 +27,14 @@ R = Race(IY, IV, box=(150, 760, 660, 1120), scrub_y=530, fmt="{:.1f}", hot_from=
 KEYS = [(.2, 1300), (E("then") + .4, 1460), (E("fall") + 2.6, 1900), (E("now") + .6, 2016)]
 
 def sc(img, d, t):
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(700, 1000), z1=1.1, band=(0, 575, 1080, 1180))
+
+def sc_full(img, d, t):
     yr = year_at(t, KEYS)
     d.text((540, 330), "Murders per 100,000 People", font=F(BLK, 54), fill=INK, anchor="mm")
     d.text((540, 395), "per year · Europe · 1300–2016", font=F(MONO, 28), fill=MID, anchor="mm")
     R.draw(img, yr)
+    if .4 <= t < 2.6: stamp_box(ImageDraw.Draw(img), (560, 960), "56 IN 100,000", t, .4, size=70)   # rule 11
     fig(ImageDraw.Draw(img), "log scale · historic values: estimates from court & coroner records")
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}

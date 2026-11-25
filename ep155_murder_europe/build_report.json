@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 27.1,
-  "size_MiB": 4.6,
+  "duration_s": 27.5,
+  "size_MiB": 5.1,
   "black_intervals": [],
-  "loudness_LUFS": -16.6,
-  "true_peak_dBTP": -2.4,
-  "sha256": "719e3b5f138faefe8cfa5eb96a2864c0ff834f1846e16321d0eba52014fcbea7",
+  "loudness_LUFS": -16.5,
+  "true_peak_dBTP": -1.7,
+  "sha256": "0349d61dcdd30cb62bb253e96ab950958ffc47a122847eb343240f235e9827ef",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,10 +22,25 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/54 = 0.0%",
+ "asr_final_wer": "0/55 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 27.11,
+ "duration_s": 27.51,
  "longest_calm_s": 3.08,
+ "rules_detail": [
+  "ok   E kind · kind = 'race' (standard/stand/cliche/riddle/pour/race/map)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: Would you have survived medieval Italy? Here are seven hundr",
+  "ok   7 pause after key · now: 1.20 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 27.5 s (allowed 24–40 s for race)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 9.75",
+  "ok   13 nothing stands still · longest still stretch 1.5 s at 25.0 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam in render.py",
+  "ok   16 look · light look (dark only for riddle/pour/race)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:"
+ ],
+ "rules": "PASS",
  "cover": "ep155_murder_europe_cover.png",
  "caption": "ok"
 }
