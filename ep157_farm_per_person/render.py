@@ -9,9 +9,9 @@ import numpy as np
 from PIL import ImageDraw
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
-from stand import dashed
+from stand import dashed, payoff_cam, stamp_box
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .5, "split": .5, "cal": .6, "why": .1})
+TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .85, "split": .5, "cal": .6, "why": .1}, pace="loose")
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "rules", "lock", "gut", "reveal", "split", "cal", "why", "end"]
 EP = ThreadEpisode(TL, 157, "YOUR FIELD", order=ORDER, dark=True, label="RIDDLE · FAO · OUR WORLD IN DATA",
@@ -25,7 +25,8 @@ S_ = 5.4; PX0, PY1 = 110, 1127; PW, PH = 68 * S_, 105 * S_; PY0 = PY1 - PH; PX1 
 FILL = 5850 / 7140
 SH = {"animals": .80, "food": .16, "other": .04}
 
-T_P = .2; T_RULE = cue("rules", "split") - .1
+T_OUT = S("rules") - .2; T_P = T_OUT                          # 25.11.2026 (rule 11): plate first
+T_RULE = cue("rules", "split") - .1
 T_LOCK = S("lock"); T_321 = [cue("lock", "Three") - .05, cue("lock", "Two") - .05, cue("lock", "One") - .05]
 T_GARDEN = S("gut"); T_REV = S("reveal"); T_M2 = cue("reveal", "fifty-nine") - .15; T_PITCH = cue("reveal", "football") - .15
 T_SPLIT = S("split") + .1; T_BARS = S("cal") + .05; T_CAL = cue("cal", "seventeen") - .15; T_GLOW = S("why")
@@ -111,13 +112,27 @@ def head(d, line, label=None, val=None, hot=False):
         d.text((X0 + d.textlength(label, font=F(MONO, 30)) + 24, 388), val, font=F(BLK, 56), fill=SIG if hot else INK)
 
 def sc(img, d, t):
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(450, 860), z1=1.12)
+
+def sc_full(img, d, t):
     cur = EP.current(t)
     pk = ease(clamp((t - T_PITCH) / .6)) if t >= T_PITCH else 0
     if pk > 0: d.rectangle([PX0, PY0, PX1, PY1], fill=mix(BG, GRASS, .5 * pk))
     field(d, t)
     if pk > 0: pitch_lines(d, pk)
     cx, cy = (PX0 + PX1) / 2, (PY0 + PY1) / 2 + 20
-    if t < T_REV: person(d, cx, cy, spring(clamp((t - T_P) / .5)) * 1.6)
+    if t < T_OUT + .4:                                                               # the plate and its growing field
+        o = 1 - ease_io(clamp((t - T_OUT) / .4)); k = spring(clamp((t - .15) / .45)) * o; px, py = 540, 860
+        g = 260 * ease_io(clamp((t - .7) / .9)) * o
+        if g > 4:
+            for a, b in (((px - g, py - g), (px + g, py - g)), ((px + g, py - g), (px + g, py + g)), ((px + g, py + g), (px - g, py + g)), ((px - g, py + g), (px - g, py - g))):
+                dashed(d, a, b, mix(BG, SOIL, o), w=4)
+        d.ellipse([px - 110 * k, py - 110 * k, px + 110 * k, py + 110 * k], fill=mix(BG, INK, .9 * o)); d.ellipse([px - 80 * k, py - 80 * k, px + 80 * k, py + 80 * k], outline=mix(BG, MID, .6 * o), width=3)
+        for i, (dx, dy, c) in enumerate(((-30, -20, GREEN), (25, -25, SIG), (0, 30, SOIL))):
+            d.ellipse([px + dx * k - 24 * k, py + dy * k - 18 * k, px + dx * k + 24 * k, py + dy * k + 18 * k], fill=mix(BG, c, o))
+        if 1.3 <= t < T_OUT: stamp_box(d, (760, 1140), "YOUR FIELD?", t, 1.3, size=60)
+    if t < T_P: pass
+    elif t < T_REV: person(d, cx, cy, spring(clamp((t - T_P) / .5)) * 1.6)
     else: person(d, cx, cy, 1.0)
     if t < T_REV and t >= T_P:                                                      # the unknown field around the person
         r = 90 + 12 * math.sin(t * 5); dashed(d, (cx - r, cy - r), (cx + r, cy - r), MID); dashed(d, (cx + r, cy - r), (cx + r, cy + r), MID)
@@ -139,6 +154,6 @@ def sc(img, d, t):
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}
 EP.scenes = {k: sc for k in ORDER[:-1]}
-FX = [(T_P, pop(.1), 0), (T_RULE, whoosh(1.2, .015), .4), *[(x, thud(.16), 0) for x in T_321], (T_GARDEN, pop(.08), .2),
+FX = [(.15, pop(.12), 0), (.7, whoosh(.8, .015), 0), (1.3, thud(.2), .2), (T_P, pop(.1), 0), (T_RULE, whoosh(1.2, .015), .4), *[(x, thud(.16), 0) for x in T_321], (T_GARDEN, pop(.08), .2),
       (T_REV, whoosh(1.4, .02), -.3), (T_PITCH, pop(.1), -.3), (T_SPLIT, whoosh(.5, .02), 0), (T_BARS, pop(.1), .4), (T_CAL, pop(.1), .5)]
 if __name__ == "__main__": EP.run(FX)
