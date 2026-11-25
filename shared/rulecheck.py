@@ -38,10 +38,11 @@ def check(ep, mp4, TL):
     r("10 length", lo <= TL.total <= hi, f"{TL.total:.1f} s (allowed {lo}–{hi} s for {kind})")
     m = motion(mp4, TL.total)
     r("11 motion from frame 0", m[:5].max() > 1.0, f"max change in the first 0.5 s: {m[:5].max():.2f}")
-    still, best, end = 0, 0, int((TL.total - 1.0) * 10)
+    still, best, at, end = 0, 0, 0, int((TL.total - 1.0) * 10)
     for i, v in enumerate(m[:end]):
-        still = still + 1 if v < .35 else 0; best = max(best, still)
-    r("13 nothing stands still", best / 10 <= 1.5, f"longest still stretch {best / 10:.1f} s (≤ 1.5 s)")
+        still = still + 1 if v < .35 else 0
+        if still > best: best, at = still, (i - still + 1) / 10
+    r("13 nothing stands still", best / 10 <= 1.5, f"longest still stretch {best / 10:.1f} s at {at:.1f} s (≤ 1.5 s)")
     r("14 camera at the payoff", "camera(" in src or "payoff_cam(" in src, "fx2.camera / stand.payoff_cam in render.py")
     r("16 look", kind in DARK_OK or "light_look(" in src, "light look (dark only for riddle/pour/race)")
     r("18 caption", cap and "#" not in cap and "👇" in cap and "Source:" in cap, "no hashtags · question + 👇 · Source:")

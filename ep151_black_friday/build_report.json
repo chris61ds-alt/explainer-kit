@@ -6,12 +6,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 21.6,
-  "size_MiB": 4.2,
+  "duration_s": 24.2,
+  "size_MiB": 9.1,
   "black_intervals": [],
   "loudness_LUFS": -16.1,
-  "true_peak_dBTP": -2.8,
-  "sha256": "606039fca7fb9ea476d5aa4a04724dd726ca65380f4476b7ece48d6d2a364f46",
+  "true_peak_dBTP": -2.7,
+  "sha256": "c4e41b35317475205dab2f56d7a409cfe177fbaa64e486f73165c82ba7753ba7",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -20,10 +20,25 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "0/65 = 0.0%",
+ "asr_final_wer": "0/71 = 0.0%",
  "asr_final_issues": [],
- "duration_s": 21.59,
+ "duration_s": 24.19,
  "longest_calm_s": 2.66,
+ "rules_detail": [
+  "ok   E kind · kind = 'cliche' (standard/stand/cliche/riddle/pour/race/map)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: You think Black Friday is the cheapest day of the year?",
+  "ok   7 pause after key · reveal: 0.85 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 24.2 s (allowed 24–32 s for cliche)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 11.02",
+  "ok   13 nothing stands still · longest still stretch 1.1 s at 1.8 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam in render.py",
+  "ok   16 look · light look (dark only for riddle/pour/race)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:"
+ ],
+ "rules": "PASS",
  "cover": "ep151_black_friday_cover.png",
  "caption": "ok"
 }

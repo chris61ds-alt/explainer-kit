@@ -51,9 +51,15 @@ def stamp_box(d, c, text, t, t0, size=90, col=None, ang=-12):
     d._image.paste(im, (int(c[0] - im.width / 2), int(c[1] - im.height / 2)), im)
 
 
-def payoff_cam(img, draw, t, t0, focus=None, z1=1.1, dur=2.8):
-    """rule 14 (25.11.2026): from t0 (start of the payoff) the camera slowly pushes in on the answer (z1 > 1) or pulls back
-    to the whole picture (start with z1 < 1 is not possible -> use fx2.cam_path for pull-backs). draw(L, dL) paints the scene."""
-    from fx2 import camera
-    z = 1 + (z1 - 1) * ease(clamp((t - t0) / dur)) if t >= t0 else 1.0
-    camera(img, draw, z, focus)
+def payoff_cam(img, draw, t, t0, focus=None, z1=1.1, dur=2.8, drift=.012, band=None):
+    """rules 13 + 14 (25.11.2026): the whole scene is drawn by draw(L, dL) on a full layer; outside the object band it is
+    copied 1:1 (headline, footer), inside the band a camera breathes very slightly the whole time (drift) and from t0
+    (start of the payoff) pushes in on the answer (z1) at `focus`."""
+    from fx2 import BAND
+    L = Image.new("RGB", img.size, BG); draw(L, ImageDraw.Draw(L)); img.paste(L)
+    z = 1 + drift * (1 + np.sin(t * 1.3)) / 2 + ((z1 - 1) * ease(clamp((t - t0) / dur)) if t >= t0 else 0)
+    x0, y0, x1, y1 = band or BAND; bw, bh = x1 - x0, y1 - y0
+    fx, fy = focus or ((x0 + x1) / 2, (y0 + y1) / 2)
+    cw, ch = bw / z, bh / z
+    cx0 = min(max(fx - cw / 2, 0), img.size[0] - cw); cy0 = min(max(fy - ch / 2, y0 - 40), y1 + 40 - ch)
+    img.paste(L.resize((bw, bh), Image.LANCZOS, box=(cx0, cy0, cx0 + cw, cy0 + ch)), (x0, y0))

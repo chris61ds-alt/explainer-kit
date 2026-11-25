@@ -10,9 +10,9 @@ from PIL import ImageDraw
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
 from fx2 import light_look, is_light, stamp
-from stand import shadowed
+from stand import shadowed, payoff_cam
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.05, gaps={"hook": .5, "setup": .5, "reveal": .8, "other": .7, "why": .1})
+TL = Timeline(HERE, lead=.05, gaps={"hook": .5, "setup": .5, "reveal": .85, "other": .9, "why": .1}, pace="loose")
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "setup", "reveal", "other", "why", "end"]
 EP = ThreadEpisode(TL, 151, "BLACK FRIDAY", order=ORDER, dark=True, label="WHICH? · 208 DEALS · UK 2022",
@@ -30,9 +30,9 @@ WIN = [21, 70, 107, 148, 190]                                # the 5 products th
 SY, SX0, SX1 = 1112, 90, 990                                 # year strip
 SXM = (SX0 + SX1) / 2
 
-T_POP = .15
+T_OUT = S("setup") - .15; T_POP = T_OUT + .1                 # 25.11.2026 (rule 11): cold open = one deal card, then pull out
 T_STAMP = cue("hook", "cheapest") - .1
-T_NEUTRAL = S("setup") + .05
+T_NEUTRAL = cue("setup", "tracked") - .1
 T_SWEEP0, T_SWEEP1 = cue("setup", "every day") - .1, E("setup") + .2
 T_FIVE = cue("reveal", "Only five") - .1; T_PCT = cue("reveal", "two percent") - .15
 T_REST = cue("other", "ninety-eight") - .2; T_FALSE = cue("other", "false") - .15
@@ -42,8 +42,31 @@ def tag(d, x, y, col, s=1.0):
     d.rounded_rectangle([x - w, y - h, x + w, y + h], radius=int(6 * s), fill=col)
     d.ellipse([x - w + 5 * s, y - 3 * s, x - w + 11 * s, y + 3 * s], fill=BG if s > .3 else col)
 
+def deal_card(d, t):
+    """the mini-film: a product card, a -50% tag slams on, a countdown ticks; at T_OUT it shrinks into the middle tag"""
+    k = ease_io(clamp((t - T_OUT) / .5)) if t >= T_OUT else 0
+    if k >= 1: return
+    tx, ty = tag_xy(103); cx, cy = 540 + (tx - 540) * k, 780 + (ty - 780) * k; sc = 1 - .92 * k
+    w, h = 460 * sc, 330 * sc
+    d.rounded_rectangle([cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2], radius=int(26 * sc), fill=WHITE, outline=INK, width=max(2, int(5 * sc)))
+    if sc > .4:
+        d.rounded_rectangle([cx - 150 * sc, cy - 120 * sc, cx + 150 * sc, cy + 40 * sc], radius=int(10 * sc), outline=INK, width=int(6 * sc))
+        d.line([(cx - 40 * sc, cy + 40 * sc), (cx - 60 * sc, cy + 70 * sc)], fill=INK, width=int(6 * sc)); d.line([(cx + 40 * sc, cy + 40 * sc), (cx + 60 * sc, cy + 70 * sc)], fill=INK, width=int(6 * sc))
+        d.text((cx - 70 * sc, cy + 118 * sc), "£499", font=F(BLK, int(46 * sc)), fill=MID, anchor="mm")
+        d.line([(cx - 125 * sc, cy + 118 * sc), (cx - 15 * sc, cy + 118 * sc)], fill=MID, width=int(5 * sc))
+        d.text((cx + 85 * sc, cy + 118 * sc), "£249", font=F(BLK, int(56 * sc)), fill=SIG, anchor="mm")
+        g = spring(clamp((t - .35) / .35))                                             # the -50% tag slams on
+        if g > 0:
+            tw = 170 * sc * g; th = 86 * sc * g; x, y = cx + w / 2 - 40 * sc, cy - h / 2 + 10 * sc
+            d.rounded_rectangle([x - tw / 2, y - th / 2, x + tw / 2, y + th / 2], radius=int(14 * sc), fill=SIG)
+            d.text((x, y), "−50%", font=F(BLK, max(8, int(54 * sc * g))), fill=WHITE, anchor="mm")
+        sec = 59 - int(t * 6) % 60                                                       # countdown ticks
+        d.text((cx, cy - h / 2 - 40 * sc), f"DEAL ENDS IN 02:59:{sec:02d}", font=F(MONO, int(30 * sc)), fill=INK, anchor="mm")
+
 def objects(L, d, t):
     cur = EP.current(t)
+    deal_card(d, t)
+    if t < T_OUT: return
     for i in range(N):
         x, y = tag_xy(i); win = i in WIN
         s = spring(clamp((t - T_POP - (i % COLS) * .03 - (i // COLS) * .02) / .4))
@@ -101,7 +124,9 @@ def head(d, t, line):
         d.text((X0 + 480, 388), "?", font=F(BLK, 56), fill=INK)
 
 def draw(img, d, t, line, note="1 tag = 1 product · 8 UK retailers · Black Friday 2022"):
-    shadowed(EP, img, t, objects); d = ImageDraw.Draw(img); labels(d, t); head(d, t, line); fig(d, note)
+    def full(L, dL):
+        shadowed(EP, L, t, objects); dL = ImageDraw.Draw(L); labels(dL, t); head(dL, t, line); fig(dL, note)
+    payoff_cam(img, full, t, S("why"), focus=(540, 800), z1=1.12)                     # rule 14: push in on the 5 + FALSE
 
 def sc_hook(img, d, t): draw(img, d, t, "CHEAPEST DAY?")
 def sc_setup(img, d, t): draw(img, d, t, "208 DEALS. 1 YEAR.", note="Which?: prices tracked daily, 6 months before and after")
@@ -111,7 +136,7 @@ def sc_why(img, d, t): draw(img, d, t, "CHECK THE HISTORY.")
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}
 EP.scenes = {"hook": sc_hook, "setup": sc_setup, "reveal": sc_reveal, "other": sc_other, "why": sc_why}
-FX = [*[(T_POP + .1 + j * .05, tick(.012), -.6 + j * .08) for j in range(16)], (T_STAMP, thud(.3), 0),
+FX = [(.35, thud(.25), .3), (T_OUT, whoosh(.4, .03), 0), *[(T_POP + .1 + j * .05, tick(.012), -.6 + j * .08) for j in range(16)], (T_STAMP, thud(.3), 0),
       (T_NEUTRAL, whoosh(.4, .03), 0), (T_SWEEP0, whoosh(.6, .02), -.5),
       (S("reveal") + .05, thud(.35), 0), *[(T_FIVE + j * .08, pop(.1), -.6 + j * .3) for j in range(5)],
       (T_REST, whoosh(.5, .03), .3), (T_FALSE, thud(.35), 0)]
