@@ -1,14 +1,35 @@
 {
- "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
  "beats": [
-  {"id": "hook", "text": "How long did people in England live? Here are four hundred seventy-five years.", "speed": 1.05},
-  {"id": "flat", "text": "For three centuries, it hovered around forty."},
-  {"id": "rise", "text": "Then, in about a hundred and fifty years, it doubled."},
-  {"id": "why", "text": "Not because old people got older, but because children stopped dying."},
-  {"id": "end", "text": "Not just you."}
+  {
+   "id": "hook",
+   "text": "Would you have made it to forty? Here are four hundred seventy-five years of England.",
+   "speed": 1.05
+  },
+  {
+   "id": "flat",
+   "text": "For three centuries, it hovered around forty."
+  },
+  {
+   "id": "rise",
+   "text": "Then, in about a hundred and fifty years, it doubled.",
+   "key": true
+  },
+  {
+   "id": "why",
+   "text": "Not because old people got older, but because children stopped dying."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
  ],
  "sources": [
   "Life expectancy at birth, United Kingdom (early centuries: England), 1541–2016: Gapminder (until 1990, based on e.g. Wrigley & Schofield for England and the Human Mortality Database), UN (from 1950) and IHME (from 1990), compiled by Our World in Data, dataset 'Life expectancy (Gapminder, UN, IHME)' (github.com/owid/owid-datasets). Values: 1541 38.3, mean 1541–1850 37.2, 1558 13.8 (influenza epidemic 1557–59), 1665 22.8 (Great Plague), 1870 41.0, 1918 40.4 (influenza pandemic and war), 1950 68.7, 2016 80.9.",
   "Interpretation: life expectancy at birth was pulled down mainly by deaths of infants and children; adults who survived childhood often lived into their 50s–60s and beyond (e.g. Our World in Data, 'Life expectancy' / Riley 2001). 1870 41.0 -> 2016 80.9 = about x2."
- ]
+ ],
+ "kind": "race"
 }

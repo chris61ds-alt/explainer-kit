@@ -8,6 +8,7 @@ from PIL import ImageDraw
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
 from race import Race, year_at
+from stand import payoff_cam, stamp_box
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.05, gaps={"hook": 7.5, "flat": 2.6, "rise": 1.6, "why": .1}, pace="loose")   # music-only stretches
 S, E, cue = TL.S, TL.E, TL.cue
@@ -25,10 +26,14 @@ R = Race(YS, VS, box=(150, 790, 660, 1120), scrub_y=530, fmt="{:.1f}", unit=" yr
 KEYS = [(.2, 1541), (S("flat") + .2, 1800), (E("flat") + 1.4, 1870), (E("rise") + 1.2, 2016)]
 
 def sc(img, d, t):
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(700, 760), z1=1.1, band=(0, 575, 1080, 1180))
+
+def sc_full(img, d, t):
     yr = year_at(t, KEYS)
     d.text((540, 330), "Life Expectancy in England", font=F(BLK, 56), fill=INK, anchor="mm")
     d.text((540, 395), "at birth · 1541–2016", font=F(MONO, 28), fill=MID, anchor="mm")
     R.draw(img, yr)
+    if T1558 - .05 <= t < T1558 + 1.4: stamp_box(ImageDraw.Draw(img), (420, 900), "14 YEARS", t, T1558 - .05, size=70)   # rule 11
     fig(ImageDraw.Draw(img), "low values: mostly child deaths · early years: England")
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}
