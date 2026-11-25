@@ -1,0 +1,51 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "beats": [
+  {
+   "id": "hook",
+   "text": "How many people need to be in a room for a fifty-fifty chance that two share a birthday?",
+   "speed": 1.05
+  },
+  {
+   "id": "rules",
+   "text": "Three hundred sixty-five days. No twins, no leap years."
+  },
+  {
+   "id": "lock",
+   "text": "Lock in your answer. Three. Two. One.",
+   "speed": 0.88,
+   "reveal": true
+  },
+  {
+   "id": "gut",
+   "text": "The gut says half the year: about one hundred and eighty."
+  },
+  {
+   "id": "reveal",
+   "text": "The real answer: just twenty-three."
+  },
+  {
+   "id": "pairs",
+   "text": "Because everyone gets compared with everyone. Twenty-three people make two hundred fifty-three pairs."
+  },
+  {
+   "id": "curve",
+   "text": "At seventy people, a match is almost certain."
+  },
+  {
+   "id": "why",
+   "text": "If you guessed way higher, your gut counted people, not pairs."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Birthday problem (standard probability result, e.g. Feller, An Introduction to Probability Theory and Its Applications, Vol. 1): P(at least one shared birthday among n people, 365 equally likely days) = 1 − 365!/((365−n)!·365^n). n = 22: 47.6 %, n = 23: 50.7 %, n = 70: 99.9 %. Pairs among 23 people: 23·22/2 = 253. Computed in render.py.",
+  "Simplification stated in the video: 365 equally likely birthdays, no leap day, no twins. Real birthdays are slightly uneven, which makes a match a little more likely, not less."
+ ]
+}

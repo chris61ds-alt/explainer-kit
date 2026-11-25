@@ -1,0 +1,36 @@
+{
+ "episode": "ep152_birthday",
+ "tts": "cached",
+ "asr_voice": [
+  "rules: 1/10 | 365 days. No twins, no leap years.",
+  "pairs: 1/15 | Because everyone gets compared with everyone. 23 people make 253 pairs."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 29.83,
+  "size_MiB": 5.5,
+  "black_intervals": [],
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.5,
+  "sha256": "6b7905b9e0f6f7c0891d9478d3280d025e4475d1fde365999dd21367012d158f",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "3/87 = 3.4%",
+ "asr_final_issues": [
+  "rules: 1/10 | 365 days. No twins, no leap years.",
+  "pairs: 1/15 | Because everyone gets compared with everyone, 23 people make 253 pairs.",
+  "why: 1/11 | If you guessed way higher, your gut counted people, not pears."
+ ],
+ "duration_s": 29.85,
+ "longest_calm_s": 2.59,
+ "cover": "ep152_birthday_cover.png",
+ "caption": "ok"
+}
