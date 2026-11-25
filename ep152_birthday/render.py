@@ -9,9 +9,9 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
-from stand import dashed, stamp_box
+from stand import dashed, stamp_box, payoff_cam
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .6, "pairs": .5, "curve": .5, "why": .1})
+TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .85, "pairs": .5, "curve": .5, "why": .1}, pace="loose")
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "rules", "lock", "gut", "reveal", "pairs", "curve", "why", "end"]
 EP = ThreadEpisode(TL, 152, "THE BIRTHDAY RIDDLE", order=ORDER, dark=True, label="RIDDLE · 365 DAYS · 1 ROOM",
@@ -29,7 +29,7 @@ R = np.random.RandomState(11); DAYS = list(R.choice(365, 22, replace=False)) + [
 DAYS[22] = DAYS[8]                                           # the 23rd person shares a birthday with person 9
 MATCH = (8, 22)
 
-T_FILL = .1                                                  # hook: the calendar builds itself
+T_OUT = S("rules") - .2; T_FILL = T_OUT + .05                # 25.11.2026 (rule 11): two people + cakes first, then the calendar
 T_LOCK = S("lock"); T_321 = [cue("lock", "Three") - .05, cue("lock", "Two") - .05, cue("lock", "One") - .05]
 T_GUT = cue("gut", "half") - .1; T_180 = cue("gut", "one hundred") - .1
 T_DROP0, T_DROP1 = S("reveal") - .25, cue("reveal", "twenty-three") - .05
@@ -114,7 +114,31 @@ def head(d, t, line, label=None, val=None, hot=False):
         d.text((X0, 400), label, font=F(MONO, 30), fill=MID)
         d.text((X0 + d.textlength(label, font=F(MONO, 30)) + 24, 388), val, font=F(BLK, 56), fill=SIG if hot else INK)
 
+def cake(d, x, y, s):
+    d.rounded_rectangle([x - 44 * s, y - 30 * s, x + 44 * s, y + 20 * s], radius=int(8 * s), fill=mix(BG, INK, .85))
+    d.rectangle([x - 44 * s, y - 12 * s, x + 44 * s, y - 4 * s], fill=SIG)
+    d.line([(x, y - 30 * s), (x, y - 56 * s)], fill=INK, width=max(1, int(5 * s)))
+    d.ellipse([x - 7 * s, y - 72 * s, x + 7 * s, y - 56 * s], fill=SIG)
+
+def intro(d, t):
+    """the mini-film: two strangers pop in, the same cake appears over both, 'SAME DAY?'"""
+    out = ease_io(clamp((t - T_OUT) / .4)) if t >= T_OUT else 0
+    if out >= 1: return
+    for i, (x, t0) in enumerate(((380, .1), (700, .35))):
+        k = spring(clamp((t - t0) / .4)) * (1 - out)
+        if k <= 0: continue
+        y = 960
+        d.ellipse([x - 40 * k, y - 210 * k, x + 40 * k, y - 130 * k], fill=INK)
+        d.rounded_rectangle([x - 62 * k, y - 120 * k, x + 62 * k, y + 60 * k], radius=int(30 * k), fill=INK)
+        c = spring(clamp((t - .8 - i * .25) / .35)) * (1 - out)
+        if c > 0: cake(d, x, y - 290, c * 1.4)
+    if .8 <= t < T_OUT + .2: d.line([(470, 640), (610, 640)], fill=SIG, width=5)
+    if t >= 1.4 and out < .5: stamp_box(d, (540, 1080), "SAME DAY?", t, 1.4, size=70)
+
 def sc(img, d, t):
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=Pxy(23, .5), z1=1.12)
+
+def sc_full(img, d, t):
     cur = EP.current(t)
     if cur in ("curve", "why", "end"):
         curve(img, t); d = ImageDraw.Draw(img)
@@ -123,6 +147,7 @@ def sc(img, d, t):
     if cur == "pairs":
         k = chords(d, t); people(d, t)
         head(d, t, "253 PAIRS.", "PAIRS COMPARED", f"{k}", True); fig(d, "every line = one pair of people"); return
+    intro(d, t)
     calendar(d, t, dim=.6 if cur == "lock" else 0); people(d, t); countdown(d, t)
     n = n_dropped(t)
     if cur == "reveal":
@@ -136,7 +161,7 @@ def sc(img, d, t):
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}
 EP.scenes = {k: sc for k in ORDER[:-1]}
-FX = [(T_FILL, whoosh(.5, .02), -.3), *[(x, thud(.16), 0) for x in T_321], (T_180, pop(.1), 0),
+FX = [(.1, pop(.1), -.4), (.35, pop(.1), .4), (.8, pop(.08), -.3), (1.05, pop(.08), .3), (1.4, thud(.2), 0), (T_FILL, whoosh(.5, .02), -.3), *[(x, thud(.16), 0) for x in T_321], (T_180, pop(.1), 0),
       *[(T_DROP0 + (T_DROP1 - T_DROP0) * i / 22, tick(.008), -.6 + i * .055) for i in range(23)], (T_23, thud(.22), 0),
       (T_MORPH, whoosh(.5, .03), .3), (T_CURVE0, whoosh(.5, .02), -.3)]
 if __name__ == "__main__": EP.run(FX)

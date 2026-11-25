@@ -6,12 +6,12 @@
  "beats": [
   {
    "id": "hook",
-   "text": "How many people need to be in a room for a fifty-fifty chance that two share a birthday?",
+   "text": "You're in a room with strangers. How many people for a fifty-fifty chance that two share a birthday?",
    "speed": 1.05
   },
   {
    "id": "rules",
-   "text": "Three hundred sixty-five days. No twins, no leap years."
+   "text": "Three hundred sixty-five days. No twins, no leap years. Each square is one day."
   },
   {
    "id": "lock",
@@ -25,7 +25,8 @@
   },
   {
    "id": "reveal",
-   "text": "The real answer: just twenty-three."
+   "text": "The real answer: just twenty-three.",
+   "key": true
   },
   {
    "id": "pairs",
@@ -47,5 +48,6 @@
  "sources": [
   "Birthday problem (standard probability result, e.g. Feller, An Introduction to Probability Theory and Its Applications, Vol. 1): P(at least one shared birthday among n people, 365 equally likely days) = 1 − 365!/((365−n)!·365^n). n = 22: 47.6 %, n = 23: 50.7 %, n = 70: 99.9 %. Pairs among 23 people: 23·22/2 = 253. Computed in render.py.",
   "Simplification stated in the video: 365 equally likely birthdays, no leap day, no twins. Real birthdays are slightly uneven, which makes a match a little more likely, not less."
- ]
+ ],
+ "kind": "riddle"
 }
