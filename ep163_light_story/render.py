@@ -13,7 +13,7 @@ from tips import *
 from fx2 import light_look
 from stand import payoff_cam, stamp_box
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.05, gaps={"cold": .8, "stakes": 1.4, "back": 1.5, "but": 3.6, "so": 1.8, "turn": 4.0, "today": 1.2, "why": .2},
+TL = Timeline(HERE, lead=.05, gaps={"cold": .8, "stakes": 1.4, "back": 1.5, "but": 4.4, "so": 1.8, "turn": 4.8, "today": 1.2, "why": .2},
               pace="loose")
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["cold", "stakes", "back", "but", "so", "turn", "today", "why", "end"]
