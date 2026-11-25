@@ -1,0 +1,36 @@
+{
+ "episode": "ep160_height_germany",
+ "tts": "new",
+ "asr_voice": [
+  "then: 5/10 | Born around 1850, 1 meter 64 on average.",
+  "now: 5/10 | Born in 1980, 1 meter 80, 17 centimeters taller."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 23.37,
+  "size_MiB": 3.8,
+  "black_intervals": [],
+  "loudness_LUFS": -16.3,
+  "true_peak_dBTP": -3.3,
+  "sha256": "d7eb86d402dd1146bd64f78b2cb166c4f69c7083c0946c5d1afe670fadcd171f",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "11/48 = 22.9%",
+ "asr_final_issues": [
+  "hook: 1/12 | How tall would German men 200 years ago? Here's every generation.",
+  "then: 5/10 | Born around 1850, 1 meter 64 on average.",
+  "now: 5/10 | Born in 1980, 1 meter 80, 17 centimeters taller."
+ ],
+ "duration_s": 23.36,
+ "longest_calm_s": 2.9,
+ "cover": "ep160_height_germany_cover.png",
+ "caption": "ok"
+}
