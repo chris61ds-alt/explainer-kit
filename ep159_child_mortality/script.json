@@ -1,0 +1,16 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "How many children died before their fifth birthday? The whole world, since eighteen hundred.", "speed": 1.05},
+  {"id": "then", "text": "In eighteen hundred: forty-three out of a hundred."},
+  {"id": "flat", "text": "Even in nineteen hundred, more than one in three."},
+  {"id": "drop", "text": "Then came vaccines, clean water and antibiotics."},
+  {"id": "now", "text": "Today: about four out of a hundred."},
+  {"id": "why", "text": "That's the real reason life expectancy doubled."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Share of children dying before age 5, world, 1800–2017: Gapminder (gd005, until 1950s) and World Bank (2019), compiled by Our World in Data (owid-datasets 'Global child mortality (since 1800) - based on Gapminder and World Bank (2019)'). 1800: 43.3 %, 1900: 36.2 %, 1975: 12.9 %, 2017: 3.9 %.",
+  "UN IGME 2023/24 estimates for recent years are similar (about 3.7 % in 2023). Historical values before 1950 are estimates with large uncertainty. Life expectancy link: see No. 154 (England 41 in 1870 -> 81 today), driven mainly by falling child mortality."
+ ]
+}

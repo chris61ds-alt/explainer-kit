@@ -94,10 +94,11 @@ class Race:
             i = np.searchsorted(self.Y, yr); ys = np.append(ys, yr); vs = np.append(vs, self.V[i - 1] + (self.V[i] - self.V[i - 1]) * (yr - self.Y[i - 1]) / (self.Y[i] - self.Y[i - 1]))
         if len(ys) < 2: return
         pts = [P(a, b) for a, b in zip(ys, vs)]
-        lastx, row = -999, 0
+        lastx, lastw, row = -999, 0, 0
         for ey, lab in self.events:                                                  # events stay once passed
             if yr >= ey:
-                ex = P(ey, v0)[0]; row = row + 1 if ex - lastx < 110 else 0; lastx = ex
+                ex = P(ey, v0)[0]; w = d.textlength(lab, font=F(MONO, 20))
+                row = row + 1 if ex - lastx < (w + lastw) / 2 + 12 else 0; lastx, lastw = ex, w
                 d.line([(ex, PY0 + 40 + row * 26), (ex, PY1)], fill=mix(BG, MID, .45), width=2)
                 d.text((ex, PY0 + 22 + row * 26), lab, font=F(MONO, 20), fill=MID, anchor="mm")
         tip = vs[-1]; c = self.col(tip)
