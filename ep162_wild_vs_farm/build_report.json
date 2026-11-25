@@ -1,0 +1,35 @@
+{
+ "episode": "ep162_wild_vs_farm",
+ "tts": "new",
+ "asr_voice": [
+  "hook: 1/16 | all the wild land mammals on Earth against all the farm animals, which pile ways more. [buzzer]",
+  "pour: 3/13 | all wild land mammals together, about 2.5 kilos per person."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 26.83,
+  "size_MiB": 3.3,
+  "black_intervals": [],
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -3.6,
+  "sha256": "2ffec4c78b2a43c4d70aa94a7a479ee2b92a4faca67aeb2e5147c9a48efb15cc",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "4/74 = 5.4%",
+ "asr_final_issues": [
+  "hook: 1/16 | All the wild land mammals on Earth against all the farm animals, which pile ways more.",
+  "pour: 3/13 | All wild land mammals together, about 2.5 kilos per person."
+ ],
+ "duration_s": 26.83,
+ "longest_calm_s": 2.64,
+ "cover": "ep162_wild_vs_farm_cover.png",
+ "caption": "ok"
+}
