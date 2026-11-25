@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 38.93,
-  "size_MiB": 9.8,
+  "duration_s": 40.53,
+  "size_MiB": 10.3,
   "black_intervals": [],
-  "loudness_LUFS": -16.7,
+  "loudness_LUFS": -16.8,
   "true_peak_dBTP": -2.5,
-  "sha256": "3d8c664f9be2881ea037956ad3ac06d94a0915c4ce4828bab6bf20f924932397",
+  "sha256": "a30a1b4f9af4c88c1660efa18813cafafbe3ed9d9abf5c4b4f79cf6bbcc63e25",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,10 +24,10 @@
  },
  "asr_final_wer": "3/86 = 3.5%",
  "asr_final_issues": [
-  "cold: 3/15 | It's 1800. Mary wants her room as bright as yours for just one hour."
+  "cold: 3/15 | It's 1800, Mary wants her room as bright as yours for just one hour."
  ],
- "duration_s": 38.94,
- "longest_calm_s": 4.39,
+ "duration_s": 40.54,
+ "longest_calm_s": 5.19,
  "rules_detail": [
   "ok   E kind · kind = 'story' (standard/stand/cliche/riddle/pour/race/map)",
   "ok   1 sources · sources in script.json",
@@ -36,7 +36,7 @@
   "ok   7 pause after key · today: 1.20 s (≥ 0.8)",
   "ok   7 key beat marked · one beat with \"key\": true",
   "ok   9 end beat · last beat 'end' = Not just you.",
-  "FAIL 10 length · 38.9 s (allowed 40–75 s for story)",
+  "ok   10 length · 40.5 s (allowed 40–75 s for story)",
   "ok   11 motion from frame 0 · max change in the first 0.5 s: 9.77",
   "ok   13 nothing stands still · longest still stretch 0.8 s at 29.8 s (≤ 1.5 s)",
   "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam in render.py",
@@ -47,7 +47,7 @@
   "ok   22 but / so · at least one 'But' and one 'So'",
   "ok   23 plant & payoff · plant 'six hours' in the first two beats and in 'why'"
  ],
- "rules": "FAIL",
+ "rules": "PASS",
  "cover": "ep163_light_story_cover.png",
  "caption": "ok"
 }
