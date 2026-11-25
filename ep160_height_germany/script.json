@@ -1,15 +1,39 @@
 {
- "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
  "beats": [
-  {"id": "hook", "text": "How tall were German men two hundred years ago? Here's every generation.", "speed": 1.05},
-  {"id": "then", "text": "Born around eighteen fifty: one meter sixty-four, on average."},
-  {"id": "rise", "text": "Then, generation by generation, they grew."},
-  {"id": "now", "text": "Born in nineteen eighty: one meter eighty. Seventeen centimeters taller."},
-  {"id": "why", "text": "Same genes. Better food, cleaner water and fewer childhood illnesses."},
-  {"id": "end", "text": "Not just you."}
+  {
+   "id": "hook",
+   "text": "Are you taller than your great-great-grandfather? Here's every generation of German men.",
+   "speed": 1.05
+  },
+  {
+   "id": "then",
+   "text": "Born around eighteen fifty: one meter sixty-four, on average."
+  },
+  {
+   "id": "rise",
+   "text": "Then, generation by generation, they grew."
+  },
+  {
+   "id": "now",
+   "text": "Born in nineteen eighty: one meter eighty. Seventeen centimeters taller.",
+   "key": true
+  },
+  {
+   "id": "why",
+   "text": "Same genes. Better food, cleaner water and fewer childhood illnesses."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
  ],
  "sources": [
   "Average height of German men by birth decade, 1810–1980 (soldiers, conscripts and other samples): University of Tübingen / Baten & Blum (2015), 'Human Height' (Clio Infra), via Our World in Data (owid-datasets 'Human Height - University of Tuebingen (2015)'). 1810: 167.8 cm, 1850: 163.8 cm, 1900: 169.2 cm, 1950: 176.8 cm, 1980: 180.5 cm (180.5 - 163.8 = 16.7 cm).",
   "Explanation (nutrition, sanitation, disease in childhood): e.g. NCD Risk Factor Collaboration (2016), 'A century of trends in adult human height', eLife; Baten & Blum (2015). Men only; data by year of birth."
- ]
+ ],
+ "kind": "race"
 }

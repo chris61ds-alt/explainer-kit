@@ -8,9 +8,9 @@ from PIL import ImageDraw
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
 from race import Race, year_at
-from stand import dashed
+from stand import dashed, payoff_cam, stamp_box
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.05, gaps={"hook": .8, "then": 1.2, "rise": 2.6, "now": .8, "why": .1}, pace="loose")
+TL = Timeline(HERE, lead=.05, gaps={"hook": .8, "then": 1.2, "rise": 2.6, "now": .85, "why": .1}, pace="loose")
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "then", "rise", "now", "why", "end"]
 EP = ThreadEpisode(TL, 160, "HOW TALL?", order=ORDER, dark=True, label="UNI TÜBINGEN · BATEN & BLUM · OWID",
@@ -46,21 +46,28 @@ def ruler(d):
         if cm in (50, 100, 150, 160, 170, 180): d.text((x - 8, y), f"{cm}", font=F(MONO, 20), fill=MID, anchor="rm")
 
 def sc(img, d, t):
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(330, 800), z1=1.1, band=(0, 520, 1080, 1180))
+
+T_OUT = E("hook") + .2
+def sc_full(img, d, t):
     yr = year_at(t, KEYS); h = float(np.interp(yr, YS, VS))
+    if t < T_OUT + .5: h = 180.5 + (h - 180.5) * ease_io(clamp((t - T_OUT) / .5))          # rule 11: the 1980 man first
     d.text((540, 325), "Height of German Men", font=F(BLK, 56), fill=INK, anchor="mm")
     d.text((540, 385), "average by year of birth · 1810–1980", font=F(MONO, 24), fill=MID, anchor="mm")
     ruler(d)
-    if yr >= 1850:                                                                         # the 1850 man stays (left)
+    if yr >= 1850 or t < T_OUT:                                                            # the 1850 man stays (left)
         man(d, 190, 163.8 * PXCM, fill=mix(BG, MID, .45)); y0 = FOOT - 163.8 * PXCM
         dashed(d, (100, y0), (470, y0), MID, w=2); d.text((190, FOOT + 26), "1850", font=F(MONO, 22), fill=MID, anchor="mm")
-    man(d, 360, h * PXCM, fill=mix(BG, R.col(h), .9))
+    j = spring(clamp((t - .15) / .45)) if t < 1 else 1
+    man(d, 360, h * PXCM * j, fill=mix(BG, R.col(h), .9))
     y = FOOT - h * PXCM; d.line([(100, y), (470, y)], fill=R.col(h), width=2)
-    d.text((360, FOOT + 26), f"{int(yr)}", font=F(MONO, 22), fill=INK, anchor="mm")
+    d.text((360, FOOT + 26), "1980" if t < T_OUT else f"{int(yr)}", font=F(MONO, 22), fill=INK, anchor="mm")
     if yr >= 1979:
         k = ease(clamp((t - KEYS[3][0] + .2) / .5)); y0 = FOOT - 163.8 * PXCM
         d.line([(290, y0), (290, y)], fill=SIG, width=4)
         d.text((200, (y0 + y) / 2), "+17 cm", font=F(BLK, 30), fill=mix(BG, SIG, k), anchor="mm")
     R.draw(img, yr)
+    if 1.0 <= t < T_OUT: stamp_box(ImageDraw.Draw(img), (330, 640), "+17 CM?", t, 1.0, size=70)   # rule 11
     fig(ImageDraw.Draw(img), "men only · soldiers & conscripts · by birth decade")
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}

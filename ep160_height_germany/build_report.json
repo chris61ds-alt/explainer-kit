@@ -9,12 +9,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 23.37,
-  "size_MiB": 3.8,
+  "duration_s": 24.27,
+  "size_MiB": 4.6,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -3.3,
-  "sha256": "d7eb86d402dd1146bd64f78b2cb166c4f69c7083c0946c5d1afe670fadcd171f",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.2,
+  "sha256": "b6d64bdcbffb6b74a346b6eae31e9da9bf4389535c026acb64d34cebe9f3199d",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -23,14 +23,28 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "11/48 = 22.9%",
+ "asr_final_wer": "10/50 = 20.0%",
  "asr_final_issues": [
-  "hook: 1/12 | How tall would German men 200 years ago? Here's every generation.",
   "then: 5/10 | Born around 1850, 1 meter 64 on average.",
   "now: 5/10 | Born in 1980, 1 meter 80, 17 centimeters taller."
  ],
- "duration_s": 23.36,
+ "duration_s": 24.27,
  "longest_calm_s": 2.9,
+ "rules_detail": [
+  "ok   E kind · kind = 'race' (standard/stand/cliche/riddle/pour/race/map)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: Are you taller than your great-great-grandfather? Here's eve",
+  "ok   7 pause after key · now: 0.85 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 24.3 s (allowed 24–40 s for race)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 9.44",
+  "ok   13 nothing stands still · longest still stretch 1.1 s at 22.1 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam in render.py",
+  "ok   16 look · light look (dark only for riddle/pour/race)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:"
+ ],
+ "rules": "PASS",
  "cover": "ep160_height_germany_cover.png",
  "caption": "ok"
 }
