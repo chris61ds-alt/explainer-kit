@@ -2,11 +2,12 @@
 Fouquet & Pearson (2006/2012) via Our World in Data: constant 2000 £ per million lumen-hours, 33,043 -> 2.89 (~11,400x).
 Annual data, jagged; orange = expensive, blue = cheap; events: gas lamps ~1815, kerosene ~1860, light bulb ~1880.
 Mostly music, voice at start / 1300 / flat centuries / the drop / punchline. Payoff (rule 15): full curve to 2006 stays."""
-import os, sys, json
+import os, sys, json, math
 from PIL import ImageDraw
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
 from race import Race, year_at
+from stand import payoff_cam, stamp_box
 HERE = os.path.dirname(os.path.abspath(__file__))
 TL = Timeline(HERE, lead=.05, gaps={"hook": 1.0, "then": 2.2, "flat": 2.4, "drop": 2.6, "why": .1}, pace="loose")
 S, E, cue = TL.S, TL.E, TL.cue
@@ -25,10 +26,20 @@ R = Race(YS, [D[y] for y in YS], box=(170, 760, 660, 1120), scrub_y=530, fmt=mon
 KEYS = [(.2, 1301), (E("then") + .3, 1450), (E("flat") + 1.6, 1800), (E("drop") + 2.2, 2006)]
 
 def sc(img, d, t):
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(700, 1000), z1=1.1, band=(0, 575, 1080, 1180))
+
+def sc_full(img, d, t):
     yr = year_at(t, KEYS)
     d.text((540, 330), "The Price of Light in England", font=F(BLK, 54), fill=INK, anchor="mm")
     d.text((540, 395), "£ per million lumen-hours · 2000 prices", font=F(MONO, 28), fill=MID, anchor="mm")
     R.draw(img, yr)
+    if t < 2.8:                                                                             # rule 11: a candle flickers
+        dd = ImageDraw.Draw(img); k = 1 - ease(clamp((t - 2.3) / .5)); x, y = 840, 1000
+        dd.rounded_rectangle([x - 26, y - 10, x + 26, y + 150], radius=6, fill=mix(BG, (240, 230, 210), k))
+        f = 1 + .15 * math.sin(t * 23) + .1 * math.sin(t * 37)
+        dd.ellipse([x - 16 * f, y - 70 * f, x + 16 * f, y - 12], fill=mix(BG, (255, 190, 70), k))
+        dd.ellipse([x - 7 * f, y - 44 * f, x + 7 * f, y - 16], fill=mix(BG, (255, 245, 200), k))
+    if .4 <= t < 2.6: stamp_box(ImageDraw.Draw(img), (560, 960), "£33,000", t, .4, size=70)   # rule 11
     fig(ImageDraw.Draw(img), "log scale · 1 million lumen-hours ≈ one bright bulb for 1,250 h")
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}

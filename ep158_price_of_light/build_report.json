@@ -2,18 +2,19 @@
  "episode": "ep158_price_of_light",
  "tts": "new",
  "asr_voice": [
+  "hook: 3/17 | Could you have afforded to read at night in 1300, 700 years of light prices?",
   "then: 3/12 | In 1300, light cost over 10,000 times more than today."
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 24.37,
-  "size_MiB": 4.9,
+  "duration_s": 25.23,
+  "size_MiB": 5.4,
   "black_intervals": [],
-  "loudness_LUFS": -16.3,
-  "true_peak_dBTP": -5.7,
-  "sha256": "2bd06e69c0573a7a5e03351908a2dbf63e23b6cc5cb3121b8a6e4bc7af2d33fe",
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -4.4,
+  "sha256": "21eab93b169cd137ed65e9dccb51bdeb023b8010aed44a46ee4a5da8958e2f5e",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,12 +23,28 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/51 = 5.9%",
+ "asr_final_wer": "6/55 = 10.9%",
  "asr_final_issues": [
+  "hook: 3/17 | Could you have afforded to read at night in 1300, 700 years of light prices?",
   "then: 3/12 | In 1300, light cost over 10,000 times more than today."
  ],
- "duration_s": 24.38,
+ "duration_s": 25.24,
  "longest_calm_s": 2.88,
+ "rules_detail": [
+  "ok   E kind · kind = 'race' (standard/stand/cliche/riddle/pour/race/map)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: Could you have afforded to read at night in thirteen hundred",
+  "ok   7 pause after key · then: 2.20 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 25.2 s (allowed 24–40 s for race)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 7.73",
+  "ok   13 nothing stands still · longest still stretch 0.3 s at 21.7 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam in render.py",
+  "ok   16 look · light look (dark only for riddle/pour/race)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:"
+ ],
+ "rules": "PASS",
  "cover": "ep158_price_of_light_cover.png",
  "caption": "ok"
 }
