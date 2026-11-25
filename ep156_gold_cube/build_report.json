@@ -10,12 +10,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 30.23,
-  "size_MiB": 4.3,
+  "duration_s": 31.27,
+  "size_MiB": 5.2,
   "black_intervals": [],
-  "loudness_LUFS": -16.0,
-  "true_peak_dBTP": -3.5,
-  "sha256": "6db84e01b2aaab090b04416050390f7c175c86b85e301dd10244443f8e4a4e9a",
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -3.6,
+  "sha256": "18b45a7edd98cc487530afd77a16576d0e7450e4a227158a1f2fdff5df793808",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -24,14 +24,29 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "5/85 = 5.9%",
+ "asr_final_wer": "5/87 = 5.7%",
  "asr_final_issues": [
   "rules: 2/13 | 224,000 tons. Every ring, coin and bar ever made.",
   "value: 2/5 | worth about $30 trillion.",
   "why: 1/15 | Gold isn't valuable because there's a lot of it. It's valuable because they're so little."
  ],
- "duration_s": 30.24,
- "longest_calm_s": 2.54,
+ "duration_s": 31.27,
+ "longest_calm_s": 2.44,
+ "rules_detail": [
+  "ok   E kind · kind = 'pour' (standard/stand/cliche/riddle/pour/race/map)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: Imagine you melt all the gold in the world into one cube. Ho",
+  "ok   7 pause after key · reveal: 0.85 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 31.3 s (allowed 24–34 s for pour)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 2.65",
+  "ok   13 nothing stands still · longest still stretch 1.4 s at 13.0 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam in render.py",
+  "ok   16 look · light look (dark only for riddle/pour/race)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:"
+ ],
+ "rules": "PASS",
  "cover": "ep156_gold_cube_cover.png",
  "caption": "ok"
 }

@@ -1,18 +1,53 @@
 {
- "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
  "beats": [
-  {"id": "hook", "text": "All the gold in the world, melted into one cube. How big is it?", "speed": 1.05},
-  {"id": "rules", "text": "Two hundred twenty-four thousand tonnes. Every ring, coin and bar ever made."},
-  {"id": "lock", "text": "Lock in your answer. Three. Two. One.", "speed": 0.88, "reveal": true},
-  {"id": "gut", "text": "It sounds like a mountain."},
-  {"id": "reveal", "text": "It's a cube about twenty-three meters wide. As tall as a seven-story building."},
-  {"id": "pour", "text": "Thousands of years of gold rushes, standing on two tennis courts."},
-  {"id": "value", "text": "Worth about thirty trillion dollars."},
-  {"id": "why", "text": "Gold isn't valuable because there's a lot of it. It's valuable because there's so little."},
-  {"id": "end", "text": "Not just you."}
+  {
+   "id": "hook",
+   "text": "Imagine you melt all the gold in the world into one cube. How big is it?",
+   "speed": 1.05
+  },
+  {
+   "id": "rules",
+   "text": "Two hundred twenty-four thousand tonnes. Every ring, coin and bar ever made."
+  },
+  {
+   "id": "lock",
+   "text": "Lock in your answer. Three. Two. One.",
+   "speed": 0.88,
+   "reveal": true
+  },
+  {
+   "id": "gut",
+   "text": "It sounds like a mountain."
+  },
+  {
+   "id": "reveal",
+   "text": "It's a cube about twenty-three meters wide. As tall as a seven-story building.",
+   "key": true
+  },
+  {
+   "id": "pour",
+   "text": "Thousands of years of gold rushes, standing on two tennis courts."
+  },
+  {
+   "id": "value",
+   "text": "Worth about thirty trillion dollars."
+  },
+  {
+   "id": "why",
+   "text": "Gold isn't valuable because there's a lot of it. It's valuable because there's so little."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
  ],
  "sources": [
   "World Gold Council, 'How much gold has been mined?' (gold.org, checked 25.11.2026): total above-ground stocks about 224,200 tonnes at end-Q3 2026, valued at about US$30.0 trillion; figures rounded to the nearest 100 tonnes.",
   "Volume: 224,200 t / 19.32 t per m3 (density of gold) = about 11,600 m3 -> cube edge about 22.6 m (WGC states about 22.6 m for all gold ever mined). Seven storeys at about 3.2 m = 22.4 m. Tennis court (doubles) 23.77 m x 10.97 m; two side by side about 23.8 m x 21.9 m."
- ]
+ ],
+ "kind": "pour"
 }

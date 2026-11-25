@@ -9,9 +9,9 @@ import numpy as np
 from PIL import ImageDraw
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
-from stand import dashed, stamp_box
+from stand import dashed, stamp_box, payoff_cam
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .5, "pour": .5, "value": .5, "why": .1})
+TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .85, "pour": .5, "value": .5, "why": .1}, pace="loose")
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "rules", "lock", "gut", "reveal", "pour", "value", "why", "end"]
 EP = ThreadEpisode(TL, 156, "ALL THE GOLD", order=ORDER, dark=True, label="RIDDLE · WORLD GOLD COUNCIL 2026",
@@ -29,6 +29,18 @@ T_LOCK = S("lock"); T_321 = [cue("lock", "Three") - .05, cue("lock", "Two") - .0
 T_MTN = S("gut") - .1; T_REAL = S("reveal") + .05; T_M = cue("reveal", "twenty-three") - .15; T_BLD = cue("reveal", "seven-story") - .15
 T_P0, T_P1 = S("pour") - .3, E("pour") + .3; T_COURT = cue("pour", "two tennis") - .15
 T_USD = S("value"); T_SHINE = S("why")
+T_OUT = S("rules") - .2                                            # 25.11.2026 (rule 11): ring -> drop -> 'ALL OF IT?', then the cube
+
+def ring_intro(d, t):
+    if t >= T_OUT + .5: return
+    out = ease_io(clamp((t - T_OUT) / .5)); x = 540; y = 640 + 300 * ease(clamp((t - .1) / .5))
+    melt = ease_io(clamp((t - .8) / .6))
+    if melt < 1:                                                                 # the ring
+        r_ = 70 * (1 - melt); d.ellipse([x - r_, y - r_ * (1 - .5 * melt), x + r_, y + r_], outline=GOLD, width=max(1, int(18 * (1 - melt))))
+    if melt > 0:                                                                 # the drop, then it flies into the cube
+        tx, ty = P(A / 2, A / 2, 0); X, Y = x + (tx - x) * out, y + (ty - y) * out; s = 75 * melt * (1 - .7 * out)
+        d.ellipse([X - s, Y - s * .8, X + s, Y + s], fill=GOLD); d.polygon([(X - s * .6, Y - s * .3), (X + s * .6, Y - s * .3), (X, Y - s * 1.7)], fill=GOLD)
+    if 1.4 <= t < T_OUT: stamp_box(d, (720, 1060), "ALL OF IT?", t, 1.4, size=70)
 
 def poly(d, pts, fill): d.polygon([P(*p) for p in pts], fill=fill)
 
@@ -123,11 +135,16 @@ def head(d, line, label=None, val=None, hot=False):
         d.text((X0 + d.textlength(label, font=F(MONO, 30)) + 24, 388), val, font=F(BLK, 56), fill=GOLD if hot else INK)
 
 def sc(img, d, t):
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(420, 880), z1=1.12)
+
+def sc_full(img, d, t):
     cur = EP.current(t)
     d.line([(40, OY), (1040, OY)], fill=mix(BG, MID, .5), width=3)
     real = t >= T_REAL
     courts(d, ease(clamp((t - T_COURT) / .5)) if t >= T_COURT else 0)
     h = A * ease_io(clamp((t - T_P0) / (T_P1 - T_P0))) if t >= T_P0 else 0
+    if t < T_OUT: ring_intro(d, t); icons(d, t); countdown(d, t); head(d, "ALL THE GOLD.", "CUBE SIZE", "?"); fig(d, "above-ground stocks, end Q3 2026 (rounded) · 1 m = 17 px"); return
+    ring_intro(d, t)
     if real: wire(d, mix(BG, INK, .35), False)
     fill(d, h, t); stream(d, t, h)
     if t >= T_COURT: courts(d, ease(clamp((t - T_COURT) / .5)), lines_only=True)   # x-ray: the courts under the gold
@@ -156,7 +173,7 @@ def sc(img, d, t):
 
 EP.cuts = {k: "stay" for k in ORDER[1:]}
 EP.scenes = {k: sc for k in ORDER[:-1]}
-FX = [(.2, whoosh(.5, .02), 0), *[(x, pop(.1), -.4 + i * .4) for i, x in enumerate(T_ICONS)], *[(x, thud(.16), 0) for x in T_321],
+FX = [(.1, whoosh(.4, .02), 0), (.6, thud(.18), 0), (1.4, thud(.2), .2), (T_OUT, whoosh(.5, .02), 0), *[(x, pop(.1), -.4 + i * .4) for i, x in enumerate(T_ICONS)], *[(x, thud(.16), 0) for x in T_321],
       (T_MTN, whoosh(.5, .02), 0), (T_REAL, thud(.22), 0), (T_BLD, pop(.08), .5), (T_P0, whoosh(1.4, .02), 0), (T_COURT, pop(.08), 0),
       (T_USD, pop(.1), 0), (T_SHINE, whoosh(.4, .015), .3)]
 if __name__ == "__main__": EP.run(FX)
