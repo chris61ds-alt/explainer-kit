@@ -8,9 +8,9 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "shared"))
 from tips import *
-from stand import stamp_box
+from stand import stamp_box, payoff_cam
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .5, "pour": .6, "scale": .5, "why": .1})
+TL = Timeline(HERE, lead=.05, gaps={"hook": .4, "rules": .4, "lock": .7, "gut": .5, "reveal": .85, "pour": .6, "scale": .5, "why": .1}, pace="loose")
 S, E, cue = TL.S, TL.E, TL.cue
 ORDER = ["hook", "rules", "lock", "gut", "reveal", "pour", "scale", "why", "end"]
 EP = ThreadEpisode(TL, 153, "HUMANITY ON AN ISLAND", order=ORDER, dark=True, label="RIDDLE · 8.2 BN PEOPLE · 1 M² EACH",
@@ -134,6 +134,9 @@ def head(d, line, label=None, val=None, hot=False):
         d.text((X0 + d.textlength(label, font=F(MONO, 30)) + 24, 388), val, font=F(BLK, 56), fill=SIG if hot else INK)
 
 def sc(img, d, t):
+    payoff_cam(img, lambda L, dL: sc_full(L, dL, t), t, S("why"), focus=(540, 980), z1=1.15)
+
+def sc_full(img, d, t):
     cur = EP.current(t)
     for p in WORLD:                                                         # the land stays as a faint ground (the map empties)
         if len(p) > 2: d.polygon(p, fill=mix(BG, MID, .18))
@@ -163,6 +166,7 @@ def sc(img, d, t):
     elif cur == "pour": head(d, "EVERYONE FITS.", "PEOPLE ON CRETE", f"{8.2 * u:.1f} BN", True)
     elif cur == "scale": head(d, f"×{int(18000 * ease_io(clamp((t - S('scale')) / 1.6))):,} MORE LAND.", "EARTH'S LAND", "149M km²")
     else: head(d, "SPACE ISN'T IT.", "EVERYONE ON CRETE", "8,200 km²", True)
+    if T_ME + .7 <= t < T_SHRINK: stamp_box(d, (760, 1150), "1 m²", t, T_ME + .7, size=70)      # rule 11: one bold element
     if cur == "reveal" and t >= T_CRETE: stamp_box(d, (780, 860), "CRETE", t, T_CRETE, size=80)
     fig(d, "1 m² per person, standing · Crete: Natural Earth 1:50m")
 

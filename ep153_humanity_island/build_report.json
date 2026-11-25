@@ -1,6 +1,6 @@
 {
  "episode": "ep153_humanity_island",
- "tts": "cached",
+ "tts": "new",
  "asr_voice": [
   "rules: 1/12 | 8.2 billion people, 1 square meter each, side by side."
  ],
@@ -8,12 +8,12 @@
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 28.03,
-  "size_MiB": 5.4,
+  "duration_s": 28.93,
+  "size_MiB": 8.1,
   "black_intervals": [],
   "loudness_LUFS": -16.2,
-  "true_peak_dBTP": -2.4,
-  "sha256": "16a1d3afed0d6810c082c61441f28a50ebd1ae9052bfb646c86b8d1ce59d8784",
+  "true_peak_dBTP": -2.5,
+  "sha256": "2d81ee55c25337623f8f6d81efe4880b334b99686a99f022cec219aaecc6d045",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
@@ -22,12 +22,27 @@
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "1/75 = 1.3%",
+ "asr_final_wer": "1/76 = 1.3%",
  "asr_final_issues": [
   "rules: 1/12 | 8.2 billion people, 1 square meter each, side by side."
  ],
- "duration_s": 28.05,
- "longest_calm_s": 2.69,
+ "duration_s": 28.95,
+ "longest_calm_s": 2.71,
+ "rules_detail": [
+  "ok   E kind · kind = 'pour' (standard/stand/cliche/riddle/pour/race/map)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: You get one square meter. So does everyone alive. How much l",
+  "ok   7 pause after key · reveal: 0.85 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 28.9 s (allowed 24–34 s for pour)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 5.72",
+  "ok   13 nothing stands still · longest still stretch 0.7 s at 3.2 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam in render.py",
+  "ok   16 look · light look (dark only for riddle/pour/race)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:"
+ ],
+ "rules": "PASS",
  "cover": "ep153_humanity_island_cover.png",
  "caption": "ok"
 }
