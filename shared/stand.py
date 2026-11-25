@@ -70,5 +70,5 @@ def payoff_cam(img, draw, t, t0, focus=None, z1=1.1, dur=2.8, drift=.012, band=N
     x0, y0, x1, y1 = band or BAND; bw, bh = x1 - x0, y1 - y0
     fx, fy = focus or ((x0 + x1) / 2, (y0 + y1) / 2)
     cw, ch = bw / z, bh / z
-    cx0 = min(max(fx - cw / 2, 0), img.size[0] - cw); cy0 = min(max(fy - ch / 2, y0 - 40), y1 + 40 - ch)
+    cx0 = min(max(fx - cw / 2, 0), img.size[0] - cw); cy0 = min(max(fy - ch / 2, y0), y1 - ch)                         # stay inside the band (no ghost of the headline)
     img.paste(L.resize((bw, bh), Image.LANCZOS, box=(cx0, cy0, cx0 + cw, cy0 + ch)), (x0, y0))

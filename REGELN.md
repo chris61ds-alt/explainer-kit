@@ -42,9 +42,17 @@ Alte, ersetzte Regeln stehen in `REGELN_ARCHIV.md` (nur zum Nachlesen, nicht anw
 ## D · Caption
 18. Aufbau: Hook-Frage + 1 Emoji · 2–3 kurze Absätze mit Ziffern · Pointe · Frage an die Zuschauer + 👇 · „Not just you (Vorbehalt)“ · „Source: …“. **Keine Hashtags.** ⚙
 
+## E · Storytelling (Chris, 25.11.2026 – Referenz: Höhlentaucher-Video Boesmansgat)
+19. **Startszene = Höhepunkt, nicht Frage:** Die Folge beginnt im spannendsten Moment (Ort, Zeit, Handlung), danach Rückblende. ⚙ (`story`: Beat `cold`)
+20. **Einsatz-Satz in den ersten 10 s:** ein Satz, der eine Frage bis zum Ende offen hält („That one glance would cost him his life.“). ⚙ (Beat `stakes`)
+21. **Eine Figur:** konkrete Person mit Name/Rolle/Zeit/Ort, der die Daten passieren; echt mit Quelle oder als „illustrative“ gekennzeichnet. Zahlen sind Kulisse, nicht Hauptsache.
+22. **Aber / deshalb statt „und dann“:** jeder Abschnitt ist eine Wende (*But*) oder eine Folge (*So*). ⚙ (mind. ein „But“ und ein „So“)
+23. **Früh platzieren, spät einlösen:** ein Detail aus den ersten 15 s kehrt in der Auflösung zurück. ⚙ (`"plant"` in script.json muss im Anfang und im `why`-Beat vorkommen)
+24. **Licht erzählt mit:** Dunkel nur, wenn die Geschichte es verlangt (Nacht, Kerze, Höhle) – und dann bewusst als Dramaturgie (z. B. die Welt wird heller, wenn die Lösung kommt).
+
 ---
 
-## E · Formate
+## F · Formate
 | `kind` | Format | Länge ⚙ | Look | Pflicht-Bausteine |
 |---|---|---|---|---|
 | `standard` | Erklär-Folge | 24–32 s | hell | Regeln 1–18 |
@@ -54,5 +62,6 @@ Alte, ersetzte Regeln stehen in `REGELN_ARCHIV.md` (nur zum Nachlesen, nicht anw
 | `pour` | Pour Test | 24–34 s | hell | wie `riddle`, Lösung als Sand, der in etwas Bekanntes rieselt |
 | `race` | Zeitreise-Linie | 24–40 s | dunkel vorläufig (offen) | `shared/race.py`: Scrubber + Ereignis-Marker, Fläche, Farbwechsel, Tempo bremst zum Höhepunkt; Stimme nur an 3–5 Stellen, dazwischen Musik |
 | `map` | 3D-Karte | 24–32 s | hell | Regel 17, Blöcke = Werte |
+| `story` | Geschichte mit Daten | 40–75 s | hell, dunkel nur szenisch (Regel 24) | Regeln 19–24: `cold` → `stakes` → Rückblende → *But* → *So* → Auflösung (`why`) mit eingelöstem Detail |
 
 Bausteine: `fx2.camera/cam_path/stamp/light_look`, `stand.shadowed/you_marker/dashed/stamp_box/payoff_cam`, `race.Race`.

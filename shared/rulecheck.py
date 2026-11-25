@@ -3,7 +3,7 @@ finished episode. Used by build.py; standalone: python3 shared/rulecheck.py epXX
 import os, re, sys, json, subprocess
 import numpy as np
 
-LEN = {"standard": (24, 32), "stand": (24, 32), "cliche": (24, 32), "map": (24, 32), "riddle": (24, 34), "pour": (24, 34), "race": (24, 40)}
+LEN = {"standard": (24, 32), "stand": (24, 32), "cliche": (24, 32), "map": (24, 32), "riddle": (24, 34), "pour": (24, 34), "race": (24, 40), "story": (40, 75)}
 DARK_OK = {"race"}                     # race: provisional, Chris has not decided yet (25.11.2026)
 BAND = (470, 1180)
 
@@ -25,7 +25,7 @@ def check(ep, mp4, TL):
     r("E kind", kind in LEN, f"kind = {kind!r} (standard/stand/cliche/riddle/pour/race/map)")
     r("1 sources", len(s.get("sources", [])) > 0, "sources in script.json")
     hook = beats.get("hook", {}).get("text", "")
-    r("4 hook says you", re.search(r"\byour?\b", hook, re.I), f"hook: {hook[:60]}")
+    r("4 hook says you", kind == "story" or re.search(r"\byour?\b", hook, re.I), f"hook: {hook[:60]}")
     for k, b in beats.items():
         if b.get("key"):
             ks = list(TL.T); i = ks.index(k)
@@ -46,6 +46,14 @@ def check(ep, mp4, TL):
     r("14 camera at the payoff", "camera(" in src or "payoff_cam(" in src, "fx2.camera / stand.payoff_cam in render.py")
     r("16 look", kind in DARK_OK or ("light_look(" in src and ("shadowed(" in src or "ep=EP" in src)), "light look + shadows (dark only for race, provisional)")
     r("18 caption", cap and "#" not in cap and "👇" in cap and "Source:" in cap, "no hashtags · question + 👇 · Source:")
+    if kind == "story":                                                          # rules 19-23 (25.11.2026)
+        ids = [b["id"] for b in s["beats"]]
+        r("19 cold open first", ids[:1] == ["cold"], "first beat id 'cold' (the climax, not a question)")
+        r("20 stakes in 10 s", "stakes" in TL.T and TL.T["stakes"]["start"] < 10, "beat 'stakes' starts within 10 s")
+        txt = " ".join(b["text"] for b in s["beats"])
+        r("22 but / so", re.search(r"\bBut\b", txt) and re.search(r"\bSo\b", txt), "at least one 'But' and one 'So'")
+        pl = s.get("plant", ""); early = " ".join(b["text"] for b in s["beats"][:2]).lower()
+        r("23 plant & payoff", pl and pl.lower() in early and pl.lower() in beats.get("why", {}).get("text", "").lower(), f"plant {pl!r} in the first two beats and in 'why'")
     return out
 
 
