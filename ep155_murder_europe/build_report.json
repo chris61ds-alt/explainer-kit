@@ -1,0 +1,31 @@
+{
+ "episode": "ep155_murder_europe",
+ "tts": "new",
+ "asr_voice": [
+  "then: 1/13 | in Italy, around 50 to 70 killings per 100,000 people every year."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 27.1,
+  "size_MiB": 4.6,
+  "black_intervals": [],
+  "loudness_LUFS": -16.6,
+  "true_peak_dBTP": -2.4,
+  "sha256": "719e3b5f138faefe8cfa5eb96a2864c0ff834f1846e16321d0eba52014fcbea7",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "0/54 = 0.0%",
+ "asr_final_issues": [],
+ "duration_s": 27.11,
+ "longest_calm_s": 3.08,
+ "cover": "ep155_murder_europe_cover.png",
+ "caption": "ok"
+}

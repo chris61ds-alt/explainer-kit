@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "How violent was medieval Europe? Here are seven hundred years of murder rates.", "speed": 1.05},
+  {"id": "then", "text": "In Italy, around fifty to seventy killings per hundred thousand people, every year."},
+  {"id": "fall", "text": "Then, century by century, it kept falling."},
+  {"id": "now", "text": "Today it's below one. About sixty times lower."},
+  {"id": "why", "text": "Your ancestors didn't just live shorter lives. They lived far more dangerous ones."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Homicide rates per 100,000 per year, Europe: Eisner (2003), 'Long-Term Historical Trends in Violent Crime', Crime and Justice 30, Table 1 (estimates per period, plotted at the period midpoint) for data up to 1985; IHME Global Burden of Disease from 1990; compiled by Our World in Data, dataset 'Homicide rates in Europe over long-term (Eisner & IHME)'. Italy: 1300 56, 1450 73, 1550 47, 1725 12, 1887 5.5, 1962 1.3, 2016 0.9 (56/0.9 = 62x). Germany & Switzerland: 1300 37 -> 2016 0.8. England: 1300 23 -> 2016 0.5.",
+  "Caveat: medieval figures are estimates from court, coroner and other records for selected regions and cities; large uncertainty. The trend (a decline by more than an order of magnitude) is consistent across regions."
+ ]
+}

@@ -29,7 +29,9 @@ def nice_step(span, n=5):
 
 class Race:
     def __init__(self, years, values, box=(150, 900, 640, 1130), scrub_y=520, fmt="{:.1f}", unit="", hot_from=None, hot_to=None,
-                 marker=None, events=(), ticks=None, pad=.12):
+                 marker=None, events=(), ticks=None, pad=.12, others=(), name=None, zero=False, log=False):
+        """others = [(label, years, values), ...] thin comparison lines (25.11.2026); name = label of the main line; zero = y from 0"""
+        self.others = [(l, np.array(y, float), np.array(v, float)) for l, y, v in others]; self.name = name; self.zero = zero; self.log = log
         self.Y = np.array(years, float); self.V = np.array(values, float)
         self.box, self.sy, self.fmt, self.unit = box, scrub_y, fmt, unit
         self.hot = (hot_from, hot_to); self.marker = marker; self.events = list(events); self.ticks = ticks; self.pad = pad
@@ -39,11 +41,18 @@ class Race:
         if a is None: return COLD
         return mix(COLD, SIG, clamp((v - a) / (b - a)))
 
+    def f(self, v): return np.log10(np.maximum(v, 1e-6)) if self.log else v
+
     def ranges(self, yr):
         m = self.Y <= yr; vs = self.V[m] if m.any() else self.V[:1]
-        lo, hi = float(vs.min()), float(vs.max())
+        vs = np.append(vs, np.interp(yr, self.Y, self.V))                            # include the interpolated tips
+        for _, oy, ov in self.others:
+            if (oy <= yr).any(): vs = np.concatenate([vs, ov[oy <= yr], [np.interp(yr, oy, ov)]])
+        vs = self.f(vs); lo, hi = float(vs.min()), float(vs.max())
+        if self.zero and not self.log: lo = 0
         if hi - lo < 1e-6: lo, hi = lo - 1, hi + 1
         p = (hi - lo) * self.pad
+        if self.zero and not self.log: return (self.Y[0], max(self.Y[0] + 1, yr)), (0, hi + p)
         return (self.Y[0], max(self.Y[0] + 1, yr)), (lo - p, hi + p)
 
     def scrubber(self, d, yr):
@@ -66,12 +75,15 @@ class Race:
 
     def draw(self, img, yr, final=False):
         PX0, PX1, PY0, PY1 = self.box; (x0, x1), (v0, v1) = self.ranges(yr)
-        def P(a, v): return PX0 + (a - x0) / (x1 - x0) * (PX1 - PX0), PY1 - (v - v0) / (v1 - v0) * (PY1 - PY0)
-        d = ImageDraw.Draw(img); self.scrubber(d, yr)
-        st = nice_step(v1 - v0); v = math.ceil(v0 / st) * st                       # y grid
-        while v <= v1:
+        def P(a, v): return PX0 + (a - x0) / (x1 - x0) * (PX1 - PX0), PY1 - (float(self.f(v)) - v0) / (v1 - v0) * (PY1 - PY0)
+        d = ImageDraw.Draw(img); self.scrubber(d, yr); self._labs = []
+        if self.log:                                                                 # log grid: 0.5 1 2 5 10 20 50 ...
+            grid = [m * 10 ** e for e in range(-2, 6) for m in (1, 2, 5) if v0 <= math.log10(m * 10 ** e) <= v1]
+        else:
+            st = nice_step(v1 - v0); grid = list(np.arange(math.ceil(v0 / st) * st, v1 + 1e-9, st))
+        for v in grid:
             y = P(x0, v)[1]; d.line([(PX0, y), (PX1, y)], fill=mix(BG, MID, .18), width=2)
-            d.text((PX0 - 16, y), f"{v:g}", font=F(MONO, 24), fill=MID, anchor="rm"); v += st
+            d.text((PX0 - 16, y), f"{v:g}", font=F(MONO, 24), fill=MID, anchor="rm")
         m = self.Y <= yr; ys, vs = self.Y[m], self.V[m]
         if len(ys) and ys[-1] < yr:                                                  # interpolate the tip between data years
             i = np.searchsorted(self.Y, yr); ys = np.append(ys, yr); vs = np.append(vs, self.V[i - 1] + (self.V[i] - self.V[i - 1]) * (yr - self.Y[i - 1]) / (self.Y[i] - self.Y[i - 1]))
@@ -90,11 +102,25 @@ class Race:
         base[PY0:PY1 + 1] = base[PY0:PY1 + 1] * (1 - A) + np.array(COLD, np.float32) * A
         img.paste(Image.fromarray(base.astype(np.uint8)))
         d = ImageDraw.Draw(img)
+        for lab, oy, ov in self.others:                                              # thin comparison lines
+            k = oy <= yr
+            if k.sum() < 1: continue
+            xs_, vs_ = oy[k], ov[k]
+            if xs_[-1] < yr and (oy > yr).any():
+                i = np.searchsorted(oy, yr); xs_ = np.append(xs_, yr); vs_ = np.append(vs_, ov[i - 1] + (ov[i] - ov[i - 1]) * (yr - oy[i - 1]) / (oy[i] - oy[i - 1]))
+            op = [P(a, b) for a, b in zip(xs_, vs_)]
+            if len(op) > 1: d.line(op, fill=mix(BG, INK, .45), width=3, joint="curve")
+            ox, oyy = op[-1]; d.ellipse([ox - 6, oyy - 6, ox + 6, oyy + 6], fill=mix(BG, INK, .6))
+            self._labs.append([oyy, ox + 14, f"{lab} {self.fmt.format(vs_[-1])}", F(MONO, 22), mix(BG, INK, .7)])
         # line: cold part + hot tail coloured by value
         for (p, q), a in zip(zip(pts, pts[1:]), vs[1:]):
             d.line([p, q], fill=self.col(a), width=5)
         d.line([(PX0, PY1), (PX1, PY1)], fill=MID, width=2)
         tx, ty = pts[-1]
         d.ellipse([tx - 12, ty - 12, tx + 12, ty + 12], fill=c)
-        lab = self.fmt.format(tip) + self.unit
-        d.text((tx + 22, ty), lab, font=F(BLK, 36), fill=c, anchor="lm")
+        lab = (self.name + " " if self.name else "") + self.fmt.format(tip) + self.unit
+        self._labs.append([ty, tx + 22, lab, F(BLK, 36), c])
+        L = sorted(self._labs, key=lambda r: r[0])                                    # labels never overlap: push apart
+        for a, b in zip(L, L[1:]):
+            if b[0] - a[0] < 36: b[0] = a[0] + 36
+        for y, x, txt, f, col in L: d.text((x, y), txt, font=f, fill=col, anchor="lm")
