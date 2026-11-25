@@ -1,0 +1,15 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5", "speed": 1.0, "lang": "en-us", "format": "v2",
+ "beats": [
+  {"id": "hook", "text": "Is Black Friday really the cheapest day of the year?", "speed": 1.05},
+  {"id": "setup", "text": "A consumer group tracked two hundred and eight Black Friday deals, every day for a whole year."},
+  {"id": "reveal", "text": "Only five were cheapest on Black Friday itself. That's two percent."},
+  {"id": "other", "text": "The other ninety-eight percent were just as cheap, or cheaper, on another day. Verdict: false."},
+  {"id": "why", "text": "So before you buy, check the price history, not the countdown."},
+  {"id": "end", "text": "Not just you."}
+ ],
+ "sources": [
+  "Which? (24 November 2023), 'Only 2% of discounted products are cheapest on Black Friday': 208 tech, home and personal-care products on sale on Black Friday 2022 (25 Nov 2022) at eight UK retailers (Amazon, AO, Argos, Boots, Currys, John Lewis, Richer Sounds, Very); prices tracked daily for six months before and after. 5 of 208 (2 %) cheapest on Black Friday; 98 % the same price or cheaper at another time. With a wider window (18 Nov – 2 Dec 2022, incl. Cyber Monday) still 86 %.",
+  "Caveat: UK retailers, one year (2022), selected product categories; not a random sample of all deals."
+ ]
+}

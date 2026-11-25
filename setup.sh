@@ -4,8 +4,8 @@
 set -e
 cd "$(dirname "$0")"
 echo "1/4 Python-Pakete"
-pip install -q kokoro-onnx==0.6.1 sherpa-onnx soundfile scipy numpy pillow --break-system-packages 2>/dev/null \
-  || pip install -q kokoro-onnx==0.6.1 sherpa-onnx soundfile scipy numpy pillow
+pip install -q kokoro-onnx==0.6.1 sherpa-onnx pyworld soundfile scipy numpy pillow --break-system-packages 2>/dev/null \
+  || pip install -q kokoro-onnx==0.6.1 sherpa-onnx pyworld soundfile scipy numpy pillow
 echo "2/4 ffmpeg"
 command -v ffmpeg >/dev/null || { (apt-get update -qq && apt-get install -y -qq ffmpeg) || { echo "ffmpeg fehlt und konnte nicht installiert werden"; exit 1; }; }
 echo "3/4 Stimme (Kokoro, ~340 MB)"
