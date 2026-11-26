@@ -3,8 +3,8 @@ finished episode. Used by build.py; standalone: python3 shared/rulecheck.py epXX
 import os, re, sys, json, subprocess
 import numpy as np
 
-LEN = {"standard": (24, 32), "stand": (24, 32), "cliche": (24, 32), "map": (24, 32), "riddle": (24, 34), "pour": (24, 34), "race": (24, 40), "story": (40, 75)}
-DARK_OK = {"race"}                     # race: provisional, Chris has not decided yet (25.11.2026)
+LEN = {"standard": (24, 32), "stand": (24, 32), "cliche": (24, 32), "map": (24, 32), "riddle": (24, 34), "pour": (24, 34), "race": (24, 40), "story": (40, 75), "doku": (28, 75)}                     # doku: Chris 26.11.2026 "zügiger"
+DARK_OK = {"race", "doku"}             # race: provisional (25.11.2026) · doku: dark archive look, Chris OK 26.11.2026
 BAND = (470, 1180)
 
 
@@ -22,10 +22,10 @@ def check(ep, mp4, TL):
     cap = open(os.path.join(ep, "caption.md")).read() if os.path.exists(os.path.join(ep, "caption.md")) else ""
     kind = s.get("kind"); beats = {b["id"]: b for b in s["beats"]}; out = []
     def r(n, ok, msg): out.append((n, bool(ok), msg))
-    r("E kind", kind in LEN, f"kind = {kind!r} (standard/stand/cliche/riddle/pour/race/map)")
+    r("E kind", kind in LEN, f"kind = {kind!r} (standard/stand/cliche/riddle/pour/race/map/story/doku)")
     r("1 sources", len(s.get("sources", [])) > 0, "sources in script.json")
     hook = beats.get("hook", {}).get("text", "")
-    r("4 hook says you", kind == "story" or re.search(r"\byour?\b", hook, re.I), f"hook: {hook[:60]}")
+    r("4 hook says you", kind in ("story", "doku") or re.search(r"\byour?\b", hook, re.I), f"hook: {hook[:60]}")
     for k, b in beats.items():
         if b.get("key"):
             ks = list(TL.T); i = ks.index(k)
@@ -43,10 +43,12 @@ def check(ep, mp4, TL):
         still = still + 1 if v < .35 else 0
         if still > best: best, at = still, (i - still + 1) / 10
     r("13 nothing stands still", best / 10 <= 1.5, f"longest still stretch {best / 10:.1f} s at {at:.1f} s (≤ 1.5 s)")
-    r("14 camera at the payoff", "camera(" in src or "payoff_cam(" in src, "fx2.camera / stand.payoff_cam in render.py")
-    r("16 look", kind in DARK_OK or ("light_look(" in src and ("shadowed(" in src or "ep=EP" in src)), "light look + shadows (dark only for race, provisional)")
+    r("14 camera at the payoff", "camera(" in src or "payoff_cam(" in src or "EP.payoff =" in src, "fx2.camera / stand.payoff_cam / doku EP.payoff in render.py")
+    r("16 look", kind in DARK_OK or ("light_look(" in src and ("shadowed(" in src or "ep=EP" in src)), "light look + shadows (dark only for race, provisional, and doku)")
     r("18 caption", cap and "#" not in cap and "👇" in cap and "Source:" in cap, "no hashtags · question + 👇 · Source:")
-    if kind == "story":                                                          # rules 19-23 (25.11.2026)
+    if kind == "doku":                                                           # doku look (26.11.2026)
+        r("D credits", "credit=" in src or os.path.exists(os.path.join(ep, "img", "credits.json")), "every picture has a credit line (title · artist · licence)")
+    if kind in ("story", "doku"):                                                # rules 19-23 (25.11.2026)
         ids = [b["id"] for b in s["beats"]]
         r("19 cold open first", ids[:1] == ["cold"], "first beat id 'cold' (the climax, not a question)")
         r("20 stakes in 10 s", "stakes" in TL.T and TL.T["stakes"]["start"] < 10, "beat 'stakes' starts within 10 s")

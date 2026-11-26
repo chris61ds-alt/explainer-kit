@@ -12,3 +12,6 @@ preview.png
 # Hörproben / Wegwerf-Tests
 tests/
 *_test/
+
+# Doku-Bilder (Wikimedia, mit credits.json) gehören ins Repo
+!ep*/img/*.jpg

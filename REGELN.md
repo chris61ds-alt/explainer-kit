@@ -36,7 +36,7 @@ Alte, ersetzte Regeln stehen in `REGELN_ARCHIV.md` (nur zum Nachlesen, nicht anw
 13. **Nichts steht still:** im Bildbereich nie länger als **1,5 s** ohne sichtbare Bewegung (Zähler, Wachsen, Schimmern, Kamera). ⚙
 14. **Kamera zur Pointe:** in `why`/`end` fährt die Kamera (`fx2.camera` + `cam_path` bzw. `stand.payoff_cam`) – Rückzug aufs Gesamtbild oder langsames Heranfahren an die Antwort. ⚙
 15. **Bild = Ton:** kleine Headline (BLK 84) zeigt genau, was gesagt wird, + ein Live-Zähler. Große Typo nur für die eine Zahl. Nie zwei neue Dinge gleichzeitig.
-16. **Look (Chris, 13.11.2026):** hell (Papier, weiche Schatten, `light_look` + `shadowed` bzw. `payoff_cam(..., ep=EP)`) für **alle** Formate, Reveal auf Schwarz, Orange nur als Akzent. Komplett dunkel nur, wenn die Geschichte es braucht (Nacht, Lichtkegel). *Offen (Entscheidung Chris):* Zeitreise-Linie dunkel wie die Referenz – bis dahin vorläufig erlaubt. ⚙
+16. **Look (Chris, 13.11.2026):** außer Format `doku`: hell (Papier, weiche Schatten, `light_look` + `shadowed` bzw. `payoff_cam(..., ep=EP)`) für **alle** Formate, Reveal auf Schwarz, Orange nur als Akzent. Komplett dunkel nur, wenn die Geschichte es braucht (Nacht, Lichtkegel). *Offen (Entscheidung Chris):* Zeitreise-Linie dunkel wie die Referenz – bis dahin vorläufig erlaubt. ⚙
 17. **Karten:** geht es um ein Land/eine Region, nur diesen Ausschnitt zeigen; Weltkarte nur bei echten Ländervergleichen.
 
 ## D · Caption
@@ -63,5 +63,6 @@ Alte, ersetzte Regeln stehen in `REGELN_ARCHIV.md` (nur zum Nachlesen, nicht anw
 | `race` | Zeitreise-Linie | 24–40 s | dunkel vorläufig (offen) | `shared/race.py`: Scrubber + Ereignis-Marker, Fläche, Farbwechsel, Tempo bremst zum Höhepunkt; Stimme nur an 3–5 Stellen, dazwischen Musik |
 | `map` | 3D-Karte | 24–32 s | hell | Regel 17, Blöcke = Werte |
 | `story` | Geschichte mit Daten | 40–75 s | hell, dunkel nur szenisch (Regel 24) | Regeln 19–24: `cold` → `stakes` → Rückblende → *But* → *So* → Auflösung (`why`) mit eingelöstem Detail |
+| `doku` | Doku-Look mit echten Bildern (Chris, 26.11.2026 – Referenz: Teotihuacan-Reel @jimswormhole) | 28–75 s, zügig: kein Bild steht und wartet | dunkel/erdig erlaubt, Licht erzählt mit (Regel 24) | wie `story` (Regeln 19–24) + `shared/doku.py`: Archivbilder (Wikimedia Commons: gemeinfrei/CC0/CC BY) mit langsamer Kamera, Orts-/Jahres-Tag oben links, **Quellenzeile pro Bild** (Titel · Urheber · Lizenz, klein und senkrecht am linken Rand) ⚙, Untertitel weiß + Gold. **Regel 12 hier:** Bildwechsel erlaubt, ein goldenes Element (Linie/Zähler) läuft über alle Bilder durch |
 
-Bausteine: `fx2.camera/cam_path/stamp/light_look`, `stand.shadowed/you_marker/dashed/stamp_box/payoff_cam`, `race.Race`.
+Bausteine: `fx2.camera/cam_path/stamp/light_look`, `stand.shadowed/you_marker/dashed/stamp_box/payoff_cam`, `race.Race`, `doku.DokuEpisode/Shot` (Bilder laden: `tools/wikimedia.py`, nur Standardbreiten 500/960/1280/1920 px).

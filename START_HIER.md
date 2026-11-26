@@ -42,6 +42,7 @@ Die Skripte in `tools/publish/` finden ihre Pfade selbst (Repo = zwei Ebenen üb
 | `race` | ep154_life_england, ep155_murder_europe, ep159_child_mortality |
 | `map` | ep144_best_country |
 | `story` (neu, Ziel-Niveau) | ep163_light_story |
+| `doku` (echte Bilder, 26.11.2026) | ep163d_light_doku (Bilder + `img/credits.json`; Netzwerk-Freigabe für `upload.wikimedia.org` + `commons.wikimedia.org` nötig) |
 
 ## 5 · Offene Entscheidungen (Chris)
 - Zeitreise-Linien (`race`): hell oder dunkel wie die Referenz? Bis dahin vorläufig dunkel erlaubt.
