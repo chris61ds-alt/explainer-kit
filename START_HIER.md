@@ -45,6 +45,7 @@ Die Skripte in `tools/publish/` finden ihre Pfade selbst (Repo = zwei Ebenen üb
 | `doku` (echte Bilder, 26.11.2026) | ep163d_light_doku (Bilder + `img/credits.json`; Netzwerk-Freigabe für `upload.wikimedia.org` + `commons.wikimedia.org` nötig) |
 
 ## 5 · Offene Entscheidungen (Chris)
+- **Neue Stimme „alba“ (Kyutai Pocket TTS) ist gewählt, aber noch nicht eingebaut → siehe `STIMME_UEBERGABE.md`.**
 - Zeitreise-Linien (`race`): hell oder dunkel wie die Referenz? Bis dahin vorläufig dunkel erlaubt.
 - Cover-Regel aus der TikTok-Analyse (max. 3 Wörter, „YOUR …?“) und kürzerer Countdown bei Rätseln – vorgeschlagen, noch nicht bestätigt.
 - ElevenLabs-Stimmtest (Apps Script `publish/ElevenLabs.gs`, Job `tts/ab150.json` im Media-Repo) – verschoben.
