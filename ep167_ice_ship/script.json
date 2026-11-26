@@ -1,0 +1,52 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "kind": "doku",
+ "plant": "one hundred eighty tons",
+ "beats": [
+  {
+   "id": "cold",
+   "text": "It's eighteen thirty-three. A ship leaves Boston for India, loaded with one hundred eighty tons of ice.",
+   "speed": 1.05
+  },
+  {
+   "id": "stakes",
+   "text": "The trip takes four months, straight across the equator.",
+   "key": true
+  },
+  {
+   "id": "back",
+   "text": "The ice was cut from frozen lakes and packed in sawdust."
+  },
+  {
+   "id": "but",
+   "text": "But when the ship reached Calcutta, a hundred tons were still frozen."
+  },
+  {
+   "id": "so",
+   "text": "So people in India drank ice-cold drinks, from American lakes."
+  },
+  {
+   "id": "turn",
+   "text": "Then came ice houses, ice ships, and finally the fridge."
+  },
+  {
+   "id": "today",
+   "text": "Today, your freezer makes ice in a few hours, right in your kitchen.",
+   "key": true
+  },
+  {
+   "id": "why",
+   "text": "One hundred eighty tons crossed the world, so someone could have a cold drink."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Ship Tuscany left Boston on 12 May 1833 with about 180 tons of ice packed in sawdust; arrived in Calcutta in early September 1833 with about 100 tons still frozen, after about four months. Frederic Tudor ('the Ice King'). American Heritage, 'Cold Mine'; Atlas Obscura, 'How did people get ice'; Scroll.in."
+ ]
+}
