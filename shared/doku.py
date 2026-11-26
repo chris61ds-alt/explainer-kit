@@ -33,9 +33,10 @@ TAG_Y, CAP_Y = 236, 1100          # top UI ends ~200, bottom UI starts ~1480 (SA
 class Shot:
     """one picture: from/to = (focus x 0..1, focus y 0..1, zoom ≥ 1 relative to 'cover'); mode 'cover' (full bleed) or
     'fit' (whole picture on black, e.g. the Earth at night); grade = (brightness, warmth 0..1, sepia 0..1)"""
-    def __init__(self, beat, img, a, b, tag="", credit="", start=None, mode="cover", grade=(.82, .35, 0.0), flicker=0.0):
+    def __init__(self, beat, img, a, b, tag="", credit="", start=None, mode="cover", grade=(.82, .35, 0.0), flicker=0.0, ghost=0.0):
         self.beat, self.img, self.a, self.b, self.tag, self.credit = beat, img, a, b, tag, credit
         self.start, self.mode, self.grade, self.flicker = start, mode, grade, flicker
+        self.ghost = ghost                                  # > 0: the picture smears sideways (long exposure, "blink and you blur")
 
 
 _VIG = None
@@ -144,6 +145,9 @@ class DokuEpisode(Episode):
         if warm: a = a * np.array([1 + .08 * warm, 1 + .01 * warm, 1 - .12 * warm], np.float32)
         fl = 1 + s.flicker * (.05 * math.sin(t * 19) + .035 * math.sin(t * 31 + 1) + .02 * math.sin(t * 47))
         a = a * b * fl
+        if s.ghost:                                         # double exposure drifting apart over the shot
+            dx = int(s.ghost * 60 * ease_io(k)) + 1
+            a = a * .55 + np.roll(a, dx, axis=1) * .25 + np.roll(a, -dx // 2, axis=1) * .2
         return a
 
     def camera(self, img, t):
@@ -221,6 +225,11 @@ class DokuEpisode(Episode):
 
     def counters(self): return list(self.counter_list)
 
+    def shot_fx(self, snd):
+        """a soft sound on every picture change inside a beat (beat starts already get EP.cut_fx)"""
+        starts = {round(self.TL.S(k) - .05, 2) for k in self.order if k in self.TL.T}
+        return [(t, snd, 0) for t in self.shot_times()[1:] if round(t, 2) not in starts and t > .1]
+
     def make_cover(self, path, words=None, kicker=None):
         """cover = the first picture, darkened, with the question (rule 3) – key content inside the 1080x1440 centre"""
         spec = dict(self.cover_spec or {}); words = words or spec.get("words", [self.title]); kicker = kicker or spec.get("kicker", "")
@@ -234,3 +243,56 @@ class DokuEpisode(Episode):
             y += size * 1.05
         text_shadow(img, (W / 2, 1390), "NOT JUST YOU · " + self.handle, F(MONO, 30), (225, 210, 180), anchor="mm", blur=10, strength=240)
         img.save(path); return path
+
+
+# ---- generic gold elements (26.11.2026): the Meter runs over all pictures (rule 12 for doku), Compare = payoff -------
+class Meter:
+    """the continuous gold element: one big number that changes over the story.
+    segs: list of dict(t=start, to=value, dur=count time, label='TAG TEXT', unit='UNDER THE NUMBER', fmt=fn(v)->str,
+          stamp='BOX TEXT after the count', gold=True when the value is the punchline). From the first seg until t_hide."""
+    def __init__(self, segs, t_hide, y=330):
+        self.segs, self.t_hide, self.y = segs, t_hide, y
+
+    def value(self, t):
+        prev = self.segs[0].get("from", 0); cur = None
+        for s in self.segs:
+            if t >= s["t"]: cur = s; v0 = prev
+            prev = s["to"]
+        if cur is None: return None, None
+        k = ease_io(clamp((t - cur["t"]) / max(.01, cur.get("dur", .6))))
+        return cur, v0 + (cur["to"] - v0) * k if cur.get("tween", True) else cur["to"]
+
+    def counters(self):
+        out, prev = [], self.segs[0].get("from", 0)
+        for s in self.segs:
+            if s.get("dur", .6) >= .5 and s["to"] != prev: out.append((s["t"], s["dur"], abs(s["to"])))
+            prev = s["to"]
+        return out
+
+    def draw(self, img, d, t):
+        s0 = self.segs[0]
+        if t < s0["t"] - .2 or t >= self.t_hide: return
+        a = min(clamp((t - s0["t"] + .2) / .3), clamp((self.t_hide - t) / .25))
+        cur, v = self.value(max(t, s0["t"]))
+        done = t >= cur["t"] + cur.get("dur", .6)
+        tag(img, d, cur["label"], a, y=self.y)
+        txt = cur.get("fmt", lambda v: f"{v:,.0f}")(v)
+        size = 190 if len(txt) <= 7 else int(190 * 7 / len(txt))
+        text_shadow(img, (60, self.y + 70), txt, F(BLK, size), GOLD if (done and cur.get("gold")) else WHITE, blur=14, strength=220)
+        if cur.get("unit"): text_shadow(img, (66, self.y + 280), cur["unit"], F(MONO, 40), (230, 215, 185))
+        if cur.get("stamp") and done:
+            ks = ease((t - cur["t"] - cur.get("dur", .6)) / .18); sz = int(60 * (1 + .5 * (1 - ks)))
+            f = F(BLK, sz); w = d.textlength(cur["stamp"], font=f); y0 = self.y + 345
+            d.rectangle([66, y0, 66 + w + 40, y0 + sz * 1.25], outline=GOLD, width=6)
+            d.text((86, y0 + sz * .62), cur["stamp"], font=f, fill=GOLD, anchor="lm")
+
+
+def compare(img, d, t, t0, rows, y=340):
+    """payoff: two rows (who, value, colour) sliding in – then vs. now"""
+    if t < t0: return
+    k = ease((t - t0) / .35)
+    for i, (who, val, col) in enumerate(rows):
+        yy = y + i * 230; dx = (1 - k) * (-60 if i == 0 else 60)
+        text_shadow(img, (60 + dx, yy), who, F(MONO, 36), (230, 215, 185))
+        f = F(BLK, 150 if len(val) <= 9 else int(150 * 9 / len(val)))
+        text_shadow(img, (60 + dx, yy + 44), val, f, col, blur=14, strength=220)

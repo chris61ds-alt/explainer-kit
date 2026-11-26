@@ -1,0 +1,68 @@
+{
+ "boulevard": {
+  "title": "File:Boulevard du Temple by Daguerre.jpg",
+  "w": 3441,
+  "h": 2472,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Boulevard_du_Temple_by_Daguerre.jpg/1920px-Boulevard_du_Temple_by_Daguerre.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Boulevard_du_Temple_by_Daguerre.jpg",
+  "license": "Public domain",
+  "artist": "Louis Daguerre",
+  "date": "between 24 April 1838 and 4 May 1838 (or",
+  "desc": "Boulevard du Temple, Paris, 3rd arrondissement, Daguerreotype. Made in 1838 by inventor Louis Daguerre, this is believed"
+ },
+ "family": {
+  "title": "File:Coloured daguerreotype. Portrait of a family..jpg",
+  "w": 3983,
+  "h": 2415,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Coloured_daguerreotype._Portrait_of_a_family..jpg/1920px-Coloured_daguerreotype._Portrait_of_a_family..jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Coloured_daguerreotype._Portrait_of_a_family..jpg",
+  "license": "No restrictions",
+  "artist": "The Finnish Museum of Photography",
+  "date": "2014-06-10 18:22:13",
+  "desc": "Unknown photographer: Portrait of a family, a man and a woman and a small child. Coloured daguerreotype. / Tuntematon va"
+ },
+ "man": {
+  "title": "File:Daguerreotype. Portrait of a man..jpg",
+  "w": 3271,
+  "h": 3928,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Daguerreotype._Portrait_of_a_man..jpg/1920px-Daguerreotype._Portrait_of_a_man..jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Daguerreotype._Portrait_of_a_man..jpg",
+  "license": "No restrictions",
+  "artist": "The Finnish Museum of Photography",
+  "date": "2014-06-10 18:43:18",
+  "desc": "Unknown photographer: Portrait of a man with sideburns. Daguerreotype. / Tuntematon valokuvaaja: Rintakuvassa mies, joll"
+ },
+ "woman": {
+  "title": "File:Unidentified woman c1850 daguerreotype by Southworth & Hawes.jpg",
+  "w": 2924,
+  "h": 3691,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Unidentified_woman_c1850_daguerreotype_by_Southworth_%26_Hawes.jpg/1920px-Unidentified_woman_c1850_daguerreotype_by_Southworth_%26_Hawes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Unidentified_woman_c1850_daguerreotype_by_Southworth_%26_Hawes.jpg",
+  "license": "Public domain",
+  "artist": "Southworth &amp; Hawesen",
+  "date": "circa 1850date QS:P,+1850-00-00T00:00:00",
+  "desc": "Retouched daguerreotype of unidentified woman. The sitter in this daguerreotype was previously incorrectly identified by"
+ },
+ "phone": {
+  "title": "File:Woman holding cell phone 3236059.jpg",
+  "w": 4826,
+  "h": 3216,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Woman_holding_cell_phone_3236059.jpg/1920px-Woman_holding_cell_phone_3236059.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Woman_holding_cell_phone_3236059.jpg",
+  "license": "CC0",
+  "artist": "Luisella Planeta",
+  "date": "March 18, 2018",
+  "desc": "An image of an adolescent holding a smartphone with plugged-in earbuds."
+ },
+ "brownie": {
+  "title": "File:Brownie Camera (1905) (ADVERT 428).jpeg",
+  "w": 796,
+  "h": 1200,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Brownie_Camera_%281905%29_%28ADVERT_428%29.jpeg/500px-Brownie_Camera_%281905%29_%28ADVERT_428%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Brownie_Camera_(1905)_(ADVERT_428).jpeg",
+  "license": "Public domain",
+  "artist": "Kodak",
+  "date": "1905-06",
+  "desc": "Kodak started selling the Brownie Camera in 1900. Brownies were good-natured goblins and fairies created by author and i"
+ }
+}

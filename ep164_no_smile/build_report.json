@@ -1,0 +1,56 @@
+{
+ "episode": "ep164_no_smile",
+ "tts": "new",
+ "asr_voice": [
+  "cold: 5/17 | It's 1840. You're sitting for your first photo and you can't move for a full minute.",
+  "but: 6/11 | But by the 1850s, it took just a few seconds."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 31.73,
+  "size_MiB": 19.6,
+  "black_intervals": [],
+  "loudness_LUFS": -16.1,
+  "true_peak_dBTP": -3.3,
+  "sha256": "11f477d94deddca48c03af4ff811d9f7c0453cde3c27aa271fee97f59f238b15",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "11/94 = 11.7%",
+ "asr_final_issues": [
+  "cold: 5/17 | It's 1840. You're sitting for your first photo, and you can't move for a full minute.",
+  "but: 6/11 | But by the 1850s, it took just a few seconds."
+ ],
+ "duration_s": 31.72,
+ "longest_calm_s": 3.25,
+ "rules_detail": [
+  "ok   E kind · kind = 'doku' (standard/stand/cliche/riddle/pour/race/map/story/doku)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: ",
+  "ok   7 pause after key · stakes: 0.85 s (≥ 0.8)",
+  "ok   7 pause after key · today: 0.85 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 31.7 s (allowed 28–75 s for doku)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 6.71",
+  "ok   13 nothing stands still · longest still stretch 0.0 s at 0.0 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam / doku EP.payoff in render.py",
+  "ok   16 look · light look + shadows (dark only for race, provisional, and doku)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:",
+  "ok   D credits · every picture has a credit line (title · artist · licence)",
+  "ok   19 cold open first · first beat id 'cold' (the climax, not a question)",
+  "ok   20 stakes in 10 s · beat 'stakes' starts within 10 s",
+  "ok   22 but / so · at least one 'But' and one 'So'",
+  "ok   23 plant & payoff · plant 'full minute' in the first two beats and in 'why'"
+ ],
+ "rules": "PASS",
+ "cover": "ep164_no_smile_cover.png",
+ "caption": "ok"
+}
