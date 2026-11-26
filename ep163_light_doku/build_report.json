@@ -1,0 +1,54 @@
+{
+ "episode": "ep163_light_doku",
+ "tts": "cached",
+ "asr_voice": [
+  "cold: 3/15 | It's 1800, Mary wants her room as bright as yours for just one hour."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 29.9,
+  "size_MiB": 22.8,
+  "black_intervals": [],
+  "loudness_LUFS": -16.2,
+  "true_peak_dBTP": -2.5,
+  "sha256": "fd839561be36b2d3808a0e6cd593c89674737e4d557345431b7b190fb0ab67d2",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "3/86 = 3.5%",
+ "asr_final_issues": [
+  "cold: 3/15 | It's 1800. Mary wants her room as bright as yours for just one hour."
+ ],
+ "duration_s": 29.89,
+ "longest_calm_s": 2.61,
+ "rules_detail": [
+  "ok   E kind · kind = 'doku' (standard/stand/cliche/riddle/pour/race/map/story/doku)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: ",
+  "ok   7 pause after key · stakes: 0.85 s (≥ 0.8)",
+  "ok   7 pause after key · today: 0.85 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 29.9 s (allowed 28–75 s for doku)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 5.49",
+  "ok   13 nothing stands still · longest still stretch 0.0 s at 0.0 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam / doku EP.payoff in render.py",
+  "ok   16 look · light look + shadows (dark only for race, provisional, and doku)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:",
+  "ok   D credits · every picture has a credit line (title · artist · licence)",
+  "ok   19 cold open first · first beat id 'cold' (the climax, not a question)",
+  "ok   20 stakes in 10 s · beat 'stakes' starts within 10 s",
+  "ok   22 but / so · at least one 'But' and one 'So'",
+  "ok   23 plant & payoff · plant 'six hours' in the first two beats and in 'why'"
+ ],
+ "rules": "PASS",
+ "cover": "ep163_light_doku_cover.png",
+ "caption": "ok"
+}
