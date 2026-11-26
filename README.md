@@ -1,5 +1,7 @@
 # Explainer-Baukasten „Not just you“
 
+> **Neuer Chat? Zuerst `START_HIER.md`, dann `REGELN.md` lesen.** Der Abschnitt darunter ist der alte Stand vom 31.10.2026 und nur noch Hintergrund.
+
 ## START HIER (Stand 31.10.2026) – so entsteht eine Folge wie im Original-Chat
 ```bash
 git clone https://github.com/chris61ds-alt/explainer-kit && cd explainer-kit
