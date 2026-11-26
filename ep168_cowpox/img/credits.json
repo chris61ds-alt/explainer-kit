@@ -1,0 +1,79 @@
+{
+ "patients": {
+  "title": "File:Edward Jenner among patients in the Smallpox and Inoculation Wellcome V0011072.jpg",
+  "w": 3168,
+  "h": 2461,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Edward_Jenner_among_patients_in_the_Smallpox_and_Inoculation_Wellcome_V0011072.jpg/1920px-Edward_Jenner_among_patients_in_the_Smallpox_and_Inoculation_Wellcome_V0011072.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Edward_Jenner_among_patients_in_the_Smallpox_and_Inoculation_Wellcome_V0011072.jpg",
+  "license": "CC BY 4.0",
+  "artist": "",
+  "date": "",
+  "desc": "Edward Jenner among patients in the Smallpox and InoculationColoured etching after J. Gillray, 1802. Iconographic Collec"
+ },
+ "hille": {
+  "title": "File:Edward Jenner vaccinating a boy. Oil painting by E.-E. Hille Wellcome L0029094.jpg",
+  "w": 3680,
+  "h": 2898,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Edward_Jenner_vaccinating_a_boy._Oil_painting_by_E.-E._Hille_Wellcome_L0029094.jpg/1920px-Edward_Jenner_vaccinating_a_boy._Oil_painting_by_E.-E._Hille_Wellcome_L0029094.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Edward_Jenner_vaccinating_a_boy._Oil_painting_by_E.-E._Hille_Wellcome_L0029094.jpg",
+  "license": "CC BY 4.0",
+  "artist": "Eugène Ernest Hillemacher",
+  "date": "",
+  "desc": "Edward Jenner vaccinating a boy. Oil painting by E.-E. Hillemacher, 1884. Iconographic Collections Keywords: brn 45436; "
+ },
+ "jenner": {
+  "title": "File:Portrait of Edward Jenner Wellcome L0049564.jpg",
+  "w": 3928,
+  "h": 6017,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Portrait_of_Edward_Jenner_Wellcome_L0049564.jpg/1920px-Portrait_of_Edward_Jenner_Wellcome_L0049564.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Portrait_of_Edward_Jenner_Wellcome_L0049564.jpg",
+  "license": "CC BY 4.0",
+  "artist": "",
+  "date": "",
+  "desc": "Portrait of Edward Jenner Rare Books Keywords: Smallpox; Vaccinia; Smallpox Vaccine"
+ },
+ "vaccine": {
+  "title": "File:Smallpox vaccine.jpg",
+  "w": 3032,
+  "h": 2008,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Smallpox_vaccine.jpg/1920px-Smallpox_vaccine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Smallpox_vaccine.jpg",
+  "license": "Public domain",
+  "artist": "Photo Credit: James Gathany Content Providers(s): CDC",
+  "date": "2002",
+  "desc": "Components of a smallpox vaccination kit including the diluent, a vial of Dryvax® smallpox vaccine, and a bifurcated nee"
+ },
+ "melingue": {
+  "title": "File:Melingue Jenner peint.jpg",
+  "w": 1400,
+  "h": 1429,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Melingue_Jenner_peint.jpg/1280px-Melingue_Jenner_peint.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Melingue_Jenner_peint.jpg",
+  "license": "Public domain",
+  "artist": "Gaston Mélingue",
+  "date": "1879date QS:P571,+1879-00-00T00:00:00Z/9",
+  "desc": "Edward Jenner vaccinating James Phipps, a boy of eight, on May 14, 1796."
+ },
+ "cowpock": {
+  "title": "File:The cow pock.jpg",
+  "w": 1279,
+  "h": 915,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/The_cow_pock.jpg/960px-The_cow_pock.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:The_cow_pock.jpg",
+  "license": "Public domain",
+  "artist": "James Gillray",
+  "date": "1802",
+  "desc": "The Cow-Pock—or—the Wonderful Effects of the New Inoculation!—vide. the Publications of ye Anti-Vaccine Society Print (c"
+ },
+ "needle": {
+  "title": "File:Smallpox vaccination needle.jpg",
+  "w": 700,
+  "h": 1056,
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Smallpox_vaccination_needle.jpg/500px-Smallpox_vaccination_needle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Smallpox_vaccination_needle.jpg",
+  "license": "Public domain",
+  "artist": "James Gathany",
+  "date": "2002",
+  "desc": "The tip of a hand-held bifurcated needle used to vaccinate individuals with the smallpox vaccine."
+ }
+}

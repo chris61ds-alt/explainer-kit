@@ -1,0 +1,53 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "kind": "doku",
+ "plant": "one boy",
+ "beats": [
+  {
+   "id": "cold",
+   "text": "It's seventeen ninety-six. A doctor scratches pus from a milkmaid's cowpox into the arm of one boy.",
+   "speed": 1.05
+  },
+  {
+   "id": "stakes",
+   "text": "Two months later, he exposes the boy to smallpox, on purpose.",
+   "key": true
+  },
+  {
+   "id": "back",
+   "text": "Smallpox killed about three in ten people who caught it."
+  },
+  {
+   "id": "but",
+   "text": "But the boy never got sick."
+  },
+  {
+   "id": "so",
+   "text": "So the cowpox trick spread, and got a name: vaccination, from vacca, Latin for cow."
+  },
+  {
+   "id": "turn",
+   "text": "Then the world vaccinated, country by country, for almost two hundred years."
+  },
+  {
+   "id": "today",
+   "text": "In nineteen eighty, smallpox was declared gone, the only human disease ever eradicated.",
+   "key": true
+  },
+  {
+   "id": "why",
+   "text": "It all started with one boy and a milkmaid's cow."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "May 1796: Edward Jenner inoculated 8-year-old James Phipps with matter from a cowpox sore of milkmaid Sarah Nelmes; July 1796 he exposed him to smallpox; Phipps stayed healthy. WHO, 'History of smallpox vaccination'.",
+  "Smallpox killed about 3 in 10 people infected (NIAID via Live Science); vaccination from Latin vacca = cow (Pfizer, 'Smallpox vanquished'); declared eradicated in 1980, the only human disease eradicated so far (WHO; Our World in Data)."
+ ]
+}
