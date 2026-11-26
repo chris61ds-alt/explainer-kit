@@ -1,0 +1,53 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "kind": "doku",
+ "plant": "two weeks",
+ "beats": [
+  {
+   "id": "cold",
+   "text": "It's seventeen sixty-three. You live in London, your love lives in Edinburgh, and the coach takes two weeks.",
+   "speed": 1.05
+  },
+  {
+   "id": "stakes",
+   "text": "And it only leaves once a month.",
+   "key": true
+  },
+  {
+   "id": "back",
+   "text": "Coaches crawled along muddy roads and stopped every night."
+  },
+  {
+   "id": "but",
+   "text": "But by eighteen thirty, mail coaches ran day and night, in under two days."
+  },
+  {
+   "id": "so",
+   "text": "So in seventy years, two weeks shrank to two days."
+  },
+  {
+   "id": "turn",
+   "text": "Then came the railway, the telegraph, and the phone."
+  },
+  {
+   "id": "today",
+   "text": "Today, your message arrives before you put the phone down.",
+   "key": true
+  },
+  {
+   "id": "why",
+   "text": "Their two weeks of waiting are your two seconds."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "1763: one stage coach a month from Edinburgh to London, 12–14 days; about 1830: six or seven coaches a day, about 48 hours. All the Year Round (Dickens' magazine), vol. VI, p. 302. 1829: the North Mail London→Edinburgh in about 43.5 hours. The Spectator, 11 July 1829, 'The North Mail'.",
+  "The lovers are illustrative."
+ ]
+}
