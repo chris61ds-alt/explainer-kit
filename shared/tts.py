@@ -73,7 +73,9 @@ def rise(a, sr, st=QRISE_ST, dur=QRISE_DUR):
 # ("probably live closer"). Only the synthesized text is respelled; subtitles keep the original. "lives" (noun) stays /laɪvz/.
 SAY = [(re.compile(r"\b([Ll])ive\b"), r"\1iv"),
        # 18.11.2026 (Chris: "lives on" sounded like "lifes"): the VERB "lives" before a preposition/adverb -> /lɪvz/
-       (re.compile(r"\b([Ll])ives (on|in|with|at|near|alone|together|off|like|abroad|here|there)\b"), r"\1ivz \2")]
+       (re.compile(r"\b([Ll])ives (on|in|with|at|near|alone|together|off|like|abroad|here|there)\b"), r"\1ivz \2"),
+       # 26.11.2026: names the voice mangles ("Merer" came out as "Murr")
+       (re.compile(r"\bMerer\b"), "Mehrer")]
 def say(p):
     for rx, rep in SAY: p = rx.sub(rep, p)
     return p

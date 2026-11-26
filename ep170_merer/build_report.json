@@ -1,0 +1,60 @@
+{
+ "episode": "ep170_merer",
+ "tts": "cached",
+ "asr_voice": [
+  "cold: 2/14 | In 2013, archaeologists found a diary in a cave by the Red Sea.",
+  "but: 1/13 | But the diary is a logbook. Its author, Mera, led about 40 boatmen.",
+  "today: 4/17 | It's the oldest inscribed papyrus ever found in Egypt, over 4,500 years old."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 38.03,
+  "size_MiB": 21.8,
+  "black_intervals": [],
+  "loudness_LUFS": -16.0,
+  "true_peak_dBTP": -2.5,
+  "sha256": "ee3a9316d56def05330c5aaafe0a3c2197bea3cdfe62313043953213fc0b9853",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-14": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "7/113 = 6.2%",
+ "asr_final_issues": [
+  "cold: 2/14 | In 2013, archaeologists found a diary in a cave by the Red Sea.",
+  "but: 1/13 | But the diary is a logbook. Its author, Mera, led about 40 boatmen.",
+  "today: 4/17 | It's the oldest inscribed papyrus ever found in Egypt, over 4,500 years old."
+ ],
+ "duration_s": 38.05,
+ "longest_calm_s": 4.83,
+ "rules_detail": [
+  "ok   E kind · kind = 'mystery' (standard/stand/cliche/riddle/pour/race/map/story/doku/mystery)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: ",
+  "ok   7 pause after key · stakes: 0.85 s (≥ 0.8)",
+  "ok   7 pause after key · today: 0.85 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 38.0 s (allowed 28–75 s for mystery)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 15.73",
+  "ok   13 nothing stands still · longest still stretch 0.1 s at 34.2 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam / doku EP.payoff in render.py",
+  "ok   16 look · light look + shadows (dark only for race, provisional, and doku)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:",
+  "ok   M myth named · the myth is named as a claim ('Some said: ...'), never as fact",
+  "ok   M loop closed · the why beat closes the loop opened in cold",
+  "ok   D credits · every picture has a credit line (title · artist · licence)",
+  "ok   19 cold open first · first beat id 'cold' (the climax, not a question)",
+  "ok   20 stakes in 10 s · beat 'stakes' starts within 10 s",
+  "ok   22 but / so · at least one 'But' and one 'So'",
+  "ok   23 plant & payoff · plant 'a diary' in the first two beats and in 'why'"
+ ],
+ "rules": "PASS",
+ "cover": "ep170_merer_cover.png",
+ "caption": "ok"
+}

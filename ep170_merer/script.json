@@ -1,0 +1,54 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "kind": "mystery",
+ "plant": "a diary",
+ "beats": [
+  {
+   "id": "cold",
+   "text": "In twenty thirteen, archaeologists found a diary in a cave by the Red Sea.",
+   "speed": 1.05
+  },
+  {
+   "id": "stakes",
+   "text": "It was written by a man who helped build the Great Pyramid.",
+   "key": true
+  },
+  {
+   "id": "back",
+   "text": "For decades, people asked how that was even possible. Some said: aliens."
+  },
+  {
+   "id": "but",
+   "text": "But the diary is a logbook. Its author, Merer, led about forty boatmen."
+  },
+  {
+   "id": "so",
+   "text": "So we know what they did: they shipped limestone along the Nile, about two hundred blocks a month."
+  },
+  {
+   "id": "turn",
+   "text": "The stone came from the quarries at Tura, most likely for the pyramid's white outer shell."
+  },
+  {
+   "id": "today",
+   "text": "It's the oldest inscribed papyrus ever found in Egypt, over four and a half thousand years old.",
+   "key": true
+  },
+  {
+   "id": "why",
+   "text": "No aliens. Just a diary, and forty men on a boat."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "Diary of Merer (Papyrus Jarf A and B): logbooks of the inspector Merer, found in 2013 at Wadi al-Jarf on the Red Sea by a French mission under Pierre Tallet; year 27 of Khufu; the team transported white limestone from the Tura quarries to Giza by boat; about 30 blocks of 2–3 t per round trip, about 200 blocks per month, about 40 boatmen; Tallet: most likely for the outer casing of the Great Pyramid. Wikipedia 'Diary of Merer' and references (Tallet 2017, Les papyrus de la Mer Rouge I).",
+  "Oldest inscribed papyri found in Egypt, written more than 4,500 years ago: History.com (2016/2025), Tallet & Marouard (2014), Near Eastern Archaeology; National Geographic.",
+  "'Some said: aliens' refers to the popular ancient-astronaut claim (e.g. TV series); no evidence supports it."
+ ]
+}
