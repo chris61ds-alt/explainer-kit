@@ -27,7 +27,7 @@ WHITE = (250, 246, 238)
 SHADE = (14, 11, 8)
 import cute
 cute.PAPER = np.zeros_like(cute.PAPER)                 # doku has its own moving film grain; the static paper grain cost ~45 MiB
-TAG_Y, CAP_Y = 236, 1100          # top UI ends ~200, bottom UI starts ~1480 (SAFE_B)
+TAG_Y, CAP_Y, CAP_W = 236, 1100, 860          # top UI ends ~200, bottom UI starts ~1480 (SAFE_B)
 
 
 class Shot:
@@ -184,15 +184,25 @@ class DokuEpisode(Episode):
         if not page: return
         pg, i0 = page; f = F(BLK, 74)
         acc = [a.lower() for a in self.accent.get(key, [])]
-        d = ImageDraw.Draw(img); full = " ".join(pg); x = W / 2 - d.textlength(full, font=f) / 2
-        c = i0
+        d = ImageDraw.Draw(img)
+        # Chris 26.11.2026: subtitles BREAK into lines instead of running over the edge. Max width CAP_W (keeps clear of
+        # the frame and of Instagram's buttons on the right); a single word that is still too wide gets a smaller size.
+        while max(d.textlength(w_, font=f) for w_ in pg) > CAP_W and f.size > 40: f = F(BLK, f.size - 4)
+        lines, cur = [], []
         for w_ in pg:
-            shown = c <= pos
-            clean = re.sub(r"[^\w']", "", w_).lower()
-            gold = any(clean and clean in a.split() for a in acc)
-            if shown:
-                text_shadow(img, (x, CAP_Y), w_, f, GOLD if gold else WHITE)
-            x += d.textlength(w_ + " ", font=f); c += len(w_) + 1
+            if cur and d.textlength(" ".join(cur + [w_]), font=f) > CAP_W: lines.append(cur); cur = []
+            cur.append(w_)
+        lines.append(cur)
+        lh = f.size * 1.12; y = CAP_Y - (len(lines) - 1) * lh / 2
+        c = i0
+        for ln in lines:
+            x = W / 2 - d.textlength(" ".join(ln), font=f) / 2
+            for w_ in ln:
+                clean = re.sub(r"[^\w']", "", w_).lower()
+                gold = any(clean and clean in a.split() for a in acc)
+                if c <= pos: text_shadow(img, (x, y), w_, f, GOLD if gold else WHITE)
+                x += d.textlength(w_ + " ", font=f); c += len(w_) + 1
+            y += lh
 
     # ---- frame -------------------------------------------------------------------------------------------
     def draw(self, img, d, t):
@@ -296,3 +306,59 @@ def compare(img, d, t, t0, rows, y=340):
         text_shadow(img, (60 + dx, yy), who, F(MONO, 36), (230, 215, 185))
         f = F(BLK, 150 if len(val) <= 9 else int(150 * 9 / len(val)))
         text_shadow(img, (60 + dx, yy + 44), val, f, col, blur=14, strength=220)
+
+
+# ---- paper card with a marker (Chris 26.11.2026: "einen Zeitungsartikel unterstreichen") ---------------------------
+# Only for public-domain newspapers (before 1930) or a neutral card for a study (journal · date · REAL title).
+# Never a screenshot of a current newspaper, never a real masthead on invented text.
+SERIF, SERIF_I = "Roboto-Serif-SemiBold.woff", "Roboto-Serif-Italic.woff"
+PAPER_C, INK, MARK = (238, 230, 212), (34, 30, 26), (255, 214, 64)
+
+def wrap(d, text, font, width):
+    out, cur = [], ""
+    for w_ in text.split():
+        t = (cur + " " + w_).strip()
+        if d.textlength(t, font=font) <= width: cur = t
+        else: out.append(cur); cur = w_
+    return out + [cur]
+
+def paper_card(img, t, t0, t1, head, title, mark, mark_t, foot="", y=430, w=900, tilt=-2.0):
+    """a cream paper card slides in at t0 (until t1): small mono header, serif title, and a yellow marker that is drawn
+    across the words `mark` (substring of title) between mark_t[0] and mark_t[1]; slow push-in while it is shown."""
+    if not (t0 - .05 <= t < t1): return
+    k = ease((t - t0) / .35) * clamp((t1 - t) / .25)
+    if k <= 0: return
+    pad = 46; fh, ft, ff = F(MONO, 26), F(SERIF, 58), F(SERIF_I, 30)
+    tmp = ImageDraw.Draw(Image.new("RGB", (8, 8)))
+    lines = wrap(tmp, title, ft, w - 2 * pad)
+    h = pad + 40 + len(lines) * 74 + (60 if foot else 10) + pad
+    card = Image.new("RGBA", (w, h), PAPER_C + (255,)); cd = ImageDraw.Draw(card)
+    noise = (np.random.default_rng(3).normal(0, 6, (h, w, 1))).astype(np.int16)
+    card = Image.fromarray(np.clip(np.asarray(card, np.int16) + np.concatenate([noise.repeat(3, 2), np.zeros((h, w, 1), np.int16)], 2), 0, 255).astype(np.uint8), "RGBA")
+    cd = ImageDraw.Draw(card)
+    cd.text((pad, pad), head, font=fh, fill=(110, 98, 80)); cd.line([(pad, pad + 38), (w - pad, pad + 38)], fill=(150, 138, 118), width=2)
+    # marker: find the words of `mark` line by line and draw a growing highlight under them
+    m = clamp((t - mark_t[0]) / max(.01, mark_t[1] - mark_t[0]))
+    spans, yy = [], pad + 56
+    full = " ".join(lines); i0 = full.find(mark); i1 = i0 + len(mark); c = 0
+    for ln in lines:
+        a, b = max(i0, c), min(i1, c + len(ln))
+        if i0 >= 0 and a < b:
+            x0 = pad + cd.textlength(ln[:a - c], font=ft); x1 = pad + cd.textlength(ln[:b - c], font=ft)
+            spans.append((x0, x1, yy))
+        c += len(ln) + 1; yy += 74
+    total = sum(x1 - x0 for x0, x1, _ in spans); done = total * ease_io(m)
+    for x0, x1, yy_ in spans:
+        seg = min(x1 - x0, max(0, done)); done -= x1 - x0
+        if seg > 0: cd.rectangle([x0 - 6, yy_ + 8, x0 + seg + 6, yy_ + 66], fill=MARK + (200,))
+    yy = pad + 56
+    for ln in lines: cd.text((pad, yy), ln, font=ft, fill=INK); yy += 74
+    if foot: cd.text((pad, yy + 14), foot, font=ff, fill=(110, 98, 80))
+    z = .92 + .08 * k + .03 * clamp((t - t0) / max(.5, t1 - t0))
+    card = card.resize((int(w * z), int(h * z)), Image.BILINEAR).rotate(tilt, expand=True, resample=Image.BICUBIC)
+    sh = Image.new("L", card.size, 0); sh.paste(card.split()[3].point(lambda v: int(v * .55 * k)), (0, 0))
+    sh = sh.filter(ImageFilter.GaussianBlur(18))
+    x, yc = int((W - card.size[0]) / 2), int(y + (1 - k) * 80)
+    img.paste(Image.new("RGB", card.size, (0, 0, 0)), (x + 10, yc + 22), sh)
+    alpha = card.split()[3].point(lambda v: int(v * k))
+    img.paste(card.convert("RGB"), (x, yc), alpha)

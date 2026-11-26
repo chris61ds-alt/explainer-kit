@@ -1,0 +1,54 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "kind": "mystery",
+ "plant": "lump of bronze",
+ "beats": [
+  {
+   "id": "cold",
+   "text": "In nineteen-oh-one, sponge divers pulled a lump of bronze from a two-thousand-year-old shipwreck.",
+   "speed": 1.05
+  },
+  {
+   "id": "stakes",
+   "text": "A year later, someone spotted a gear inside it. A tiny, hand-cut gear.",
+   "key": true
+  },
+  {
+   "id": "back",
+   "text": "Nothing that complex would be built for another thousand years. Some said: aliens."
+  },
+  {
+   "id": "but",
+   "text": "But X-ray scans revealed what was really inside: more than thirty bronze gears, and tiny Greek writing."
+  },
+  {
+   "id": "so",
+   "text": "So the lump was a machine. Turn a handle, and it tracked the sun and the moon, and predicted eclipses."
+  },
+  {
+   "id": "turn",
+   "text": "It was built by Greeks, between a hundred and fifty and a hundred years before Christ."
+  },
+  {
+   "id": "today",
+   "text": "Today, scientists call it the oldest known analog computer.",
+   "key": true
+  },
+  {
+   "id": "why",
+   "text": "No aliens. Just a lump of bronze, and Greek genius."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "1901: sponge divers recover finds from the Antikythera shipwreck (Roman era, c. 60s BC); May 1902: a gear wheel is noticed in a corroded fragment at the National Archaeological Museum, Athens (Spyridon and Valerios Stais). Linda Hall Library, 'Scientist of the Day' (2024); Wikipedia 'Antikythera mechanism'.",
+  "More than 30 hand-cut bronze gears; nothing comparable built for another thousand years; dated 150–100 BC; tracked sun and moon, predicted eclipses; X-ray tomography 2005–06. Freeth et al. (2006), 'Decoding the ancient Greek astronomical calculator known as the Antikythera Mechanism', Nature 444, 587–591; Live Science (2006); NYT (30 Nov 2006).",
+  "'Oldest known analog computer': IEEE REACH; History.com (2025). 'Some said: aliens' = popular ancient-astronaut claim, no evidence."
+ ]
+}
