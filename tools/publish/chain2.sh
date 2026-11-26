@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/claude/explainer-kit
+cd "$(dirname "${BASH_SOURCE[0]}")/../.."
 while pgrep -f "shared/build.py" >/dev/null; do sleep 4; done
 for e in "$@"; do
   python3 shared/build.py $e > /tmp/b_$e.log 2>&1

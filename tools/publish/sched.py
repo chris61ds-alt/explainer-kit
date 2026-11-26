@@ -1,5 +1,5 @@
 import json, csv, sys, glob, os
-os.chdir("/home/claude/explainer-kit")
+os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))   # repo root, wherever it is cloned
 P = "publish/schedule.json"; rows = json.load(open(P)); have = {r[2] for r in rows[1:]}
 for arg in sys.argv[1:]:
     n, date, time = arg.split(",")

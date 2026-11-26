@@ -4,13 +4,14 @@
 
 ## 1 · In 2 Minuten startklar
 ```bash
-git clone https://github.com/chris61ds-alt/explainer-kit && cd explainer-kit     # vorhanden? git pull
-git clone https://github.com/chris61ds-alt/notjustyou-media ../notjustyou-media    # Videos, Cover, Sendeplan
-ln -s /home/claude/notjustyou-media publish/media                                 # (lokal, nicht committen)
-bash setup.sh                                                                      # Pakete, Kokoro-Stimme, Whisper-ASR
-python3 shared/build.py ep162_wild_vs_farm                                         # Test: verify PASS + rules PASS
+cd /home/claude                                                          # beliebiger Ordner – beide Repos nebeneinander
+git clone https://github.com/chris61ds-alt/explainer-kit explainer-kit   # vorhanden? git pull
+git clone https://github.com/chris61ds-alt/notjustyou-media notjustyou-media
+cd explainer-kit && ln -s ../../notjustyou-media publish/media              # (lokal, nicht committen)
+bash setup.sh                                                             # Pakete, Kokoro-Stimme, Whisper-ASR
+python3 shared/build.py ep162_wild_vs_farm                                # Test: verify PASS + rules PASS
 ```
-Pfade in `tools/publish/*.sh` gehen von `/home/claude/explainer-kit` und `/home/claude/notjustyou-media` aus.
+Die Skripte in `tools/publish/` finden ihre Pfade selbst (Repo = zwei Ebenen über dem Skript, Media-Repo = Nachbarordner `notjustyou-media`; abweichend mit `NJY_MEDIA=/pfad`). Schreiben (Push) braucht Zugriff auf beide GitHub-Repos.
 
 ## 2 · Wo was steht
 | Datei | Inhalt |

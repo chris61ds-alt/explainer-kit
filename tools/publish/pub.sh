@@ -1,9 +1,10 @@
 #!/bin/bash
 # pub.sh epNNN_name date time  -> media + schedule + checklist + commits/push
-K=/home/claude/explainer-kit; M=/home/claude/notjustyou-media; e=$1; n=$(echo $e | sed -E 's/^ep0*([0-9]+)_.*/\1/'); cd $K
+K="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"; M="${NJY_MEDIA:-$(cd "$K/.." && pwd)/notjustyou-media}"   # paths from the script location (26.11.2026)
+e=$1; n=$(echo $e | sed -E 's/^ep0*([0-9]+)_.*/\1/'); cd $K
 grep -q '"rules": "PASS"' $e/build_report.json || { echo "rules FAIL - not published"; exit 1; }
 cp $e/$e.mp4 $M/nj$n.mp4 && python3 -c "from PIL import Image; Image.open('$e/${e}_cover.png').convert('RGB').save('$M/nj$n.jpg', quality=90)"
-python3 /home/claude/explainer-kit/tools/publish/sched.py $n,$2,$3 && cp publish/schedule.json $M/
+python3 "$K/tools/publish/sched.py" $n,$2,$3 && cp publish/schedule.json $M/
 rm -f tools/checklist/thumbs/nj$n.jpg; (cd tools/checklist && python3 make_eps.py && python3 build.py | tail -1)
 git add -A $e shared publish/schedule.* tools/checklist PROJEKT.md && git commit -qm "No. $n $e
 
