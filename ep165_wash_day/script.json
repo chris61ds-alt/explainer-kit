@@ -1,0 +1,53 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "kind": "doku",
+ "plant": "whole day",
+ "beats": [
+  {
+   "id": "cold",
+   "text": "It's Monday, nineteen hundred. Anna is doing the laundry, and it will take her the whole day.",
+   "speed": 1.05
+  },
+  {
+   "id": "stakes",
+   "text": "One load needs fifty gallons of water, carried in by hand.",
+   "key": true
+  },
+  {
+   "id": "back",
+   "text": "Water was hauled, heated on the stove, scrubbed, boiled and wrung."
+  },
+  {
+   "id": "but",
+   "text": "But that was just one load. In a year, a housewife carried thirty-six tons of water."
+  },
+  {
+   "id": "so",
+   "text": "So Monday was wash day, every single week."
+  },
+  {
+   "id": "turn",
+   "text": "Then came running water, electricity, and the washing machine."
+  },
+  {
+   "id": "today",
+   "text": "Today, you press one button, and you don't even have to watch.",
+   "key": true
+  },
+  {
+   "id": "why",
+   "text": "Anna's whole day is your one button."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "One load of laundry (washing, boiling, rinsing) used about 50 gallons of water; over a year a housewife walked 148 miles toting water and carried over 36 tons of water. Digital History, University of Houston, 'Private Life' (based on Susan Strasser, Never Done: A History of American Housework, 1982).",
+  "Anna is illustrative. 'Monday was wash day': common household routine around 1900 (Strasser 1982). Total housework hours 1900 vs. today are disputed (Lebergott vs. Ramey 2009) – not used."
+ ]
+}
