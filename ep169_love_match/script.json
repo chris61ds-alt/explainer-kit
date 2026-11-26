@@ -1,0 +1,53 @@
+{
+ "voice": "af_heart:0.5+af_bella:0.5",
+ "speed": 1.0,
+ "lang": "en-us",
+ "format": "v2",
+ "kind": "doku",
+ "plant": "your parents",
+ "beats": [
+  {
+   "id": "cold",
+   "text": "It's seventeen forty-three. You're getting married, and your parents picked the partner.",
+   "speed": 1.05
+  },
+  {
+   "id": "stakes",
+   "text": "Love isn't the point. Land, money and family are.",
+   "key": true
+  },
+  {
+   "id": "back",
+   "text": "Marriage was a deal between two families, not two hearts."
+  },
+  {
+   "id": "but",
+   "text": "But about two hundred years ago, a radical idea spread: marry for love."
+  },
+  {
+   "id": "so",
+   "text": "So choosing your own partner slowly became normal."
+  },
+  {
+   "id": "turn",
+   "text": "Then came dating, divorce, and finally the apps."
+  },
+  {
+   "id": "today",
+   "text": "Today, about eight in ten people say they're looking for a soulmate.",
+   "key": true
+  },
+  {
+   "id": "why",
+   "text": "What your parents decided, you now decide yourself."
+  },
+  {
+   "id": "end",
+   "text": "Not just you."
+  }
+ ],
+ "sources": [
+  "For most of history marriage was an economic and political arrangement between families; the 'love match' ideal spread in Western Europe and America from the late 18th century, about 200 years ago. Stephanie Coontz (2005), Marriage, a History: From Obedience to Intimacy (Viking); interviews (VOA 2005; Against the Current).",
+  "About 80% of both sexes (US) say they are looking for a soulmate: Coontz interview, Against the Current. 1743 = Hogarth's 'Marriage A-la-Mode' (illustrative)."
+ ]
+}
