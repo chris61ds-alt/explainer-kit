@@ -1,24 +1,27 @@
 {
- "voice": "af_heart:0.5+af_bella:0.5",
+ "voice": "pocket:alba",
  "speed": 1.0,
  "lang": "en-us",
  "format": "v2",
  "kind": "doku",
- "plant": "your parents",
+ "plant": "parents",
  "beats": [
   {
    "id": "cold",
-   "text": "It's seventeen forty-three. You're getting married, and your parents picked the partner.",
-   "speed": 1.05
+   "text": "London, seventeen forty-three. A wedding is being arranged. The bride and groom barely look at each other."
   },
   {
    "id": "stakes",
-   "text": "Love isn't the point. Land, money and family are.",
+   "text": "Because they didn't choose. Their parents did.",
    "key": true
   },
   {
    "id": "back",
-   "text": "Marriage was a deal between two families, not two hearts."
+   "text": "In Hogarth's famous painting, an earl points at his family tree. A rich merchant brings the money. Love isn't part of the deal."
+  },
+  {
+   "id": "detail",
+   "text": "For most of history, marriage was about land, money and alliances. Love? Far too fragile to build a life on."
   },
   {
    "id": "but",
@@ -26,11 +29,11 @@
   },
   {
    "id": "so",
-   "text": "So choosing your own partner slowly became normal."
+   "text": "So choosing your own partner slowly became normal. Balls. Letters. Courtship."
   },
   {
    "id": "turn",
-   "text": "Then came dating, divorce, and finally the apps."
+   "text": "Then came dating. Divorce. And finally, the apps."
   },
   {
    "id": "today",
@@ -39,7 +42,7 @@
   },
   {
    "id": "why",
-   "text": "What your parents decided, you now decide yourself."
+   "text": "Your parents' choice, back then. Your choice, now."
   },
   {
    "id": "end",
@@ -48,6 +51,7 @@
  ],
  "sources": [
   "For most of history marriage was an economic and political arrangement between families; the 'love match' ideal spread in Western Europe and America from the late 18th century, about 200 years ago. Stephanie Coontz (2005), Marriage, a History: From Obedience to Intimacy (Viking); interviews (VOA 2005; Against the Current).",
-  "About 80% of both sexes (US) say they are looking for a soulmate: Coontz interview, Against the Current. 1743 = Hogarth's 'Marriage A-la-Mode' (illustrative)."
+  "About 80% of both sexes (US) say they are looking for a soulmate: Coontz interview, Against the Current. 1743 = Hogarth's 'Marriage A-la-Mode' (illustrative).",
+  "Hogarth, 'Marriage A-la-Mode: 1, The Marriage Settlement' (c. 1743, National Gallery London): the gouty earl points to his family tree, the merchant father holds the contract, the couple turn away from each other. Film: 'Charity Ball' (Edison, 1897), public domain, illustrative (Internet Archive)."
  ]
 }
