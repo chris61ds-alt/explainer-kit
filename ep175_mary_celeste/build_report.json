@@ -1,0 +1,61 @@
+{
+ "episode": "ep175_mary_celeste",
+ "tts": "cached",
+ "asr_voice": [
+  "cold: 5/18 | December 4th, 1872. A ship drifts across the Atlantic, sails up, and nobody is on board.",
+  "log: 1/18 | The last log entry, November 25, near the island of Santa Maria, then nine days of silence."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 79.07,
+  "size_MiB": 74.9,
+  "black_intervals": [],
+  "loudness_LUFS": -13.9,
+  "true_peak_dBTP": -3.1,
+  "sha256": "ee9c4b53fc2ccd9b5ce9e0ebc5cf130c22d7d0bff0cdc6d48b995a8238c6120e",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-13.5": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "9/229 = 3.9%",
+ "asr_final_issues": [
+  "cold: 5/18 | December 4th, 1872. A ship drifts across the Atlantic, sails up, and nobody is on board.",
+  "back: 1/21 | Her name, the Mary Celeste. Captain Benjamin Briggs had taken his wife Sarah and their two-year-old daughter Sophia along. The",
+  "log: 3/18 | The last log entry, November 25, near the island of Santa Maria, then nine days of silence, in the"
+ ],
+ "duration_s": 79.06,
+ "longest_calm_s": 4.54,
+ "rules_detail": [
+  "ok   E kind · kind = 'board' (standard/stand/cliche/riddle/pour/race/map/story/doku/mystery/board/top3)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: ",
+  "ok   7 pause after key · stakes: 0.85 s (≥ 0.8)",
+  "ok   7 pause after key · today: 0.85 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 79.1 s (allowed 45–120 s for board)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 17.88",
+  "ok   13 nothing stands still · longest still stretch 0.1 s at 66.2 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam / doku EP.payoff in render.py",
+  "ok   16 look · light look + shadows (dark only for race, provisional, and doku)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:",
+  "ok   18 voice credit · caption ends with 'Voice: Kyutai Pocket TTS (alba), CC BY 4.0'",
+  "ok   M myth named · the myth is named as a claim ('Some said: ...'), never as fact",
+  "ok   M loop closed · the why beat closes the loop opened in cold",
+  "ok   B cut-aways · board mixes in film / pictures / drawings / newspapers (EP.inserts, ≥ 3 kinds or clips)",
+  "ok   D credits · every picture has a credit line (title · artist · licence)",
+  "ok   19 cold open first · first beat id 'cold' (the climax, not a question)",
+  "ok   20 stakes in 10 s · beat 'stakes' starts within 10 s",
+  "ok   22 but / so · at least one 'But' and one 'So'",
+  "ok   23 plant & payoff · plant 'ten people' in the first two beats and in 'why'"
+ ],
+ "rules": "PASS",
+ "cover": "ep175_mary_celeste_cover.png",
+ "caption": "ok"
+}

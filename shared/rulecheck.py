@@ -3,8 +3,8 @@ finished episode. Used by build.py; standalone: python3 shared/rulecheck.py epXX
 import os, re, sys, json, subprocess
 import numpy as np
 
-LEN = {"standard": (24, 32), "stand": (24, 32), "cliche": (24, 32), "map": (24, 32), "riddle": (24, 34), "pour": (24, 34), "race": (24, 40), "story": (40, 75), "doku": (28, 75), "mystery": (28, 75)}                     # doku: Chris 26.11.2026 "zügiger"
-DARK_OK = {"race", "doku", "mystery"}             # race: provisional (25.11.2026) · doku: dark archive look, Chris OK 26.11.2026
+LEN = {"standard": (24, 32), "stand": (24, 32), "cliche": (24, 32), "map": (24, 32), "riddle": (24, 34), "pour": (24, 34), "race": (24, 40), "story": (40, 75), "doku": (28, 75), "mystery": (28, 75), "board": (45, 120), "top3": (45, 120)}                     # doku: Chris 26.11.2026 "zügiger"
+DARK_OK = {"race", "doku", "mystery", "board", "top3"}             # race: provisional (25.11.2026) · doku: dark archive look, Chris OK 26.11.2026
 BAND = (470, 1180)
 
 
@@ -22,10 +22,10 @@ def check(ep, mp4, TL):
     cap = open(os.path.join(ep, "caption.md")).read() if os.path.exists(os.path.join(ep, "caption.md")) else ""
     kind = s.get("kind"); beats = {b["id"]: b for b in s["beats"]}; out = []
     def r(n, ok, msg): out.append((n, bool(ok), msg))
-    r("E kind", kind in LEN, f"kind = {kind!r} (standard/stand/cliche/riddle/pour/race/map/story/doku/mystery)")
+    r("E kind", kind in LEN, f"kind = {kind!r} (standard/stand/cliche/riddle/pour/race/map/story/doku/mystery/board/top3)")
     r("1 sources", len(s.get("sources", [])) > 0, "sources in script.json")
     hook = beats.get("hook", {}).get("text", "")
-    r("4 hook says you", kind in ("story", "doku", "mystery") or re.search(r"\byour?\b", hook, re.I), f"hook: {hook[:60]}")
+    r("4 hook says you", kind in ("story", "doku", "mystery", "board", "top3") or re.search(r"\byour?\b", hook, re.I), f"hook: {hook[:60]}")
     for k, b in beats.items():
         if b.get("key"):
             ks = list(TL.T); i = ks.index(k)
@@ -43,15 +43,20 @@ def check(ep, mp4, TL):
         still = still + 1 if v < .35 else 0
         if still > best: best, at = still, (i - still + 1) / 10
     r("13 nothing stands still", best / 10 <= 1.5, f"longest still stretch {best / 10:.1f} s at {at:.1f} s (≤ 1.5 s)")
-    r("14 camera at the payoff", "camera(" in src or "payoff_cam(" in src or "EP.payoff =" in src, "fx2.camera / stand.payoff_cam / doku EP.payoff in render.py")
+    r("14 camera at the payoff", "camera(" in src or "payoff_cam(" in src or "EP.payoff =" in src or "B.cam" in src, "fx2.camera / stand.payoff_cam / doku EP.payoff in render.py")
     r("16 look", kind in DARK_OK or ("light_look(" in src and ("shadowed(" in src or "ep=EP" in src)), "light look + shadows (dark only for race, provisional, and doku)")
     r("18 caption", cap and "#" not in cap and "👇" in cap and "Source:" in cap, "no hashtags · question + 👇 · Source:")
-    if kind == "mystery":                                                        # mystery format (Chris 26.11.2026)
+    if s.get("voice", "").startswith("pocket:"):                                 # 26.11.2026: licence CC BY 4.0 needs a credit
+        name = s["voice"][7:]
+        r("18 voice credit", f"Voice: Kyutai Pocket TTS ({name}), CC BY 4.0" in cap, f"caption ends with 'Voice: Kyutai Pocket TTS ({name}), CC BY 4.0'")
+    if kind in ("mystery", "board"):                                             # mystery format (Chris 26.11.2026)
         r("M myth named", re.search(r"\bSome (say|said|think|thought)\b", " ".join(b["text"] for b in s["beats"])), "the myth is named as a claim ('Some said: ...'), never as fact")
         r("M loop closed", s["beats"][-2]["id"] == "why", "the why beat closes the loop opened in cold")
-    if kind in ("doku", "mystery"):                                              # doku look (26.11.2026)
+    if kind == "board":                                                          # Chris 26.11.2026: "nicht nur Karten"
+        r("B cut-aways", "EP.inserts" in src and src.count("Insert(") >= 3, "board mixes in film / pictures / drawings / newspapers (EP.inserts, ≥ 3 kinds or clips)")
+    if kind in ("doku", "mystery", "board", "top3"):                             # doku look (26.11.2026)
         r("D credits", "credit=" in src or os.path.exists(os.path.join(ep, "img", "credits.json")), "every picture has a credit line (title · artist · licence)")
-    if kind in ("story", "doku", "mystery"):                                     # rules 19-23 (25.11.2026)
+    if kind in ("story", "doku", "mystery", "board"):                            # rules 19-23 (25.11.2026)
         ids = [b["id"] for b in s["beats"]]
         r("19 cold open first", ids[:1] == ["cold"], "first beat id 'cold' (the climax, not a question)")
         r("20 stakes in 10 s", "stakes" in TL.T and TL.T["stakes"]["start"] < 10, "beat 'stakes' starts within 10 s")

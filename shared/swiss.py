@@ -433,6 +433,9 @@ def build_audio(TL_, fx_cues, path, bpm=None, music_gaps=()):
     if M.get("audio", AUDIO) == "v5":
         import sound5
         mus = sound5.music(TL_, M, n, bpm, prog); tb = TL_.total          # skips the classic loop below
+    elif M.get("audio") == "doku":                                      # 26.11.2026: continuous cinematic bed (shared/doku_sound.py)
+        import doku_sound
+        mus = doku_sound.bed(TL_, M, n, prog); tb = TL_.total
     while tb < TL_.total - .3:
         ch = prog[i % 4]
         t_ = tt_(bar); env = np.minimum(1, t_ / .4) * np.exp(-t_ * .35)
@@ -847,7 +850,7 @@ class Episode:
         if V3: MUSIC["gaps"] = list(MUSIC.get("gaps", ())) + [(r - .35, r) for r in self.reveals()]
         if "--cover" in sys.argv: print("cover", self.make_cover(sys.argv[1])); return
         extra = []
-        if MUSIC.get("audio", AUDIO) == "v5":
+        if MUSIC.get("audio", AUDIO) in ("v5", "doku"):
             import sound5
             o = [k for k in self.order if k != "end"]
             MUSIC.update(reveals=self.reveals(), cuts=[self.TL.S(k) for k in o[1:]],

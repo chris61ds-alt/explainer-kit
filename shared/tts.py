@@ -8,7 +8,15 @@ s = json.load(open("script.json")); os.makedirs("vo", exist_ok=True); meta = []
 # 22.11.2026: external voice (ElevenLabs A/B test). "voice": "ext:<folder>" -> <folder>/<beat id>.mp3 (made by publish/ElevenLabs.gs),
 # only trimmed/squeezed here like Kokoro audio. Kokoro is not loaded then.
 EXT = s["voice"][4:] if s["voice"].startswith("ext:") else None
-if not EXT:
+# 26.11.2026: Kyutai Pocket TTS ("voice": "pocket:<name>", e.g. pocket:alba – model CC BY 4.0, voice alba CC BY 4.0 →
+# caption credit "Voice: Kyutai Pocket TTS (alba), CC BY 4.0"). Model loaded once; no speed parameter → a beat's speed ≠ 1 is
+# applied afterwards with ffmpeg atempo (pitch kept). SAY respellings were made for Kokoro/espeak: POCKET_SAY decides which
+# of them still apply (see STIMME_UEBERGABE.md).
+POCKET = s["voice"][7:] if s["voice"].startswith("pocket:") else None
+if POCKET:
+    from pocket_tts import TTSModel
+    PM = TTSModel.load_model(); PSTATE = PM.get_state_for_audio_prompt(POCKET)
+if not EXT and not POCKET:
     from kokoro_onnx import Kokoro
     K = os.path.expanduser("~/kokoro/"); k = Kokoro(K + "kokoro-v1.0.onnx", K + "voices-v1.0.bin")
 def load_ext(bid, sr=44100):
@@ -23,7 +31,7 @@ def voice_of(spec):
     for part in spec.split("+"):
         name, w = (part.split(":") + ["1"])[:2]; style = style + float(w) * k.get_voice_style(name.strip())
     return style
-VOICE = None if EXT else voice_of(s["voice"])
+VOICE = None if (EXT or POCKET) else voice_of(s["voice"])
 reveal = {s["beats"][i + 1]["id"] for i, b in enumerate(s["beats"][:-1]) if b.get("tease")} | {b["id"] for b in s["beats"] if b.get("reveal")}
 
 MAX_PAUSE = .15        # since 02.11.2026: pauses inside a beat (after "?", "!", ":") are capped – the sentence keeps flowing;
@@ -76,25 +84,49 @@ SAY = [(re.compile(r"\b([Ll])ive\b"), r"\1iv"),
        (re.compile(r"\b([Ll])ives (on|in|with|at|near|alone|together|off|like|abroad|here|there)\b"), r"\1ivz \2"),
        # 26.11.2026: names the voice mangles ("Merer" came out as "Murr")
        (re.compile(r"\bMerer\b"), "Mehrer")]
+POCKET_SAY = []            # tested 26.11.2026 (Whisper): alba reads 'live'/'lives on' right without respelling, and 'Merer' is
+                          # closer to correct unchanged ('mirror') than respelled ('Mehrer' → 'Marr') → no respellings for alba
 def say(p):
-    for rx, rep in SAY: p = rx.sub(rep, p)
+    for rx, rep in (POCKET_SAY if POCKET else SAY): p = rx.sub(rep, p)
     return p
+
+def tempo(a, sr, f):
+    """speed change without pitch change (ffmpeg atempo) – Pocket TTS has no speed parameter"""
+    if abs(f - 1) < .005: return a
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-f", "f32le", "-ar", str(sr), "-ac", "1", "-i", "-", "-af", f"atempo={f}", "-f", "f32le", "-"],
+                         input=a.astype(np.float32).tobytes(), capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.float32).astype(np.float64)
+
+def create(p, sp):
+    """one sentence/beat → (audio, sr) with the configured engine"""
+    if POCKET:
+        a = PM.generate_audio(PSTATE, say(p)).numpy().astype(np.float64).squeeze(); sr = PM.sample_rate
+        return tempo(a, sr, sp), sr
+    return k.create(say(p), voice=VOICE, speed=sp, lang=s["lang"])
 
 for b in s["beats"]:
     sp = b.get("speed") or (s["speed"] * (1.06 if b["id"] == "guess" else .94 if b["id"] in reveal else 1.0) if V3 else s["speed"])
     parts = [p for p in re.split(r"(?<=[.?!])\s+", b["text"]) if p]
     if EXT:
         a, sr = load_ext(b["id"]); a = squeeze(trim(a, sr), sr)
+    elif POCKET and len(parts) > 1:                                # narrator pauses between sentences (Chris 26.11.2026)
+        out = []; base = s.get("pause", .38)
+        for j, p in enumerate(parts):
+            a, sr = create(p, sp); out.append(squeeze(trim(a, sr, tail=.04), sr))
+            if j < len(parts) - 1:
+                short = len(p.split()) <= 3                         # 'Sails up.' / 'Gone.' -> a beat longer
+                out.append(np.zeros(int((base + (.14 if short else 0) + (.08 if p.endswith("?") else 0)) * sr)))
+        a = np.concatenate(out)
     elif V3 and (b["id"] in reveal or any(rising(p) for p in parts)):
         out = []; gap = .16 if b["id"] in reveal else .14
         for j, p in enumerate(parts):
-            a, sr = k.create(say(p), voice=VOICE, speed=sp, lang=s["lang"]); a = trim(a, sr, tail=.04)
+            a, sr = create(p, sp); a = trim(a, sr, tail=.04)
             if rising(p): a = rise(a, sr)
             out.append(squeeze(a, sr))
             if j < len(parts) - 1: out.append(np.zeros(int(gap * sr)))
         a = np.concatenate(out)
     else:
-        a, sr = k.create(say(b["text"]), voice=VOICE, speed=sp, lang=s["lang"]); a = squeeze(trim(a, sr), sr)
+        a, sr = create(b["text"], sp); a = squeeze(trim(a, sr), sr)
     f = int(.008 * sr); a[:f] *= np.linspace(0, 1, f); a[-f:] *= np.linspace(1, 0, f)
     sf.write(f"vo/{b['id']}.wav", a, sr); meta.append(dict(id=b["id"], text=b["text"], dur=len(a) / sr, sr=sr)); print(b["id"], round(len(a) / sr, 2))
 json.dump(meta, open("vo/meta.json", "w"), indent=1); json.dump(dict(sources=s.get("sources", [])), open("proof.json", "w"), indent=1)

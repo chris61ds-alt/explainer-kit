@@ -15,7 +15,8 @@ res["black_intervals"] = re.findall(r"black_start:[\d.]+ black_end:[\d.]+", bd);
 eb = run(["ffmpeg", "-i", f, "-af", "ebur128=peak=true", "-vn", "-f", "null", "-"]).stderr
 I = float(re.findall(r"I:\s+(-?[\d.]+) LUFS", eb)[-1]); TP = float(re.findall(r"Peak:\s+(-?[\d.]+) dBFS", eb)[-1])
 res["loudness_LUFS"] = I; res["true_peak_dBTP"] = TP
-checks["loudness -18..-14"] = -18 <= I <= -14; checks["true_peak<=-1"] = TP <= -1.0
+checks["loudness -18..-13.5"] = -18 <= I <= -13.5;   # -14 target since 26.11.2026 (±0.5)
+checks["true_peak<=-1"] = TP <= -1.0
 res["sha256"] = hashlib.sha256(open(f, "rb").read()).hexdigest()
 res["checks"] = checks
 print(json.dumps(res, indent=1)); print("PASS" if all(checks.values()) else "FAIL")

@@ -27,12 +27,13 @@ WHITE = (250, 246, 238)
 SHADE = (14, 11, 8)
 import cute
 cute.PAPER = np.zeros_like(cute.PAPER)                 # doku has its own moving film grain; the static paper grain cost ~45 MiB
-TAG_Y, CAP_Y, CAP_W = 236, 1100, 860          # top UI ends ~200, bottom UI starts ~1480 (SAFE_B)
+TAG_Y, CAP_Y, CAP_W = 236, 1100, 860
+CARD_W, CARD_H, CARD_Y = 960, 600, 880          # mode 'card': max card size and centre (between tag/counter and subtitles)          # top UI ends ~200, bottom UI starts ~1480 (SAFE_B)
 
 
 class Shot:
-    """one picture: from/to = (focus x 0..1, focus y 0..1, zoom ≥ 1 relative to 'cover'); mode 'cover' (full bleed) or
-    'fit' (whole picture on black, e.g. the Earth at night); grade = (brightness, warmth 0..1, sepia 0..1)"""
+    """one picture: from/to = (focus x 0..1, focus y 0..1, zoom ≥ 1 relative to 'cover'); mode 'cover' (full bleed),
+    'fit' (whole picture on black, e.g. the Earth at night) or 'card' (whole picture as a card on its own blurred copy); grade = (brightness, warmth 0..1, sepia 0..1)"""
     def __init__(self, beat, img, a, b, tag="", credit="", start=None, mode="cover", grade=(.82, .35, 0.0), flicker=0.0, ghost=0.0):
         self.beat, self.img, self.a, self.b, self.tag, self.credit = beat, img, a, b, tag, credit
         self.start, self.mode, self.grade, self.flicker = start, mode, grade, flicker
@@ -128,6 +129,7 @@ class DokuEpisode(Episode):
         """Ken Burns: focus/zoom eased from s.a to s.b over the shot (k = 0..1)"""
         im = self.pic(s.img); iw, ih = im.size; e = ease_io(k)
         fx, fy, z = (lerp(p, q, e) for p, q in zip(s.a, s.b))
+        if s.mode == "card": return self.render_card(s, im, z, t)
         if s.mode == "fit":
             sc = W / iw * z; bg = Image.new("RGB", (W, H), (0, 0, 0))
         else:
@@ -149,6 +151,33 @@ class DokuEpisode(Episode):
             dx = int(s.ghost * 60 * ease_io(k)) + 1
             a = a * .55 + np.roll(a, dx, axis=1) * .25 + np.roll(a, -dx // 2, axis=1) * .2
         return a
+
+    def render_card(self, s, im, z, t):
+        """mode 'card' (26.11.2026, after the 'Fehler in der Matrix' reel): the WHOLE picture as a card in the middle, behind it
+        the same picture enlarged, blurred and darkened. For small or wide archive pictures that would get mushy when cropped.
+        z (from the shot's a/b) gently scales the card; the background drifts slowly."""
+        key = ("bg", s.img)
+        if key not in self._img:
+            iw, ih = im.size; sc = max(W / iw, H / ih) * 1.15
+            bg = im.resize((int(iw * sc), int(ih * sc)), Image.BILINEAR)
+            bg = bg.crop(((bg.width - W) // 2, (bg.height - H) // 2, (bg.width - W) // 2 + W, (bg.height - H) // 2 + H))
+            self._img[key] = np.asarray(bg.filter(ImageFilter.GaussianBlur(28)), np.float32) * .45
+        a = self._img[key].copy()
+        iw, ih = im.size; sc = min(CARD_W / iw, CARD_H / ih) * z
+        cw, ch = int(iw * sc), int(ih * sc)
+        card = np.asarray(im.resize((cw, ch), Image.BILINEAR), np.float32)
+        x0, y0 = (W - cw) // 2, int(CARD_Y - ch / 2)
+        # soft shadow under the card
+        sh = Image.new("L", (W, H), 0); ImageDraw.Draw(sh).rectangle([x0 + 8, y0 + 18, x0 + cw + 8, y0 + ch + 18], fill=170)
+        sh = np.asarray(sh.filter(ImageFilter.GaussianBlur(22)), np.float32)[..., None] / 255
+        a = a * (1 - sh)
+        ys, ye = max(0, y0), min(H, y0 + ch); xs, xe = max(0, x0), min(W, x0 + cw)
+        a[ys:ye, xs:xe] = card[ys - y0:ye - y0, xs - x0:xe - x0]
+        b, warm, sep = s.grade
+        if sep:
+            g = a @ np.array([.299, .587, .114], np.float32); a = a * (1 - sep) + np.stack([g, g * .86, g * .66], -1) * sep
+        if warm: a = a * np.array([1 + .08 * warm, 1 + .01 * warm, 1 - .12 * warm], np.float32)
+        return a * b
 
     def camera(self, img, t):
         """payoff camera (rule 14): slow pull back on the final picture"""

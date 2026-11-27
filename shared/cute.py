@@ -289,6 +289,7 @@ def build_audio(TL, fx_cues, path, bpm=112, music_gaps=()):
         w_.setnchannels(2); w_.setsampwidth(2); w_.setframerate(SR); w_.writeframes((st * 32767).astype(np.int16).tobytes())
 
 # ---------------------------------------------------------------- harness
+LOUD = -16          # integrated loudness target (LUFS); doku/board/top3 use -14 (26.11.2026, Dyatlov reference)
 def run(TL, draw_frame, fx_cues, music_gaps=()):
     """CLI: out.mp4  |  sheet.png --t 1,2,3"""
     def frame(fr):
@@ -310,7 +311,7 @@ def run(TL, draw_frame, fx_cues, music_gaps=()):
     total = int(round(TL.total * FPS))
     p = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
                           "-i", "-", "-i", wav, "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "24", "-preset", "slow",
-                          "-af", "loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000,alimiter=limit=0.75:level=false", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest",
+                          "-af", f"loudnorm=I={LOUD}:TP=-1.5:LRA=11,aresample=48000,alimiter=limit=0.75:level=false", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest",
                           "-movflags", "+faststart", out], stdin=subprocess.PIPE)
     for fr in range(total):
         p.stdin.write(frame(fr).tobytes())
