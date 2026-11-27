@@ -2,13 +2,13 @@
 import sys, json, time, re, urllib.request, urllib.parse
 UA = {"User-Agent": "NotJustYouExplainer/1.0 (https://github.com/chris61ds-alt/explainer-kit; educational reels)"}
 API = "https://commons.wikimedia.org/w/api.php"
-def get(params, tries=4):
+def get(params, tries=7):
     url = API + "?" + urllib.parse.urlencode(dict(params, format="json"))
     for i in range(tries):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r: return json.load(r)
         except urllib.error.HTTPError as e:
-            if e.code == 429: time.sleep(8 * (i + 1)); continue
+            if e.code == 429: time.sleep(15 * (i + 1)); continue
             raise
     raise SystemExit("rate limited")
 def strip(h): return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", h or "")).strip()

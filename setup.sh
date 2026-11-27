@@ -8,7 +8,8 @@ pip install -q kokoro-onnx==0.6.1 sherpa-onnx pyworld soundfile scipy numpy pill
   || pip install -q kokoro-onnx==0.6.1 sherpa-onnx pyworld soundfile scipy numpy pillow
 echo "2/4 ffmpeg"
 command -v ffmpeg >/dev/null || { (apt-get update -qq && apt-get install -y -qq ffmpeg) || { echo "ffmpeg fehlt und konnte nicht installiert werden"; exit 1; }; }
-echo "3/4 Stimme (Kokoro, ~340 MB)"
+echo "3/4 Stimmen: Pocket TTS alba (Standard seit 26.11.2026, PyPI-Torch, dauert lange) + Kokoro (ältere Folgen)"
+pip install -q pocket-tts --break-system-packages 2>/dev/null || pip install -q pocket-tts
 mkdir -p ~/kokoro
 [ -s ~/kokoro/kokoro-v1.0.onnx ] || curl -sSL -o ~/kokoro/kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
 [ -s ~/kokoro/voices-v1.0.bin ]  || curl -sSL -o ~/kokoro/voices-v1.0.bin  https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
