@@ -1,5 +1,5 @@
 {
- "voice": "af_heart:0.5+af_bella:0.5",
+ "voice": "pocket:alba",
  "speed": 1.0,
  "lang": "en-us",
  "format": "v2",
@@ -8,38 +8,41 @@
  "beats": [
   {
    "id": "cold",
-   "text": "It's Monday, nineteen hundred. Anna is doing the laundry, and it will take her the whole day.",
-   "speed": 1.05
+   "text": "Monday, nineteen hundred. Anna gets up before dawn. Today is wash day. And it will take her the whole day."
   },
   {
    "id": "stakes",
-   "text": "One load needs fifty gallons of water, carried in by hand.",
+   "text": "One load of laundry needs about fifty gallons of water. Every drop, carried in by hand.",
    "key": true
   },
   {
    "id": "back",
-   "text": "Water was hauled, heated on the stove, scrubbed, boiled and wrung."
+   "text": "She hauls it from the pump. Heats it on the stove. Scrubs every shirt on a washboard. Boils it. Wrings it. Hangs it out."
+  },
+  {
+   "id": "detail",
+   "text": "In one year, she walks about a hundred and fifty miles, just carrying water. That's thirty-six tons."
   },
   {
    "id": "but",
-   "text": "But that was just one load. In a year, a housewife carried thirty-six tons of water."
+   "text": "But the work isn't over. Tuesday is ironing day. With heavy irons, heated on that same stove."
   },
   {
    "id": "so",
-   "text": "So Monday was wash day, every single week."
+   "text": "So every week began the same way. Monday, washing. Tuesday, ironing."
   },
   {
    "id": "turn",
-   "text": "Then came running water, electricity, and the washing machine."
+   "text": "Then came running water. Electricity. And the washing machine."
   },
   {
    "id": "today",
-   "text": "Today, you press one button, and you don't even have to watch.",
+   "text": "Today, you press one button. And you don't even have to watch.",
    "key": true
   },
   {
    "id": "why",
-   "text": "Anna's whole day is your one button."
+   "text": "Anna's whole day, and thirty-six tons of water. Now it's one button."
   },
   {
    "id": "end",
@@ -47,7 +50,8 @@
   }
  ],
  "sources": [
-  "One load of laundry (washing, boiling, rinsing) used about 50 gallons of water; over a year a housewife walked 148 miles toting water and carried over 36 tons of water. Digital History, University of Houston, 'Private Life' (based on Susan Strasser, Never Done: A History of American Housework, 1982).",
-  "Anna is illustrative. 'Monday was wash day': common household routine around 1900 (Strasser 1982). Total housework hours 1900 vs. today are disputed (Lebergott vs. Ramey 2009) – not used."
+  "One load (washing, boiling, rinsing) about 50 gallons of water; per year a housewife walked about 148 miles toting water and carried over 36 tons. Digital History, University of Houston, 'Private Life', based on Susan Strasser, Never Done: A History of American Housework (1982).",
+  "Wash day Monday, ironing Tuesday with sad irons heated on the stove: traditional household routine (Strasser 1982). Anna is illustrative.",
+  "Film: Lumière, 'Laveuses sur la rivière' (1897), public domain, illustrative (Internet Archive)."
  ]
 }

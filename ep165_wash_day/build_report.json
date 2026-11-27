@@ -1,47 +1,52 @@
 {
  "episode": "ep165_wash_day",
- "tts": "new",
+ "tts": "cached",
  "asr_voice": [
-  "cold: 3/17 | It's Monday, 1900. Anna is doing the laundry and it will take her the whole day."
+  "cold: 3/20 | Monday 1900. Anna gets up before dawn. Today is wash day and it will take her the whole day.",
+  "back: 1/24 | She hauls it from the pump, heats it on the stove, scrubs every shirt on a washboard, boils it, rings it, hangs it out.",
+  "detail: 1/18 | In one year, she walks about 150 miles just carrying water. That's 36 tons. (buzzing)"
  ],
  "verify": "PASS",
  "verify_detail": {
   "video": "h264 1080x1920 yuv420p 30/1",
   "audio": "aac 48000 Hz 2ch",
-  "duration_s": 31.07,
-  "size_MiB": 23.8,
+  "duration_s": 54.0,
+  "size_MiB": 33.9,
   "black_intervals": [],
-  "loudness_LUFS": -16.2,
+  "loudness_LUFS": -14.3,
   "true_peak_dBTP": -2.7,
-  "sha256": "216e5515d4d100ae8ef45dae750a670dbdae2aa68eecb3133d82f3ca86d4f1a8",
+  "sha256": "2b39fbc62182a94a0e02923d7bb9dd532501366a55db79682b1057f43a2956ef",
   "checks": {
    "spec": true,
    "size<=95MiB": true,
    "no_black": true,
-   "loudness -18..-14": true,
+   "loudness -18..-13.5": true,
    "true_peak<=-1": true
   }
  },
- "asr_final_wer": "3/92 = 3.3%",
+ "asr_final_wer": "5/140 = 3.6%",
  "asr_final_issues": [
-  "cold: 3/17 | It's Monday, 1900. Anna is doing the laundry and it will take her the whole day."
+  "cold: 3/20 | Monday 1900 Anna gets up before dawn. Today is wash day and it will take her the whole day.",
+  "back: 1/24 | She hauls it from the pump, heats it on the stove, scrubs every shirt on a washboard, boils it, rings it, hangs it out.",
+  "detail: 1/18 | In one year, she walks about 150 miles just carrying water. That's 36 tons."
  ],
- "duration_s": 31.07,
- "longest_calm_s": 3.58,
+ "duration_s": 54.0,
+ "longest_calm_s": 3.9,
  "rules_detail": [
-  "ok   E kind · kind = 'doku' (standard/stand/cliche/riddle/pour/race/map/story/doku)",
+  "ok   E kind · kind = 'doku' (standard/stand/cliche/riddle/pour/race/map/story/doku/mystery/board/top3)",
   "ok   1 sources · sources in script.json",
   "ok   4 hook says you · hook: ",
   "ok   7 pause after key · stakes: 0.85 s (≥ 0.8)",
   "ok   7 pause after key · today: 0.85 s (≥ 0.8)",
   "ok   7 key beat marked · one beat with \"key\": true",
   "ok   9 end beat · last beat 'end' = Not just you.",
-  "ok   10 length · 31.1 s (allowed 28–75 s for doku)",
-  "ok   11 motion from frame 0 · max change in the first 0.5 s: 3.74",
+  "ok   10 length · 54.0 s (allowed 28–75 s for doku)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 12.79",
   "ok   13 nothing stands still · longest still stretch 0.0 s at 0.0 s (≤ 1.5 s)",
   "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam / doku EP.payoff in render.py",
   "ok   16 look · light look + shadows (dark only for race, provisional, and doku)",
   "ok   18 caption · no hashtags · question + 👇 · Source:",
+  "ok   18 voice credit · caption ends with 'Voice: Kyutai Pocket TTS (alba), CC BY 4.0'",
   "ok   D credits · every picture has a credit line (title · artist · licence)",
   "ok   19 cold open first · first beat id 'cold' (the climax, not a question)",
   "ok   20 stakes in 10 s · beat 'stakes' starts within 10 s",
