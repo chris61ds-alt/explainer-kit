@@ -361,7 +361,7 @@ def insert_fx(inserts):
 
 
 # ---- keep everything inside the frame (Chris 27.11.2026: "alle Elemente komplett im sichtbaren Bereich") -----------
-SAFE = (60, 200, 60, 1060)          # left, top, right margin, bottom edge in screen px: above the subtitles (CAP_Y 1100)
+SAFE = (60, 300, 60, 1060)          # left, top, right margin, bottom edge in screen px: above the subtitles (CAP_Y 1100)
 
 def _box(it):
     hw, hh = it.rw / 2, it.rh / 2

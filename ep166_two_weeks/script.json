@@ -1,5 +1,5 @@
 {
- "voice": "af_heart:0.5+af_bella:0.5",
+ "voice": "pocket:alba",
  "speed": 1.0,
  "lang": "en-us",
  "format": "v2",
@@ -8,21 +8,24 @@
  "beats": [
   {
    "id": "cold",
-   "text": "It's seventeen sixty-three. You live in London, your love lives in Edinburgh, and the coach takes two weeks.",
-   "speed": 1.05
+   "text": "London, seventeen sixty-three. The person you love lives in Edinburgh. And you want to see them."
   },
   {
    "id": "stakes",
-   "text": "And it only leaves once a month.",
+   "text": "The coach takes two weeks. And it only leaves once a month.",
    "key": true
   },
   {
    "id": "back",
-   "text": "Coaches crawled along muddy roads and stopped every night."
+   "text": "Four hundred miles of muddy roads. The horses are changed again and again. Every night, you stop at an inn."
+  },
+  {
+   "id": "detail",
+   "text": "In seventeen eighty-four, John Palmer had an idea. Put the mail on fast coaches. Fresh horses every few miles. And a guard with a gun."
   },
   {
    "id": "but",
-   "text": "But by eighteen thirty, mail coaches ran day and night, in under two days."
+   "text": "But by eighteen thirty, mail coaches ran day and night. London to Edinburgh, in under two days."
   },
   {
    "id": "so",
@@ -30,7 +33,7 @@
   },
   {
    "id": "turn",
-   "text": "Then came the railway, the telegraph, and the phone."
+   "text": "Then came the railway. The telegraph. And the phone."
   },
   {
    "id": "today",
@@ -39,7 +42,7 @@
   },
   {
    "id": "why",
-   "text": "Their two weeks of waiting are your two seconds."
+   "text": "Two weeks, to see the one you love. Two seconds, to tell them."
   },
   {
    "id": "end",
@@ -48,6 +51,7 @@
  ],
  "sources": [
   "1763: one stage coach a month from Edinburgh to London, 12–14 days; about 1830: six or seven coaches a day, about 48 hours. All the Year Round (Dickens' magazine), vol. VI, p. 302. 1829: the North Mail London→Edinburgh in about 43.5 hours. The Spectator, 11 July 1829, 'The North Mail'.",
-  "The lovers are illustrative."
+  "The lovers are illustrative. London–Edinburgh ≈ 400 miles by road; overnight stops at inns on 18th-century stage-coach journeys. Film: 'Fast Mail, Northern Pacific R.R.' (Edison, 1897), public domain, illustrative (Internet Archive).",
+  "John Palmer's mail coaches from 1784 (first run Bristol–London), horses changed at stages, armed Royal Mail guard: Postal Museum (UK), 'Mail coaches'."
  ]
 }
