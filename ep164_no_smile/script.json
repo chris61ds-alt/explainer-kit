@@ -1,24 +1,27 @@
 {
- "voice": "af_heart:0.5+af_bella:0.5",
+ "voice": "pocket:alba",
  "speed": 1.0,
  "lang": "en-us",
  "format": "v2",
  "kind": "doku",
- "plant": "full minute",
+ "plant": "empty",
  "beats": [
   {
    "id": "cold",
-   "text": "It's eighteen forty. You're sitting for your first photo, and you can't move for a full minute.",
-   "speed": 1.05
+   "text": "Paris, eighteen thirty-eight. A busy boulevard. Carriages, horses, people everywhere."
   },
   {
    "id": "stakes",
-   "text": "Blink, and your face turns into a blur.",
+   "text": "But in the very first photo of it, the street is empty.",
    "key": true
   },
   {
    "id": "back",
-   "text": "Early cameras needed up to ninety seconds of light."
+   "text": "The picture needed minutes of light. Everything that moved simply vanished. Except one man. He stood still, to get his boots shined."
+  },
+  {
+   "id": "detail",
+   "text": "That's how you got into a photo. You froze. Studios even put iron stands behind your head. Blink, and your face became a blur."
   },
   {
    "id": "but",
@@ -26,20 +29,20 @@
   },
   {
    "id": "so",
-   "text": "So people stayed serious for another reason: a photo was rare, expensive, and forever."
+   "text": "So why still no smiles? A photo was rare, expensive, and forever. Some people were even told to say prunes, to keep the mouth small."
   },
   {
    "id": "turn",
-   "text": "Then came cheap cameras, snapshots, and finally phones."
+   "text": "Then, in nineteen hundred, Kodak's Brownie camera cost one dollar. Suddenly, everyone took snapshots. And the smile moved in."
   },
   {
    "id": "today",
-   "text": "Today, a photo takes less than a hundredth of a second, and you can smile in all of them.",
+   "text": "Today, your phone takes a photo in less than a hundredth of a second.",
    "key": true
   },
   {
    "id": "why",
-   "text": "Their full minute of stillness is your blink."
+   "text": "The street looked empty, because nobody stood still for minutes. You just need a blink."
   },
   {
    "id": "end",
@@ -47,7 +50,10 @@
   }
  ],
  "sources": [
-  "Early daguerreotype portraits (1839–1845) needed about 60–90 seconds of sitting still; after about 1845 (bromine) exposures fell to a few seconds; serious faces had other reasons too (photos were rare, expensive, solemn). Mental Floss, 'Daguerreotype Q&A'; Getty Museum (2023), 'Say Prunes! The surprising history of the smile in early photographs'.",
-  "Modern phone cameras in normal light: exposure times well under 1/100 s (general camera knowledge)."
+  "Daguerre, 'Boulevard du Temple' (1838): exposure of several minutes; moving traffic does not register; a man having his boots shined is the first person known to appear in a photograph. Sources: Getty/Smarthistory; Wikipedia 'Boulevard du Temple (photograph)'.",
+  "Early daguerreotype portraits (1839–1845) needed up to 60–90 s+; posing stands/head rests held sitters still; by the 1850s (faster lenses, collodion) a few seconds. Getty Museum (2023), 'Say Prunes! The surprising history of the smile in early photographs'; Mental Floss.",
+  "'Say prunes' to keep the mouth small: 19th-century advice cited by the Getty Museum article (2023).",
+  "Kodak Brownie: launched February 1900, price $1 (Kodak / George Eastman Museum). Phone exposure in normal light well under 1/100 s.",
+  "Film clips: Lumière, 'Paris, le Pont-Neuf' (1897) – illustrative, public domain (via Internet Archive)."
  ]
 }
