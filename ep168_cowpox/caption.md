@@ -1,15 +1,19 @@
-It's 1796. A doctor scratches pus from a milkmaid's cowpox into the arm of one boy. 🐄
+England, 1796. A doctor takes pus from a milkmaid's hand and scratches it into the arm of an 8-year-old boy. 💉
 
-Two months later, he exposes the boy to smallpox, on purpose.
-Smallpox killed about three in ten people who caught it. But the boy never got sick.
+Weeks later, he infects the same boy with smallpox. On purpose.
+Smallpox killed about three in ten people who caught it. Many survivors were scarred, or blind.
 
-The trick got a name: vaccination, from vacca, Latin for cow.
+The doctor was Edward Jenner. He had heard that milkmaids who caught cowpox, a mild disease from cows, never got smallpox.
+Would it work? The boy, James Phipps, never got sick.
+
+People were scared. A famous 1802 cartoon showed vaccinated people growing cows. But the name stuck: vaccination, from "vacca", Latin for cow.
 In 1980, smallpox was declared gone, the only human disease ever eradicated.
 
-It all started with one boy and a milkmaid's cow.
+It all started with one boy, one milkmaid and a cow named Blossom. 🐄
 
 Did you know where the word vaccine comes from? 👇
 
-Not just you (The doctor was Edward Jenner, the boy 8-year-old James Phipps, the milkmaid Sarah Nelmes.)
+Not just you (Infecting a child on purpose would never be allowed today. Blossom's hide still hangs in a London medical school library.)
 
-Source: WHO, History of smallpox vaccination; Our World in Data. Pictures: Wikimedia Commons (public domain, Wellcome Collection CC BY 4.0)
+Source: WHO, "History of smallpox vaccination"; Jenner (1798), An Inquiry into the Causes and Effects of the Variolae Vaccinae; Gillray (1802), "The Cow-Pock". Pictures: Wikimedia Commons, Wellcome Collection (public domain, CC BY 4.0)
+Voice: Kyutai Pocket TTS (alba), CC BY 4.0
