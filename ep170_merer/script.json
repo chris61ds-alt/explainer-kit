@@ -1,5 +1,5 @@
 {
- "voice": "af_heart:0.5+af_bella:0.5",
+ "voice": "pocket:alba",
  "speed": 1.0,
  "lang": "en-us",
  "format": "v2",
@@ -8,33 +8,36 @@
  "beats": [
   {
    "id": "cold",
-   "text": "In twenty thirteen, archaeologists found a diary in a cave by the Red Sea.",
-   "speed": 1.05
+   "text": "Twenty thirteen. In caves by the Red Sea, archaeologists find something they never expected. Papyrus. Rolled up, and covered in writing."
   },
   {
    "id": "stakes",
-   "text": "It was written by a man who helped build the Great Pyramid.",
+   "text": "It's a diary. Written by a man who helped build the Great Pyramid.",
    "key": true
   },
   {
    "id": "back",
-   "text": "For decades, people asked how that was even possible. Some said: aliens."
+   "text": "For centuries, people asked how the pyramid was even possible. Some said: aliens."
+  },
+  {
+   "id": "detail",
+   "text": "The diary's author was Merer, an inspector. He led about forty boatmen. And he wrote down their days, one by one."
   },
   {
    "id": "but",
-   "text": "But the diary is a logbook. Its author, Merer, led about forty boatmen."
+   "text": "But what he wrote is no mystery. Load stone at Tura. Sail the Nile. Unload at Giza."
   },
   {
    "id": "so",
-   "text": "So we know what they did: they shipped limestone along the Nile, about two hundred blocks a month."
+   "text": "So, about thirty blocks per trip. Around two hundred blocks a month."
   },
   {
    "id": "turn",
-   "text": "The stone came from the quarries at Tura, most likely for the pyramid's white outer shell."
+   "text": "The stone was white limestone, most likely for the pyramid's smooth outer shell."
   },
   {
    "id": "today",
-   "text": "It's the oldest inscribed papyrus ever found in Egypt, over four and a half thousand years old.",
+   "text": "It's the oldest inscribed papyrus ever found in Egypt. Over four and a half thousand years old.",
    "key": true
   },
   {
@@ -49,6 +52,7 @@
  "sources": [
   "Diary of Merer (Papyrus Jarf A and B): logbooks of the inspector Merer, found in 2013 at Wadi al-Jarf on the Red Sea by a French mission under Pierre Tallet; year 27 of Khufu; the team transported white limestone from the Tura quarries to Giza by boat; about 30 blocks of 2–3 t per round trip, about 200 blocks per month, about 40 boatmen; Tallet: most likely for the outer casing of the Great Pyramid. Wikipedia 'Diary of Merer' and references (Tallet 2017, Les papyrus de la Mer Rouge I).",
   "Oldest inscribed papyri found in Egypt, written more than 4,500 years ago: History.com (2016/2025), Tallet & Marouard (2014), Near Eastern Archaeology; National Geographic.",
-  "'Some said: aliens' refers to the popular ancient-astronaut claim (e.g. TV series); no evidence supports it."
+  "'Some said: aliens' refers to the popular ancient-astronaut claim (e.g. TV series); no evidence supports it.",
+  "Locations: Wadi al-Jarf harbour on the Red Sea coast (~29.0° N, 32.6° E); Tura limestone quarries (~29.93° N, 31.28° E) on the east bank opposite Giza. Map imagery: Sentinel-2 cloudless 2016 by EOX (CC BY 4.0)."
  ]
 }
