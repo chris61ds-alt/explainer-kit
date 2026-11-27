@@ -72,3 +72,5 @@ Bausteine: `fx2.camera/cam_path/stamp/light_look`, `stand.shadowed/you_marker/da
 
 
 **Stimme (26.11.2026):** Standard `pocket:alba`. Letzte Caption-Zeile immer `Voice: Kyutai Pocket TTS (alba), CC BY 4.0` (Lizenz).
+
+**Karten (27.11.2026):** `shared/maps.py` – Satelliten-Zoom und Routen als Zwischenschnitt (`MapInsert`). Bilder NUR EOX Sentinel-2 cloudless 2016/2017 (CC BY 4.0, Credit `maps.CREDIT`); 2018+ ist CC BY-NC-SA → verboten. Kein Google Maps (Nutzungsbedingungen).
