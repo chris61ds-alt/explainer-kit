@@ -1,0 +1,53 @@
+{
+ "episode": "ep176_middle",
+ "tts": "cached",
+ "asr_voice": [
+  "explain: 1/15 | 5 steps from porous to richest. Each dot is one person on their real step.",
+  "poor: 2/21 | In every country, at least two in three poorer people place themselves too high. In Nigeria, more than nine and ten.",
+  "rich: 1/16 | And in Denmark, where answers were checked against tax records, richer people place themselves too low."
+ ],
+ "verify": "PASS",
+ "verify_detail": {
+  "video": "h264 1080x1920 yuv420p 30/1",
+  "audio": "aac 48000 Hz 2ch",
+  "duration_s": 41.23,
+  "size_MiB": 4.3,
+  "black_intervals": [],
+  "loudness_LUFS": -14.0,
+  "true_peak_dBTP": -2.5,
+  "sha256": "bf70849d460bcd065b41dc2b54eff3a225ed597532f1d8763dd9d9a176ac0fb3",
+  "checks": {
+   "spec": true,
+   "size<=95MiB": true,
+   "no_black": true,
+   "loudness -18..-13.5": true,
+   "true_peak<=-1": true
+  }
+ },
+ "asr_final_wer": "4/118 = 3.4%",
+ "asr_final_issues": [
+  "explain: 1/15 | Five steps from porous to richest. Each dot is one person on their real step.",
+  "poor: 2/21 | In every country, at least two in three poorer people place themselves too high. In Nigeria, more than nine and ten.",
+  "rich: 1/16 | And in Denmark, where answers were checked against tax records, richer people place themselves too low."
+ ],
+ "duration_s": 41.22,
+ "longest_calm_s": 2.78,
+ "rules_detail": [
+  "ok   E kind · kind = 'data' (standard/stand/cliche/riddle/pour/race/map/story/doku/mystery/board/top3/data)",
+  "ok   1 sources · sources in script.json",
+  "ok   4 hook says you · hook: Where do you stand? Ask people, rich or poor, and almost eve",
+  "ok   7 pause after key · reveal: 0.85 s (≥ 0.8)",
+  "ok   7 key beat marked · one beat with \"key\": true",
+  "ok   9 end beat · last beat 'end' = Not just you.",
+  "ok   10 length · 41.2 s (allowed 30–60 s for data)",
+  "ok   11 motion from frame 0 · max change in the first 0.5 s: 14.02",
+  "ok   13 nothing stands still · longest still stretch 1.5 s at 21.3 s (≤ 1.5 s)",
+  "ok   14 camera at the payoff · fx2.camera / stand.payoff_cam / doku EP.payoff in render.py",
+  "ok   16 look · light look + shadows (dark only for race, provisional, and doku)",
+  "ok   18 caption · no hashtags · question + 👇 · Source:",
+  "ok   18 voice credit · caption ends with 'Voice: Kyutai Pocket TTS (alba), CC BY 4.0'"
+ ],
+ "rules": "PASS",
+ "cover": "ep176_middle_cover.png",
+ "caption": "ok"
+}

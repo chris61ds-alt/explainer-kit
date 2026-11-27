@@ -3,7 +3,7 @@ finished episode. Used by build.py; standalone: python3 shared/rulecheck.py epXX
 import os, re, sys, json, subprocess
 import numpy as np
 
-LEN = {"standard": (24, 32), "stand": (24, 32), "cliche": (24, 32), "map": (24, 32), "riddle": (24, 34), "pour": (24, 34), "race": (24, 40), "story": (40, 75), "doku": (28, 75), "mystery": (28, 75), "board": (45, 120), "top3": (45, 120)}                     # doku: Chris 26.11.2026 "zügiger"
+LEN = {"standard": (24, 32), "stand": (24, 32), "cliche": (24, 32), "map": (24, 32), "riddle": (24, 34), "pour": (24, 34), "race": (24, 40), "story": (40, 75), "doku": (28, 75), "mystery": (28, 75), "board": (45, 120), "top3": (45, 120), "data": (30, 60)}   # data: remakes of the data reels in the new narration (27.11.2026)                     # doku: Chris 26.11.2026 "zügiger"
 DARK_OK = {"race", "doku", "mystery", "board", "top3"}             # race: provisional (25.11.2026) · doku: dark archive look, Chris OK 26.11.2026
 BAND = (470, 1180)
 
@@ -22,7 +22,7 @@ def check(ep, mp4, TL):
     cap = open(os.path.join(ep, "caption.md")).read() if os.path.exists(os.path.join(ep, "caption.md")) else ""
     kind = s.get("kind"); beats = {b["id"]: b for b in s["beats"]}; out = []
     def r(n, ok, msg): out.append((n, bool(ok), msg))
-    r("E kind", kind in LEN, f"kind = {kind!r} (standard/stand/cliche/riddle/pour/race/map/story/doku/mystery/board/top3)")
+    r("E kind", kind in LEN, f"kind = {kind!r} (standard/stand/cliche/riddle/pour/race/map/story/doku/mystery/board/top3/data)")
     r("1 sources", len(s.get("sources", [])) > 0, "sources in script.json")
     hook = beats.get("hook", {}).get("text", "")
     r("4 hook says you", kind in ("story", "doku", "mystery", "board", "top3") or re.search(r"\byour?\b", hook, re.I), f"hook: {hook[:60]}")
