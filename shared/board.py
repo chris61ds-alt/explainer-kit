@@ -358,3 +358,31 @@ def insert_fx(inserts):
     """a soft whoosh into every cut-away and back out (so the cut is heard, rule 13)"""
     from swiss import whoosh
     return [(t0 - .2, whoosh(.35, .012), 0) for t0, *_ in inserts] + [(t1 - .2, whoosh(.3, .009), 0) for _, t1, *_ in inserts]
+
+
+# ---- keep everything inside the frame (Chris 27.11.2026: "alle Elemente komplett im sichtbaren Bereich") -----------
+SAFE = (60, 200, 60, 1060)          # left, top, right margin, bottom edge in screen px: above the subtitles (CAP_Y 1100)
+
+def _box(it):
+    hw, hh = it.rw / 2, it.rh / 2
+    return it.x - hw, it.y - hh, it.x + hw, it.y + hh
+
+def fit(board, keys, t, pad=30, max_vw=None):
+    """camera key (t, cx, cy, vw) that shows the items `keys` COMPLETELY in the safe area (between the tag and the
+    subtitles); use it instead of hand-made camera keys"""
+    xs0, ys0, xs1, ys1 = zip(*[_box(board.items[k]) for k in keys])
+    x0, y0, x1, y1 = min(xs0) - pad, min(ys0) - pad, max(xs1) + pad, max(ys1) + pad
+    aw, ah = W - SAFE[0] - SAFE[2], SAFE[3] - SAFE[1]
+    s = min(aw / (x1 - x0), ah / (y1 - y0)); vw = W / s
+    if max_vw: vw = max(vw, W / max_vw)
+    s = W / vw
+    cx = (x0 + x1) / 2; cy = (y0 + y1) / 2 + (H / 2 - (SAFE[1] + SAFE[3]) / 2) / s
+    return (t, cx, cy, vw)
+
+def check_frame(board, t, keys):
+    """list of items (keys) that are not completely visible at time t (for tests)"""
+    cx, cy, vw = board.view(t); s = W / vw; vh = H / s; bad = []
+    for k in keys:
+        x0, y0, x1, y1 = _box(board.items[k])
+        if (x0 - cx) * s + W / 2 < 0 or (x1 - cx) * s + W / 2 > W or (y0 - cy) * s + H / 2 < 0 or (y1 - cy) * s + H / 2 > H: bad.append(k)
+    return bad

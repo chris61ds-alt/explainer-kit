@@ -14,14 +14,15 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 from doku import *
 from swiss import pop, tick, thud, whoosh, boom, riser
 from cute import Timeline
+import cute; cute.LOUD = -14                       # new standard 26.11.2026 (Dyatlov reference)
 HERE = os.path.dirname(os.path.abspath(__file__))
-TL = Timeline(HERE, lead=.05, gaps={"cold": .35, "stakes": .85, "back": .4, "but": 1.2, "so": .4, "turn": 1.2, "today": .85, "why": .2},
+TL = Timeline(HERE, lead=.05, gaps={"cold": .2, "stakes": .85, "back": .15, "detail": .3, "but": .5, "so": .3, "turn": .5, "today": .85, "why": .25},
               pace="loose")
 S, E, cue = TL.S, TL.E, TL.cue
-ORDER = ["cold", "stakes", "back", "but", "so", "turn", "today", "why", "end"]
+ORDER = ["cold", "stakes", "back", "detail", "but", "so", "turn", "today", "why", "end"]
 EP = DokuEpisode(TL, 163, "MARY'S CANDLE", order=ORDER, img_dir=os.path.join(HERE, "img"), credits=os.path.join(HERE, "img", "credits.json"),
                  sources=("Nordhaus (1996), The History of Lighting ·", "Fouquet & Pearson (2006) via Our World in Data"),
-                 music=dict(bpm=78, root=2, prog="minor", kick="half", audio="v5"),
+                 music=dict(bpm=70, root=2, prog="minor", audio="doku"),
                  cover=dict(words=["WHAT DID ONE", "HOUR OF LIGHT", "COST?"], kicker="It's 1800."))
 
 T_GAS, T_KERO, T_BULB = cue("turn", "gas") - .15, cue("turn", "kerosene") - .15, cue("turn", "bulb") - .25
@@ -34,6 +35,8 @@ EP.shots = [
          credit="WOMAN BY CANDLELIGHT · P. C. VAN SLINGELANDT · PUBLIC DOMAIN"),
     Shot("back", "chandler", (.12, .5, 1.0), (.48, .5, 1.12), tag="TALLOW CANDLES · 1700s", grade=(.86, 0, .75),
          credit="CANDLE MAKERS' WORKSHOP · WELLCOME COLLECTION · CC BY 4.0"),
+    Shot("detail", "wright", (.50, .50, 1.1), (.46, .52, 1.45), tag="ABOUT 80 CANDLES · ONE ROOM", grade=(.95, .25, 0), flicker=1.4,
+         credit="TWO GIRLS DRESSING A KITTEN BY CANDLELIGHT · J. WRIGHT OF DERBY · PD"),
     Shot("but", "chandler", (.62, .5, 1.12), (.80, .5, 1.2), tag="PRICE OF LIGHT · ENGLAND", grade=(.34, 0, .85),
          credit="PRICE OF LIGHT · FOUQUET & PEARSON (2006) · OUR WORLD IN DATA"),
     Shot("so", "angelus", (.50, .45, 1.0), (.56, .47, 1.1), tag="EVENING · 1859", grade=(.85, .3, 0),
@@ -50,9 +53,9 @@ EP.shots = [
          credit="WOMAN BY CANDLELIGHT · P. C. VAN SLINGELANDT · PUBLIC DOMAIN"),
 ]
 # the 'turn' gas shot starts the beat; the oil-lamp and bulb pictures cut in on their words
-EP.accent = {"cold": ["eighteen hundred", "one hour"], "stakes": ["six hours"], "back": ["animal fat"],
+EP.accent = {"cold": ["eighteen hundred", "one hour"], "stakes": ["six hours"], "back": ["animal fat"], "detail": ["eighty", "All at once"],
              "but": ["five hundred years"], "so": ["sunset"], "turn": ["gas kerosene light bulb"],
-             "today": ["half second"], "why": ["six hours half second"]}
+             "today": ["half second"], "why": ["Six hours", "Half second"]}
 EP.payoff = (S("why") + .1, 1.22)
 
 # ---- the work counter (first 3 s → 'stakes') and its return in 'today' / 'why' --------------------------------

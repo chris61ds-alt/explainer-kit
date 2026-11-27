@@ -242,6 +242,14 @@ class DokuEpisode(Episode):
             p = self.shots[i - 1]; tp = self.shot_times()[i - 1]
             pa = self.render_shot(p, (t - tp) / max(.5, t0 - tp), t); k = ease((t - t0) / .22)
             a = pa * (1 - k) + a * k
+        ins = None                                                   # cut-aways (film / newspaper / photo board), 26.11.2026
+        for c in getattr(self, "inserts", ()):
+            if c[0] - .18 <= t < c[1] + .18: ins = c; break
+        if ins:
+            tl = min(max(t - ins[0], 0), ins[1] - ins[0] - .001); f = ins[2].render(tl, tl / max(.01, ins[1] - ins[0]))
+            w_in = clamp((t - ins[0] + .18) / .18) * clamp((ins[1] + .18 - t) / .18)
+            a = a * (1 - w_in) + f * w_in
+            if not (ins[0] <= t < ins[1]): ins = None
         z = self.pulse_zoom(t)
         a = a * vignette() + grain(fr)
         img.paste(Image.fromarray(np.clip(a, 0, 255).astype(np.uint8)))
@@ -251,8 +259,12 @@ class DokuEpisode(Episode):
         if self.under: self.under(img, t)
         self.camera(img, t)
         d = ImageDraw.Draw(img)
-        tag(img, d, s.tag, (t - t0) / .3 if i else 1)
-        credit(img, d, s.credit or self.credit_of(s.img), clamp((t - t0) / .3) if i else 1)
+        if ins:
+            if ins[3]: tag(img, d, ins[3], (t - ins[0]) / .3)
+            if ins[4]: credit(img, d, ins[4])
+        else:
+            tag(img, d, s.tag, (t - t0) / .3 if i else 1)
+            credit(img, d, s.credit or self.credit_of(s.img), clamp((t - t0) / .3) if i else 1)
         if self.overlay: self.overlay(img, d, t)
         self.caption(img, t)
 

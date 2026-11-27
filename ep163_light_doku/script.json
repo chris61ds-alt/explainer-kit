@@ -1,5 +1,5 @@
 {
- "voice": "af_heart:0.5+af_bella:0.5",
+ "voice": "pocket:alba",
  "speed": 1.0,
  "lang": "en-us",
  "format": "v2",
@@ -8,8 +8,7 @@
  "beats": [
   {
    "id": "cold",
-   "text": "It's eighteen hundred. Mary wants her room as bright as yours, for just one hour.",
-   "speed": 1.05
+   "text": "The year is eighteen hundred. Night falls. And Mary wants her room as bright as yours. For just one hour."
   },
   {
    "id": "stakes",
@@ -18,28 +17,32 @@
   },
   {
    "id": "back",
-   "text": "Light came from candles made of animal fat."
+   "text": "Her light comes from tallow. Candles made of animal fat. They smoke. They stink."
+  },
+  {
+   "id": "detail",
+   "text": "And to make a room as bright as yours, she would need about eighty of them. Burning. All at once."
   },
   {
    "id": "but",
-   "text": "But for five hundred years, its price barely moved."
+   "text": "But for five hundred years, the price of light barely moved."
   },
   {
    "id": "so",
-   "text": "So for most people, the day ended at sunset."
+   "text": "So for most people, the day simply ended at sunset."
   },
   {
    "id": "turn",
-   "text": "Then came gas lamps, kerosene, and the light bulb."
+   "text": "Then, in less than a century: gas lamps. Kerosene. And the light bulb."
   },
   {
    "id": "today",
-   "text": "Today, the same light costs you less than half a second of work.",
+   "text": "Today, the same hour of light costs you less than half a second of work.",
    "key": true
   },
   {
    "id": "why",
-   "text": "Mary's six hours of work are your half a second."
+   "text": "Six hours of work for Mary. Half a second for you."
   },
   {
    "id": "end",
@@ -49,6 +52,6 @@
  "sources": [
   "Labour time for 1,000 lumen-hours (about one bright modern bulb for one hour): tallow candles around 1800 about 5.4 hours of work; 1992 about 0.00012 hours (= 0.43 seconds). William D. Nordhaus (1996), 'Do Real-Output and Real-Wage Measures Capture Reality? The History of Lighting Suggests Not', in Bresnahan & Gordon (eds.), The Economics of New Goods, NBER/University of Chicago Press; figures as summarised by HumanProgress.org ('Lighting costs near nothing now'). One candle gives about 1 candela = about 12.6 lumens -> 1,000 lumen-hours = about 75–80 candle-hours.",
   "Price line on the wall: price of lighting in the UK, constant 2000 British pounds per million lumen-hours, 1301–2006, Fouquet & Pearson (2006), The Energy Journal, via Our World in Data (1301: 33,043; 1800: 9,540; 2006: 2.89; log scale).",
-  "Mary is illustrative (a typical worker, not a real person). 'The day ended at sunset' for most people: general historical description; evening light was a luxury (Nordhaus 1996; Fouquet & Pearson 2006)."
+  "Mary is illustrative (a typical worker, not a real person). 'The day ended at sunset' for most people: general historical description; evening light was a luxury (Nordhaus 1996; Fouquet & Pearson 2006). ~80 candles: 1,000 lm ÷ ~12.6 lm per tallow candle ≈ 79. Gas street lighting London from 1807–1813, kerosene 1850s, Edison's bulb 1879–1880."
  ]
 }
