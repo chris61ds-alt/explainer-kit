@@ -1,32 +1,35 @@
 {
- "voice": "af_heart:0.5+af_bella:0.5",
+ "voice": "pocket:alba",
  "speed": 1.0,
  "lang": "en-us",
  "format": "v2",
  "kind": "mystery",
- "plant": "lump of bronze",
+ "plant": "lump of corroded bronze",
  "beats": [
   {
    "id": "cold",
-   "text": "In nineteen-oh-one, sponge divers pulled a lump of bronze from a two-thousand-year-old shipwreck.",
-   "speed": 1.05
+   "text": "Nineteen hundred. Sponge divers shelter from a storm off a tiny Greek island. One diver comes back up terrified. He saw bodies on the seabed."
   },
   {
    "id": "stakes",
-   "text": "A year later, someone spotted a gear inside it. A tiny, hand-cut gear.",
+   "text": "They were bronze statues, from a shipwreck two thousand years old. And among them: a lump of corroded bronze.",
    "key": true
   },
   {
    "id": "back",
-   "text": "Nothing that complex would be built for another thousand years. Some said: aliens."
+   "text": "Two years later, someone spots a tiny, hand-cut gear inside it. Nothing that complex would be built for another thousand years. Some said: aliens."
+  },
+  {
+   "id": "detail",
+   "text": "For a century, nobody could see what was inside. Then, in two thousand five, X-ray scans looked through the bronze."
   },
   {
    "id": "but",
-   "text": "But X-ray scans revealed what was really inside: more than thirty bronze gears, and tiny Greek writing."
+   "text": "But what they found was no alien tech. More than thirty bronze gears. And tiny Greek writing, like a user manual."
   },
   {
    "id": "so",
-   "text": "So the lump was a machine. Turn a handle, and it tracked the sun and the moon, and predicted eclipses."
+   "text": "So the lump was a machine. Turn a handle, and it showed the sun and the moon, and predicted eclipses."
   },
   {
    "id": "turn",
@@ -39,7 +42,7 @@
   },
   {
    "id": "why",
-   "text": "No aliens. Just a lump of bronze, and Greek genius."
+   "text": "No aliens. Just a lump of corroded bronze, and Greek genius."
   },
   {
    "id": "end",
@@ -49,6 +52,7 @@
  "sources": [
   "1901: sponge divers recover finds from the Antikythera shipwreck (Roman era, c. 60s BC); May 1902: a gear wheel is noticed in a corroded fragment at the National Archaeological Museum, Athens (Spyridon and Valerios Stais). Linda Hall Library, 'Scientist of the Day' (2024); Wikipedia 'Antikythera mechanism'.",
   "More than 30 hand-cut bronze gears; nothing comparable built for another thousand years; dated 150–100 BC; tracked sun and moon, predicted eclipses; X-ray tomography 2005–06. Freeth et al. (2006), 'Decoding the ancient Greek astronomical calculator known as the Antikythera Mechanism', Nature 444, 587–591; Live Science (2006); NYT (30 Nov 2006).",
-  "'Oldest known analog computer': IEEE REACH; History.com (2025). 'Some said: aliens' = popular ancient-astronaut claim, no evidence."
+  "'Oldest known analog computer': IEEE REACH; History.com (2025). 'Some said: aliens' = popular ancient-astronaut claim, no evidence.",
+  "1900: Symi sponge divers (captain Dimitrios Kontos) shelter from a storm at Antikythera; diver Elias Stadiatis reports 'corpses' on the seabed – they were bronze and marble statues; salvage 1900–1901; gear noticed 1902. Inscriptions described as a 'user's guide' (Freeth et al.). Film: 'A Storm at Sea' (Edison, 1900), illustrative, public domain. Map: Sentinel-2 cloudless 2016 by EOX, CC BY 4.0."
  ]
 }
